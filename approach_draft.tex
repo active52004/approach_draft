@@ -1,17 +1,29 @@
 \documentclass{article}
 \begin{document}
 \section{Approach}
-\paragraph{Notation}
+In this article, we name the MAC scheme adopted in Cost-Effective Tag Design\cite{} CETD-MAC. 
+\subsection{Specification of the MAC Scheme in Cost-Effective Tag Design}
+In this section, we depict the design details of CETD-MAC scheme. At the beginning we express notations required to understand CETD-MAC scheme. 
+\paragraph{Notations}
 Let \{0,1\}$^n$ be the set of all n-bit binary strings. The set of all binary string is expressed as \{0,1\}$^*$.  
 For a string X $\in$ \{0,1\}$^n$, |X| is its length in bits, and $\vert$ X $\vert$ $_l$ = $\lceil$$\vert$ X $\vert$/l$\rceil$ is the length of X in l-bit blocks.  Let 0$^l$ and 1$^l$ denote bit strings of all zeros and all ones. 
 For a bit string X and an integer l that $\vert$ X $\vert$ $\geq$ l, msb$_l$(X) denotes the most significant l bits(left most l bits) of X and lsb$_l$(X) for least significant l bits(right most l bits) of X.
 For two bit string X and Y, we denote X$\|$Y  or XY as the their concatenation. For bit string X whose length in bits is multiple of integer l, we denote X parted into l-bit sub-strings as X = (X[1]X[2]$\ldots$X[n])$_l$, where X[1], X[2], $\ldots$, X[n] $\in$ \{0,1\}$^l$.
 The number of bits in a string of X is denoted as len(X).
 
-The block cipher encryption of a string X with a secret key K is denoted as E$_K$(X).
-\subsection{The MAC Scheme in Cost-Effective Tag Design}
-In this article, we name the MAC scheme adopted in Cost-Effective Tag Design\cite{} CETD-MAC.  
+The block cipher encryption of a string X with a secret key K is denoted as E$_K$(X). 
+\subsection{Tag Collision Under Replay Attack}
+In this section, we depicit the weaknesses we found in CETD-MAC under replay attack. These weaknesses in mechanism let the CETD-MAC to produce tags with high collision probability with some chosen inputs. The tags with highly collision probability ease the adversary`s attack.
 \paragraph{Shuffle Rounds, Input Length and Tag Length}
 Let E$_K$(X) be the block cipher encryption with secret key K and accepting X as input. We denote $\pi$ = E$_K$(X). Then $\pi$: \{0,1\}$^n$ $\rightarrow$
 \{0,1\}$^n$.
+\paragraph{The Intermediate Data Sets in CETD-MAC}
+\subsubsection{The Block-level Pattern Collision}
+\subsubsection{The Set-level Pattern Collision}
+
+\subsection{A Solution to Elimitated the Collision}
+In this section we provide an modification of original CETD-MAC. Our approach does not require additional component or information to the original CETD-MAC. We then prove that the optimized CETD-MAC can fix the weakness and protect input message from replay attack.
+
+\section{Experiments and Results}
+
 \end{document}
