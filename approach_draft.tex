@@ -11,7 +11,11 @@ For a bit string X and an integer l that $\vert$ X $\vert$ $\geq$ l, msb$_l$(X) 
 For two bit string X and Y, we denote X$\|$Y  or XY as the their concatenation. For bit string X whose length in bits is multiple of integer l, we denote X parted into l-bit sub-strings as X = (X[1]X[2]$\ldots$X[n])$_l$, where X[1], X[2], $\ldots$, X[n] $\in$ \{0,1\}$^l$.
 The number of bits in a string of X is denoted as len(X).
 
-The block cipher encryption of a string X with a secret key K is denoted as E$_K$(X). 
+The block cipher encryption of a string X with a secret key K is denoted as E$_K$(X). E$_K$(X) expresses the String mapping of \{0,1\}$^n$ $\rightarrow$ \{0,1\}$^n$ where n is the len(X) and len(output).
+\paragraph{CETD-MAC Scheme}
+CETD-MAC scheme can be expressed as tag = CETD-MAC(M, nonce-input). The input arguments of CETD-MAC are message M and a tuple named nonce-input. The tuple nonce-input is the concatenation of the memory address of M, a counter and a random number, denoted as nonce-input=(address$\|$counter$\|$random). The length of nonce-input, len(nonce-input), is identical to the length of input to block cipher E$_K$(X). The output of CETD-MAC is named tag, whose length is optional. We use Sub-BLK-No to express the value of  len(M)/len(tag). One prelimary of CETD-MAC is that Sub-BLK-No should be no less than 2 and 0s will be concatenated to the leftmost when Sub-BLK-No is not integer.  
+
+ 
 \subsection{Tag Collision Under Replay Attack}
 In this section, we depicit the weaknesses we found in CETD-MAC under replay attack. These weaknesses in mechanism let the CETD-MAC to produce tags with high collision probability with some chosen inputs. The tags with highly collision probability ease the adversary`s attack.
 \paragraph{Shuffle Rounds, Input Length and Tag Length}
