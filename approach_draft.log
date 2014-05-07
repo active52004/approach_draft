@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  6 MAY 2014 16:57
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  7 MAY 2014 14:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -366,107 +366,126 @@ Overfull \hbox (1.15387pt too wide) in paragraph at lines 42--43
 For any i,j$\OMS/cmsy/m/n/10 2$\OT1/cmr/m/it/10 [1,M], X[]A[i] = X[]B[j],
  []
 
-[2]
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 72.
 
-Overfull \hbox (10.78537pt too wide) in paragraph at lines 73--74
+Overfull \hbox (53.33391pt too wide) in paragraph at lines 61--63
+[]\OT1/cmr/m/n/10 According to the de-sign of CETD-MAC, the tag can be ex-press
+ed as Y[1]$\OMS/cmsy/m/n/10 ^^H$\OT1/cmr/m/n/10 Y[2]$\OMS/cmsy/m/n/10 ^^H$$[]$$
+^^H$\OT1/cmr/m/n/10 Y[x],
+ []
+
+
+Overfull \hbox (24.4174pt too wide) in paragraph at lines 61--63
+\OT1/cmr/m/n/10 iden-ti-cal, the fol-low-ing equa-tion is met: Y$[]$[1]$\OMS/cm
+sy/m/n/10 ^^H$\OT1/cmr/m/n/10 Y$[]$[2]$[]$$\OMS/cmsy/m/n/10 ^^H$\OT1/cmr/m/n/10
+ Y$[]$[x]$\OMS/cmsy/m/n/10 ^^H$\OT1/cmr/m/n/10 Y$[]$[1]$\OMS/cmsy/m/n/10 ^^H$\O
+T1/cmr/m/n/10 Y$[]$[2]$[]$$\OMS/cmsy/m/n/10 ^^H$\OT1/cmr/m/n/10 Y$[]$[x]
+ []
+
+[2]
+Overfull \hbox (31.26909pt too wide) in paragraph at lines 65--67
+\OT1/cmr/m/n/10 the first case lead-ing to tag col-li-sion. As-sume Y1 sequence
+(Y$[]$[1]$\OMS/cmsy/m/n/10 k$\OT1/cmr/m/n/10 Y$[]$[2]$[]$Y$[]$[i]$[]$$\OMS/cmsy
+/m/n/10 k$\OT1/cmr/m/n/10 Y$[]$[x])
+ []
+
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
+
+Overfull \hbox (10.78537pt too wide) in paragraph at lines 75--76
 \OT1/cmr/m/it/10 tern, the higher prob-a-bil-ity of iden-ti-cal block pairs in 
 Y se-quences (Y$[]$[i],Y$[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 ]
 $\OT1/cmr/m/it/10 )
  []
 
 [3]
-Overfull \hbox (1.15387pt too wide) in paragraph at lines 97--98
+Overfull \hbox (1.15387pt too wide) in paragraph at lines 107--108
 \OT1/cmr/bx/n/10 Definition 2.2. \OT1/cmr/m/it/10 Cross In-dex Equal-ity(CIE): 
 For any i,j$\OMS/cmsy/m/n/10 2$\OT1/cmr/m/it/10 [1,M], X[]A[i] = X[]B[j],
  []
 
-[4] <./diagrams/rotate_right.pdf, id=24, 501.875pt x 401.5pt>
+[4] [5] <./diagrams/rotate_right.pdf, id=27, 501.875pt x 401.5pt>
 File: ./diagrams/rotate_right.pdf Graphic file (type pdf)
 
 <use ./diagrams/rotate_right.pdf>
-Package pdftex.def Info: ./diagrams/rotate_right.pdf used on input line 144.
+Package pdftex.def Info: ./diagrams/rotate_right.pdf used on input line 154.
 (pdftex.def)             Requested size: 200.74643pt x 160.59715pt.
 
-Overfull \hbox (5.5285pt too wide) in paragraph at lines 150--153
+Overfull \hbox (5.5285pt too wide) in paragraph at lines 160--163
 \OT1/cmr/m/n/10 Unlike log-i-cal shift-ing and arith-metic shift-ing, ro-tate s
 hift-ing be-haves like whirling
  []
 
-[5 <./diagrams/rotate_right.pdf>]
-<./diagrams/r_s_2bits.pdf, id=38, 553.06625pt x 306.14375pt>
+<./diagrams/r_s_2bits.pdf, id=28, 553.06625pt x 306.14375pt>
 File: ./diagrams/r_s_2bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_s_2bits.pdf>
-Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 172.
+Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 182.
 (pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
 
-<./diagrams/r_s_6bits.pdf, id=39, 553.06625pt x 306.14375pt>
+<./diagrams/r_s_6bits.pdf, id=29, 553.06625pt x 306.14375pt>
 File: ./diagrams/r_s_6bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_s_6bits.pdf>
-Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 172.
+Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 182.
 (pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
 
-<./diagrams/r_d_4bits.pdf, id=40, 562.1pt x 306.14375pt>
+<./diagrams/r_d_4bits.pdf, id=30, 562.1pt x 306.14375pt>
 File: ./diagrams/r_d_4bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_d_4bits.pdf>
-Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 178.
+Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 188.
 (pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
 
-<./diagrams/r_d_2bits.pdf, id=41, 562.1pt x 306.14375pt>
+<./diagrams/r_d_2bits.pdf, id=31, 562.1pt x 306.14375pt>
 File: ./diagrams/r_d_2bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_d_2bits.pdf>
-Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 178.
+Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 188.
 (pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
 
-<./diagrams/y_single_equality.pdf, id=42, 469.755pt x 170.6375pt>
+<./diagrams/y_single_equality.pdf, id=32, 469.755pt x 170.6375pt>
 File: ./diagrams/y_single_equality.pdf Graphic file (type pdf)
 
 <use ./diagrams/y_single_equality.pdf>
-Package pdftex.def Info: ./diagrams/y_single_equality.pdf used on input line 18
+Package pdftex.def Info: ./diagrams/y_single_equality.pdf used on input line 19
 9.
 (pdftex.def)             Requested size: 172.5pt x 62.6584pt.
 
-<./diagrams/y_set_equality.pdf, id=43, 469.755pt x 180.675pt>
+<./diagrams/y_set_equality.pdf, id=33, 469.755pt x 180.675pt>
 File: ./diagrams/y_set_equality.pdf Graphic file (type pdf)
 
 <use ./diagrams/y_set_equality.pdf>
-Package pdftex.def Info: ./diagrams/y_set_equality.pdf used on input line 194.
+Package pdftex.def Info: ./diagrams/y_set_equality.pdf used on input line 204.
 (pdftex.def)             Requested size: 172.5pt x 66.34418pt.
 
-<./diagrams/y_both_single.pdf, id=44, 469.755pt x 170.6375pt>
+<./diagrams/y_both_single.pdf, id=34, 469.755pt x 170.6375pt>
 File: ./diagrams/y_both_single.pdf Graphic file (type pdf)
 
 <use ./diagrams/y_both_single.pdf>
-Package pdftex.def Info: ./diagrams/y_both_single.pdf used on input line 204.
+Package pdftex.def Info: ./diagrams/y_both_single.pdf used on input line 214.
 (pdftex.def)             Requested size: 172.5pt x 62.6584pt.
 
-<./diagrams/y_both_set.pdf, id=45, 469.755pt x 186.6975pt>
+<./diagrams/y_both_set.pdf, id=35, 469.755pt x 186.6975pt>
 File: ./diagrams/y_both_set.pdf Graphic file (type pdf)
 
 <use ./diagrams/y_both_set.pdf>
-Package pdftex.def Info: ./diagrams/y_both_set.pdf used on input line 209.
+Package pdftex.def Info: ./diagrams/y_both_set.pdf used on input line 219.
 (pdftex.def)             Requested size: 172.5pt x 68.55566pt.
- [6 <./diagrams/r_s_2bits.pdf> <./diagrams/r_s_6bits.pdf> <./diagrams/r_d_4bits
-.pdf> <./diagrams/r_d_2bits.pdf>] [7 <./diagrams/y_single_equality.pdf> <./diag
-rams/y_set_equality.pdf> <./diagrams/y_both_single.pdf> <./diagrams/y_both_set.
-pdf>]
-Overfull \hbox (28.37672pt too wide) in paragraph at lines 242--244
+ [6 <./diagrams/rotate_right.pdf>] [7 <./diagrams/r_s_2bits.pdf> <./diagrams/r_
+s_6bits.pdf> <./diagrams/r_d_4bits.pdf> <./diagrams/r_d_2bits.pdf> <./diagrams/
+y_single_equality.pdf> <./diagrams/y_set_equality.pdf>]
+Overfull \hbox (28.37672pt too wide) in paragraph at lines 252--254
 \OT1/cmr/m/n/10 Figure 2(a) pro-vides a in-stance of IIE Y sets. The iden-ti-ca
 l block pairs (X[]A$[]$[i],X[]B$[]$[i])
  []
 
-[8]
-Overfull \hbox (9.87181pt too wide) in paragraph at lines 287--288
+[8 <./diagrams/y_both_single.pdf> <./diagrams/y_both_set.pdf>] [9]
+Overfull \hbox (9.87181pt too wide) in paragraph at lines 297--298
 []\OT1/cmr/m/n/10 For two iden-ti-cal X blocks X[]A[i] and X[]B[i], the prob-a-
 bil-ity that Y[]A[i]=Y[]B[i]
  []
 
-[9] [10] [11] [12] [13]
+[10] [11] [12] [13]
 
 Package glossaries Warning: \makeglossaries hasn't been used,
 the glossaries will not be updated.
@@ -502,7 +521,7 @@ ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
 e/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/
 2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/20
 12/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on approach_draft.pdf (14 pages, 319211 bytes).
+Output written on approach_draft.pdf (14 pages, 320533 bytes).
 PDF statistics:
  319 PDF objects out of 1000 (max. 8388607)
  230 compressed objects within 3 object streams
