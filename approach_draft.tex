@@ -5,16 +5,16 @@
 \usepackage{subfigure}
 \usepackage{verbatim}
 \usepackage{glossaries}
+\usepackage{epstopdf}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{defination}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
 \begin{document}
 \section{Approach}
 In this article, we name the MAC scheme adopted in Cost-Effective Tag Design\cite{} CETD-MAC. 
-\subsection{Specification of CETD-MAC}
-In this section, we depict the design details of CETD-MAC scheme. At the beginning we express notations required to understand CETD-MAC scheme. 
-
-\paragraph{Notations}
+\subsection{Background of CETD-MAC and Security Definitions}
+\paragraph{Notations of Symbols}
 Let \{0,1\}$^n$ be the set of all n-bit binary strings. The set of all binary string is expressed as \{0,1\}$^*$.  
 For a string X $\in$ \{0,1\}$^n$, |X| is its length in bits, and $\vert$ X $\vert$ $_l$ = $\lceil$$\vert$ X $\vert$/l$\rceil$ is the length of X in l-bit blocks.  Let 0$^l$ and 1$^l$ denote bit strings of all zeros and all ones. 
 For a bit string X and an integer l that $\vert$ X $\vert$ $\geq$ l, msb$_l$(X) denotes the most significant l bits(left most l bits) of X and lsb$_l$(X) for least significant l bits(right most l bits) of X.
@@ -22,157 +22,48 @@ For two bit string X and Y, we denote X$\|$Y  or XY as the their concatenation. 
 The number of bits in a string of X is denoted as len(X).
 
 The block cipher encryption of a string X with a secret key K is denoted as E$_K$(X). E$_K$(X) expresses the String mapping of \{0,1\}$^n$ $\rightarrow$ \{0,1\}$^n$ where n is the len(X) and len(output).
-\paragraph{CETD-MAC Scheme}
-CETD-MAC scheme can be expressed as tag = CETD-MAC(M, nonce-input). The input arguments of CETD-MAC are message M and a tuple named nonce-input. The tuple nonce-input is the concatenation of the memory address of M, a counter and a random number, denoted as nonce-input=(address$\|$counter$\|$random). The length of nonce-input, len(nonce-input), is identical to the length of input to block cipher E$_K$(X). The output of CETD-MAC is named tag, whose length is optional. We use Sub-BLK-No to express the value of len(M)/len(tag). One prelimary of CETD-MAC is that Sub-BLK-No should be no less than 2 to assure that swapping stage can work and 0s will be concatenated to the leftmost of input message when Sub-BLK-No is not integer.  
 
-We follow the defination of CETD-MAC in \cite{keylist}. 
-\begin{itemize}
-	\item Message is splitted to sub-blocks each of whose length is tag length
-	\item The first stage is several rounds of bit-segment swapping. For each round , two sub-blocks are randomly chosen. Introduce shuffle paremeter V[i]
-	\item The output sub-blocks from swapping stage, named X blocks, are sent to block-level rotate shifting stage. Each X block is rotate shifted for several bits. Introduce shift parameter S[i]
-	\item The output sub-blocks from shifting stage, named Y blocks, are XORed to form the final tag
-\end{itemize}
-
-
-\subsection{Tag Collision Under Replay Attack}
-In this section, we depicit the weaknesses we found in CETD-MAC under replay attack. These weaknesses in mechanism let the CETD-MAC to produce tags with high collision probability with some chosen inputs. The tags with highly collision probability ease the adversary`s attack.
-\paragraph{Security Definitions of MAC Schemes under Replay Attacks}
-Our security definition of MAC schemes under replay attack follows the definition under chosen-message attack. 
-An adversary is given  access to a tag generation black-box(named oracle) and a message-tag pair verification oracle. The encryption key is maintained unchanged while the nonce value is updated for each calling of tag generation oracle no matter whether the value of input message collide with a value in old timestamp. The adversary can record the message-tag pairs in old time stamp to copies and replace a pair in new timestamp with a piece of copies. The forgery advantage F$_{CETD-MAC}$ under replay attack is the probability that the adversary can get the verification oracle to accept a copy with old timestamp at a new time point. 
-
-Assume the copy with old timestamp from the adversary is expressed as (M1,T1) where M1 is the messsage and T1 is the corresponding tag, and the correspoding nonce is denoted as N1. When applying M1 to the tag generation at a new time point, we mark the corresponding tag T2 and nonce N2. If the adversary can succeed a replay attack, then T1 is identical to T2.
-Then F$_{CETD-MAC}$ under replay attack can be denoted as a probability Pr[T1 = T2  $\mid$ Message value is M1 \& N1,N2 are randomly generated]. 
-
-According to the design of CETD-MAC, the tag can be expressed as Y[1]$\oplus$Y[2]$\oplus$$\ldots$$\oplus$Y[x], x is the number of input sub-blocks to CETD-MAC. If two tags T1 and T2 are identical, the following equation is met:
-Y$_1$[1]$\oplus$Y$_1$[2]$\ldots$$\oplus$Y$_1$[x]$\oplus$Y$_2$[1]$\oplus$Y$_2$[2]$\ldots$$\oplus$Y$_2$[x] = 0, where Y$_1$ blocks produce T1 and Y$_2$ blocks generate T2. This equation indicates that the behaviour of block-level rotate shiftting stage effect the probability of tag collision directly. For easy understanding, we firstly analyze the case that shuffle stage does not work under replay attack, which means X$_1$[i] is identical to X$_2$[i] for any i$\in$[1,x]. The analysis of effect from shuffle stage on X blocks follows then.
-
-As the nonce is generated by block cipher encryption E$_K$. Assume E$_K$ performace like a ideal random value generator, for two distinct input nonce-input1 and nonce-input2, the corresponding nonce values N1 and N2 should be random and the probability that N1 is identical to N2 should be 1/2$^n$, where n is len(N1). 
-
-\subsubsection{The Block-level Pattern Collision}
-Firstly, we treat Y1 blocks and Y2 blocks as two block sequences, which means in a Y block sequence, each block has a unique index. The definition of block sequence equality is expressed below:
-\begin{defination}
-Block Sequence Equality: Two block sequences X1 and X2 are Block Sequence Equality if X$_1$[i] is identical to X$_2$[i] for any i$\in$[1,x].
-\end{defination}
-
-The treatment of Y blocks as seqeunces indicate the first case leading to tag collision.
-Assume Y1 sequence(Y$_1$[1]$\|$Y$_1$[2]$\ldots$Y$_1$[i]$\ldots$$\|$Y$_1$[x]) produces tag T1 and Y2 sequence(Y$_2$[1]$\|$Y$_2$[2]$\ldots$Y$_2$[i]$\ldots$$\|$Y$_2$[x]) generates T2. If Y$_1$[i] is identical to Y$_1$[i] for any i$\in$[1,x], then T1 is identical to T2. 
-
-In this section, we express the first weakness in the rotate shifting stage in CETD-MAC. 
-\begin{defination}
-If the a input block of rotate shifting stage X$_1$[i ]from X1 sequence is identical to the block X$_2$[i] with same index from X2 sequence, the following two properties exist:
-\begin{itemize}
-	\item The probability that correspoding output blocks of rotate shifting stage, Y$_1$[i] and Y$_2$[i], are identical can be expressed with the length of pattern in X$_1$[i].	
-	\item The more identical X block pairs(X$_1$[i],X$_2[i]$) are formed by repeating pattern, the higher probability of identical block pairs in Y sequences (Y$_1$[i],Y$_2[i]$) exist, then the higher probability of tag collision(T1=T2)
-\end{itemize}
-\end{defination}
-These two properties measn if the adversary conduct replay attack on the memory frame whose message part is formed with pattern, then the probability of successful forgery, expressed as F$_{CETC-MAC}$, is high.
-
-\subsubsection{The Set-level Pattern Collision}
-Secondly we treat Y1 blocks and Y2 blocks are two sets allowing identical elements. We give the definition of block set equality below:
-\begin{defination}
-Block Set Equality: Two block sets X1 and X2 are Block Set Equality if the following properties are met:
-\begin{itemize}
-	\item X1 and X2 have same number of elements
-	\item The number of distinct value of elements in X1 is identical to the number in X2
-\end{itemize}
-\end{defination}
-If Y1 and Y2 sets are set-level identically, then T1 is identical to T2. Based on this fact, we find another weakness of shifting stage leading to tag collision under replay attack:
-\begin{defination}
-For two identical block sequences X1 and X2, if each block in X1 can be formed by rotate shifting another element in X1, then the output sets Y1 and Y2 have high probability to form Block Set Equality.
-\end{defination}
-This weakness means the high succeed probability of replay attack on memory frames whose data part is consist of concatenated blocks shifted from a same base block. 
-
-\subsubsection{The Behaviour of X Blocks from Shuffling Stage}
-In each round of Shuffle stage, two blocks from the output of previous round of shuffle are randomlly selected then operate bit segments swapping, which will effect the distribution of bits in the two blocks. After the shuffle stage, the output, X blocks, can be classified to four categories:
-\begin{enumerate}
-	\item Formed by repeated patterns
-	\item Formed by rotate shifting another block in this category
-	\item Contains the properties from categories 1 and 2
-	\item No properties from categories 1 or 2
-\end{enumerate}
-Assume the block cipher used in nonce generation performances like PRF, the number of blocks in each category is effected by the input message M and the rounds of shuffle stage.  
-\subsection{A Solution to Elimitate the Collision}
-In this section we provide an modification of original CETD-MAC. Our approach does not require additional component or information to the original CETD-MAC. We then prove that the optimized CETD-MAC can fix the weakness and protect input message from replay attack.
-\paragraph{Question}
-Using only shuffle and shift with random nonce, is it possible to ensure the range of tag to 2$^n$? If not, why?
-\section{The Collision Probability of Y Set}
-
-\subsection{Preliminaries}
-\paragraph{The Equality of Two Sets}
-Assume there are two sets, marked as X\_A and X\_B, having same NO. of elements and the number is M. Each element is given an index from 1 to M. The definition of Identical Index Equality is expressed here:
-\begin{defination}
-Identical Index Equality(IIE): For any i$\in$[1,M], X\_A[i]=X\_B[i].
-\end{defination}
-The definition of Cross Index Equality is expressed here:
-\begin{defination}
-Cross Index Equality(CIE): For any i,j$\in$[1,M], X\_A[i] = X\_B[j], where i$\neq$j
-\end{defination}
-
-Any two sets that have same number of elements can be splited into several sub-groups and each sub-groups contains several (X\_A[i],X\_B[i]) pairs. For two specific sets, the number of sub-groups various from 1 to M. We give the definition of set level equality of two sets with same number of elements:
-\begin{defination}
-Set Level Equality(SLE): Each sub-group have one of the two kinds of Equality.
-\end{defination}
-
-For two sets X\_A and X\_B, if there is no way of spliting that at least one sub-group is of CIE and there are at least one way of split that all sub-sets are of IIE, then such X\_A and X\_B are IIE only Sets. 
-The definition of CIE only Sets is given in same way.
-
-\subsubsection{Replay Attack and Y Set Collision}
-\paragraph{The Message Sets in CETD Under Replay Attack}
-The Cost-Effective Tag Design can be expressed as the following procedure:
-\begin{itemize}
-	\item The data is split into blocks. The block length is tag length. The block set is marked as D, and the No. of blocks is M.
-	\item The content of blocks are shuffled. The output set of shuffle is marked as X.
-	\item The content of each block is rotate shifted. The output set of rotate shift is marked as Y.
-	\item All the blocks in Y is XORed to form the tag T.
-	\item The control parameters is retrived from the segment of nonce N. The parameter set of shuffle is marked as S. The set for rotate shift is R.
-\end{itemize}
-
-In replay attack, the adversary replaces a data-tag pair on the memory with a
-pair copied from the same address at an old time point. That means for the two
-pairs at different time point, the two message block sets D\_A and D\_B and related tags T$_a$ and T$_b$ are
-identical respectively, while the nonce N$_A$ and N$_B$ are randomly generated and
-the equality is unpredictable if their generator is of high quality. The shifting bits parameter segment on the nonce R\_A and R\_B, are randomly
-generated.
-We can see that if the Y set for the old time point, marked as Y\_A, is SLE to the Y set for new time point, marked as Y\_B, T$_a$=T$_b$.
-Based on the concept of set equality, the message block sets in the generation of T$_a$ and verification of T$_b$ meet the following properties if the replay attack succeeds:
-\begin{itemize}
-	\item D\_A and D\_B are IIE.
-	\item If the shuffle stage does not work. X\_A=D\_A, X\_B=D\_B
-	\item Y\_A and Y\_B are SLE
-\end{itemize}
-
-In this scenario, the probability of a successful attack can be expressed as the equation 1.1:
-\begin{defination}
-Pr[Successful Replay Attack] = Pr[T$_a$ = T$_b$ $\mid$ (D\_A = D\_B) \& (R\_A and R\_B are random)]
-							 = Pr[Y\_A = Y\_B $\mid$ (D\_A = D\_B) \& (R\_A and R\_B are random)]
-							 
-D\_A and D\_B sets are of Identical Index Equality. Y\_A and Y\_B is of Set Level Equality.
-\end{defination} 
-For easy understanding, we assume the shuffle stage does not work at first, which means D\_A = X\_A = D\_B = X\_B(IIE). Hence the Y set is the output of rotate shifting stage in CETD, we will analyze the properties of block rotate shifting and the cases of input sets that can result Y set collision(SLE). 
+\paragraph{Specification of CETD-MAC}
+In this section, we depict the design details of CETD-MAC scheme. At the beginning we express notations required to understand CETD-MAC scheme. 
+\paragraph{Definition of CETD-MAC Scheme}
+CETD-MAC scheme can be expressed as tag = CETD-MAC(M, nonce-input). The input arguments of CETD-MAC are message M and a tuple named nonce-input. The tuple nonce-input is the concatenation of the memory address of M, a counter and a random number, denoted as nonce-input=(address$\|$counter$\|$random). The length of nonce-input, len(nonce-input), is identical to the length of input to block cipher E$_K$(X). The output of CETD-MAC is named tag, whose length is optional. We use Sub-BLK-No to express the value of len(M)/len(tag). One preliminary of CETD-MAC is that Sub-BLK-No should be no less than 2 to assure that swapping stage can work and 0s will be concatenated to the leftmost of input message when Sub-BLK-No is not integer.  
+The concept of CETD-MAC is expressed in Figure $\ref{CETD-MAC}$.
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[scale=0.6]{./diagrams/CETD.eps}
+ \caption{The CETD-MAC Scheme}
+ \label{fig:CETD-MAC}
+\end{figure}
 
 \begin{figure}[htbp]
  \centering
  \includegraphics[scale=0.4]{./diagrams/rotate_right.pdf}
  \caption{The Concept of Rotate Shifting(Right)}
- \label{fig:1 }
+ \label{fig:rotate_shift}
 \end{figure}
+We follow the definition of CETD-MAC in \cite{keylist}. 
+\begin{itemize}
+	\item Message is splitted to sub-blocks each of whose length is tag length
+	\item The first stage is several rounds of bit-segment swapping. For each round , two sub-blocks are randomly chosen. Introduce shuffle parameter V[i]
+	\item The output sub-blocks from swapping stage, named X blocks, are sent to block-level rotate shifting stage. Each X block is rotate shifted for several bits. The concept of rotate shifting is expressed in Fig $\ref{fig:rotate_shift}$ Introduce shift parameter S[i]
+	\item The output sub-blocks from shifting stage, named Y blocks, are XORed to form the final tag
+\end{itemize}
+As the nonce is generated by block cipher encryption E$_K$. Assume E$_K$ performance like a ideal random value generator, for two distinct input nonce-input1 and nonce-input2, the corresponding nonce values N1 and N2 should be random and the probability that N1 is identical to N2 should be 1/2$^n$, where n is len(N1). 
 
-\subsubsection{Rotate Shifting Introduction} 
-Unlike logical shifting and arithmetic shifting, rotate shifting
-behaves like whirling a wheel. The empty position in a message block shifted is
-filled by the bits shifted out. Figure 1 express the concept of rotate shift.
+\paragraph{Security Definitions of MAC Schemes under Replay Attacks}
+Our security definition of MAC schemes under replay attack follows the definition chosen-message attack. 
+An adversary is given access to a tag generation black-box(named oracle) and a message-tag pair verification oracle. The encryption key is maintained unchanged while the nonce value is updated for each calling of tag generation oracle no matter whether the value of input message collide with a value in old timestamp. Secret key and nonces are kept in trusted area and cannot be acquired by the adversary. The adversary can copy the message-tag pairs in old time stamp. When conducting the replay attack, the adversary replaces a memory frame containing a data-tag pair in new timestamp with a copy from his storage. The forgery advantage F$_{CETD-MAC}$ under replay attack is the probability that the adversary can get the verification oracle to accept the replace data-tag pair.  
 
-We can refer that the result of rotate shifting a message block depends on the
-value of block and the bits shifted.  If two message blocks whose value are
-identical are shifted with distinct bits, the result blocks may be
-identical. That means when shifting bits fixed,the mapping from X blocks to the
-shifted result blocks is not injection. This case is expressed in Figure 2(a).
+Assume the copy with old timestamp from the adversary is expressed as (M,T1) where M is the message and T1 is the corresponding tag, and the nonce of (M,T1) is denoted as N1. When applying M to the tag generation at a new time point, we mark the corresponding tag T2 and the nonce N2. If the adversary can succeed a replay attack, then T1 is identical to T2 regardless of the equality of N1 and N2.
+Then F$_{CETD-MAC}$ under replay attack can be denoted as the probability Pr[T1 = T2 $\mid$ Message value is M \& N1,N2 are randomly generated]. 
 
-For two distinct X blocks, however, their result blocks may be identical
-when their shifting bits are distinct. This case is expressed in Figure 2(b).  
-When the shifting bits of two message blocks are identical, the equality of result blocks
-is same as the equality of their input blocks.				
+According to the design of CETD-MAC, the tag can be expressed as Y[1]$\oplus$Y[2]$\oplus$$\ldots$$\oplus$Y[x], x is the number of input sub-blocks to CETD-MAC. If the following equation is met:
+Y$_1$[1]$\oplus$Y$_1$[2]$\ldots$$\oplus$Y$_1$[x]$\oplus$Y$_2$[1]$\oplus$Y$_2$[2]$\ldots$$\oplus$Y$_2$[x] = 0, where Y$_1$ blocks produce T1 and Y$_2$ blocks generate T2, then T1 is identical to T2. This equation indicates that the behaviour of block-level rotate shifting stage effect the probability of tag collision directly. For easy understanding, we firstly analyze the case that shuffle stage does not work under replay attack, which means X$_1$[i] is identical to X$_2$[i] for any i$\in$[1,x]. The analysis of effect from shuffle stage on X blocks follows then.
 
+\subsection{Cases of Input Causing High Tag Collision Probability}
+In replay attack, the adversary replace the memory frame written in new time point Time$_2$ with a copy from old time stamp Time$_1$. The content in memory frame is a data-tag pair. We denote the data M and the tag in the forgery frame T1. The output blocks from shuffle stage in generating T1 is denoted as X1 blocks and the output from shifting stage are Y1 blocks. When the forgery frame is read to be verified, the output or shuffle stage is X2 blocks and Y2 blocks for the output from shifting stage. The tag generated by verification is T2.  
+
+In this section, we depict the weaknesses we found in CETD-MAC under replay attack. These weaknesses in shifting stage let the CETD-MAC to produce tags with high collision probability with some chosen inputs. The tags with highly collision probability ease the adversary`s attack. Figure $\ref{Y-blk-collision}$ gives the examples of the outputs from shifting stage that lead tag collision.
 \begin{figure}
 \centering
 \subfigure[Same Block Shifted Different Bits]{
@@ -188,10 +79,120 @@ is same as the equality of their input blocks.
 \end{minipage}
 }
  \caption{The Examples of Y Block Collision}
- \label{fig:2 }
+ \label{fig: Y-blk-collision}
 \end{figure}
+\subsubsection{The Sequence-level Pattern Collision}
+Firstly, we treat blocks as a block sequences, which means in a block sequence, each block has a unique index. The definition of block sequence equality is expressed below:
+\begin{defination}
+Sequence Equality: Two block sequences X1 and X2 are equal in sequence-level if X$_1$[i] is identical to X$_2$[i] for any i$\in$[1,x].
+\end{defination}
 
+Assume the shuffle stage does not work, then the following fact exist:
+\begin{itemize}
+	\item X1 and X2 are two identical block sequences in sequence-level
+\end{itemize}
 
+In block-level rotate shifting stage, a segment from nonce, marked as S, is adopted as the parameter of shifting bits. S is a concatenation of sub-blocks and is denoted as S=(S[1]$\|$S[2]$\ldots$S[x]), where x is the number of blocks in X sequence. The value of S[i] the bits shifted for X[i] block.
+For two identical blocks X$_1$[i] and X$_2$[i], the output blocks Y$_1$[i] and Y$_2$[i] are identical if S$_1$[i] is identical to S$_2$[i]. We found that Y$_1$[i] and Y$_2$[i] still have probability to be identical if X$_1$[i] is formed by a repeated short bit segment named pattern. This property is depicted in Proposition 1.1:
+\begin{proposition}
+Let X$_1$[i] and X$_2$[i] be two identical block and len(X$_1$[i])=N, N=2$^n$. Let S$_1$[i] and S$_2$[i] be two distinct shifting bit parameters for X$_1$[i] and X$_2$[i].
+Then Y$_1$[i] and Y$_2$[i] can be identical only when X$_1$[i] is formed by repeating a binary bit segment named pattern and marked as P. The length of P len(P) has the following format:
+	P\_L = 2$^p$, p$\in$[0,n-1]
+\end{proposition}
+Base on Proposition 1.1, we got the following corollaries:
+\begin{corollary}
+If a pattern P is not formed by a sub-pattern with shorter length, we call P a distinct pattern with length P\_L. The No. of distinct patterns with length P\_L=2$^p$ is 2$^{2^p}$-2$^{2^{p-1}}$
+\end{corollary}
+\begin{corollary}
+Assume the length of a pattern-forming X block is N=2$^n$, then the No. of all possible distinct patterns is 2$^{N/2}$
+\end{corollary}
+\begin{corollary}
+For two pattern-formed identical X blocks X$_1$[i] and X$_2$[i], the probability that Y$_1$[i] is identical to Y$_2$[i] when S$_1$[i] and S$_2$[i] are randomly generated is expressed as Pr[Y$_1$[i]=Y$_2$[i]]=
+\end{corollary}
+From Corollary 1.3 we can see that when the adversary conducts the replay attack on the data concatenated by pattern-formed blocks, the probability that Y block collision is high when shuffle stage does not work. The proof of Proposition 1.1 and Corollary 1.1 to 1.3 is expressed in the appendix. 
+
+\paragraph{The Probability of Tag Collision Under Sequence Pattern Attack}
+For two identical X blocks X\_A[i] and X\_B[i], the probability that Y\_A[i]=Y\_B[i] when R\_A[i] and R\_B[i] are randomly generated is marked as  Pr[Y block collision]. 
+Pr[Y block collision] is expressed in Theorem 1.3:
+\begin{theorem}
+Assume for two identical blocks X$_1$[i] and X$_2$[i] the length is N=2$^n$, and the pattern length P$_l$=2$^p$ where p$\in$[0,n-1]. If the pattern contains no internal sub-pattern, then :
+\begin{equation}
+$$Pr[Y$_1$[i]=Y$_2$[i]] = 1/2$^p$$$
+\end{equation}
+If the pattern length in X[i] is identical for any i$\in$[1,x] where x is the number of blocks in X sequence, then:
+\begin{equation}
+$$Pr[Y$_1$[i]=Y$_2$[i]] = (1/2$^p$)$^x$$$
+\end{equation}
+\end{theorem}
+
+\subsubsection{The Set-level Pattern Collision}
+Secondly we treat blocks as a set allowing the existence of identical elements. We give the definition of block set equality below:
+\begin{defination}
+Set Equality: Two block sets X1 and X2 are identical in set-level if the following properties are met:
+\begin{itemize}
+	\item X1 and X2 have same number of elements
+	\item The number of elements for each distinct value in X1 is identical to the number in X2
+\end{itemize}
+\end{defination}
+
+When none of block in a X block sequence is formed by repeated pattern, it is impossible to make two Y sequences with block sequence equality by using two distinct s sequences. This assertion can be proved based on the proof of Proposition 1.1. However, we found that it is possible to form two Y sets with block set equality by using two distinct s sequences. The set-level identical Y sets can lead to tag collision directly. This attack is expressed in Proposition 1.2:
+\begin{proposition}
+Let X$_1$[i] and X$_2$[j] be two distinct block and len(X$_1$[i])=len(X$_2$[j])=N, N=2$^n$. Let S$_1$[i] and S$_2$[j] be two distinct blocks of shifting bit parameters for X$_1$[i] and X$_2$[j].
+Then Y$_1$[i] and Y$_2$[j] can be identical if and only if X$_1$[i] can be formed by rotate shifting X$_2$[j].
+\end{proposition}
+Based on Proposition 1.2, we got the following corollary:
+\begin{corollary}
+For the rotate shifting stage, when the distinct input blocks X$_1$[i] and X$_2$[j] have the property that X$_1$[i] can be formed by rotate shifting X$_2$[j],and the shifting bits parameter S$_1$[i] and S$_2$[j] are distinct, the probability that the output blocks Y$_1$[i] and Y$_2$[j] are identical is Pr[Y$_1$[i]=Y$_2$[j]]=
+\end{corollary}
+Assume the shuffle stage does not work. When the adversary conducts replay attack on the memory frame whose data part is concatenated by blocks that are formated by shifting a common base block, then each element in X1 sequence can be formed by rotate shifting another element and the probability of forming identical Y sets is high, which will lead to tag collision.
+
+\paragraph{The Probability of Tag Collision Under Set Pattern Attack}
+Assume two identical sets X\_A and X\_B satisfy the following properties:
+\begin{itemize}
+	\item Each element can be formed by rotate shifting any other element in the set
+	\item None of the elements is formed by pattern.
+\end{itemize}
+As each element in the X set can be formed by rotate shifting a base block, we call such X set Same Base Block(SBB) X sets, short for SBB X sets. If none of the element is formed by a pattern ,we call such X set SBB only sets.
+
+From Corollary 1.3 we know that for a block that is N bits long, the No. of possible values that is formed by a pattern is 2$^{N/2}$, which also means the No. of distinct values that is not formed by a pattern is 2$^{N/2}$. Assume D\_A and D\_B are randomly generated, the probability of generating SBB only D set is expressed:
+\begin{defination}
+Pr[ SBB only D(X)] =
+\begin{equation}
+2^{n/2} * N^{M-1} / (2^N)^M
+\end{equation}
+\end{defination} 
+
+Using SBB only X\_A and X\_B, the probability of CIE of Y\_A and Y\_B is marked as Pr[CIE Y Sets] and expressed as the following way:
+\begin{defination}
+Pr[CIE Y Sets] = $$\prod_{i=1,j=1}^M Pr[Y\_A[i] = Y\_B[j]]$$ where M is the No. of elements in a set, i,j$\in$[1,M] and i$\neq$j
+\end{defination} 
+
+For two randomly generated R\_A and R\_B, the probability that Y\_A and Y\_B are CIE when X\_A and X\_B are SBB only is expressed in the following theorem:
+\begin{theorem}
+Assume X\_A and X\_B are SBB only, R\_A and R\_B are randomly generated,then:
+
+Pr[CIE Y Sets]:
+\begin{displaymath}
+(\sum_{K=1}^{min(N,M)} \binom{N}{K} * (M!/v1!v2!v3! \cdots vk!) ^ 2 )/(N^M)^2
+\end{displaymath}
+
+\end{theorem}
+
+\paragraph{The Case of Input Trigging Two Pattern Attacks}
+If the blocks in X set is formed by rotate shifting a base block and this base block is formed by a pattern, then such X set pair X\_A and X\_B can result either IIE or CIE Y set pairs.
+
+Assume the R\_A and R\_B are randomly generated, the probability that Y\_A and Y\_B are SLE is expressed in the following theorem:
+\begin{theorem}
+Assume X\_A and X\_B are both SBB and IPL, R\_A and R\_B are randomly generated,then:
+
+Pr[SLE Y Sets]=
+\begin{displaymath}
+(\sum_{K=1}^{min(N,M)} \binom{N}{K} * (M!/v1!v2!v3! \cdots vk!) ^ 2 )/(N^M)^2
+\end{displaymath}
+\end{theorem}
+The proof of theorems is expressed in the appendix.
+
+\subsubsection{The Behaviour of X Blocks from Shuffling Stage}
 \begin{figure}
 \centering
 \subfigure[Only Single Block Equality]{
@@ -221,156 +222,24 @@ is same as the equality of their input blocks.
 \caption{A X Set Pair with Two Types of Y Equality}
  \label{fig:y_both} %% label for entire figure
 \end{figure}
+In each round of Shuffle stage, two blocks from the output of previous round of shuffle are randomly selected then operate bit segments swapping, which will effect the distribution of bits in the two blocks. After the shuffle stage, the output, X blocks, can be classified to four categories:
+\begin{enumerate}
+	\item Formed by repeated patterns
+	\item Formed by rotate shifting another block in this category
+	\item Contains the properties from categories 1 and 2
+	\item No properties from categories 1 or 2
+\end{enumerate}
+Assume the block cipher used in nonce generation performances like PRF, the number of blocks in each category is effected by the input message M and the rounds of shuffle stage.  
 
-\subsection{Rotate Shifting and Y Set Collision} 
-Assume the shuffle stage does not work, then D\_A= X\_A=D\_B=X\_B, which means the following properties exist in X\_A and X\_B:
-\begin{itemize}
-	\item X\_A[i] = X\_B[i] for all i$\in$[1,M], M is the number of elements
-	\item The equality of elements in a X set is uncertain.
-\end{itemize}
-Then X\_A and X\_B are of Identical Index Equality. 
-All the analysis in this section is based on the assumption that shuffle stage does not work.
+\subsection{A Solution to Eliminate the Collision}
+In this section we provide an modification of original CETD-MAC. Our approach does not require additional component or information to the original CETD-MAC. We then prove that the optimized CETD-MAC can fix the weakness and protect input message from replay attack.
+\paragraph{Question}
+Using only shuffle and shift with random nonce, is it possible to ensure the range of tag to 2$^n$? If not, why?
 
-If such X\_A and X\_B result two Y sets of Set Level Equality, the related tag T$_a$ = T$_b$.
- 
-Figure 3 and Figure 4 express the examples of X sets that lead to SLE Y sets with distinct R sets. In this paper, we analyze the cases of the input set pair (X\_A and X\_B) of shifting stage in CETD under replay attack that can lead to Y set pair collision(SLE).
-
-
-
-\subsubsection{Case of X Sets Resulting Y Set Collision}
-If R\_A and R\_B are IIE, then for any two identical set X\_A and X\_B, Y\_A and Y\_B are IIE. If there is at least one pair of blocks in R\_A and R\_B, marked as (R\_A[i], R\_B[i]), is distinct, then equality of Y\_A and Y\_B is uncertain.
-
-Assume the number of distinct block pairs in R\_A and R\_B is R$_d$. For these R block pairs, their related X\_A and X\_B blocks formed a sub-group, marked as X\_A$_s$ and X\_B$_s$, and this sub-group is IIE. The related sub-group in Y\_A is marked as Y\_A$_s$ and the one in Y\_B for Y\_B$_s$.
-
-In this part, we discuss the equality case of Y\_A$_s$ and Y\_B$_s$
-\paragraph{Identical Index Equality Case}
-If Y\_A$_s$ and Y\_B$_s$ are IIE, then for all i$\in$[1, R$_d$] the following two properties are met:
-\begin{itemize}
-	\item Y\_A$_s$[i] = Y\_B$_s$[i] 
-	\item R\_A$_s$[i] $\neq$ Y\_B$_s$[i]
-	\item X\_A$_s$[i] = X\_B$_s$[i]
-\end{itemize}
-Figure 2(a) provides a instance of IIE Y sets.
-The identical block pairs (X\_A$_s$[i],X\_B$_s$[i]) that lead to IIE Y\_A$_s$ and Y\_B$_s$ have the property in Theorem 1.1:
-\begin{theorem}
-Assume X\_A[i] and X\_B[i] are two identical block from two sub-group X\_A$_s$ and X\_B$_s$ with same index i. X\_A[i] and X\_B[i] have same number of bits N=2$^n$. The result of rotate shifting X\_A[i] and X\_B[i] with distinct shifting bit parameter R\_A[i] and R\_B[i] are marked as Y\_A[i] and Y\_B[i]. 
-
-Then Y\_A[i] and Y\_B[i] can be identical only when X\_A[i] and X\_B[i] are formed by repeating a binary pattern P, which is a binary segment. The length of this pattern P can be expressed as:
-
-	P\_L = 2$^p$, p$\in$[0,n-1]
-\end{theorem}
-Base on Theorem 1.1, we got the following corollaries:
-\begin{corollary}
-If a pattern is not formed by a pattern with short length, we call it a distinct pattern of length P\_L. The No. of distinct patterns with length P\_L= 2$^p$ is 2$^{2^p}$-2$^{2^{p-1}}$
-\end{corollary}
-\begin{corollary}
-Assume the length of a block is N=2$^n$, then the No. of all distinct patterns with all possible length is 2$^{N/2}$
-\end{corollary}
-
-\paragraph{Cross Index Equality Case}
-If Y\_A$_s$ and Y\_B$_s$ are CIE, then for all distinct (i,j) that i,j$\in$[1, R$_d$] the following two properties are met:
-\begin{itemize}
-	\item Y\_A$_s$[i] = Y\_B$_s$[j] 
-	\item R\_A$_s$[i] $\neq$ Y\_B$_s$[i]
-	\item X\_A$_s$[i] = X\_B$_s$[i]
-\end{itemize}
-Figure 2(b) provides an instance of CIE Y sets.
-The blocks in X\_A$_s$ and X\_B$_s$ that lead to CIE Y\_A$_s$ and Y\_B$_s$ have the property in Theorem 1.2:
-\begin{theorem}
-If Y\_A$_s$ and Y\_B$_s$ are CIE, each element in X\_A$_s$ can be formed by rotate shifting another element in X\_A$_s$.
-\end{theorem}
-
-If each element in X\_A$_s$ is formed by a pattern can be formed by rotate shifting another element in X\_B$_s$ then the related Y\_A$_s$ and Y\_B$_s$ can be either IIE or CIE or SLE.
-The proof of Theorem 1.1 and Theorem 1.2 can be refered in appendix.
-
-
-\subsection{The Probability of Y Set Collision} 
-Hence the shift bit parameter set R\_A and R\_B are randomly generated, the probability of Y set collision for each input case is determined by the number of specific combinations of R\_A and R\_B. The computation of Pr[Y\_A = Y\_B] is based on this idea.
-The following properties are met by any cases of D sets and R sets in replay attack:
-\begin{itemize}
-	\item D\_A[i] = D\_B[i] for all i$\in$[1,M]
-	\item If R\_A[i]=R\_B[i] and X\_A[i]=X\_B[i], then Y\_A[i]=Y\_B[i].
-\end{itemize}
-
-\subsubsection{Identical Index Equality Case}
-When R\_A[i] and R\_B[i] are distinct for some i$\in$[1,M], the Y\_A[i] and Y\_B[i] blocks can form an IIE sub-group if each X\_A[i] and X\_B[i] block is formed by a pattern.
- 
-For two identical X blocks X\_A[i] and X\_B[i], the probability that Y\_A[i]=Y\_B[i] when R\_A[i] and R\_B[i] are randomly generated is marked as  Pr[Y block collision]. 
- 
- Pr[Y block collision] is expressed in Theorem 1.3:
-\begin{theorem}
-If the No. of bits of each block in X\_A[i]-X\_B[i] pair is N=2$^n$, the pattern length P$_l$=2$^p$ where p$\in$[0,n-1]. The pattern contains no internal sub-pattern, then :
-\begin{displaymath}
-Pr[Y block collision] = 1/2^p
-\end{displaymath}
-\end{theorem}
-
-\subsubsection{Cross Index Equality Case}
-
-Assume two identical sets X\_A and X\_B satisfy the following properties:
-\begin{itemize}
-	\item Each element can be formed by rotate shifting any other element in the set
-	\item None of the elements is formed by pattern.
-\end{itemize}
-As each element in the X set can be formed by rotate shifting a base block, we call such X set Same Base Block(SBB) X sets, short for SBB X sets. If none of the element is formed by a pattern ,we call such X set SBB only sets.
-
-From Corollary 1.3 we know that for a block that is N bits long, the No. of possible values that is formed by a pattern is 2$^{N/2}$, which also means the No. of distinct values that is not formed by a pattern is 2$^{N/2}$. Assume D\_A and D\_B are randomly generated, the probability of generating SBB only D set is expressed:
-\begin{defination}
-Pr[ SBB only D(X)] =
-\begin{displaymath}
-2^{n/2} * N^{M-1} / (2^N)^M
-\end{displaymath}
-\end{defination} 
-
-Using SBB only X\_A and X\_B, the probability of CIE of Y\_A and Y\_B is marked as Pr[CIE Y Sets] and expressed as the following way:
-\begin{defination}
-Pr[CIE Y Sets] = $$\prod_{i=1,j=1}^M Pr[Y\_A[i] = Y\_B[j]]$$ where M is the No. of elements in a set, i,j$\in$[1,M] and i$\neq$j
-\end{defination} 
-
-For two randomly generated R\_A and R\_B, the probability that Y\_A and Y\_B are CIE when X\_A and X\_B are SBB only is expressed in the following theorem:
-\begin{theorem}
-Assume X\_A and X\_B are SBB only, R\_A and R\_B are randomly generated,then:
-
-Pr[CIE Y Sets]:
-\begin{displaymath}
-(\sum_{K=1}^{min(N,M)} \binom{N}{K} * (M!/v1!v2!v3! \cdots vk!) ^ 2 )/(N^M)^2
-\end{displaymath}
-
-\end{theorem}
-
-\subsubsection{The Intersection Case}
-If the blocks in X set is formed by rotate shifting a base block and this base block is formed by a pattern, then such X set pair X\_A and X\_B can result either IIE or CIE Y set pairs.
-
-Assume the R\_A and R\_B are randomly generated, the probability that Y\_A and Y\_B are SLE is expressed in the following theorem:
-\begin{theorem}
-Assume X\_A and X\_B are both SBB and IPL, R\_A and R\_B are randomly generated,then:
-
-Pr[SLE Y Sets]=
-\begin{displaymath}
-(\sum_{K=1}^{min(N,M)} \binom{N}{K} * (M!/v1!v2!v3! \cdots vk!) ^ 2 )/(N^M)^2
-\end{displaymath}
-\end{theorem}
-The proof of theorems is expressed in the appendix.
-
-\subsection{A General Case of Sets in CETD}
-\paragraph{The general Case of D sets}
-During the replay attack, the D\_A and D\_B sets are IIE. Any D set can be split into sub-groups of blocks in the following way:
-\begin{equation}
-D = \{\{IIE only\},\{CIE only\},\{Intersection\},\{No regularity\}\}
-\end{equation}
-The No. of the elements in these sub-groups is marked as M$_{IIE}$, M$_{CIE}$, M$_{inter}$, M$_{non}$. The following equations are met:
-\begin{equation}
-M_{IIE}, M_{CIE}, M_{inter}, M_{non} \in [0,M]
-\end{equation}
-\begin{equation}
-M_{IIE}+ M_{CIE}+M_{inter}+ M_{non} = M
-\end{equation}
-
-\paragraph{The General Case of X Sets}
-In general case, the shuffle stage can change the split of blocks. For a D set that contains regularity, shuffle can reduce the No. of regularity sub-groups and the No. of elements in each group. The properties of no regularity sub-group is analyzed in the next section.
+\section{Experiments and Results}
 
 \appendix
-\section{Proof of Pattern Introduction}
+\section{Proof of Assertions}
 \subsection{Proof of Theorem 1.1}
 This part proves that if two identical block X\_A[i]  and X\_B[i] are shifted different bits and the result blocks remain identical, X\_A[i] is formed by pattern. The pattern length and $\delta$=$\mid$R\_A[i]-R\_B[i] $\mid$ has such correlation:
 \begin{itemize}
@@ -378,14 +247,11 @@ This part proves that if two identical block X\_A[i]  and X\_B[i] are shifted di
 \end{itemize}
 Assume the length of X\_A[i] is N bits, where N= 2$^n$. When X\_A[i] is formed by a pattern whose length is P\_L = 2$^p$ bits, then the domain of Y\_A[i] has P\_L distinct values. There are N/P\_L distinct R\_A[i] values that shift X\_A[i] to a Y\_A[i].  
 
-
-
-
 \subsection{Proof of Theorem 1.2}
 If two distinct X blocks result two identical Y block. Assume the shift bits parameter blocks are R\_A[i] and R\_B[i]. Then X\_A[i] can be formed by rotate shifting Y\_A[i] for (N-R\_A[i]) mod N bits. X\_B[i] cna be formed for (N-R\_B[i]) mod N bits.
 X\_B[i] can be formed by rotate shifting X\_A[i] for (R\_A[i] + N-R\_B[i]) mod N bits. Theorem 1.2 proved.
 
-\section{Proof of Probability Computation}
+\section{Computation Procedure of Probabilities}
 \subsection{Proof of Theorem 1.3}
 For identical each block pair X\_A[i] and X\_B[i], the No. of combination of R\_A[i] and R\_B[i] = N*N, where N is the length a X block. 
 If X\_A[i] is formed by pattern, then Y\_A[i]=Y\_B[i] if $\mid$R\_A[i]-R\_B[i]$\mid$ = P\_L * K, where P\_L is the pattern length and K is a positive integer. 
@@ -463,6 +329,5 @@ Pr[SLE Y Sets]:
 \end{defination}
 
 
-\section{Experiments and Results}
 
 \end{document}

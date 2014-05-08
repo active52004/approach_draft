@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.29)  7 MAY 2014 22:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.29)  8 MAY 2014 23:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -324,55 +324,9 @@ Package: supertabular 2004/02/20 v4.1e the supertabular environment
 Package: glossary-tree 2013/11/14 v4.0 (NLCT)
 \glstreeindent=\skip67
 ))
-\c@theorem=\count133
-\c@defination=\count134
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 
-(./approach_draft.aux)
-\openout1 = `approach_draft.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count135
-\scratchdimen=\dimen128
-\scratchbox=\box33
-\nofMPsegments=\count136
-\nofMParguments=\count137
-\everyMPshowfont=\toks39
-\MPscratchCnt=\count138
-\MPscratchDim=\dimen129
-\MPnumerator=\count139
-\makeMPintoPDFobject=\count140
-\everyMPtoPDFconversion=\toks40
-) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -390,11 +344,29 @@ Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
 Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
@@ -403,139 +375,165 @@ G,.JBIG2,.JB2,.eps]
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
-))
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 18.
+)))
+\c@theorem=\count133
+\c@defination=\count134
+\c@proposition=\count135
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+(./approach_draft.aux)
+\openout1 = `approach_draft.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count136
+\scratchdimen=\dimen128
+\scratchbox=\box33
+\nofMPsegments=\count137
+\nofMParguments=\count138
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count139
+\MPscratchDim=\dimen129
+\MPnumerator=\count140
+\makeMPintoPDFobject=\count141
+\everyMPtoPDFconversion=\toks40
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 18.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 18.
 
-Overfull \hbox (3.49736pt too wide) in paragraph at lines 26--27
- \OT1/cmr/bx/n/10 CETD-MAC Scheme[] \OT1/cmr/m/n/10 CETD-MAC scheme can be ex-p
-ressed as tag = CETD-
+
+LaTeX Warning: Reference `CETD-MAC' on page 1 undefined on input line 30.
+
+Package epstopdf Info: Source file: <./diagrams/CETD.eps>
+(epstopdf)                    date: 2014-05-08 22:11:28
+(epstopdf)                    size: 98852 bytes
+(epstopdf)             Output file: <./diagrams/CETD-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-05-08 22:15:07
+(epstopdf)                    size: 44999 bytes
+(epstopdf)             Command: <repstopdf --outfile=./diagrams/CETD-eps-conver
+ted-to.pdf ./diagrams/CETD.eps>
+(epstopdf)             \includegraphics on input line 33.
+Package epstopdf Info: Output file is already uptodate.
+<./diagrams/CETD-eps-converted-to.pdf, id=1, 736.7525pt x 452.69125pt>
+File: ./diagrams/CETD-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./diagrams/CETD-eps-converted-to.pdf>
+Package pdftex.def Info: ./diagrams/CETD-eps-converted-to.pdf used on input lin
+e 33.
+(pdftex.def)             Requested size: 442.05492pt x 271.61684pt.
+
+Overfull \hbox (97.05492pt too wide) in paragraph at lines 33--34
+ [][] 
  []
 
+<./diagrams/rotate_right.pdf, id=2, 501.875pt x 401.5pt>
+File: ./diagrams/rotate_right.pdf Graphic file (type pdf)
 
-LaTeX Warning: Citation `keylist' on page 1 undefined on input line 28.
+<use ./diagrams/rotate_right.pdf>
+Package pdftex.def Info: ./diagrams/rotate_right.pdf used on input line 40.
+(pdftex.def)             Requested size: 200.74643pt x 160.59715pt.
+
+
+LaTeX Warning: Citation `keylist' on page 1 undefined on input line 44.
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (53.33391pt too wide) in paragraph at lines 46--48
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./diagrams/CETD-eps-co
+nverted-to.pdf> <./diagrams/rotate_right.pdf>]
+Overfull \hbox (53.33391pt too wide) in paragraph at lines 60--62
 []\OT1/cmr/m/n/10 According to the de-sign of CETD-MAC, the tag can be ex-press
 ed as Y[1]$\OMS/cmsy/m/n/10 ^^H$\OT1/cmr/m/n/10 Y[2]$\OMS/cmsy/m/n/10 ^^H$$[]$$
 ^^H$\OT1/cmr/m/n/10 Y[x],
  []
 
-
-Overfull \hbox (24.4174pt too wide) in paragraph at lines 46--48
-\OT1/cmr/m/n/10 iden-ti-cal, the fol-low-ing equa-tion is met: Y$[]$[1]$\OMS/cm
-sy/m/n/10 ^^H$\OT1/cmr/m/n/10 Y$[]$[2]$[]$$\OMS/cmsy/m/n/10 ^^H$\OT1/cmr/m/n/10
- Y$[]$[x]$\OMS/cmsy/m/n/10 ^^H$\OT1/cmr/m/n/10 Y$[]$[1]$\OMS/cmsy/m/n/10 ^^H$\O
-T1/cmr/m/n/10 Y$[]$[2]$[]$$\OMS/cmsy/m/n/10 ^^H$\OT1/cmr/m/n/10 Y$[]$[x]
- []
-
-[2]
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 64.
-
-Overfull \hbox (10.78537pt too wide) in paragraph at lines 65--66
-\OT1/cmr/m/it/10 tern, the higher prob-a-bil-ity of iden-ti-cal block pairs in 
-Y se-quences (Y$[]$[i],Y$[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 ]
-$\OT1/cmr/m/it/10 )
- []
-
 [3]
-Overfull \hbox (1.15387pt too wide) in paragraph at lines 101--102
-\OT1/cmr/bx/n/10 Definition 2.2. \OT1/cmr/m/it/10 Cross In-dex Equal-ity(CIE): 
-For any i,j$\OMS/cmsy/m/n/10 2$\OT1/cmr/m/it/10 [1,M], X[]A[i] = X[]B[j],
- []
 
-[4] <./diagrams/rotate_right.pdf, id=24, 501.875pt x 401.5pt>
-File: ./diagrams/rotate_right.pdf Graphic file (type pdf)
+LaTeX Warning: Reference `Y-blk-collision' on page 4 undefined on input line 66
+.
 
-<use ./diagrams/rotate_right.pdf>
-Package pdftex.def Info: ./diagrams/rotate_right.pdf used on input line 148.
-(pdftex.def)             Requested size: 200.74643pt x 160.59715pt.
-
-Overfull \hbox (5.5285pt too wide) in paragraph at lines 154--157
-\OT1/cmr/m/n/10 Unlike log-i-cal shift-ing and arith-metic shift-ing, ro-tate s
-hift-ing be-haves like whirling
- []
-
-[5] <./diagrams/r_s_2bits.pdf, id=28, 553.06625pt x 306.14375pt>
+<./diagrams/r_s_2bits.pdf, id=34, 553.06625pt x 306.14375pt>
 File: ./diagrams/r_s_2bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_s_2bits.pdf>
-Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 176.
+Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 74.
 (pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
 
-<./diagrams/r_s_6bits.pdf, id=29, 553.06625pt x 306.14375pt>
+<./diagrams/r_s_6bits.pdf, id=35, 553.06625pt x 306.14375pt>
 File: ./diagrams/r_s_6bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_s_6bits.pdf>
-Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 176.
+Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 74.
 (pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
 
-<./diagrams/r_d_4bits.pdf, id=30, 562.1pt x 306.14375pt>
+<./diagrams/r_d_4bits.pdf, id=36, 562.1pt x 306.14375pt>
 File: ./diagrams/r_d_4bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_d_4bits.pdf>
-Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 182.
+Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 80.
 (pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
 
-<./diagrams/r_d_2bits.pdf, id=31, 562.1pt x 306.14375pt>
+<./diagrams/r_d_2bits.pdf, id=37, 562.1pt x 306.14375pt>
 File: ./diagrams/r_d_2bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_d_2bits.pdf>
-Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 182.
+Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 80.
 (pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
+ [4 <./diagrams/r_s_2bits.pdf> <./diagrams/r_s_6bits.pdf> <./diagrams/r_d_4bits
+.pdf> <./diagrams/r_d_2bits.pdf>] [5]
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 133.
 
-<./diagrams/y_single_equality.pdf, id=32, 469.755pt x 170.6375pt>
+Overfull \hbox (35.30066pt too wide) in paragraph at lines 140--142
+\OT1/cmr/bx/n/10 Proposition 1.2. \OT1/cmr/m/it/10 Let X$[]$[i] and X$[]$[j] be
+ two dis-tinct block and len(X$[]$[i])=len(X$[]$[j])=N,
+ []
+
+[6] <./diagrams/y_single_equality.pdf, id=157, 469.755pt x 170.6375pt>
 File: ./diagrams/y_single_equality.pdf Graphic file (type pdf)
 
 <use ./diagrams/y_single_equality.pdf>
-Package pdftex.def Info: ./diagrams/y_single_equality.pdf used on input line 19
-3.
+Package pdftex.def Info: ./diagrams/y_single_equality.pdf used on input line 20
+1.
 (pdftex.def)             Requested size: 172.5pt x 62.6584pt.
 
-<./diagrams/y_set_equality.pdf, id=33, 469.755pt x 180.675pt>
+<./diagrams/y_set_equality.pdf, id=158, 469.755pt x 180.675pt>
 File: ./diagrams/y_set_equality.pdf Graphic file (type pdf)
 
 <use ./diagrams/y_set_equality.pdf>
-Package pdftex.def Info: ./diagrams/y_set_equality.pdf used on input line 198.
+Package pdftex.def Info: ./diagrams/y_set_equality.pdf used on input line 206.
 (pdftex.def)             Requested size: 172.5pt x 66.34418pt.
 
-<./diagrams/y_both_single.pdf, id=34, 469.755pt x 170.6375pt>
+<./diagrams/y_both_single.pdf, id=159, 469.755pt x 170.6375pt>
 File: ./diagrams/y_both_single.pdf Graphic file (type pdf)
 
 <use ./diagrams/y_both_single.pdf>
-Package pdftex.def Info: ./diagrams/y_both_single.pdf used on input line 208.
+Package pdftex.def Info: ./diagrams/y_both_single.pdf used on input line 216.
 (pdftex.def)             Requested size: 172.5pt x 62.6584pt.
 
-<./diagrams/y_both_set.pdf, id=35, 469.755pt x 186.6975pt>
+<./diagrams/y_both_set.pdf, id=160, 469.755pt x 186.6975pt>
 File: ./diagrams/y_both_set.pdf Graphic file (type pdf)
 
 <use ./diagrams/y_both_set.pdf>
-Package pdftex.def Info: ./diagrams/y_both_set.pdf used on input line 213.
+Package pdftex.def Info: ./diagrams/y_both_set.pdf used on input line 221.
 (pdftex.def)             Requested size: 172.5pt x 68.55566pt.
- [6 <./diagrams/rotate_right.pdf>] [7 <./diagrams/r_s_2bits.pdf> <./diagrams/r_
-s_6bits.pdf> <./diagrams/r_d_4bits.pdf> <./diagrams/r_d_2bits.pdf> <./diagrams/
-y_single_equality.pdf> <./diagrams/y_set_equality.pdf>]
-Overfull \hbox (28.37672pt too wide) in paragraph at lines 246--248
-\OT1/cmr/m/n/10 Figure 2(a) pro-vides a in-stance of IIE Y sets. The iden-ti-ca
-l block pairs (X[]A$[]$[i],X[]B$[]$[i])
- []
-
-[8 <./diagrams/y_both_single.pdf> <./diagrams/y_both_set.pdf>]
-Overfull \hbox (9.87181pt too wide) in paragraph at lines 291--292
-[]\OT1/cmr/m/n/10 For two iden-ti-cal X blocks X[]A[i] and X[]B[i], the prob-a-
-bil-ity that Y[]A[i]=Y[]B[i]
- []
-
-[9] [10] [11] [12] [13]
+ [7] [8 <./diagrams/y_single_equality.pdf> <./diagrams/y_set_equality.pdf> <./d
+iagrams/y_both_single.pdf> <./diagrams/y_both_set.pdf>] [9] [10] [11]
 
 Package glossaries Warning: \makeglossaries hasn't been used,
 the glossaries will not be updated.
@@ -544,19 +542,19 @@ the glossaries will not be updated.
 Package glossaries Warning: No \printglossary or \printglossaries found.
 This document will not have a glossary.
 
-[14] (./approach_draft.aux)
+[12] (./approach_draft.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6086 strings out of 495028
- 87187 string characters out of 6181497
- 196701 words of memory out of 5000000
- 9161 multiletter control sequences out of 15000+600000
- 6955 words of font info for 25 fonts, out of 8000000 for 9000
+ 6111 strings out of 495028
+ 87729 string characters out of 6181497
+ 196202 words of memory out of 5000000
+ 9180 multiletter control sequences out of 15000+600000
+ 7574 words of font info for 27 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 46i,8n,36p,1737b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,9n,36p,1720b,363s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -570,10 +568,10 @@ cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on approach_draft.pdf (14 pages, 319486 bytes).
+Output written on approach_draft.pdf (12 pages, 347008 bytes).
 PDF statistics:
- 319 PDF objects out of 1000 (max. 8388607)
- 230 compressed objects within 3 object streams
+ 315 PDF objects out of 1000 (max. 8388607)
+ 227 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
