@@ -94,26 +94,27 @@ Assume the shuffle stage does not work, then the following fact exist:
 
 In block-level rotate shifting stage, a segment from nonce, marked as S, is adopted as the parameter of shifting bits. S is a concatenation of sub-blocks and is denoted as S=(S[1]$\|$S[2]$\ldots$S[x]), where x is the number of blocks in X sequence. The value of S[i] the bits shifted for X[i] block.
 For two identical blocks X$_1$[i] and X$_2$[i], the output blocks Y$_1$[i] and Y$_2$[i] are identical if S$_1$[i] is identical to S$_2$[i]. We found that Y$_1$[i] and Y$_2$[i] still have probability to be identical if X$_1$[i] is formed by a repeated short bit segment named pattern. This property is depicted in Proposition 1.1:
-\begin{proposition}
+\begin{theorem}
 Let X$_1$[i] and X$_2$[i] be two identical block and len(X$_1$[i])=N, N=2$^n$. Let S$_1$[i] and S$_2$[i] be two distinct shifting bit parameters for X$_1$[i] and X$_2$[i].
 Then Y$_1$[i] and Y$_2$[i] can be identical only when X$_1$[i] is formed by repeating a binary bit segment named pattern and marked as P. The length of P len(P) has the following format:
 	P\_L = 2$^p$, p$\in$[0,n-1]
-\end{proposition}
-Base on Proposition 1.1, we got the following corollaries:
+\label{sequence-pattern}
+\end{theorem}
+Base on Theorem $\ref{sequence-pattern}$, we got the following corollaries:
 \begin{corollary}
 If a pattern P is not formed by a sub-pattern with shorter length, we call P a distinct pattern with length P\_L. The No. of distinct patterns with length P\_L=2$^p$ is 2$^{2^p}$-2$^{2^{p-1}}$
+\label{distinct-pattern}
 \end{corollary}
 \begin{corollary}
 Assume the length of a pattern-forming X block is N=2$^n$, then the No. of all possible distinct patterns is 2$^{N/2}$
+\label{pattern-no}
 \end{corollary}
-\begin{corollary}
-For two pattern-formed identical X blocks X$_1$[i] and X$_2$[i], the probability that Y$_1$[i] is identical to Y$_2$[i] when S$_1$[i] and S$_2$[i] are randomly generated is expressed as Pr[Y$_1$[i]=Y$_2$[i]]=
-\end{corollary}
-From Corollary 1.3 we can see that when the adversary conducts the replay attack on the data concatenated by pattern-formed blocks, the probability that Y block collision is high when shuffle stage does not work. The proof of Proposition 1.1 and Corollary 1.1 to 1.3 is expressed in the appendix. 
+
+From Corollary 1.3 we can see that when the adversary conducts the replay attack on the data concatenated by pattern-formed blocks, the probability that Y block collision is high when shuffle stage does not work. The proof of Theorem $\ref{sequence-pattern}$, Corollary $\ref{distinct-pattern}$ and $\ref{pattern-no}$ is expressed in the appendix. 
 
 \paragraph{The Probability of Tag Collision Under Sequence Pattern Attack}
 For two identical X blocks X\_A[i] and X\_B[i], the probability that Y\_A[i]=Y\_B[i] when R\_A[i] and R\_B[i] are randomly generated is marked as  Pr[Y block collision]. 
-Pr[Y block collision] is expressed in Theorem 1.3:
+Pr[Y block collision] is expressed in Theorem $\ref{sequence-prob}$:
 \begin{theorem}
 Assume for two identical blocks X$_1$[i] and X$_2$[i] the length is N=2$^n$, and the pattern length P$_l$=2$^p$ where p$\in$[0,n-1]. If the pattern contains no internal sub-pattern, then :
 \begin{equation}
@@ -123,6 +124,7 @@ If the pattern length in X[i] is identical for any i$\in$[1,x] where x is the nu
 \begin{equation}
 $$Pr[Y$_1$[i]=Y$_2$[i]] = (1/2$^p$)$^x$$$
 \end{equation}
+\label{sequence-prob}
 \end{theorem}
 
 \subsubsection{The Set-level Pattern Collision}
@@ -136,11 +138,12 @@ Set Equality: Two block sets X1 and X2 are identical in set-level if the followi
 \end{defination}
 
 When none of block in a X block sequence is formed by repeated pattern, it is impossible to make two Y sequences with block sequence equality by using two distinct s sequences. This assertion can be proved based on the proof of Proposition 1.1. However, we found that it is possible to form two Y sets with block set equality by using two distinct s sequences. The set-level identical Y sets can lead to tag collision directly. This attack is expressed in Proposition 1.2:
-\begin{proposition}
+\begin{theorem}
 Let X$_1$[i] and X$_2$[j] be two distinct block and len(X$_1$[i])=len(X$_2$[j])=N, N=2$^n$. Let S$_1$[i] and S$_2$[j] be two distinct blocks of shifting bit parameters for X$_1$[i] and X$_2$[j].
 Then Y$_1$[i] and Y$_2$[j] can be identical if and only if X$_1$[i] can be formed by rotate shifting X$_2$[j].
-\end{proposition}
-Based on Proposition 1.2, we got the following corollary:
+\label{set-pattern}
+\end{theorem}
+Based on Theorem 1.3, we got the following corollary:
 \begin{corollary}
 For the rotate shifting stage, when the distinct input blocks X$_1$[i] and X$_2$[j] have the property that X$_1$[i] can be formed by rotate shifting X$_2$[j],and the shifting bits parameter S$_1$[i] and S$_2$[j] are distinct, the probability that the output blocks Y$_1$[i] and Y$_2$[j] are identical is Pr[Y$_1$[i]=Y$_2$[j]]=
 \end{corollary}
@@ -175,7 +178,7 @@ Pr[CIE Y Sets]:
 \begin{displaymath}
 (\sum_{K=1}^{min(N,M)} \binom{N}{K} * (M!/v1!v2!v3! \cdots vk!) ^ 2 )/(N^M)^2
 \end{displaymath}
-
+\label{set-prob}
 \end{theorem}
 
 \paragraph{The Case of Input Trigging Two Pattern Attacks}
@@ -247,12 +250,12 @@ This part proves that if two identical block X\_A[i]  and X\_B[i] are shifted di
 \end{itemize}
 Assume the length of X\_A[i] is N bits, where N= 2$^n$. When X\_A[i] is formed by a pattern whose length is P\_L = 2$^p$ bits, then the domain of Y\_A[i] has P\_L distinct values. There are N/P\_L distinct R\_A[i] values that shift X\_A[i] to a Y\_A[i].  
 
-\subsection{Proof of Theorem 1.2}
+\subsection{Proof of Theorem 1.3}
 If two distinct X blocks result two identical Y block. Assume the shift bits parameter blocks are R\_A[i] and R\_B[i]. Then X\_A[i] can be formed by rotate shifting Y\_A[i] for (N-R\_A[i]) mod N bits. X\_B[i] cna be formed for (N-R\_B[i]) mod N bits.
 X\_B[i] can be formed by rotate shifting X\_A[i] for (R\_A[i] + N-R\_B[i]) mod N bits. Theorem 1.2 proved.
 
 \section{Computation Procedure of Probabilities}
-\subsection{Proof of Theorem 1.3}
+\subsection{Proof of Theorem 1.2}
 For identical each block pair X\_A[i] and X\_B[i], the No. of combination of R\_A[i] and R\_B[i] = N*N, where N is the length a X block. 
 If X\_A[i] is formed by pattern, then Y\_A[i]=Y\_B[i] if $\mid$R\_A[i]-R\_B[i]$\mid$ = P\_L * K, where P\_L is the pattern length and K is a positive integer. 
 Then for two random R\_A[i] and R\_B[i], Pr[Y\_A[i]=Y\_B[i] $\mid$ X\_A[i] = X\_B[i] \& pattern = P\_L](shoft for Pr[Y\_A[i] = Y\_B[i]]) can be expressed in the following way:
