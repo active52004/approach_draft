@@ -3,10 +3,10 @@ clear all;
 clc;
 MaxValue = 256;
 
-dir = '../frequency_results/'
-file1 = [dir,'frequency_3000count.csv'];
-file2 = [dir,'frequency_shift_3000count.csv'];
-file3 = [dir,'frequency_xorNonce_3000count.csv'];
+dir = './tmp/'
+file1 = [dir,'frequency_4original1000.csv'];
+file2 = [dir,'frequency_shift1000.csv'];
+%file3 = [dir,'frequency_xorNonce_3000count.csv'];
 
 S = 21998:22020;
 B_S = dec2bin(S);
@@ -15,7 +15,7 @@ bs1=dec2bin(s_1,16);
 
 M1=csvread(file1);
 M2=csvread(file2);
-M3=csvread(file3);
+%M3=csvread(file3);
 
 M_live = M1;
 least = [];
