@@ -19,6 +19,9 @@ M2=csvread(file2);
 
 M_live = M1;
 least = [];
+least1 = [];
+least2 = [];
+least3 = [];
 
 %find all pattern value in column 1 as x, store in C
 
@@ -31,6 +34,10 @@ C = [];
 for i=D
     for j=B
        C = [C i*256+j+1];
+       k = i*256+j+1;
+       if M_live(k,2)/MaxValue >0 && M_live(k,2)/MaxValue < 0.2
+           least1 = [least1 k-1];
+       end
     end
 end
 M_tmp = M_live(C,2)/MaxValue;
@@ -42,6 +49,10 @@ B = A;
 for i=A
     for j=B
        C = [C i*256+j+1];
+       k = i*256+j+1;
+       if M_live(k,2)/MaxValue >0 && M_live(k,2)/MaxValue < 0.2
+           least2 = [least2 k-1];
+       end
     end
 end
 M_tmp = M_live(C,2)/MaxValue;
@@ -53,30 +64,40 @@ B = setdiff(X,A);
 for i=A
     for j=B
        C = [C i*256+j+1];
+       k = i*256+j+1;
+       if M_live(k,2)/MaxValue >0 && M_live(k,2)/MaxValue < 0.2
+           least3 = [least3 k-1];
+       end
     end
 end
 
 for i=B
     for j=A
        C = [C i*256+j+1];
+       k = i*256+j+1;
+       if M_live(k,2)/MaxValue >0 && M_live(k,2)/MaxValue < 0.2
+           least3 = [least3 k-1];
+       end
     end
 end
 
 for i=X
     for j=X
        k = i*256+j+1;
-       if M_live(k,2)/MaxValue >0 && M_live(k,2)/MaxValue < 0.1
+       if M_live(k,2)/MaxValue >0 && M_live(k,2)/MaxValue < 0.2
            least = [least k-1];
        end
     end
 end
 least = least';
-str = dec2bin(least,16);
+str1 = dec2bin(least1,16);
+str2 = dec2bin(least2,16);
+str3 = dec2bin(least3,16);
 tmp_int = M_live(21845,2)
-M_tmp = M_live(C,2)/MaxValue;
+%M_tmp = M_live(C,2)/MaxValue;
+M_tmp= M_live(C,2);
+%draw the figure
 scatter(C,M_tmp,20,'v','g');
-
-
 legend('Both no-pattern','Both pattern', 'Pattern and no-pattern')
 
 

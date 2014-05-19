@@ -88,14 +88,78 @@ As the security of CETD-MAC is not provided in \cite{}, we do not know the rando
 
 \subsubsection{Weakness of Shuffle Stage}
 % shuffle 1 round, some replayed inputs can lead to X set collision 
-Table $\ref{}$ expresses the binary format of the input value resulting low tag distinction rate(below 0.1). We can see that in the two blocks of any input in the table, there is at most one bit whose value is distinct with others. According to the design of shuffle stage, in each round two blocks will do bit segment swapping to exchange bits. For input message like the instances in Table $\ref{}$, the bit distribution cannot be effectly changed, which means ther is high probability that the output of shuffle stage is identical to or has the same blocks as the input message of CETD-MAC. 
+Under replay attack, the input data M is identical for the verificaiton and
+the replayed data-tag pair from the adversary. The basic requirement of shuffle
+stage is diordering the bits in M and ensure the distinction of the outputs, X
+blocks. If for some specific M, the X block set X1 for the verificaiton is
+identical to the set X2 for the adversary`s data, shuffle stage is assumed lose
+the effect.
 
+%for replay attack, nonce is random, then R is random
+According to the
+original design of CETD-MAC, a segment of nonce is extracted as the control
+parameter to a round of shuffle.  As nonce is the output of block cipher
+encryption, we assume the control parameter random. We denote this segment R[i] where is expressed
+the ith round of shuffle. R[i] is splitted to five bit segment components as R[i] =
+(index1$\|$offset1$\|$index2$\|$offset2$\|$segment length). Index determine
+which two blocks are selected for shuffle and offset determines the beginning
+bit of bit segment. The length of bit segment in block1 and block2 is determined
+by segment length. 
+
+We initialize the analysis of shuffle stage at 1 round shuffle. During the
+replay attack, when the shuffle
+parameters R$_1$[1] and R$_2$[1] is identical, the outputs of shuffle stage X1
+and X2 are identical. If R$_1$[1] and R$_2$[1] are distinct, the equality of X1
+and X2 are determined by the input M, and the two R parameters.
+
+%when R is distinct, index, offset and segmenglength can be distinct.
+Assume the number of blocks in input M is x and the shuffle parameters R$_1$[1]
+and R$_2$[1] are distinct. Due to the randomness of block cipher encryption, the
+bit segment from nonce is assumed to be random and the value distributed
+uniformly. This property lead to the fact that when R$_1$[1]
+and R$_2$[1] are distinct there is at least one component pair is distinct. The
+analysis of the behaviour of one round shuffle is classified with each component
+pair. 
+%what properties should input M contains to form X blocks collision
+\paragraph{When Index Are Distinct}
+Assume the R$_1$[1] and R$_2$[1] are distinct in the index components. If one
+pair of index is identical and the other is distinct, there are three pairs of M
+blocks involved in the one round shuffle, marked as (M$_1$[i], M$_2$[i]),
+(M$_1$[j],M$_2$[j]) and (M$_1$[k],M$_2$[k]).
+
+If both two pairs of index are distinct, there are four pairs involved in the
+one round shuffle, marked as (M$_1$[i], M$_2$[i]),
+(M$_1$[j],M$_2$[j]), (M$_1$[k],M$_2$[k]) and (M$_1$[h],M$_2$[h]).
+
+We can see that if the blocks in a input data M involved in the shuffle has
+common bit segment, there is possibility to form identical X blocks.
+The longer the big segment is, the higher the probability that X collision
+occurs.
+%involve 3 to 4 blocks
+%After swapping,X = M
+\paragraph{When Offset Are Distinct}
+If the R$_1$[1] and R$_2$[1] are distinct in the offset components, there are
+two M block pairs involved, marked as (M$_1$[i], M$_2$[i]),
+(M$_1$[j],M$_2$[j]). 
+%involve 2 blocks
+\paragraph{When Segment Length Are Distinct}
+%two blocks should have common value segment
+If the R$_1$[1] and R$_2$[1] are distinct in the offset components, there are
+two M block pairs involved, marked as (M$_1$[i], M$_2$[i]),
+(M$_1$[j],M$_2$[j]). 
+
+We can see that when the segement-length components is distinct, the X collision
+can be triggered with M blocks with comon bit segment.
+\paragraph{Combination of Cases}
+
+Table $\ref{}$ expresses the binary format of the input value resulting low tag distinction rate(below 0.1). We can see that in the two blocks of any input in the table, there is at most one bit whose value is distinct with others. According to the design of shuffle stage, in each round two blocks will do bit segment swapping to exchange bits. For input message like the instances in Table $\ref{}$, the bit distribution cannot be effectly changed, which means ther is high probability that the output of shuffle stage is identical to or has the same blocks as the input message of CETD-MAC. 
 \begin{itemize}
 	\item If the replayed M can lead to repeated X sets, two blocks in M should have same value bit segment
 	\item The longer common bit segment is , the higher prob of repeated X sets.
 \end{itemize}
 %if Ra = Rb, X1 = X2, but for some input M, X1 can be identical to X2 when Ra != Rb, what bits pattern does such M contain?
 %shuffle round, number of blocks, the type of inputs leading to X collision is hard to summarise
+
 \subsubsection{Weakness of Shifting Stage}
 %if the X set collide, shifting stage can not effectively randomize some replayed X sets
 \paragraph{XOR Operation and Tag Collision}
