@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.29)  19 MAY 2014 21:23
-=======
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  19 MAY 2014 10:57
->>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.29)  20 MAY 2014 00:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -391,18 +387,18 @@ LaTeX Warning: Label `tag_expression' multiply defined.
 )
 \openout1 = `approach_draft.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
  (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count136
@@ -417,15 +413,15 @@ LaTeX Font Info:    ... okay on input line 13.
 \makeMPintoPDFobject=\count141
 \everyMPtoPDFconversion=\toks40
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 18.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 19.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 18.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 19.
 
 
-LaTeX Warning: Reference `CETD-MAC' on page 1 undefined on input line 30.
+LaTeX Warning: Reference `CETD-MAC' on page 1 undefined on input line 31.
 
 Package epstopdf Info: Source file: <./diagrams/CETD.eps>
 (epstopdf)                    date: 2014-05-08 22:11:28
@@ -435,17 +431,17 @@ Package epstopdf Info: Source file: <./diagrams/CETD.eps>
 (epstopdf)                    size: 44999 bytes
 (epstopdf)             Command: <repstopdf --outfile=./diagrams/CETD-eps-conver
 ted-to.pdf ./diagrams/CETD.eps>
-(epstopdf)             \includegraphics on input line 33.
+(epstopdf)             \includegraphics on input line 34.
 Package epstopdf Info: Output file is already uptodate.
 <./diagrams/CETD-eps-converted-to.pdf, id=1, 736.7525pt x 452.69125pt>
 File: ./diagrams/CETD-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./diagrams/CETD-eps-converted-to.pdf>
 Package pdftex.def Info: ./diagrams/CETD-eps-converted-to.pdf used on input lin
-e 33.
+e 34.
 (pdftex.def)             Requested size: 442.05492pt x 271.61684pt.
 
-Overfull \hbox (97.05492pt too wide) in paragraph at lines 33--34
+Overfull \hbox (97.05492pt too wide) in paragraph at lines 34--35
  [][] 
  []
 
@@ -453,17 +449,17 @@ Overfull \hbox (97.05492pt too wide) in paragraph at lines 33--34
 File: ./diagrams/rotate_right.pdf Graphic file (type pdf)
 
 <use ./diagrams/rotate_right.pdf>
-Package pdftex.def Info: ./diagrams/rotate_right.pdf used on input line 40.
+Package pdftex.def Info: ./diagrams/rotate_right.pdf used on input line 41.
 (pdftex.def)             Requested size: 200.74643pt x 160.59715pt.
 
 
-LaTeX Warning: Citation `keylist' on page 1 undefined on input line 44.
+LaTeX Warning: Citation `keylist' on page 1 undefined on input line 45.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./diagrams/CETD-eps-co
 nverted-to.pdf> <./diagrams/rotate_right.pdf>]
-Overfull \hbox (53.33391pt too wide) in paragraph at lines 60--62
+Overfull \hbox (53.33391pt too wide) in paragraph at lines 61--63
 []\OT1/cmr/m/n/10 According to the de-sign of CETD-MAC, the tag can be ex-press
 ed as Y[1]$\OMS/cmsy/m/n/10 ^^H$\OT1/cmr/m/n/10 Y[2]$\OMS/cmsy/m/n/10 ^^H$$[]$$
 ^^H$\OT1/cmr/m/n/10 Y[x],
@@ -471,136 +467,66 @@ ed as Y[1]$\OMS/cmsy/m/n/10 ^^H$\OT1/cmr/m/n/10 Y[2]$\OMS/cmsy/m/n/10 ^^H$$[]$$
 
 [3]
 
-LaTeX Warning: Reference `' on page 4 undefined on input line 87.
+LaTeX Warning: Reference `' on page 4 undefined on input line 90.
 
 
-LaTeX Warning: Reference `' on page 4 undefined on input line 87.
-
-
-<<<<<<< HEAD
-LaTeX Warning: Reference `' on page 4 undefined on input line 91.
-
-
-LaTeX Warning: Reference `' on page 4 undefined on input line 91.
-=======
-LaTeX Warning: Reference `' on page 4 undefined on input line 96.
-
-
-LaTeX Warning: Reference `' on page 4 undefined on input line 96.
->>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
+LaTeX Warning: Reference `' on page 4 undefined on input line 90.
 
 [4]
 
-LaTeX Warning: Reference `tag_collision_exp' on page 5 undefined on input line 
-<<<<<<< HEAD
-107.
-=======
-112.
->>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
+LaTeX Warning: Reference `' on page 5 undefined on input line 160.
 
-<./diagrams/r_s_2bits.pdf, id=37, 553.06625pt x 306.14375pt>
+
+LaTeX Warning: Reference `' on page 5 undefined on input line 160.
+
+[5]
+
+LaTeX Warning: Reference `tag_collision_exp' on page 6 undefined on input line 
+176.
+
+<./diagrams/r_s_2bits.pdf, id=40, 553.06625pt x 306.14375pt>
 File: ./diagrams/r_s_2bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_s_2bits.pdf>
-<<<<<<< HEAD
-Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 138.
-=======
-Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 143.
->>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
+Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 207.
 (pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
 
-<./diagrams/r_s_6bits.pdf, id=38, 553.06625pt x 306.14375pt>
+<./diagrams/r_s_6bits.pdf, id=41, 553.06625pt x 306.14375pt>
 File: ./diagrams/r_s_6bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_s_6bits.pdf>
-<<<<<<< HEAD
-Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 138.
-=======
-Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 143.
->>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
+Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 207.
 (pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
 
-<./diagrams/r_d_4bits.pdf, id=39, 562.1pt x 306.14375pt>
+<./diagrams/r_d_4bits.pdf, id=42, 562.1pt x 306.14375pt>
 File: ./diagrams/r_d_4bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_d_4bits.pdf>
-<<<<<<< HEAD
-Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 144.
-=======
-Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 149.
->>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
+Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 213.
 (pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
 
-<./diagrams/r_d_2bits.pdf, id=40, 562.1pt x 306.14375pt>
+<./diagrams/r_d_2bits.pdf, id=43, 562.1pt x 306.14375pt>
 File: ./diagrams/r_d_2bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_d_2bits.pdf>
-<<<<<<< HEAD
-Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 144.
+Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 213.
 (pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
 
 
-LaTeX Warning: Reference `Y-blk-collision' on page 5 undefined on input line 14
-8.
-=======
-Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 149.
-(pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
+LaTeX Warning: Reference `Y-blk-collision' on page 6 undefined on input line 21
+7.
 
-
-LaTeX Warning: Reference `Y-blk-collision' on page 5 undefined on input line 15
-3.
->>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
-
-[5] [6 <./diagrams/r_s_2bits.pdf> <./diagrams/r_s_6bits.pdf> <./diagrams/r_d_4b
+[6] [7 <./diagrams/r_s_2bits.pdf> <./diagrams/r_s_6bits.pdf> <./diagrams/r_d_4b
 its.pdf> <./diagrams/r_d_2bits.pdf>]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-<<<<<<< HEAD
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 204.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 273.
 
-Overfull \hbox (21.95909pt too wide) in paragraph at lines 211--214
-=======
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 208.
-
-Overfull \hbox (21.95909pt too wide) in paragraph at lines 215--218
->>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
+Overfull \hbox (21.95909pt too wide) in paragraph at lines 280--283
 \OT1/cmr/bx/n/10 Theorem 1.5. \OT1/cmr/m/it/10 Let X$[]$[i] and X$[]$[j] be two
  dis-tinct block and len(X$[]$[i])=len(X$[]$[j])=N,
  []
 
-<<<<<<< HEAD
-[7] [8] [9] [10] [11]
-=======
-[7] [8] <./diagrams/y_single_equality.pdf, id=165, 469.755pt x 170.6375pt>
-File: ./diagrams/y_single_equality.pdf Graphic file (type pdf)
-
-<use ./diagrams/y_single_equality.pdf>
-Package pdftex.def Info: ./diagrams/y_single_equality.pdf used on input line 28
-3.
-(pdftex.def)             Requested size: 172.5pt x 62.6584pt.
-
-<./diagrams/y_set_equality.pdf, id=166, 469.755pt x 180.675pt>
-File: ./diagrams/y_set_equality.pdf Graphic file (type pdf)
-
-<use ./diagrams/y_set_equality.pdf>
-Package pdftex.def Info: ./diagrams/y_set_equality.pdf used on input line 288.
-(pdftex.def)             Requested size: 172.5pt x 66.34418pt.
-
-<./diagrams/y_both_single.pdf, id=167, 469.755pt x 170.6375pt>
-File: ./diagrams/y_both_single.pdf Graphic file (type pdf)
-
-<use ./diagrams/y_both_single.pdf>
-Package pdftex.def Info: ./diagrams/y_both_single.pdf used on input line 298.
-(pdftex.def)             Requested size: 172.5pt x 62.6584pt.
-
-<./diagrams/y_both_set.pdf, id=168, 469.755pt x 186.6975pt>
-File: ./diagrams/y_both_set.pdf Graphic file (type pdf)
-
-<use ./diagrams/y_both_set.pdf>
-Package pdftex.def Info: ./diagrams/y_both_set.pdf used on input line 303.
-(pdftex.def)             Requested size: 172.5pt x 68.55566pt.
- [9] [10 <./diagrams/y_single_equality.pdf> <./diagrams/y_set_equality.pdf> <./
-diagrams/y_both_single.pdf> <./diagrams/y_both_set.pdf>] [11] [12] [13]
->>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
+[8] [9] [10] [11] [12] [13]
 
 Package glossaries Warning: \makeglossaries hasn't been used,
 the glossaries will not be updated.
@@ -609,7 +535,7 @@ the glossaries will not be updated.
 Package glossaries Warning: No \printglossary or \printglossaries found.
 This document will not have a glossary.
 
-[12] (./approach_draft.aux)
+[14] (./approach_draft.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -618,55 +544,32 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 6091 strings out of 495028
- 87095 string characters out of 6181497
- 196219 words of memory out of 5000000
- 9164 multiletter control sequences out of 15000+600000
- 7574 words of font info for 27 fonts, out of 8000000 for 9000
+ 6109 strings out of 495028
+ 87288 string characters out of 6181497
+ 196228 words of memory out of 5000000
+ 9175 multiletter control sequences out of 15000+600000
+ 10387 words of font info for 37 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  46i,9n,36p,1720b,363s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on approach_draft.pdf (12 pages, 321185 bytes).
-=======
- 4590 strings out of 493488
- 65269 string characters out of 3141326
- 144736 words of memory out of 3000000
- 7812 multiletter control sequences out of 15000+200000
- 7574 words of font info for 27 fonts, out of 3000000 for 9000
- 957 hyphenation exceptions out of 8191
- 42i,9n,36p,1455b,361s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></us
-r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
-local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local
-/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
-xlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
-ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
-e/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/
-2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/20
-12/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on approach_draft.pdf (14 pages, 356768 bytes).
->>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on approach_draft.pdf (14 pages, 344704 bytes).
 PDF statistics:
- 222 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
+ 237 PDF objects out of 1000 (max. 8388607)
+ 170 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

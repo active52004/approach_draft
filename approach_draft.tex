@@ -10,6 +10,7 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{defination}{Definition}[section]
 \newtheorem{proposition}{Proposition}[section]
+%\begin{document}
 \begin{document}
 \section{Approach}
 In this article, we name the MAC scheme adopted in Cost-Effective Tag Design\cite{} CETD-MAC. 
@@ -156,11 +157,11 @@ We can see that when the segement-length components is distinct, the X collision
 can be triggered with M blocks with comon bit segment.
 \paragraph{Combination of Cases}
 
-Table $\ref{}$ expresses the binary format of the input value resulting low tag distinction rate(below 0.1). We can see that in the two blocks of any input in the table, there is at most one bit whose value is distinct with others. According to the design of shuffle stage, in each round two blocks will do bit segment swapping to exchange bits. For input message like the instances in Table $\ref{}$, the bit distribution cannot be effectly changed, which means ther is high probability that the output of shuffle stage is identical to or has the same blocks as the input message of CETD-MAC. 
-\begin{itemize}
-	\item If the replayed M can lead to repeated X sets, two blocks in M should have same value bit segment
-	\item The longer common bit segment is , the higher prob of repeated X sets.
-\end{itemize}
+%Table $\ref{}$ expresses the binary format of the input value resulting low tag distinction rate(below 0.1). We can see that in the two blocks of any input in the table, there is at most one bit whose value is distinct with others. According to the design of shuffle stage, in each round two blocks will do bit segment swapping to exchange bits. For input message like the instances in Table $\ref{}$, the bit distribution cannot be effectly changed, which means ther is high probability that the output of shuffle stage is identical to or has the same blocks as the input message of CETD-MAC. 
+%\begin{itemize}
+%	\item If the replayed M can lead to repeated X sets, two blocks in M should have same value bit segment
+%	\item The longer common bit segment is , the higher prob of repeated X sets.
+%\end{itemize}
 %if Ra = Rb, X1 = X2, but for some input M, X1 can be identical to X2 when Ra != Rb, what bits pattern does such M contain?
 %shuffle round, number of blocks, the type of inputs leading to X collision is hard to summarise
 
@@ -217,6 +218,7 @@ Figure $\ref{Y-blk-collision}$ gives the examples of the outputs from shifting
 stage that lead tag collision. There are two types of repeated X sets leading to
 high probability of tag collision, denoted as sequence-level pattern and
 set-level pattern.
+
 \paragraph{The Sequence-level Pattern Collision}
 Firstly, we treat blocks as a block sequences, which means in a block sequence, each block has a unique index. The definition of block sequence equality is expressed below:
 \begin{defination}
@@ -230,6 +232,7 @@ Assume the shuffle stage does not work, then the following fact exist:
 
 In block-level rotate shifting stage, a segment from nonce, marked as S, is adopted as the parameter of shifting bits. S is a concatenation of sub-blocks and is denoted as S=(S[1]$\|$S[2]$\ldots$S[x]), where x is the number of blocks in X sequence. The value of S[i] the bits shifted for X[i] block.
 For two identical blocks X$_1$[i] and X$_2$[i], the output blocks Y$_1$[i] and Y$_2$[i] are identical if S$_1$[i] is identical to S$_2$[i]. We found that Y$_1$[i] and Y$_2$[i] still have probability to be identical if X$_1$[i] is formed by a repeated short bit segment named pattern. This property is depicted in Proposition 1.1:
+%theorem, pattern lead to collision
 \begin{theorem}
 Let X$_1$[i] and X$_2$[i] be two identical block and len(X$_1$[i])=N, N=2$^n$. Let S$_1$[i] and S$_2$[i] be two distinct shifting bit parameters for X$_1$[i] and X$_2$[i].
 Then Y$_1$[i] and Y$_2$[i] can be identical only when X$_1$[i] is formed by repeating a binary bit segment named pattern and marked as P. The length of P len(P) has the following format:
@@ -238,10 +241,12 @@ Then Y$_1$[i] and Y$_2$[i] can be identical only when X$_1$[i] is formed by repe
 \end{theorem}
 Base on Theorem $\ref{sequence-pattern}$, we got the following corollaries:
 \begin{corollary}
+%number of distinct patterns
 If a pattern P is not formed by a sub-pattern with shorter length, we call P a distinct pattern with length P\_L. The No. of distinct patterns with length P\_L=2$^p$ is 2$^{2^p}$-2$^{2^{p-1}}$
 \label{distinct-pattern}
 \end{corollary}
 \begin{corollary}
+%total number of patterns
 Assume the length of a pattern-forming X block is N=2$^n$, then the No. of all possible distinct patterns is 2$^{N/2}$
 \label{pattern-no}
 \end{corollary}
@@ -251,6 +256,7 @@ When the adversary conducts the replay attack on the data concatenated by patter
 \paragraph{The Probability of Tag Collision Under Sequence Pattern Attack}
 For two identical X blocks X\_A[i] and X\_B[i], the probability that Y\_A[i]=Y\_B[i] when R\_A[i] and R\_B[i] are randomly generated is marked as  Pr[Y block collision]. 
 Pr[Y block collision] is expressed in Theorem $\ref{sequence-prob}$:
+%theorem, prob of collide Y from pattern X
 \begin{theorem}
 Assume for two identical blocks X$_1$[i] and X$_2$[i] the length is N=2$^n$, and the pattern length P$_l$=2$^p$ where p$\in$[0,n-1]. If the pattern contains no internal sub-pattern, then :
 \begin{equation}
@@ -264,7 +270,7 @@ $$Pr[Y$_1$[i]=Y$_2$[i]] = 1/2$^p$$$
 \end{theorem}
 
 \paragraph{The Set-level Pattern Collision}
-%
+%X blocks are from same base
 Secondly we treat blocks as a set allowing the existence of identical elements. We give the definition of block set equality below:
 \begin{defination}
 Set Equality: Two block sets X1 and X2 are identical in set-level if the following properties are met:
@@ -275,6 +281,7 @@ Set Equality: Two block sets X1 and X2 are identical in set-level if the followi
 \end{defination}
 
 When none of block in a X block sequence is formed by repeated pattern, it is impossible to make two Y sequences with block sequence equality by using two distinct s sequences. This assertion can be proved based on the proof of Proposition 1.1. However, we found that it is possible to form two Y sets with block set equality by using two distinct s sequences. The set-level identical Y sets can lead to tag collision directly. This attack is expressed in Theorem $\ref{set-pattern}$:
+%theorem, if x blocks are from same base, Y blocks can collide
 \begin{theorem}
 Let X$_1$[i] and X$_2$[j] be two distinct block and len(X$_1$[i])=len(X$_2$[j])=N, N=2$^n$. Let S$_1$[i] and S$_2$[j] be two distinct blocks of shifting bit parameters for X$_1$[i] and X$_2$[j].
 Then Y$_1$[i] and Y$_2$[j] can be identical if and only if X$_1$[i] can be formed by rotate shifting X$_2$[j].
@@ -282,27 +289,21 @@ Then Y$_1$[i] and Y$_2$[j] can be identical if and only if X$_1$[i] can be forme
 \end{theorem}
 Based on Theorem $\ref{set-pattern}$, we got the following corollary:
 \begin{corollary}
-For the rotate shifting stage, when the distinct input blocks X$_1$[i] and X$_2$[j] have the property that X$_1$[i] can be formed by rotate shifting X$_2$[j],and the shifting bits parameter S$_1$[i] and S$_2$[j] are distinct, the probability that the output blocks Y$_1$[i] and Y$_2$[j] are identical is Pr[Y$_1$[i]=Y$_2$[j]]=
+For the rotate shifting stage, when the distinct input blocks X$_1$[i] and X$_2$[j] have the property that X$_1$[i] can be formed by rotate shifting X$_2$[j],and the shifting bits parameter S$_1$[i] and S$_2$[j] are distinct, the probability that the output blocks Y$_1$[i] and Y$_2$[j] are identical is:
+\begin{equation}
+$$Pr[Y$_1$[i]=Y$_2$[j]]= 1/n$$
+\end{equation}
 \label{set-pattern-cor}
 \end{corollary}
-<<<<<<< HEAD
-When the adversary conducts replay attack on the memory frame whose data part is concatenated by blocks that are formated by shifting a common base block, then each element in X1 sequence can be formed by rotate shifting another element and the probability of forming identical Y sets is high, which will lead to tag collision.
-=======
  When the adversary conducts replay attack on the memory frame whose data part
 is concatenated by blocks that are formated by shifting a common base block,
-then each element in X1 sequence can be formed by rotate shifting another
+each element in X1 sequence can be formed by rotate shifting another
 element and the probability of forming identical Y sets is high, which will lead
 to tag collision. This fact is obvious if the shuffle stage cannot change the
 content of input data M.
->>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
 
 \paragraph{The Probability of Tag Collision Under Set Pattern Attack}
-Assume two identical sets X\_A and X\_B satisfy the following properties:
-\begin{itemize}
-	\item Each element can be formed by rotate shifting any other element in the set
-	\item None of the elements is formed by pattern.
-\end{itemize}
-As each element in the X set can be formed by rotate shifting a base block, we call such X set Same Base Block(SBB) X sets, short for SBB X sets. If none of the element is formed by a pattern ,we call such X set SBB only sets.
+Assume X1 and X2 are identical in sequence level and each block in X1 can be formed by rotate shifting another block in X1.
 From Corollary $\ref{set-pattern-cor}$ we know that for a block that is N bits long, the No. of possible values that is formed by a pattern is 2$^{N/2}$, which also means the No. of distinct values that is not formed by a pattern is 2$^{N/2}$. Assume D\_A and D\_B are randomly generated, the probability of generating SBB only D set is expressed:
 \begin{defination}
 Pr[ SBB only D(X)] =
@@ -317,13 +318,18 @@ Pr[CIE Y Sets] = $$\prod_{i=1,j=1}^M Pr[Y\_A[i] = Y\_B[j]]$$ where M is the No. 
 \end{defination} 
 
 For two randomly generated R\_A and R\_B, the probability that Y\_A and Y\_B are CIE when X\_A and X\_B are SBB only is expressed in the following theorem:
+%theorem, prob of set-level equal Y if X are same base blocks
 \begin{theorem}
 Assume X\_A and X\_B are SBB only, R\_A and R\_B are randomly generated,then:
+\begin{equation}
+	 Pr[Same base X sets leads to set-level equal Y sets] $$$\geq$($\sum_{K=1}^{min(N,x)}$ (P$_n^k$ * 1/2 * S(x,k)$^2$))/(N$^{2x}$)$$  
+\end{equation}
+S(x,k) is the Stirling Number with x and k as inputs.
 
-Pr[CIE Y Sets]:
-\begin{displaymath}
-(\sum_{K=1}^{min(N,M)} \binom{N}{K} * (M!/v1!v2!v3! \cdots vk!) ^ 2 )/(N^M)^2
-\end{displaymath}
+%Pr[CIE Y Sets]:
+%\begin{displaymath}
+%(\sum_{K=1}^{min(N,M)} \binom{N}{K} * (M!/v1!v2!v3! \cdots vk!) ^ 2 )/(N^M)^2
+%\end{displaymath}
 \label{set-prob}
 \end{theorem}
 
@@ -397,7 +403,7 @@ Using only shuffle and shift with random nonce, is it possible to ensure the ran
 
 \appendix
 \section{Proof of Assertions}
-\subsection{Proof of Theorem 1.1}
+\subsection{Proof of Theorem $\ref{sequence-pattern}$}
 This part proves that if two identical block X\_A[i]  and X\_B[i] are shifted different bits and the result blocks remain identical, X\_A[i] is formed by pattern. The pattern length and $\delta$=$\mid$R\_A[i]-R\_B[i] $\mid$ has such correlation:
 \begin{itemize}
 	\item If $\Delta$ = P\_L then Y\_A[i] = Y\_B[i] where P\_L the length of pattern
@@ -484,7 +490,45 @@ Pr[SLE Y Sets]:
 (\sum_{K=1}^{min(P\_L,M)} \binom{P\_L}{K} * (M!/v1!v2!v3! \cdots vk!) ^ 2 )/(P\_L^M)^2
 \end{displaymath}
 \end{defination}
+\subsection{Proof of Theorem $\ref{set-prob}$}
+As the input sets of rotate shifting stage, X1 and X2, contain the following properties:
+\begin{itemize}
+	\item X1 and X2 are identical in sequence level
+	\item Each block in X1 can be formed by rotate shifint another block in X1 for several bits
+\end{itemize}
+After the shifting stage, the number of distinct block value in Y1 set, denoted as k, fall in the domain [1,min[N,x]]. For each k, Y1 and Y2 set are identical in set level if the following properties are met:
+\begin{itemize}
+	\item Y2 blocks have k distinct values 
+	\item Assume the k distinct values in Y1 is formed as: value1 has v1 blocks, value2 has v2 blocks, $\ldots$, valuek has vk block and $\sum_{i=1}^k$ vi =x. Then the distribution of k values amount x blocks in Y2 set is same as the distribution in Y1 sets. 
+\end{itemize}
+For example, assume there is 2 distinct values among 4 blocks in Y1 set, then there are two types of distribution of blocks can be (1,3) or (2,2). For type (1,3) there is four different ways to distribute 4 blocks and for type (2,2) there is three ways.  The number of ways to distribute 2 values to 4 blocks is 4+3=7. If the distribution in Y1 is (1,3), then Y2 set is identical to Y1 set if the distribution of blocks in Y2 is (1,3). 
+When there are k distinct values among x blocks, the number of ways to distribute k values to x blocks is know as Stirling Number of Second Type, marked as S(x,k). Assume there are k\_x types of distribution and the number of ways to distribute k values for each distribution type is denoted as V$_1$,V$_2$,$\ldots$,V$_{k\_x}$. Then $\sum_{i=1}^{k\_x}$ V$_i$ = S(x,k)    
 
+For each type of Y1 blocks distribution whose distribution ways number is V$_i$, the number of Y2 sets that are identical to Y1 is V$_i$. Then for each type of distribution, the probability that Y1 and Y2 set are identical in set level can be expressed as:
+\begin{equation}
+	$$V$_i^2$/(N$^x$)$^2$$$
+\end{equation}
+Then the probability that if there are k distinct values in Y1 set Y1 and Y2 are identical in set level can be expressed as:
+\begin{equation}
+	$$P$_N^k$*$\sum_{i=1}^{k\_x}$V$_i^2$/(N$^x$)$^2$$$
+\label{k-set-equ-prob}
+\end{equation}
+As S(x,k) = $\sum_{i=1}^{k\_x}$V$_i$, $\sum_{i=1}^{k\_x}$V$_i^2$ is no less than 1/2 *  S(x,k)$^2$. Then the following inequation stands:
+\begin{equation}
+	$$P$_N^k$*$\sum_{i=1}^{k\_x}$V$_i^2$/(N$^x$)$^2$ $\geq$ P$_N^k$* 1/2*S(x,k)$^2$/(N$^x$)$^2$$$
+\end{equation}
+As the domain of k is [1,min(x,N)], then: 
+\begin{equation}
+$$Pr[Y1 = Y2 $\mid$ S1 and S2 are random] = ($\sum_{k=1}^{min(x,N)}$ (P$_N^k$* 1/2* S(x,k)$^2$))/(N$^x$)$^2$$$
+\end{equation}
+Theorem $\ref{set-prob}$ is proved.
+
+
+
+%\begin{equation}
+%	 Pr[Same base X sets leads to set-level equal Y sets] $$$\geq$($\sum_{K=1}^{min(N,x)}$ (P$_n^k$ * 1/2 * S(x,k)$^2$))/(N$^{2x}$)$$  
+%\end{equation}
+%S(x,k) is the Stirling Number with x and k as inputs.
 
 
 \end{document}
