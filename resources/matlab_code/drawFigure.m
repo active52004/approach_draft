@@ -17,7 +17,7 @@ M1=csvread(file1);
 M2=csvread(file2);
 %M3=csvread(file3);
 
-M_live = M1;
+M_live = M2;
 least = [];
 least1 = [];
 least2 = [];
@@ -41,7 +41,10 @@ for i=D
     end
 end
 M_tmp = M_live(C,2)/MaxValue;
+%M_tmp = 1./M_live(C,2);
 scatter(C,M_tmp,20,'o','b');
+%}
+
 %Both pattern
 hold on
 C=[];
@@ -56,7 +59,9 @@ for i=A
     end
 end
 M_tmp = M_live(C,2)/MaxValue;
+%M_tmp = 1./M_live(C,2);
 scatter(C,M_tmp,20,'fill','r');
+
 %pattern and no-pattern
 hold on
 C=[];
@@ -89,16 +94,19 @@ for i=X
        end
     end
 end
+M_tmp = M_live(C,2)/MaxValue;
+%M_tmp= 1./M_live(C,2);
+%draw the figure
+scatter(C,M_tmp,20,'v','g');
+legend('Both no-pattern','Both pattern', 'Pattern and no-pattern')
+
+
+
 least = least';
 str1 = dec2bin(least1,16);
 str2 = dec2bin(least2,16);
 str3 = dec2bin(least3,16);
 tmp_int = M_live(21845,2)
-%M_tmp = M_live(C,2)/MaxValue;
-M_tmp= M_live(C,2);
-%draw the figure
-scatter(C,M_tmp,20,'v','g');
-legend('Both no-pattern','Both pattern', 'Pattern and no-pattern')
 
 
 set (gcf,'Position',[400,100,1000,400]);
