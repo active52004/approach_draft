@@ -178,7 +178,7 @@ Assume the length of a pattern-forming X block is N=2$^n$, then the No. of all p
 \label{pattern-no}
 \end{corollary}
 
-From Corollary 1.3 we can see that when the adversary conducts the replay attack on the data concatenated by pattern-formed blocks, the probability that Y block collision is high when shuffle stage does not work. The proof of Theorem $\ref{sequence-pattern}$, Corollary $\ref{distinct-pattern}$ and $\ref{pattern-no}$ is expressed in the appendix. 
+When the adversary conducts the replay attack on the data concatenated by pattern-formed blocks, the probability that Y block collision is high when shuffle stage does not work. The proof of Theorem $\ref{sequence-pattern}$, Corollary $\ref{distinct-pattern}$ and $\ref{pattern-no}$ is expressed in the appendix. 
 
 \paragraph{The Probability of Tag Collision Under Sequence Pattern Attack}
 For two identical X blocks X\_A[i] and X\_B[i], the probability that Y\_A[i]=Y\_B[i] when R\_A[i] and R\_B[i] are randomly generated is marked as  Pr[Y block collision]. 
@@ -188,14 +188,15 @@ Assume for two identical blocks X$_1$[i] and X$_2$[i] the length is N=2$^n$, and
 \begin{equation}
 $$Pr[Y$_1$[i]=Y$_2$[i]] = 1/2$^p$$$
 \end{equation}
-If the pattern length in X[i] is identical for any i$\in$[1,x] where x is the number of blocks in X sequence, then:
-\begin{equation}
-$$Pr[Y$_1$[i]=Y$_2$[i]] = (1/2$^p$)$^x$$$
-\end{equation}
+%If the pattern length in X[i] is identical for any i$\in$[1,x] where x is the number of blocks in X sequence, then:
+%\begin{equation}
+%$$Pr[Y$_1$[i]=Y$_2$[i]] = (1/2$^p$)$^x$$$
+%\end{equation}
 \label{sequence-prob}
 \end{theorem}
 
 \paragraph{The Set-level Pattern Collision}
+%
 Secondly we treat blocks as a set allowing the existence of identical elements. We give the definition of block set equality below:
 \begin{defination}
 Set Equality: Two block sets X1 and X2 are identical in set-level if the following properties are met:
@@ -205,17 +206,18 @@ Set Equality: Two block sets X1 and X2 are identical in set-level if the followi
 \end{itemize}
 \end{defination}
 
-When none of block in a X block sequence is formed by repeated pattern, it is impossible to make two Y sequences with block sequence equality by using two distinct s sequences. This assertion can be proved based on the proof of Proposition 1.1. However, we found that it is possible to form two Y sets with block set equality by using two distinct s sequences. The set-level identical Y sets can lead to tag collision directly. This attack is expressed in Proposition 1.2:
+When none of block in a X block sequence is formed by repeated pattern, it is impossible to make two Y sequences with block sequence equality by using two distinct s sequences. This assertion can be proved based on the proof of Proposition 1.1. However, we found that it is possible to form two Y sets with block set equality by using two distinct s sequences. The set-level identical Y sets can lead to tag collision directly. This attack is expressed in Theorem $\ref{set-pattern}$:
 \begin{theorem}
 Let X$_1$[i] and X$_2$[j] be two distinct block and len(X$_1$[i])=len(X$_2$[j])=N, N=2$^n$. Let S$_1$[i] and S$_2$[j] be two distinct blocks of shifting bit parameters for X$_1$[i] and X$_2$[j].
 Then Y$_1$[i] and Y$_2$[j] can be identical if and only if X$_1$[i] can be formed by rotate shifting X$_2$[j].
 \label{set-pattern}
 \end{theorem}
-Based on Theorem 1.3, we got the following corollary:
+Based on Theorem $\ref{set-pattern}$, we got the following corollary:
 \begin{corollary}
 For the rotate shifting stage, when the distinct input blocks X$_1$[i] and X$_2$[j] have the property that X$_1$[i] can be formed by rotate shifting X$_2$[j],and the shifting bits parameter S$_1$[i] and S$_2$[j] are distinct, the probability that the output blocks Y$_1$[i] and Y$_2$[j] are identical is Pr[Y$_1$[i]=Y$_2$[j]]=
+\label{set-pattern-cor}
 \end{corollary}
-Assume the shuffle stage does not work. When the adversary conducts replay attack on the memory frame whose data part is concatenated by blocks that are formated by shifting a common base block, then each element in X1 sequence can be formed by rotate shifting another element and the probability of forming identical Y sets is high, which will lead to tag collision.
+When the adversary conducts replay attack on the memory frame whose data part is concatenated by blocks that are formated by shifting a common base block, then each element in X1 sequence can be formed by rotate shifting another element and the probability of forming identical Y sets is high, which will lead to tag collision.
 
 \paragraph{The Probability of Tag Collision Under Set Pattern Attack}
 Assume two identical sets X\_A and X\_B satisfy the following properties:
@@ -224,8 +226,7 @@ Assume two identical sets X\_A and X\_B satisfy the following properties:
 	\item None of the elements is formed by pattern.
 \end{itemize}
 As each element in the X set can be formed by rotate shifting a base block, we call such X set Same Base Block(SBB) X sets, short for SBB X sets. If none of the element is formed by a pattern ,we call such X set SBB only sets.
-
-From Corollary 1.3 we know that for a block that is N bits long, the No. of possible values that is formed by a pattern is 2$^{N/2}$, which also means the No. of distinct values that is not formed by a pattern is 2$^{N/2}$. Assume D\_A and D\_B are randomly generated, the probability of generating SBB only D set is expressed:
+From Corollary $\ref{set-pattern-cor}$ we know that for a block that is N bits long, the No. of possible values that is formed by a pattern is 2$^{N/2}$, which also means the No. of distinct values that is not formed by a pattern is 2$^{N/2}$. Assume D\_A and D\_B are randomly generated, the probability of generating SBB only D set is expressed:
 \begin{defination}
 Pr[ SBB only D(X)] =
 \begin{equation}
@@ -269,44 +270,44 @@ Pr[SLE Y Sets]=
 \end{theorem}
 The proof of theorems is expressed in the appendix.
 
-\paragraph{The Behaviour of X Blocks from Shuffling Stage}
-\begin{figure}
-\centering
-\subfigure[Only Single Block Equality]{
- \label{fig:y_single_e} %% label for first subfigure
-\includegraphics[width=.5\textwidth]{./diagrams/y_single_equality.pdf}
-}
-%\hspace{1in}
-\subfigure[Only Set Level Equality]{
-\label{fig:y_set_e} %% label for second subfigure
-\includegraphics[width=.5\textwidth]{./diagrams/y_set_equality.pdf}
-}
-\caption{X Set Pairs with Only One Type of Y Equality}
- \label{fig:y_e_single} %% label for entire figure
-\end{figure}
-
-\begin{figure}
-\centering
-\subfigure[Single Block Equality Case]{
- \label{fig:y_both_single} %% label for first subfigure
-\includegraphics[width=.5\textwidth]{./diagrams/y_both_single.pdf}
-}
-%\hspace{1in}
-\subfigure[Set Level Equality Case]{
-\label{fig:y_both_set} %% label for second subfigure
-\includegraphics[width=.5\textwidth]{./diagrams/y_both_set.pdf}
-}
-\caption{A X Set Pair with Two Types of Y Equality}
- \label{fig:y_both} %% label for entire figure
-\end{figure}
-In each round of Shuffle stage, two blocks from the output of previous round of shuffle are randomly selected then operate bit segments swapping, which will effect the distribution of bits in the two blocks. After the shuffle stage, the output, X blocks, can be classified to four categories:
-\begin{enumerate}
-	\item Formed by repeated patterns
-	\item Formed by rotate shifting another block in this category
-	\item Contains the properties from categories 1 and 2
-	\item No properties from categories 1 or 2
-\end{enumerate}
-Assume the block cipher used in nonce generation performances like PRF, the number of blocks in each category is effected by the input message M and the rounds of shuffle stage.  
+%\paragraph{The Behaviour of X Blocks from Shuffling Stage}
+%\begin{figure}
+%\centering
+%\subfigure[Only Single Block Equality]{
+% \label{fig:y_single_e} %% label for first subfigure
+%\includegraphics[width=.5\textwidth]{./diagrams/y_single_equality.pdf}
+%}
+%%\hspace{1in}
+%\subfigure[Only Set Level Equality]{
+%\label{fig:y_set_e} %% label for second subfigure
+%\includegraphics[width=.5\textwidth]{./diagrams/y_set_equality.pdf}
+%}
+%\caption{X Set Pairs with Only One Type of Y Equality}
+% \label{fig:y_e_single} %% label for entire figure
+%\end{figure}
+%
+%\begin{figure}
+%\centering
+%\subfigure[Single Block Equality Case]{
+% \label{fig:y_both_single} %% label for first subfigure
+%\includegraphics[width=.5\textwidth]{./diagrams/y_both_single.pdf}
+%}
+%%\hspace{1in}
+%\subfigure[Set Level Equality Case]{
+%\label{fig:y_both_set} %% label for second subfigure
+%\includegraphics[width=.5\textwidth]{./diagrams/y_both_set.pdf}
+%}
+%\caption{A X Set Pair with Two Types of Y Equality}
+% \label{fig:y_both} %% label for entire figure
+%\end{figure}
+%In each round of Shuffle stage, two blocks from the output of previous round of shuffle are randomly selected then operate bit segments swapping, which will effect the distribution of bits in the two blocks. After the shuffle stage, the output, X blocks, can be classified to four categories:
+%\begin{enumerate}
+%	\item Formed by repeated patterns
+%	\item Formed by rotate shifting another block in this category
+%	\item Contains the properties from categories 1 and 2
+%	\item No properties from categories 1 or 2
+%\end{enumerate}
+%Assume the block cipher used in nonce generation performances like PRF, the number of blocks in each category is effected by the input message M and the rounds of shuffle stage.  
 
 \subsection{Security Enhanced CETD-MAC}
 In this section we provide an modification of original CETD-MAC. Our approach does not require additional component or information to the original CETD-MAC. We then prove that the optimized CETD-MAC can fix the weakness and protect input message from replay attack.
@@ -316,6 +317,7 @@ As depicted above, if a input message is consisted of blocks formed with a type 
 Using only shuffle and shift with random nonce, is it possible to ensure the range of tag to 2$^n$? If not, why?
 
 \section{Experiments and Results}
+
 \appendix
 \section{Proof of Assertions}
 \subsection{Proof of Theorem 1.1}
