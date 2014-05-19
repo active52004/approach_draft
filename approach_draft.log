@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.29)  19 MAY 2014 21:23
+=======
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  19 MAY 2014 10:57
+>>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -473,59 +477,130 @@ LaTeX Warning: Reference `' on page 4 undefined on input line 87.
 LaTeX Warning: Reference `' on page 4 undefined on input line 87.
 
 
+<<<<<<< HEAD
 LaTeX Warning: Reference `' on page 4 undefined on input line 91.
 
 
 LaTeX Warning: Reference `' on page 4 undefined on input line 91.
+=======
+LaTeX Warning: Reference `' on page 4 undefined on input line 96.
+
+
+LaTeX Warning: Reference `' on page 4 undefined on input line 96.
+>>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
 
 [4]
 
 LaTeX Warning: Reference `tag_collision_exp' on page 5 undefined on input line 
+<<<<<<< HEAD
 107.
+=======
+112.
+>>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
 
 <./diagrams/r_s_2bits.pdf, id=37, 553.06625pt x 306.14375pt>
 File: ./diagrams/r_s_2bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_s_2bits.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 138.
+=======
+Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 143.
+>>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
 (pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
 
 <./diagrams/r_s_6bits.pdf, id=38, 553.06625pt x 306.14375pt>
 File: ./diagrams/r_s_6bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_s_6bits.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 138.
+=======
+Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 143.
+>>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
 (pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
 
 <./diagrams/r_d_4bits.pdf, id=39, 562.1pt x 306.14375pt>
 File: ./diagrams/r_d_4bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_d_4bits.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 144.
+=======
+Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 149.
+>>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
 (pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
 
 <./diagrams/r_d_2bits.pdf, id=40, 562.1pt x 306.14375pt>
 File: ./diagrams/r_d_2bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_d_2bits.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 144.
 (pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
 
 
 LaTeX Warning: Reference `Y-blk-collision' on page 5 undefined on input line 14
 8.
+=======
+Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 149.
+(pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
+
+
+LaTeX Warning: Reference `Y-blk-collision' on page 5 undefined on input line 15
+3.
+>>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
 
 [5] [6 <./diagrams/r_s_2bits.pdf> <./diagrams/r_s_6bits.pdf> <./diagrams/r_d_4b
 its.pdf> <./diagrams/r_d_2bits.pdf>]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
+<<<<<<< HEAD
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 204.
 
 Overfull \hbox (21.95909pt too wide) in paragraph at lines 211--214
+=======
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 208.
+
+Overfull \hbox (21.95909pt too wide) in paragraph at lines 215--218
+>>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
 \OT1/cmr/bx/n/10 Theorem 1.5. \OT1/cmr/m/it/10 Let X$[]$[i] and X$[]$[j] be two
  dis-tinct block and len(X$[]$[i])=len(X$[]$[j])=N,
  []
 
+<<<<<<< HEAD
 [7] [8] [9] [10] [11]
+=======
+[7] [8] <./diagrams/y_single_equality.pdf, id=165, 469.755pt x 170.6375pt>
+File: ./diagrams/y_single_equality.pdf Graphic file (type pdf)
+
+<use ./diagrams/y_single_equality.pdf>
+Package pdftex.def Info: ./diagrams/y_single_equality.pdf used on input line 28
+3.
+(pdftex.def)             Requested size: 172.5pt x 62.6584pt.
+
+<./diagrams/y_set_equality.pdf, id=166, 469.755pt x 180.675pt>
+File: ./diagrams/y_set_equality.pdf Graphic file (type pdf)
+
+<use ./diagrams/y_set_equality.pdf>
+Package pdftex.def Info: ./diagrams/y_set_equality.pdf used on input line 288.
+(pdftex.def)             Requested size: 172.5pt x 66.34418pt.
+
+<./diagrams/y_both_single.pdf, id=167, 469.755pt x 170.6375pt>
+File: ./diagrams/y_both_single.pdf Graphic file (type pdf)
+
+<use ./diagrams/y_both_single.pdf>
+Package pdftex.def Info: ./diagrams/y_both_single.pdf used on input line 298.
+(pdftex.def)             Requested size: 172.5pt x 62.6584pt.
+
+<./diagrams/y_both_set.pdf, id=168, 469.755pt x 186.6975pt>
+File: ./diagrams/y_both_set.pdf Graphic file (type pdf)
+
+<use ./diagrams/y_both_set.pdf>
+Package pdftex.def Info: ./diagrams/y_both_set.pdf used on input line 303.
+(pdftex.def)             Requested size: 172.5pt x 68.55566pt.
+ [9] [10 <./diagrams/y_single_equality.pdf> <./diagrams/y_set_equality.pdf> <./
+diagrams/y_both_single.pdf> <./diagrams/y_both_set.pdf>] [11] [12] [13]
+>>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
 
 Package glossaries Warning: \makeglossaries hasn't been used,
 the glossaries will not be updated.
@@ -543,6 +618,7 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  6091 strings out of 495028
  87095 string characters out of 6181497
  196219 words of memory out of 5000000
@@ -564,6 +640,30 @@ cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
 Output written on approach_draft.pdf (12 pages, 321185 bytes).
+=======
+ 4590 strings out of 493488
+ 65269 string characters out of 3141326
+ 144736 words of memory out of 3000000
+ 7812 multiletter control sequences out of 15000+200000
+ 7574 words of font info for 27 fonts, out of 3000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 42i,9n,36p,1455b,361s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></us
+r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local
+/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
+xlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
+ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/
+2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/20
+12/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on approach_draft.pdf (14 pages, 356768 bytes).
+>>>>>>> d544f2499cad8e3e5a76b215f0b9419dbb3c2b2a
 PDF statistics:
  222 PDF objects out of 1000 (max. 8388607)
  159 compressed objects within 2 object streams
