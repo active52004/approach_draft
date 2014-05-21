@@ -4,7 +4,7 @@ clc;
 MaxValue = 256;
 
 dir = './tmp/'
-file1 = [dir,'frequency_4original1000.csv'];
+file1 = [dir,'frequency_original10000.csv'];
 file2 = [dir,'frequency_shift1000.csv'];
 %file3 = [dir,'frequency_xorNonce_3000count.csv'];
 
@@ -17,7 +17,7 @@ M1=csvread(file1);
 M2=csvread(file2);
 %M3=csvread(file3);
 
-M_live = M2;
+M_live = M1;
 least = [];
 least1 = [];
 least2 = [];
