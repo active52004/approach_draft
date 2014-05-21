@@ -1,5 +1,6 @@
 import csv
 from numpy import genfromtxt
+<<<<<<< HEAD
 from collections import Counter
 
 def frequency(value, arrayLength, array):
@@ -27,6 +28,18 @@ for i in range(0,len(my_data)):
 	c = my_data1[i][2].count('1')
 	my_data1[i].append(c)
 	my_data1[i].append(float(c)/bin_len)
+=======
+
+my_data = genfromtxt('./frequency_count.csv',delimiter = ',')
+print len(my_data) 
+print my_data[0][1]
+print my_data[1][0]
+my_data1 = my_data.tolist()
+
+for i in range(0,len(my_data)):
+	my_data1[i][0]=my_data1[i][0]-1
+	my_data1[i].append(bin(int(my_data1[i][0]))[2:].zfill(16))
+>>>>>>> 776b28fec0022438f01a43292ee4a18cfe69a002
 
 #print my_data1
 with open('./frequency_dec2bin.csv','wb') as csvfile:
