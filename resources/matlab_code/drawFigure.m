@@ -3,8 +3,8 @@ clear all;
 clc;
 MaxValue = 256;
 
-dir = './tmp/'
-file1 = [dir,'frequency_original10000.csv'];
+dir = '../frequency_results/'
+file1 = [dir,'frequency_1original10000.csv'];
 file2 = [dir,'frequency_shift1000.csv'];
 %file3 = [dir,'frequency_xorNonce_3000count.csv'];
 
@@ -24,7 +24,8 @@ least2 = [];
 least3 = [];
 
 %find all pattern value in column 1 as x, store in C
-
+top = 0.37 
+bot = 0.372
 A = [0,17,34,51,68, 85, 102, 119, 136, 153, 170, 187,204, 221, 238, 255];
 X = 0:255;
 %Both no-pattern
@@ -35,7 +36,7 @@ for i=D
     for j=B
        C = [C i*256+j+1];
        k = i*256+j+1;
-       if M_live(k,2)/MaxValue >0 && M_live(k,2)/MaxValue < 0.2
+       if M_live(k,2)/MaxValue >top && M_live(k,2)/MaxValue < bot
            least1 = [least1 k-1];
        end
     end
@@ -53,7 +54,7 @@ for i=A
     for j=B
        C = [C i*256+j+1];
        k = i*256+j+1;
-       if M_live(k,2)/MaxValue >0 && M_live(k,2)/MaxValue < 0.2
+       if M_live(k,2)/MaxValue >top && M_live(k,2)/MaxValue < bot
            least2 = [least2 k-1];
        end
     end
@@ -70,7 +71,7 @@ for i=A
     for j=B
        C = [C i*256+j+1];
        k = i*256+j+1;
-       if M_live(k,2)/MaxValue >0 && M_live(k,2)/MaxValue < 0.2
+       if M_live(k,2)/MaxValue >top && M_live(k,2)/MaxValue < bot
            least3 = [least3 k-1];
        end
     end
@@ -80,7 +81,7 @@ for i=B
     for j=A
        C = [C i*256+j+1];
        k = i*256+j+1;
-       if M_live(k,2)/MaxValue >0 && M_live(k,2)/MaxValue < 0.2
+       if M_live(k,2)/MaxValue >top && M_live(k,2)/MaxValue < bot
            least3 = [least3 k-1];
        end
     end
@@ -89,7 +90,7 @@ end
 for i=X
     for j=X
        k = i*256+j+1;
-       if M_live(k,2)/MaxValue >0 && M_live(k,2)/MaxValue < 0.2
+       if M_live(k,2)/MaxValue >top && M_live(k,2)/MaxValue < bot
            least = [least k-1];
        end
     end
@@ -106,7 +107,9 @@ least = least';
 str1 = dec2bin(least1,16);
 str2 = dec2bin(least2,16);
 str3 = dec2bin(least3,16);
-tmp_int = M_live(21845,2)
+tmp_int = M_live(256,2)
+%tmp_int = M_live(11606,2)
+%tmp_int = M_live(21846,2)
 
 
 set (gcf,'Position',[400,100,1000,400]);
