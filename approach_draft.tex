@@ -1,23 +1,32 @@
 \documentclass{article}
+
+\usepackage{nomencl}
+\makenomenclature
+
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{verbatim}
-\usepackage{glossaries}
+\usepackage[toc]{glossaries}
 \usepackage{epstopdf}
+
+
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{defination}{Definition}[section]
 \newtheorem{proposition}{Proposition}[section]
+
 \begin{document}
+\include{Notation}
+\printnomenclature
 \section{Approach}
 In this article, we name the MAC scheme adopted in Cost-Effective Tag Design\cite{} CETD-MAC. 
 
 %notations and security defination
 \subsection{Background of CETD-MAC and Security Definitions}
 \paragraph{Notations of Symbols}
-Let \{0,1\}$^n$ be the set of all n-bit binary strings. The set of all binary string is expressed as \{0,1\}$^*$.  
+Let \{0,1\}$^n$ be the set of all n-bit binary strings. \nomenclature{\{0,1\}$^n$}{Set of all n-bit binary strings} The set of all binary string is expressed as \{0,1\}$^*$.  
 For a string X $\in$ \{0,1\}$^n$, |X| is its length in bits, and $\vert$ X $\vert$ $_l$ = $\lceil$$\vert$ X $\vert$/l$\rceil$ is the length of X in l-bit blocks.  Let 0$^l$ and 1$^l$ denote bit strings of all zeros and all ones. 
 For a bit string X and an integer l that $\vert$ X $\vert$ $\geq$ l, msb$_l$(X) denotes the most significant l bits(left most l bits) of X and lsb$_l$(X) for least significant l bits(right most l bits) of X.
 For two bit string X and Y, we denote X$\|$Y  or XY as the their concatenation. For bit string X whose length in bits is multiple of integer l, we denote X parted into l-bit sub-strings as X = (X[1]X[2]$\ldots$X[n])$_l$, where X[1], X[2], $\ldots$, X[n] $\in$ \{0,1\}$^l$.
@@ -413,6 +422,7 @@ The proof of theorems is expressed in the appendix.
 %\end{enumerate}
 %Assume the block cipher used in nonce generation performances like PRF, the number of blocks in each category is effected by the input message M and the rounds of shuffle stage.  
 
+
 \subsection{Security Enhanced CETD-MAC}
 In this section we provide an modification of original CETD-MAC. Our approach does not require additional component or information to the original CETD-MAC. We then prove that the optimized CETD-MAC can fix the weakness and protect input message from replay attack.
 \paragraph{Inspiration}
@@ -454,6 +464,7 @@ result means our optimized scheme can assure the randomness of tags under replay
 attack and is secure. 
 \section{Experiments and Results}
 
+%Appendix 
 \appendix
 \section{Proof of Assertions}
 %when x is pattern, y can collide
@@ -586,6 +597,5 @@ Theorem $\ref{set-prob}$ is proved.
 %\end{displaymath}
 %\end{defination}
 %\subsection{Proof of Theorem $\ref{set-prob}$}
-
 
 \end{document}

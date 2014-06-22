@@ -1,0 +1,10 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{\{0,1\}$^n$}]\begingroup Set of all n-bit binary strings\nomeqref {0}
+		\nompageref{1}
+  \item [{latex}]\begingroup latex is a document\nomeqref {0}
+		\nompageref{1}
+
+\end{thenomenclature}
