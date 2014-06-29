@@ -43,17 +43,17 @@ In CETD tag design, a input of nonce generation is a tuple(addr,ctr, rnd). The m
 
 \subsection{Scheme Security of CETD-MAC}
 In this section we discuss the security of CETD-MAC under two tpyes of integrity attack.  The adversary is assumed to know the length of ciphertext and tag on the memory frame he acquired. 
+We prove that the probability that the fake pair passes the verification scheme under both two attacks is determined by the proportion of the 1s and 0s in the input ciphertexts and provide the equations quantifying this relationship. This fact indicates that the adversary can choose special ciphertext-tag pairs which have higher probability to pass the verification compared with other pairs.  
 
-In our security analysis of CETD-MAC scheme, the adversary A has access to the tag generation scheme and verification scheme. A can input chosen ciphertexts to the tag generation scheme and determine whether the nonce for his chosen ciphertexts are fixed or not. He can acquire the value of the tag for each his chosen ciphertext while cannot access the value of the related nonce. After analyzing several valid ciphertext-tag pairs, A sends his fake pair (C$_{fake}$, T$_{fake}$) to the verification scheme. The verification scheme generates the tag T of C$_{fake}$ and the fake pair passes the verification if T is identical to T$_{fake]$. Our security analysis on CETD-MAC is modeled like this:
+\paragraph{Security Analysis Model}
+In our security analysis of CETD-MAC scheme, the adversary A has access to the tag generation scheme and verification scheme. A can input chosen ciphertexts to the tag generation scheme and determine whether the nonce for his chosen ciphertexts are fixed or not. He can acquire the value of the tag for each his chosen ciphertext while cannot access the value of the related nonce. After analyzing several valid ciphertext-tag pairs, A sends his fake pair (C$_{fake}$, T$_{fake}$) to the verification scheme. The verification scheme generates the tag T of C$_{fake}$ and the fake pair passes the verification if T is identical to T$_{fake}$. Our security analysis on CETD-MAC is modeled like this:
 \begin{itemize}
 	\item For content-modification attack, the adversary A fixes the nonce and inputs distinct ciphertexts to the tag generation scheme. 	
 	\item For copying-then-replaying attack, the value of ciphertexts are fixed to a value C chosen by A. A inputs C continually and as the tag generation scheme to maintain the nonce distinct for each input.    
 \end{itemize}
 After several rounds of inputing, the adversary analyses the value of tags for his chosen inputs then sends his fake pair(C$_{fake}$, T$_{fake}$) to the verification scheme.   	
 
-In this section, we prove that the probability that the fake pair passes the verification scheme under both two attacks is determined by the proportion of the 1s and 0s in the input ciphertexts and provide the equations quantifying this relationship. 
-
-\paragraph{ Chosen Message Attack}
+\paragraph{Chosen Message Attack}
 %in brute force attack, the adversary tries the tag one-by-one till passing
 In \cite{}, the authors provided a security analysis of CETD-MAC scheme. The adversary is assumed to conduct brute force attack in which he randomly chooses a ciphtertext C and a nonce N. Then he keeps C and N fixed and tries different tags until a tag T can pass the verification with C and N. All the tags tried until passing the verification form a set named tag exploration space. The author assumed a MAC to be secure if the following conditions are met:
 \begin{itemize}
@@ -67,38 +67,71 @@ Goldwasser et al. introduced the concept of unforgeability of chosen message att
 For instance, is there is a type of relationship between ciphertext and tag for a MAC scheme, A1 will realise this relationship and conduct two types of attack with high probability of passing: just modifying ciphertext from C1 to C2 and C2 has high probability to generate same tag T1; or send new pair (C2,T2) to the verification where C2 and T2 meet the relationship. In A1`s eyes, for given ciphetext C and a unknown nonce N, the tags in the tag domain has different probability to pass the verification while the probability is identical to A2. 
 
 In this article, we assume the adversary can choose the ciphertext in both content modification and copy-then-replay attack. The adversary aims to find groups of inputs that the two inputs from same group has probability of tag collision that is much larger than 1/2$^n$, where n is Len(tag). 
+
 \paragraph{Design Rationale of CETD-MAC}
 CETD-MAC scheme is consist of three stages: bit-segment shuffle, cycle shift and xor. The purpose of bit-segment shuffle is to diffuse the distribution of bits in the input. The number of shuffle rounds effects the condition of diffusion. 
 The cycle shift stage diffuses the distribution of input in each block. Another purpose of shift stage is to diffuse the blocks that do not participate the shuffle stage, which is common if the number of blocks is large while the number of shuffle rounds is small. Finally, the output blocks of shift stage are xored to form the final tag. 
 
-We made a simulation of content modification attack with the following parameters first:
-\begin{itemize}
-\item 
-\end{itemize}
-As the shuffle and cycle shift operation is relocating bits in the input data
-and will not introduce new bits, the frequency of 1s and
-0s in Y block set is same as the frequency in the input data block set.  
-We found that the frequency of 1s and 0s in the input data block set determine the number of possible
-distinct tags. This assertion is depicted in Theorem $\ref{frequency-tag}$
-\begin{theorem}
-Assume the length of a tag n bits and the number of input blocks is x, then the
-number of possible distinct tags N is determined by the number of 1s k. The
-correlation of N and k is depicted in the following equation: 
-\begin{equation}
-	N = $$$\sum_{i=0}^{k/2}$ $\binom{k-2*i}{n}$if k is even and k $\leq$ n$$ 	
-      = $$$\sum_{i=0}^{k-1/2}$ $\binom{k-2*i}{n}$if k is odd and k < n$$ 
-	  = $$$\sum_{i=0}^{(x*n-k)/2}$ $\binom{x*n-k-2*i}{n}$if k is even and k
-$\geq$  (x-1)*n$$ 
-	  = $$$\sum_{i=0}^{x*n-k-1/2}$ $\binom{x*n-k-2*i}{n}$if k is odd and k >
-(x-1)*n
-$$ 	  = $$2$^{n-1}$if n < k < (x-1)*n$$ 
-\end{equation}
-\label{frequency-tag}
-\end{theorem}
+%We made a simulation of content modification attack with the following parameters first:
+%\begin{itemize}
+%\item 
+%\end{itemize}
+%As the shuffle and cycle shift operation is relocating bits in the input data
+%and will not introduce new bits, the frequency of 1s and
+%0s in Y block set is same as the frequency in the input data block set.  
+%We found that the frequency of 1s and 0s in the input data block set determine the number of possible
+%distinct tags. This assertion is depicted in Theorem $\ref{frequency-tag}$
+%\begin{theorem}
+%Assume the length of a tag n bits and the number of input blocks is x, then the
+%number of possible distinct tags N is determined by the number of 1s k. The
+%correlation of N and k is depicted in the following equation: 
+%\begin{equation}
+%	N = $$$\sum_{i=0}^{k/2}$ $\binom{k-2*i}{n}$if k is even and k $\leq$ n$$ 	
+%      = $$$\sum_{i=0}^{k-1/2}$ $\binom{k-2*i}{n}$if k is odd and k < n$$ 
+%	  = $$$\sum_{i=0}^{(x*n-k)/2}$ $\binom{x*n-k-2*i}{n}$if k is even and k
+%$\geq$  (x-1)*n$$ 
+%	  = $$$\sum_{i=0}^{x*n-k-1/2}$ $\binom{x*n-k-2*i}{n}$if k is odd and k >
+%(x-1)*n
+%$$ 	  = $$2$^{n-1}$if n < k < (x-1)*n$$ 
+%\end{equation}
+%\label{frequency-tag}
+%\end{theorem}
 
 \subsubsection{Content Modification Attack}
+In this part we prove that for CETD-MAC, different cipherte-tag pairs have differenct probability to pass the verification when given a fixed and unknown nonce. The probability that a ciphertext-tag pair passes the verification stage of CETD-MAC is determined by the proprotion of 1s and 0s in the ciphertext and its tag.
+
+\paragraph{ }
 When conducting content modification attack, the adversary modifies the content of a memory frame from (C, T) to (C1, T1). When the verification stage VF read the modified (C1, T1) pair, VF computes C1`s tag, marked as T$_{tmp}$, using the nonce N which is also used in computing T. If T$_{tmp}$ is identical to T1, then the content modification attack succeed. We can see that in content modification attack, for two pairs (C$_{origin}$, T$_{origin}$) and (C2, T1), their nonce N and N1 are identical. To succeed the content modification attack, the adversary will choose the C1 that has high probability to get tag value T    
-In \cite{}, Hong et al. assumed that the original CETD-MAC has a broad tag exploration space and the scheme is secure under brute force attacks. The adversary is assumed to randomly choose a ciphertext and a tag then try to pass the verification stage. In real scinerio, the adversary can acquire and read the value of any memory frames he wants,   
+\paragraph{Diffusion Operations Do Not Introduce New Bits}
+In CETD-MAC scheme, the shuffle and shift stage relocate bits in the ciphertext to new index. Even though the new index of each bit in the cihpertext is unpredictble as the nonce is the output of a PRF and unaccessable to the adversary, it is certain the output of shift shuffle and shift stage contain same bits as the ciphertext. Assume ciphertext is consist of m blocks each of whose length is n bits, and there are totally k 1s in the m*n bits in the ciphertext. The the output of shuffle and shift stage also have k 1s and m*n - k 0s. 
+
+\paragraph{When the modified ciphertext has same 0-1 proportion}
+As mentioned before, the 0-1 proportion is maintained during the shuffle and shift operation. That means if two distinct ciphertext C1 and C2 have same proportion, marked as k/m*n-k, the 0-1 proportion in their corresponding shift outputs Y1 and Y2 is also k/m*n-k.  
+If we fix a nonce and keep querying ciphertext with same 0-1 proportion, the outputs of shift stage can be regarded as a seg of m*n bits messages with same 0-1 proportion but uncertain bit distribution. If a ciphertext has k 1s, then the distinct ciphertexts have k 1s form a set S$_{n}^{k}$ and the set size is $\binom{n}{k}$, marked as C$_{n}^{k}$. The ith element in set S$_{n}^{k}$ is marked as C[i] and the tag of C[i] is T[i].   
+We fix a nonce N for the set S$_{n}^{k}$ and compute T[1]. We discuss possbile distribution of k 1s in m Y blocks according to the value of k compared with m*n to see the number of possible distinct values of T1. 
+
+Firstly, we assume k is no larger than n. When xoring Y blocks to generate T[1], the jth bit of T[1], marked as T[1][j], is computed as T[1][j] = Y1[1][j]$\oplus$Y1[2][j]$\oplus$Y1[m][j], where Y1[i][j] is the jth bit in the ith Y block. We call the jth bit in all Y blocks a jth colunm. The jth bit of T1 is formed by xoring all the bits in the jth column of Y block.  It is obvious that T1 can have at most k 1s and the number of distinct T1 with k 1s is $\binom{n}{k}$. In this case all the k 1s distribute in distinct k columne.  If we want new value of T1, we need to move one of 1 to another column. This relocation reduce the number of 1s in T1 from k to k-2, leading to $\binom{n}{k-2}$ new distinct values of T1. If we want more new values, we need to keep move 1s to another column like this way and each time of relocation reduce 2 1s in T1, which means the possible number of 1s in T1 canbe k, k-2, k-4,$\ldots$, 0(if k is even) or 1(if k is odd). Then we draw the following Theorem:
+\begin{theorem}
+Assume a ciphertext consist of m n-bits blocks has k 1s and k is no larger than n, then the the number of possible distinct value of its tag when the nonce is unaccessible is compute with the equation:
+No of distinct tags is $\sum_{i=0}^{k/2}$ $\binom{n}{k-2*i}$ if k is even or $\sum_{i=0}^{(k-1)/2}$ $\binom{n}{k-2*i}$ if k is odd
+\end{theorem}
+When k is identical to n or n-1, the number of distinct tags is 2$^{n-1}$.  
+
+If k is larger than n and no larger than m*(n-1), for any k in this domain, it is possible to generate a tag containing 0 to n 1s. That means for any k $\in$ [n, m*(n-1)], the number of possible distinct tags for a ciphertext is 2$^{n-1}$. 
+
+When k is larger than m*(n-1), the way to compute number of possible distinct tags is simular to the case that k is no larger than n. In this case, the tag can has at most n - (k mod n) 0s the value with less number of 0s can be acquired by overlapping 0s in one column. The number of possible distinct tag values can be computed with the following equation:
+No of distinct tags is $\sum_{i=0}^{(m*n-k)/2}$ $\binom{n}{()k-2*i}$ if k is even or $\sum_{i=0}^{(m*n-k+1)/2}$ $\binom{n}{k-2*i}$ if k is odd
+
+%Given a ciphertext and unknown nonce, the number of tags that a adversary needs to try is determined by the number of 1s in the ciphertext, this property can help the adversry contrive strategry to reduce the number of guessing.
+%on the other hand, the adversary can deisgn its c-t pair according to this property. 
+%besides same proportion ciphertext, what type of other ciphertext can the advesrary to use with high prob of passing?
+\paragraph{The Strategry of the Adversary in Content Modification Attack}
+In content modificatoin attack, the adversary acquires a valid memory frame and try to modify the content. If the adversry knows the length of ciphertext and the tag, he will know the value of the ciphertext and the tag. According to the previous analysis on the relationship between bit proportion and possible tag values, the adversary can conduct the following two types of modification on the frame:
+\begin{itemize}
+	\item Select a new ciphertext that has T$_{origin}$ in its possible tag domain
+	\item Replace the frame with a new pair (C2, T2) that T2 is in the possible tag domain of C2
+\end{itemize}
+From Theorem $\ref{}$ we know that if the number of 1s in m*n bits is to large(more than m*(n-1)) or too small(less than n), the possible tag domain size is small. This fact 
 \subsubsection{Replay and Relocating Attack}
 
 
