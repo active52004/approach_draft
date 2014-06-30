@@ -158,7 +158,12 @@ Cycle shift operation can defend change-order attack to an extent as for some co
 \paragraph{Bit-Segment Shuffle Stage}
 Shuffle stage swaps two bit-segments in each round. As the index and offset of swapping in each round is determined by the nonce, the adversary cannot predict which blocks participate the shuffle. On problem to use shuffle without shift is that if the number of blocks are large while the number of shuffle round is small, the number of blocks paticipating the shuflle is small and the adversary can repeat some blocks in the input as he wish to enhance the collision probability of the output from shuffle.  In the original CETD-MAC, the shift stage will help re-ordering the bits in the output blocks from shuffle stage to ensure that the input blocks of xor stage is hard for the adversary to predict. 
 \paragraph{The Reason of Unsecurity of Original CETD-MAC}
-We can see what shuffle and shift do is reordering the bits in the input message blocks. We give each input bit a index from 1 to m*n. When the nonce is fixed and unknown, we are certain for two inputs M1 and M2 the bits with same index will be reloacted to same new index. The adversary does not know the exact bit distribution of the input blocks to xor stage but he knows that the 0-1 proportion is same as the input of CETD-MAC. As depicted in Section $\ref$, the odd-even property of the tag is identical to its input, and the number of possible distinct tag values can be predict based on the number of 1s in the input. When realized this fact, the adversary just needs to choose a tag value that has same odd-even property and the number of 1s is no more than min(n,k), there k is the number of 1s in the input.
+We can see what shuffle and shift do is reordering the bits in the input message
+blocks. We give each input bit a index from 1 to m*n. When the nonce is fixed
+and unknown, we are certain for two inputs M1 and M2 the bits with same index
+will be reloacted to same new index. The adversary does not know the exact bit
+distribution of the input blocks to xor stage but he knows that the 0-1
+proportion is same as the input of CETD-MAC. As depicted in Section $\ref{}$, the odd-even property of the tag is identical to its input, and the number of possible distinct tag values can be predict based on the number of 1s in the input. When realized this fact, the adversary just needs to choose a tag value that has same odd-even property and the number of 1s is no more than min(n,k), there k is the number of 1s in the input.
 
 To eliminate this weakness, we need to add a operation to make sure that if the adversary does not know the value of the fixed nonce, he cannot predict the 0-1 proportion  and bit distribution of the input blocks of xor stage. 
 \paragraph{The Reason of Security of Previous MAC Schemes}
@@ -168,8 +173,40 @@ In original CETD-MAC scheme, both shuffle and shift operation achieve the diffus
 To enhance the security of 
 \section{Security Improved CETD-MAC}
 We have shown that the original CETD-MAC cannot effectively defend two types of integrity attacks as the number of distinct tags is determined by the proportion of 1s and 0s. In this section, we propose several approaches to improve the security of CETD-MAC. Firstly we tried to utilize the nonce and the operation existing in the original CETD-MAC design and then prove the reason that this attempt cannot succeed. Then we proposed our rationale on improvement based on the instruction from \cite{}.  
-\subsection{Enhance the Security of Original CETD-MAC}
+\paragraph{Galois Field Multiplication}
+As mentioned in Section $\ref{}$, it is insufficient to use linear operation
+only to construct a secure MAC scheme. The reason is that linear operations can
+diffuse the bit distribution of the input while can not introduce new bits. On
+the ther hand, the input and the output of linear operation has linear
+relationship and the adversary can find the relationship and conduct successfule
+forgery attack since then without acquiring the nonce or the key.
 
+The we need to add no-linearity random bit injection operation. For the MAC
+schemes constructed with block cipher, such as CBC-MAC(and its variants) and
+PMAC(and its variants), the block cipher usually contains these two operations.
+R and J mentioned in \cite{} the galois field multiplication and its inverse
+operation can serve as no-linearity operation. 
+For example in Rij AES, the ByteSub provide no-linearity to the input by
+adopting the galois multiplication inverse to each input byte then affline
+transformation with a constant matrix to the input. Random bits that stored in a
+roundkey, which is acquired by expanding the encryption key, is injected to the
+input by xoring the roundkey with processed input.  
+
+In GMAC, the author utilized the galios field multiplication other than block
+cipher to process each input block serially. Each input block does galois field
+multiplication with H, which is acquired by encrypting constant 0 with a secret
+key. The output of multiplication is xored with the next input block to serve as
+the multiplicand for H. The advantage of multipling each xored input block with
+H compared with calling the encryption function to the input block directly is
+that the no-linearity and random bit injection is combined to one round
+operation, which reduces the space cost and enhances the processing speed.
+
+The application of GF multiplication in GMAC inspired us on the security
+optimization of original CETD-MAC scheme as for each ciphertext to be processed,
+a nonce is generated with block cipher. The nonce or its segment can serve as
+the H in the GF multiplication in GMAC. 
+\subsection{Direction One: Using GF Multiplication Only}
+\subsection{Our Optimization of Original CETD-MAC}
 \paragraph{Defending Content Modification Attack}
 Hence the adversary can know the possible input set for a given tag , he can modify the content of ciphertext on the frame to a fake one that has same number of 1s as the tag and this way of modification has highest passing probability. On the other hand, as he knows the possible tag set for a given ciphertext, he can choose the tag for his fake ciphertext`s set to evade the tag values that can not be generated with C$_{fake}$ with any nonce. 
 
