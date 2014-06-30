@@ -5,11 +5,17 @@
 \usepackage{subfigure}
 \usepackage{verbatim}
 \usepackage{glossaries}
+\usepackage{algorithm} 
+\usepackage{algorithmic}
 \usepackage{epstopdf}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{defination}{Definition}[section]
 \newtheorem{proposition}{Proposition}[section]
+
+\DeclareMathOperator*{argmin}{argmin} //argmin或argmax公式的排版
+\enewcommand{algorithmicrequire}{extbf{Input:}} //Use Input in the format of Algorithm
+\enewcommand{algorithmicensure}{extbf{Output:}} //UseOutput in the format of Algorithm
 \begin{document}
 \section{The Security Analysis of Cost-Effective Tag Design}
 In this section we analysis the security of cost-effective tag design. We firstly introduce our security evaluation model of tag design. This model splits the security analysis into two steps: scheme security and implementation security. We analysis 
@@ -72,31 +78,6 @@ In this article, we assume the adversary can choose the ciphertext in both conte
 \paragraph{Design Rationale of CETD-MAC}
 CETD-MAC scheme is consist of three stages: bit-segment shuffle, cycle shift and xor. The purpose of bit-segment shuffle is to diffuse the distribution of bits in the input. The number of shuffle rounds effects the condition of diffusion. 
 The cycle shift stage diffuses the distribution of input in each block. Another purpose of shift stage is to diffuse the blocks that do not participate the shuffle stage, which is common if the number of blocks is large while the number of shuffle rounds is small. Finally, the output blocks of shift stage are xored to form the final tag. 
-
-%We made a simulation of content modification attack with the following parameters first:
-%\begin{itemize}
-%\item 
-%\end{itemize}
-%As the shuffle and cycle shift operation is relocating bits in the input data
-%and will not introduce new bits, the frequency of 1s and
-%0s in Y block set is same as the frequency in the input data block set.  
-%We found that the frequency of 1s and 0s in the input data block set determine the number of possible
-%distinct tags. This assertion is depicted in Theorem $\ref{frequency-tag}$
-%\begin{theorem}
-%Assume the length of a tag n bits and the number of input blocks is x, then the
-%number of possible distinct tags N is determined by the number of 1s k. The
-%correlation of N and k is depicted in the following equation: 
-%\begin{equation}
-%	N = $$$\sum_{i=0}^{k/2}$ $\binom{k-2*i}{n}$if k is even and k $\leq$ n$$ 	
-%      = $$$\sum_{i=0}^{k-1/2}$ $\binom{k-2*i}{n}$if k is odd and k < n$$ 
-%	  = $$$\sum_{i=0}^{(x*n-k)/2}$ $\binom{x*n-k-2*i}{n}$if k is even and k
-%$\geq$  (x-1)*n$$ 
-%	  = $$$\sum_{i=0}^{x*n-k-1/2}$ $\binom{x*n-k-2*i}{n}$if k is odd and k >
-%(x-1)*n
-%$$ 	  = $$2$^{n-1}$if n < k < (x-1)*n$$ 
-%\end{equation}
-%\label{frequency-tag}
-%\end{theorem}
 
 %in this case nonce is fixed and serves as the key as the deterministic MAC schemes
 %the number of queries to succeed a forgery attack can be at most 2^{n-1}
@@ -173,6 +154,8 @@ In original CETD-MAC scheme, both shuffle and shift operation achieve the diffus
 To enhance the security of 
 \section{Security Improved CETD-MAC}
 We have shown that the original CETD-MAC cannot effectively defend two types of integrity attacks as the number of distinct tags is determined by the proportion of 1s and 0s. In this section, we propose several approaches to improve the security of CETD-MAC. Firstly we tried to utilize the nonce and the operation existing in the original CETD-MAC design and then prove the reason that this attempt cannot succeed. Then we proposed our rationale on improvement based on the instruction from \cite{}.  
+%we need to add gf-mult to provide no-linearity, gf-mult a nonce seg can do
+%random inject together
 \paragraph{Galois Field Multiplication}
 As mentioned in Section $\ref{}$, it is insufficient to use linear operation
 only to construct a secure MAC scheme. The reason is that linear operations can
@@ -205,7 +188,32 @@ The application of GF multiplication in GMAC inspired us on the security
 optimization of original CETD-MAC scheme as for each ciphertext to be processed,
 a nonce is generated with block cipher. The nonce or its segment can serve as
 the H in the GF multiplication in GMAC. 
-\subsection{Direction One: Using GF Multiplication Only}
+\subsection{Improved CETD-MAC with higher security level}
+In this part we introduce our improved version of CETD-MAC. In our first attempt
+of improvement, we do galois field multiplication, short for gf-mult, to each input block with a
+segment extracted from nonce. We call this first attempt Fully-GFM CETD-MAC as
+each input block will participate the galois mulatiplication. We also introduce
+its variant named Selected-GFM CETD-MAC in which the number of input blocks
+doing gf-mult is determined by user choice, just as what shuffle stage does. 
+
+Adding gf-mult before shuffle can inject random bits to the inputs and the
+adversary cannot predict the tag based on the input value according to the
+attack strategry depicted in Section $\ref{}$. This improvement works for all
+the input value except for all 0 input as the output of 0 gf-mult with any value
+will be 0. To address this problem, we introduce our second version of improved
+CETD-MAC scheme named Flip-then-GFM CETD-MAC scheme. We randomly flip each input
+block and then do selecte gf-mult as we did in the variant of first version. We
+will show that our second version of improved CETD-MAC is secure under two types
+of integrity attacks in this part. 
+\subsubsection{Fully-GFM CETD-MAC}
+Our first design draft based on the original CETD-MAC are described in
+Algorithme $\ref{}$. We name this design Fully GF-Mult CETD-MAC, which mean each
+input will do galois field multiplication with a nonce segment.  
+\paragraph{Selected-GFM CETD-MAC}
+\paragraph{Security Analysis of }
+\subsubsection{Flip-then-GFM CETD-MAC}
+
+\paragraph{Block Flipping}
 \subsection{Our Optimization of Original CETD-MAC}
 \paragraph{Defending Content Modification Attack}
 Hence the adversary can know the possible input set for a given tag , he can modify the content of ciphertext on the frame to a fake one that has same number of 1s as the tag and this way of modification has highest passing probability. On the other hand, as he knows the possible tag set for a given ciphertext, he can choose the tag for his fake ciphertext`s set to evade the tag values that can not be generated with C$_{fake}$ with any nonce. 
@@ -216,7 +224,24 @@ To eliminate these advantage that left to the adversary by the original CETD-MAC
 %to defend 2nd type content modification, we need to ensure that if the it is same as 1st
 As the 0-1 proportion of the tag is determined by its input ciphertext, we need to ensure that no matter how we modify the input, the value of the tag for the modified input is unpredictable. Th 
 
-
+\begin{algorithm}[htb] %算法的开始
+\caption{ Framework of ensemble learning for our system.} %算法的标题
+\label{alg:Framwork} %给算法一个标签，这样方便在文中对算法的引用
+\begin{algorithmic}[1] %这个1 表示每一行都显示数字
+REQUIRE ~~\ %算法的输入参数：Input
+The set of positive samples for current batch, $P_n$;\
+The set of unlabelled samples for current batch, $U_n$;\
+Ensemble of classifiers on former batches, $E_{n-1}$;
+ENSURE ~~\ %算法的输出：Output
+Ensemble of classifiers on the current batch, $E_n$;
+STATE Extracting the set of reliable negative and/or positive samples $T_n$ from $U_n$ with help of $P_n$; \label{code:fram:extract} %算法的一个陈述，对应算法的一个步骤或公式之类的； label{ code:fram:extract }对此行的标记，方便在文中引用算法的某个步骤
+STATE Training ensemble of classifiers $E$ on $T_n cup P_n$, with help of data in former batches; label{code:fram:trainbase}
+STATE $E_n=E_{n-1}cup E$; \label{code:fram:add}
+STATE Classifying samples in $U_n-T_n$ by $E_n$; \label{code:fram:classify}
+STATE Deleting some weak classifiers in $E_n$ so as to keep the capacity of $E_n$; \label{code:fram:select}
+RETURN $E_n$; %算法的返回值
+\end{algorithmic}
+\end{algorithm}
 
 
 \appendix
