@@ -13,9 +13,9 @@
 \newtheorem{defination}{Definition}[section]
 \newtheorem{proposition}{Proposition}[section]
 
-\DeclareMathOperator*{argmin}{argmin} //argmin或argmax公式的排版
-\enewcommand{algorithmicrequire}{extbf{Input:}} //Use Input in the format of Algorithm
-\enewcommand{algorithmicensure}{extbf{Output:}} //UseOutput in the format of Algorithm
+%\DeclareMathOperator*{argmin}{argmin} //argmin或argmax公式的排版
+%\enewcommand{algorithmicrequire}{extbf{Input:}} //Use Input in the format of Algorithm
+%\enewcommand{algorithmicensure}{extbf{Output:}} //UseOutput in the format of Algorithm
 \begin{document}
 \section{The Security Analysis of Cost-Effective Tag Design}
 In this section we analysis the security of cost-effective tag design. We firstly introduce our security evaluation model of tag design. This model splits the security analysis into two steps: scheme security and implementation security. We analysis 
@@ -209,8 +209,9 @@ of integrity attacks in this part.
 Our first design draft based on the original CETD-MAC are described in
 Algorithme $\ref{}$. We name this design Fully GF-Mult CETD-MAC, which mean each
 input will do galois field multiplication with a nonce segment.  
+\paragraph{One }
 \paragraph{Selected-GFM CETD-MAC}
-\paragraph{Security Analysis of }
+
 \subsubsection{Flip-then-GFM CETD-MAC}
 
 \paragraph{Block Flipping}
@@ -224,22 +225,52 @@ To eliminate these advantage that left to the adversary by the original CETD-MAC
 %to defend 2nd type content modification, we need to ensure that if the it is same as 1st
 As the 0-1 proportion of the tag is determined by its input ciphertext, we need to ensure that no matter how we modify the input, the value of the tag for the modified input is unpredictable. Th 
 
-\begin{algorithm}[htb] %算法的开始
-\caption{ Framework of ensemble learning for our system.} %算法的标题
-\label{alg:Framwork} %给算法一个标签，这样方便在文中对算法的引用
+\renewcommand{\algorithmicrequire}{ \textbf{Input:}} %Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{ \textbf{Output:}} %UseOutput in the format of Algorithm
+\begin{algorithm}[htb] 
+\caption{Fully Galois Field Multiplication} 
+\label{alg:fully-GFM} 
 \begin{algorithmic}[1] %这个1 表示每一行都显示数字
-REQUIRE ~~\ %算法的输入参数：Input
-The set of positive samples for current batch, $P_n$;\
-The set of unlabelled samples for current batch, $U_n$;\
+\REQUIRE ~~\\ %算法的输入参数：Input
+The set of positive samples for current batch, $P_n$;\\
+The set of unlabelled samples for current batch, $U_n$;\\
 Ensemble of classifiers on former batches, $E_{n-1}$;
-ENSURE ~~\ %算法的输出：Output
+\ENSURE ~~\\ %算法的输出：Output
 Ensemble of classifiers on the current batch, $E_n$;
-STATE Extracting the set of reliable negative and/or positive samples $T_n$ from $U_n$ with help of $P_n$; \label{code:fram:extract} %算法的一个陈述，对应算法的一个步骤或公式之类的； label{ code:fram:extract }对此行的标记，方便在文中引用算法的某个步骤
-STATE Training ensemble of classifiers $E$ on $T_n cup P_n$, with help of data in former batches; label{code:fram:trainbase}
-STATE $E_n=E_{n-1}cup E$; \label{code:fram:add}
-STATE Classifying samples in $U_n-T_n$ by $E_n$; \label{code:fram:classify}
-STATE Deleting some weak classifiers in $E_n$ so as to keep the capacity of $E_n$; \label{code:fram:select}
-RETURN $E_n$; %算法的返回值
+\STATE Extracting the set of reliable negative and/or positive samples $T_n$ from $U_n$ with help of $P_n$; 
+\label{ code:fram:extract }%对此行的标记，方便在文中引用算法的某个步骤
+\STATE Training ensemble of classifiers $E$ on $T_n \cup P_n$, with help of data in former batches; 
+\label{code:fram:trainbase}
+\STATE $E_n=E_{n-1}\cup E$; 
+\label{code:fram:add}
+\STATE Classifying samples in $U_n-T_n$ by $E_n$; 
+\label{code:fram:classify}
+\STATE Deleting some weak classifiers in $E_n$ so as to keep the capacity of $E_n$; 
+\label{code:fram:select}
+\RETURN $E_n$; %算法的返回值
+\FOR{each $i \in [1,9]$}
+\STATE initialize a tree $T_{i}$ with only a leaf (the root);\
+\STATE $T=T \cup T_{i};$\
+\ENDFOR
+\FORALL {$c$ such that $c \in RecentMBatch(E_{n-1})$} 
+\label{code:TrainBase:getc}
+\STATE $T=T \cup PosSample(c)$; 
+\label{code:TrainBase:pos}
+\ENDFOR
+\FOR{$i=1$; $i<n$; $i++$ }
+\STATE $//$ Your source here;
+\ENDFOR
+\FOR{$i=1$ to $n$}
+\STATE $//$ Your source here;
+\ENDFOR
+\STATE $//$ Reusing recent base classifiers. 
+\label{code:recentStart}
+\WHILE {$(|E_n| \leq L_1 )and( D \neq \phi)$}
+\STATE Selecting the most recent classifier $c_i$ from $D$;
+\STATE $D=D-c_i$;
+\STATE $E_n=E_n+c_i$;
+\ENDWHILE 
+\label{code:recentEnd}
 \end{algorithmic}
 \end{algorithm}
 
