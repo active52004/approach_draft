@@ -128,17 +128,23 @@ As depicted in Section $\ref{}$, the 0-1 proportion of a ciphertext is maintaine
 \paragraph{Forgery Attack on CETD-MAC in Copy-then-Replay Scenario}
 As the probability that two tags collide when their inputs are identical and their nonce are randomly generated is determined by the 0-1 proportion of their inputs, the adversary can just attack the frame with the copy whose ciphertext has many 1s(more than m*(n-1)) or few 1s(fewer than n). Two extrame case is all 0 and all 1 ciphertexts, no matter what nonce is adopted, their tags will always be 0.
 
+%use cetd operations to enhance cetd-mac
 \subsection{Security Enhancement of CETD-MAC with Its Operations}
 In this part we try to enhance the security of CETD-MAC without introducing new operations or data. We analyze the functionality of each operatoin first and discuss whehter it is necessary to maintain each operation in the new design.
+%why to add each operation, why unsufficient to use each only ?
 \subsubsection{Design Rationale of Original CETD-MAC Scheme}
 CETD-MAC scheme is consist of three stages: bit-segment shuffle with user chosen shuffle round, then cycle shift for each output lf shuffle stage with randomly chosen shift length and finaly xor all output block of shift stage to the tag.
 \paragraph{XOR stage}
 The xor operation is a common choice for parallel MAC schemes to convert m n-bits block to a n-bits tag. It has benn analyzed by Bellare in \cite{} that it is unsecure to construct a MAC scheme with xor operation only as simpliy swaping the order of two blocks in the input can lead to tag collision.  The input blocks must be processed to defend change-order attack before sent to xor stage.
 \paragraph{Cycle Shift Stage}
 Cycle shift operation can defend change-order attack to an extent as for some combination of input block value and its shift length, change any one of theme will lead to new result. However, it is unsecure to us cycle shift only before xor stage, as for some specific input value, changing the input value or the shift length will still maintain the output unchanged with some probability. This fact is proved in Theorem $\ref{}$. Lema $\ref{}$ quantifys the probability based on the input value and shift length. 
+%why it is unsufficient to use shuffle only if the number of blks are large?
 \paragraph{Bit-Segment Shuffle Stage}
-Shuffle stage swaps two bit-segments in each round. As the index and offset of swapping in each round is determined by the nonce, the adversary cannot predict which blocks participate the shuffle. On problem to use shuffle without shift is that if the number of blocks are large while the number of shuffle round is small, the number of blocks paticipating the shuflle is small and the adversary can repeat some blocks in the input as he wish to enhance the collision probability of the output from shuffle.  In the original CETD-MAC, the shift stage will help re-ordering the bits in the output blocks from shuffle stage to ensure that the input blocks of xor stage is hard for the adversary to predict. 
-\subsubsection{The Reason of Unsecurity of Original CETD-MAC}
+Shuffle stage swaps two bit-segments in each round. As the index and offset of swapping in each round is determined by the nonce, the adversary cannot predict which blocks participate the shuffle. One problem to use shuffle without shift is that if the number of blocks are large while the number of shuffle round is small, the number of blocks participating the shuffle is small. This fact is serious in copy-then-replay attack as majority of blocks may not participate shuffle and the content of these unshuffled blocks will be maintained until the next stage. If the operation linked to shuffle is the xor stage directly without shift stage, according to Equation $\ref{}$ we can see that the probability of tag collision is determined by th
+
+and the adversary can repeat some blocks in the input as he wish to enhance the collision probability of the output from shuffle.  In the original CETD-MAC, the shift stage will help re-ordering the bits in the output blocks from shuffle stage to ensure that the input blocks of xor stage is hard for the adversary to predict. 
+
+\paragraph{Diffusion is insufficient to construct a secure MAC scheme}
 We can see what shuffle and shift do is reordering the bits in the input message
 blocks. We give each input bit a index from 1 to m*n. When the nonce is fixed
 and unknown, we are certain for two inputs M1 and M2 the bits with same index
@@ -146,14 +152,18 @@ will be relocated to same new index. The adversary does not know the exact bit
 distribution of the input blocks to xor stage but he knows that the 0-1
 proportion is same as the input of CETD-MAC. As depicted in Section $\ref{}$, the odd-even property of the tag is identical to its input, and the number of possible distinct tag values can be predict based on the number of 1s in the input. When realized this fact, the adversary just needs to choose a tag value that has same odd-even property and the number of 1s is no more than min(n,k), there k is the number of 1s in the input.
 
-\paragraph{Content Modification Scenario}
+Content Modification Scenario
 In content modification scenario, the adversary keeps modifying a memory frame in an address until the frame passes verification. The modification will be previous to the next write operation from the chip the same address. 
 
-\paragraph{Copy-then-Replay Scenario}
+Copy-then-Replay Scenario
 To eliminate this weakness, we need to add a operation to make sure that if the adversary does not know the value of the fixed nonce, he cannot predict the 0-1 proportion and bit distribution of the input blocks of xor stage. 
 
+\paragraph{No-linearity and Random Bit Injection}
 In cite{},R and J depicted the design rationale of each operation in Rij AES. Their should be three types of operations in a block cipher design serving as no-linearity, random-bit injection and diffusion.  
 In original CETD-MAC scheme, both shuffle and shift operation achieve the diffusion, while no operation can inject random bits for each input and all the operation in the CETD-MAC is linear.  
+%block cipher consist of three operations
+%no-linearity must be achieved with gf-mult
+
 
 \section{Security Improved CETD-MAC}
 We have shown that the original CETD-MAC cannot effectively defend two types of integrity attacks as the number of distinct tags is determined by the proportion of 1s and 0s. In this section, we propose several approaches to improve the security of CETD-MAC. Firstly we tried to utilize the nonce and the operation existing in the original CETD-MAC design and then prove the reason that this attempt cannot succeed. Then we proposed our rationale on improvement based on the instruction from \cite{}.  
