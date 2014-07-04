@@ -1,9 +1,9 @@
 \relax 
 \@input{Notation.aux}
+\providecommand\@newglossary[4]{}
 \@newglossary{main}{glg}{gls}{glo}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Approach}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Preliminaries of Cost-Effective Tag Design}{1}}
 \citation{keylist}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Background of CETD-MAC and Security Definitions}{2}}
 \@writefile{toc}{\contentsline {paragraph}{Notations of Symbols}{2}}
 \@writefile{toc}{\contentsline {paragraph}{Specification of Cost-Effective Tag Design and CETD-MAC}{2}}
 \@writefile{toc}{\contentsline {paragraph}{Definition of CETD-MAC Scheme}{2}}
@@ -13,40 +13,42 @@
 \newlabel{fig:rotate_shift}{{2}{3}}
 \@writefile{toc}{\contentsline {paragraph}{Security Definitions of MAC Schemes under Replay Attacks}{4}}
 \@writefile{toc}{\contentsline {paragraph}{The Security of Cost-Effective Tag Design under Replay Attack}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Security Weakness of CETD-MAC under Replay Attack}{5}}
-\@writefile{toc}{\contentsline {paragraph}{Exposing the Weakness of CETD-MAC}{5}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.1}Weakness of Shuffle Stage}{5}}
-\@writefile{toc}{\contentsline {paragraph}{When Index Are Distinct}{6}}
-\@writefile{toc}{\contentsline {paragraph}{When Offset Are Distinct}{6}}
-\@writefile{toc}{\contentsline {paragraph}{When Segment Length Are Distinct}{6}}
-\@writefile{toc}{\contentsline {paragraph}{Combination of Cases}{6}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.2}Weakness of Shifting Stage}{6}}
-\@writefile{toc}{\contentsline {paragraph}{XOR Operation and Tag Collision}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The Examples of Y Block Collision}}{7}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Same Block Shifted Different Bits}}}{7}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Different Blocks Shifted Different Bits}}}{7}}
-\newlabel{fig: Y-blk-collision}{{3}{7}}
-\newlabel{tag_expression}{{1}{7}}
-\newlabel{tag_expression}{{2}{7}}
-\@writefile{toc}{\contentsline {paragraph}{The Sequence-level Pattern Collision}{8}}
-\newlabel{sequence-pattern}{{1.1}{8}}
-\newlabel{distinct-pattern}{{1.2}{8}}
-\newlabel{pattern-no}{{1.3}{8}}
-\@writefile{toc}{\contentsline {paragraph}{The Probability of Tag Collision Under Sequence Pattern Attack}{8}}
-\newlabel{sequence-prob}{{1.4}{8}}
-\@writefile{toc}{\contentsline {paragraph}{The Set-level Pattern Collision}{9}}
-\newlabel{set-pattern}{{1.5}{9}}
-\newlabel{set-pattern-cor}{{1.6}{9}}
-\@writefile{toc}{\contentsline {paragraph}{The Probability of Tag Collision Under Set Pattern Attack}{9}}
-\newlabel{set-prob}{{1.7}{10}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.3}The Vulnerable Inputs Set of CETD-MAC Under Replay Attack}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Security Enhanced CETD-MAC}{10}}
-\@writefile{toc}{\contentsline {paragraph}{Inspiration}{11}}
-\@writefile{toc}{\contentsline {paragraph}{Solution}{11}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Experiments and Results}{12}}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Proof of Assertions}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Proof of Theorem $1.1\hbox {}$}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Proof of Theorem $1.4\hbox {}$}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Proof of Theorem $1.5\hbox {}$}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.4}Proof of Theorem $1.7\hbox {}$}{12}}
-\newlabel{k-set-equ-prob}{{8}{13}}
+\@input{bit_frequency.aux}
+\@writefile{toc}{\contentsline {section}{\numberline {A}The Security Weakness of CETD-MAC Scheme}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Security Weakness of CETD-MAC under Replay Attack}{15}}
+\@writefile{toc}{\contentsline {paragraph}{Exposing the Weakness of CETD-MAC}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.1.1}Weakness of Shuffle Stage}{15}}
+\@writefile{toc}{\contentsline {paragraph}{When Index Are Distinct}{16}}
+\@writefile{toc}{\contentsline {paragraph}{When Offset Are Distinct}{16}}
+\@writefile{toc}{\contentsline {paragraph}{When Segment Length Are Distinct}{16}}
+\@writefile{toc}{\contentsline {paragraph}{Combination of Cases}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.1.2}Weakness of Shifting Stage}{16}}
+\@writefile{toc}{\contentsline {paragraph}{XOR Operation and Tag Collision}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The Examples of Y Block Collision}}{17}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Same Block Shifted Different Bits}}}{17}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Different Blocks Shifted Different Bits}}}{17}}
+\newlabel{fig: Y-blk-collision}{{3}{17}}
+\newlabel{tag_expression}{{1}{17}}
+\newlabel{tag_expression}{{2}{17}}
+\@writefile{toc}{\contentsline {paragraph}{The Sequence-level Pattern Collision}{18}}
+\newlabel{sequence-pattern}{{A.1}{18}}
+\newlabel{distinct-pattern}{{A.2}{18}}
+\newlabel{pattern-no}{{A.3}{18}}
+\@writefile{toc}{\contentsline {paragraph}{The Probability of Tag Collision Under Sequence Pattern Attack}{18}}
+\newlabel{sequence-prob}{{A.4}{18}}
+\@writefile{toc}{\contentsline {paragraph}{The Set-level Pattern Collision}{19}}
+\newlabel{set-pattern}{{A.5}{19}}
+\newlabel{set-pattern-cor}{{A.6}{19}}
+\@writefile{toc}{\contentsline {paragraph}{The Probability of Tag Collision Under Set Pattern Attack}{19}}
+\newlabel{set-prob}{{A.7}{20}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.1.3}The Vulnerable Inputs Set of CETD-MAC Under Replay Attack}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Security Enhanced CETD-MAC}{20}}
+\@writefile{toc}{\contentsline {paragraph}{Inspiration}{21}}
+\@writefile{toc}{\contentsline {paragraph}{Solution}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Experiments and Results}{22}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Proof of Assertions}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.1}Proof of Theorem $A.1\hbox {}$}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2}Proof of Theorem $A.4\hbox {}$}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.3}Proof of Theorem $A.5\hbox {}$}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.4}Proof of Theorem $A.7\hbox {}$}{22}}
+\newlabel{k-set-equ-prob}{{8}{23}}

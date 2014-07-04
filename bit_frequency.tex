@@ -1,43 +1,44 @@
-\documentclass{article}
-\usepackage{amsthm}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{subfigure}
-\usepackage{verbatim}
-\usepackage{glossaries}
-\usepackage{algorithm} 
-\usepackage{algorithmic}
-\usepackage{epstopdf}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{defination}{Definition}[section]
-\newtheorem{proposition}{Proposition}[section]
+%\documentclass{article}
+%\usepackage{amsthm}
+%\usepackage{amsmath}
+%\usepackage{graphicx}
+%\usepackage{subfigure}
+%\usepackage{verbatim}
+%\usepackage{glossaries}
+%\usepackage{algorithm} 
+%\usepackage{algorithmic}
+%\usepackage{epstopdf}
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{defination}{Definition}[section]
+%\newtheorem{proposition}{Proposition}[section]
 
 %\DeclareMathOperator*{argmin}{argmin} //argmin或argmax公式的排版
 %\enewcommand{algorithmicrequire}{extbf{Input:}} //Use Input in the format of Algorithm
 %\enewcommand{algorithmicensure}{extbf{Output:}} //UseOutput in the format of Algorithm
-\begin{document}
+%\begin{document}
+%breaking the security result in orignal design and prove that it is not secure under both attacks
 \section{The Security Analysis of Cost-Effective Tag Design}
 In this section we analysis the security of cost-effective tag design. We firstly introduce our security evaluation model of tag design. This model splits the security analysis into two steps: scheme security and implementation security. We analysis 
-\subsection{Threat Model of Tag Designs}
+\paragraph{Threat Model of Tag Designs}
 The attacks discussed in this article mainly situated on the probing and
-tampering the data transferred between chip and external memory. In this scenario, the adversary can conduct types of attacks on the (ciphertext, tag) pair stored on the external memory or in the transformation between chip and memory. We call these two types of integrity attack content modifying attack and copying-then-replaying attack. 
+tampering the data transferred between chip and external memory. In this scenario, the adversary can conduct types of attacks on the (ciphertext, tag) pair stored on the external memory or in the transformation between chip and memory. We call these two types of integrity attack content modification attack and copy-then-replay attack. 
 
-When conducting a content modifying attack, then adversary modifies the content of a (ciphertext, tag) pair. At least one of ciphertext and tag are distinct to the original one sent from the chip. When the chip reads the modified pair (C1, T1), this pair is verified by VF(C1, T1, $\ldots$). If VF(C1, T1, $\ldots$)=1, then the modified pair passes and the content modifying attack succeeds. 
+When conducting a content modification attack, then adversary modifies the content of a (ciphertext, tag) pair. At least one of ciphertext and tag are distinct to the original one sent from the chip. When the chip reads the modified pair (C1, T1), this pair is verified by VF(C1, T1, $\ldots$). If VF(C1, T1, $\ldots$)=1, then the modified pair passes and the content modifying attack succeeds. 
 
-For a copying-then-replaying attack, we make the following denotion first:
+For a copy-then-replay attack, we make the following denotion first:
 \begin{itemize}
 	\item A$_{origin}$: The address of the external memory frame M attacked 
 	\item A$_{copy}$: The address of the external memory frame M1 which is copied by the adversary as the fake frame
 	\item TS$_{origin}$: The generation time stamp of the external memory frame M attacked
 	\item TS$_{copy}$: The generation time stamp of the external memory frame M2. M2 and M has same address while TS$_{M2}$ is previous of TS$_M$ 
 \end{itemize}
-During a copying-then-replaying attack on a memory frame M whoes address is A$_{origin}$ and time stamp is TS$_{origin}$, the adversary A replace M with a copy. This copy can be a frame from other address A$_{copy}$ or one at same address but copied at an old time stamp TS$_{copy}$. The copy is a valid pair from the chip. 
+During a copy-then-replay attack on a memory frame M whoes address is A$_{origin}$ and time stamp is TS$_{origin}$, the adversary A replace M with a copy. This copy can be a frame from other address A$_{copy}$ or one at same address but copied at an old time stamp TS$_{copy}$. The copy is a valid pair from the chip. 
 When the chip reads the modified frame, the fake pair(C2, T2) is verified by VF(C2, T2, $\ldots$) and the copying-then-replying attack succeeds if VF(C2, T2, $\ldots$)=1.  
 
 If the fake pair from the adversary passes the verification, the integrity of the data is broken. To defend content modification attack, the MAC scheme should ensure that when the secret information used in tag generation collides for two distinct input data, the related two tags should have low probability to be identical. For copying-then-replaying attack, identical input data should have low probability to lead to tag collision if the secret information used in tag generation are distinct. 
 
-\subsection{Implementation Security of Cost-Effective Tag Design}
+\paragraph{Implementation Security of Cost-Effective Tag Design}
 As the MAC scheme adopted in cost-effective tag design(CETD) is a statefule scheme, the input of nonce generation should be distinct for any two write-read period. This is the security requirement in implementation level. 
 
 In CETD tag design, a input of nonce generation is a tuple(addr,ctr, rnd). The meaning of each element in the tuple is listed below: 
@@ -47,7 +48,7 @@ In CETD tag design, a input of nonce generation is a tuple(addr,ctr, rnd). The m
 	\item Rnd: A random number
 \end{itemize}
 
-%we found efficient attacks that the number of queries to forgery is at most 2^n-1 and divers according to the number of 1s in the input
+%cetd-mac is not secure
 \subsection{Computational Based Security Analysis of CETD-MAC}
 In this section we discuss the security of CETD-MAC under two tpyes of integrity attack.  The adversary is assumed to know the length of ciphertext and tag on the memory frame he acquired. 
 We prove that the probability that the fake pair passes the verification scheme under both two attacks is determined by the proportion of the 1s and 0s in the input ciphertexts and provide the equations quantifying this relationship. This fact indicates that the adversary can choose special ciphertext-tag pairs which have higher probability to pass the verification compared with other pairs.  
@@ -75,13 +76,9 @@ For instance, is there is a type of relationship between ciphertext and tag for 
 
 In this article, we assume the adversary can choose the ciphertext in both content modification and copy-then-replay attack. The adversary aims to find groups of inputs that the two inputs from same group has probability of tag collision that is much larger than 1/2$^n$, where n is Len(tag). 
 
-\paragraph{Design Rationale of CETD-MAC}
-CETD-MAC scheme is consist of three stages: bit-segment shuffle, cycle shift and xor. The purpose of bit-segment shuffle is to diffuse the distribution of bits in the input. The number of shuffle rounds effects the condition of diffusion. 
-The cycle shift stage diffuses the distribution of input in each block. Another purpose of shift stage is to diffuse the blocks that do not participate the shuffle stage, which is common if the number of blocks is large while the number of shuffle rounds is small. Finally, the output blocks of shift stage are xored to form the final tag. 
-
 %in this case nonce is fixed and serves as the key as the deterministic MAC schemes
 %the number of queries to succeed a forgery attack can be at most 2^{n-1}
-\subsubsection{Security of CETD-MAC under Content Modification Attack}
+\subsubsection{Content Modification Attack Scenario}
 In the computational model based security analysis on MAC schemes, a secure MAC scheme should ensure that for any two input messages in the domain, the probability that their tags collide should be no more than an upper bound. This definition of secure MAC scheme is widely accepted and has been adopted in the security analysis of iterated MAC schemes such as CBC-MAC \cite{} and its variants \cite{}, and parallel MAC schemes such as PMAC \cite{} and its variants\cite{}. This definition emphasizes that when the key used in the MAC scheme is unaccessible to the adversary, the adversary cannot find any relationship between a given tag and a given input message. In the eyes of the adversary, a given tag can be generated by any message in the input domain and for a given input message, its tag can be any one value in the tag range. 
 
 In this part we prove that for CETD-MAC, the input ciphertexts have relationship between their tags.  For a given tag, the number of possible inputs is limited and can be computed based on the tag value. On the other hand, for a give input ciphertext, the number of possible tag value is also limited and can be computed based on the ciphertext value. This fact indicates that when modifying the ciphertext part C1 of a memory frame, the number of possible ciphertexts C2 to replace C1 is limted. On the other hand, the adversary can manifast the fake ciphertext-tag pair C$_{fake}$-T$_{fake}$ based on the relanship between a ciphertext and its tag quantified in thei part and win a much high probability to pass the verification stage compared with randomly choosing a ciphertext and a tag. 
@@ -91,7 +88,6 @@ When conducting content modification attack, the adversary modifies the content 
 \paragraph{Diffusion Operations Do Not Introduce New Bits}
 In CETD-MAC scheme, the shuffle and shift stage relocate bits in the ciphertext to new index. Even though the new index of each bit in the cihpertext is unpredictble as the nonce is the output of a PRF and unaccessable to the adversary, it is certain the output of shift shuffle and shift stage contain same bits as the ciphertext. Assume ciphertext is consist of m blocks each of whose length is n bits, and there are totally k 1s in the m*n bits in the ciphertext. The the output of shuffle and shift stage also have k 1s and m*n - k 0s. 
 
-\paragraph{When the modified ciphertext has same 0-1 proportion}
 As mentioned before, the 0-1 proportion is maintained during the shuffle and shift operation. That means if two distinct ciphertext C1 and C2 have same proportion, marked as k/m*n-k, the 0-1 proportion in their corresponding shift outputs Y1 and Y2 is also k/m*n-k.  
 If we fix a nonce and keep querying ciphertext with same 0-1 proportion, the outputs of shift stage can be regarded as a seg of m*n bits messages with same 0-1 proportion but uncertain bit distribution. If a ciphertext has k 1s, then the distinct ciphertexts have k 1s form a set S$_{n}^{k}$ and the set size is $\binom{n}{k}$, marked as C$_{n}^{k}$. The ith element in set S$_{n}^{k}$ is marked as C[i] and the tag of C[i] is T[i].   
 We fix a nonce N for the set S$_{n}^{k}$ and compute T[1]. We discuss possbile distribution of k 1s in m Y blocks according to the value of k compared with m*n to see the number of possible distinct values of T1. 
@@ -121,14 +117,14 @@ From Theorem $\ref{}$ we know that if the number of 1s in m*n bits is to large(m
 
 %input is fixed and the nonce changes for each query,
 %the number of query
-\subsubsection{The Security of CETD-MAC under Copy-then-Replay Attack}
+\subsubsection{Copy-then-Replay Attack Scenario}
 When conducting copy-then-replay, the adversary replace a valid memory frame with his stored copy of a frame from other address or same address but older time point. The probability that the adversary succeed the copy-then-replay attack is determined by the probability that for a fixed input C, the two tags T1 and T2 are identical when their nonce N1 and N2 are randomly generated.
 
 As depicted in Section $\ref{}$, the 0-1 proportion of a ciphertext is maintained to the output blocks(Y blocks) of shift stage. This fact means for a fixed input, the Y block set Y1 and Y2 for two randomly generated nonce N1 and N2 have same 0-1 proportion.  
 \paragraph{Forgery Attack on CETD-MAC in Copy-then-Replay Scenario}
 As the probability that two tags collide when their inputs are identical and their nonce are randomly generated is determined by the 0-1 proportion of their inputs, the adversary can just attack the frame with the copy whose ciphertext has many 1s(more than m*(n-1)) or few 1s(fewer than n). Two extrame case is all 0 and all 1 ciphertexts, no matter what nonce is adopted, their tags will always be 0.
 
-%use cetd operations to enhance cetd-mac
+%it is impossible to modify cetd-mac with existing operations to enhance security
 \subsection{Security Enhancement of CETD-MAC with Its Operations}
 In this part we try to enhance the security of CETD-MAC without introducing new operations or data. We analyze the functionality of each operation first and discuss whether it is necessary to maintain each operation in the new design.
 %why to add each operation, why unsufficient to use each only ?
@@ -146,6 +142,7 @@ Shuffle stage swaps two bit-segments in each round. As the index and offset of s
 and the adversary can repeat some blocks in the input as he wish to enhance the collision probability of the output from shuffle.  In the original CETD-MAC, the shift stage will help re-ordering the bits in the output blocks from shuffle stage to ensure that the input blocks of xor stage is hard for the adversary to predict. 
 
 \paragraph{Diffusion is insufficient to construct a secure MAC scheme}
+%linearity analysis and different analysis
 We can see what shuffle and shift do is reordering the bits in the input message
 blocks. We give each input bit a index from 1 to m*n. When the nonce is fixed
 and unknown, we are certain for two inputs M1 and M2 the bits with same index
@@ -158,18 +155,19 @@ In content modification scenario, the adversary keeps modifying a memory frame i
 
 Copy-then-Replay Scenario
 To eliminate this weakness, we need to add a operation to make sure that if the adversary does not know the value of the fixed nonce, he cannot predict the 0-1 proportion and bit distribution of the input blocks of xor stage. 
-
+%
 \paragraph{No-linearity and Random Bit Injection}
 In cite{},R and J depicted the design rationale of each operation in Rij AES. Their should be three types of operations in a block cipher design serving as no-linearity, random-bit injection and diffusion.  
 In original CETD-MAC scheme, both shuffle and shift operation achieve the diffusion, while no operation can inject random bits for each input and all the operation in the CETD-MAC is linear.  
 %block cipher consist of three operations
 %no-linearity must be achieved with gf-mult
 
-
+%new MAC design based on CETD-MAC
 \section{Security Improved CETD-MAC}
 We have shown that the original CETD-MAC cannot effectively defend two types of integrity attacks as the number of distinct tags is determined by the proportion of 1s and 0s. In this section, we propose several approaches to improve the security of CETD-MAC. Firstly we tried to utilize the nonce and the operation existing in the original CETD-MAC design and then prove the reason that this attempt cannot succeed. Then we proposed our rationale on improvement based on the instruction from \cite{}.  
 %we need to add gf-mult to provide no-linearity, gf-mult a nonce seg can do
 %random inject together
+\paragraph{No-linearity and Random Bits Injection: Approaches in other schemes}
 \paragraph{Galois Field Multiplication}
 As mentioned in Section $\ref{}$, it is insufficient to use linear operation
 only to construct a secure MAC scheme. The reason is that linear operations can
@@ -289,8 +287,8 @@ Ensemble of classifiers on the current batch, $E_n$;
 \end{algorithm}
 
 
-\appendix
-\subsection{Security Theorem Proof}
-\subsubsection{Proof of Theorem $\ref{frequency-tag}$}
+%\appendix
+%\subsection{Security Theorem Proof}
+%\subsubsection{Proof of Theorem $\ref{frequency-tag}$}
 
-\end{document}
+%\end{document}
