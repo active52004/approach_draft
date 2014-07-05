@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.19)  4 JUL 2014 21:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.19)  5 JUL 2014 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -462,15 +462,16 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
-Overfull \hbox (53.33391pt too wide) in paragraph at lines 100--102
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+Overfull \hbox (53.33391pt too wide) in paragraph at lines 94--96
 []\OT1/cmr/m/n/10 According to the de-sign of CETD-MAC, the tag can be ex-press
 ed as Y[1]$\OMS/cmsy/m/n/10 ^^H$\OT1/cmr/m/n/10 Y[2]$\OMS/cmsy/m/n/10 ^^H$$[]$$
 ^^H$\OT1/cmr/m/n/10 Y[x],
  []
 
+[4]
 
-LaTeX Warning: Reference `CETD-MAC' on page 5 undefined on input line 120.
+LaTeX Warning: Reference `CETD-MAC' on page 5 undefined on input line 114.
 
 Package epstopdf Info: Source file: <./diagrams/CETD.eps>
 (epstopdf)                    date: 2014-05-08 22:11:28
@@ -480,17 +481,17 @@ Package epstopdf Info: Source file: <./diagrams/CETD.eps>
 (epstopdf)                    size: 44999 bytes
 (epstopdf)             Command: <repstopdf --outfile=./diagrams/CETD-eps-conver
 ted-to.pdf ./diagrams/CETD.eps>
-(epstopdf)             \includegraphics on input line 123.
+(epstopdf)             \includegraphics on input line 117.
 Package epstopdf Info: Output file is already uptodate.
 <./diagrams/CETD-eps-converted-to.pdf, id=23, 736.7525pt x 452.69125pt>
 File: ./diagrams/CETD-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./diagrams/CETD-eps-converted-to.pdf>
 Package pdftex.def Info: ./diagrams/CETD-eps-converted-to.pdf used on input lin
-e 123.
+e 117.
 (pdftex.def)             Requested size: 442.05492pt x 271.61684pt.
 
-Overfull \hbox (97.05492pt too wide) in paragraph at lines 123--124
+Overfull \hbox (97.05492pt too wide) in paragraph at lines 117--118
  [][] 
  []
 
@@ -498,123 +499,116 @@ Overfull \hbox (97.05492pt too wide) in paragraph at lines 123--124
 File: ./diagrams/rotate_right.pdf Graphic file (type pdf)
 
 <use ./diagrams/rotate_right.pdf>
-Package pdftex.def Info: ./diagrams/rotate_right.pdf used on input line 130.
+Package pdftex.def Info: ./diagrams/rotate_right.pdf used on input line 124.
 (pdftex.def)             Requested size: 200.74643pt x 160.59715pt.
 
 
-LaTeX Warning: Citation `keylist' on page 5 undefined on input line 134.
+LaTeX Warning: Citation `keylist' on page 5 undefined on input line 128.
 
 [5] [6 <./diagrams/CETD-eps-converted-to.pdf> <./diagrams/rotate_right.pdf>]
 [7]
 \openout2 = `bit_frequency.aux'.
 
  (./bit_frequency.tex
-Overfull \hbox (8.07227pt too wide) in paragraph at lines 24--24
+Overfull \hbox (8.07227pt too wide) in paragraph at lines 25--25
 []\OT1/cmr/bx/n/12 Computational Based Se-cu-rity Anal-y-sis of CETD-MAC 
  []
 
 [8
 
-]
-Overfull \hbox (9.32828pt too wide) in paragraph at lines 38--39
- \OT1/cmr/bx/n/10 Dif-fu-sion Op-er-a-tions Do Not In-tro-duce New Bits[] \OT1/
-cmr/m/n/10 In CETD-MAC scheme,
- []
+] [9]
 
-[9]
-
-LaTeX Warning: Reference `' on page 10 undefined on input line 65.
+LaTeX Warning: Reference `' on page 10 undefined on input line 66.
 
 
-LaTeX Warning: Reference `' on page 10 undefined on input line 72.
+LaTeX Warning: Reference `' on page 10 undefined on input line 73.
 
 [10]
 
-LaTeX Warning: Reference `' on page 11 undefined on input line 85.
+LaTeX Warning: Reference `' on page 11 undefined on input line 86.
 
 
-LaTeX Warning: Reference `' on page 11 undefined on input line 89.
+LaTeX Warning: Reference `' on page 11 undefined on input line 90.
 
 [11]
 
-LaTeX Warning: Reference `' on page 12 undefined on input line 100.
+LaTeX Warning: Reference `' on page 12 undefined on input line 101.
 
-
-Overfull \hbox (1.57309pt too wide) in paragraph at lines 120--120
+[12]
+Overfull \hbox (1.57309pt too wide) in paragraph at lines 121--121
  \OT1/cmr/bx/n/10 No-linearity and Ran-dom Bits In-jec-tion: Ap-proaches in oth
 er schemes[] 
  []
 
 
-LaTeX Warning: Reference `' on page 12 undefined on input line 121.
+LaTeX Warning: Reference `' on page 13 undefined on input line 122.
 
-[12]
 
-LaTeX Warning: Reference `' on page 13 undefined on input line 162.
+LaTeX Warning: Reference `' on page 13 undefined on input line 163.
 
 [13]
 
-LaTeX Warning: Reference `' on page 14 undefined on input line 171.
+LaTeX Warning: Reference `' on page 14 undefined on input line 172.
 
 ) [14] [15]
-Overfull \hbox (11.91959pt too wide) in paragraph at lines 147--147
+Overfull \hbox (11.91959pt too wide) in paragraph at lines 141--141
 []\OT1/cmr/bx/n/14.4 The Se-cu-rity Weak-ness of CETD-MAC Scheme 
  []
 
 
-LaTeX Warning: Reference `' on page 16 undefined on input line 148.
+LaTeX Warning: Reference `' on page 16 undefined on input line 142.
 
 
-LaTeX Warning: Reference `' on page 16 undefined on input line 164.
+LaTeX Warning: Reference `' on page 16 undefined on input line 158.
 
 
-LaTeX Warning: Reference `' on page 16 undefined on input line 164.
+LaTeX Warning: Reference `' on page 16 undefined on input line 158.
 
 [16
 
 ] [17]
 
 LaTeX Warning: Reference `tag_collision_exp' on page 18 undefined on input line
- 253.
+ 247.
 
 <./diagrams/r_s_2bits.pdf, id=81, 553.06625pt x 306.14375pt>
 File: ./diagrams/r_s_2bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_s_2bits.pdf>
-Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 284.
+Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 278.
 (pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
 
 <./diagrams/r_s_6bits.pdf, id=82, 553.06625pt x 306.14375pt>
 File: ./diagrams/r_s_6bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_s_6bits.pdf>
-Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 284.
+Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 278.
 (pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
 
 <./diagrams/r_d_4bits.pdf, id=83, 562.1pt x 306.14375pt>
 File: ./diagrams/r_d_4bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_d_4bits.pdf>
-Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 290.
+Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 284.
 (pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
 
 <./diagrams/r_d_2bits.pdf, id=84, 562.1pt x 306.14375pt>
 File: ./diagrams/r_d_2bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_d_2bits.pdf>
-Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 290.
+Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 284.
 (pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
 
 
 LaTeX Warning: Reference `Y-blk-collision' on page 18 undefined on input line 2
-94.
+88.
 
 [18 <./diagrams/r_s_2bits.pdf> <./diagrams/r_s_6bits.pdf> <./diagrams/r_d_4bits
 .pdf> <./diagrams/r_d_2bits.pdf>] [19]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 355.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 349.
 
-Overfull \hbox (24.38963pt too wide) in paragraph at lines 363--366
+Overfull \hbox (24.38963pt too wide) in paragraph at lines 357--360
 \OT1/cmr/bx/n/10 Theorem B.5. \OT1/cmr/m/it/10 Let X$[]$[i] and X$[]$[j] be two
  dis-tinct block and len(X$[]$[i])=len(X$[]$[j])=N,
  []
@@ -659,7 +653,7 @@ r7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on approach_draft.pdf (24 pages, 372369 bytes).
+Output written on approach_draft.pdf (24 pages, 372133 bytes).
 PDF statistics:
  268 PDF objects out of 1000 (max. 8388607)
  191 compressed objects within 2 object streams

@@ -37,6 +37,8 @@ The block cipher encryption of a string X with a secret key K is denoted as E$_K
 
 %the security definition and evaluation standard in computational model
 \subsection{Security Definition in Computational Scenario}
+In this part we depict the security definition of MAC schemes in computational model.  The threat model of tag design is introduced first then the computatonal based security definition of MAC schemes. 
+%the adversary can conduct two types of attack on the memory frames
 \paragraph{Threat Model of Tag Designs}
 The attacks discussed in this article mainly situated on the probing and
 tampering the data transferred between chip and external memory. In this scenario, the adversary can conduct types of attacks on the (ciphertext, tag) pair stored on the external memory or in the transformation between chip and memory. We call these two types of integrity attack content modification attack and copy-then-replay attack. 
@@ -55,16 +57,7 @@ When the chip reads the modified frame, the fake pair(C2, T2) is verified by VF(
 
 If the fake pair from the adversary passes the verification, the integrity of the data is broken. To defend content modification attack, the MAC scheme should ensure that when the secret information used in tag generation collides for two distinct input data, the related two tags should have low probability to be identical. For copying-then-replaying attack, identical input data should have low probability to lead to tag collision if the secret information used in tag generation are distinct. 
 
-\paragraph{Implementation Security of Cost-Effective Tag Design}
-As the MAC scheme adopted in cost-effective tag design(CETD) is a statefule scheme, the input of nonce generation should be distinct for any two write-read period. This is the security requirement in implementation level. 
-
-In CETD tag design, a input of nonce generation is a tuple(addr,ctr, rnd). The meaning of each element in the tuple is listed below: 
-\begin{itemize}
-	\item Addr: The address of ciphertext
-	\item Ctr: A incrementing counter 
-	\item Rnd: A random number
-\end{itemize}
-
+%the adversary can choose message other than just brute-force
 \paragraph{Security Analysis Model}
 In our security analysis of CETD-MAC scheme, the adversary A has access to the tag generation scheme and verification scheme. A can input chosen ciphertexts to the tag generation scheme and determine whether the nonce for his chosen ciphertexts are fixed or not. He can acquire the value of the tag for each his chosen ciphertext while cannot access the value of the related nonce. After analyzing several valid ciphertext-tag pairs, A sends his fake pair (C$_{fake}$, T$_{fake}$) to the verification scheme. The verification scheme generates the tag T of C$_{fake}$ and the fake pair passes the verification if T is identical to T$_{fake}$. Our security analysis on CETD-MAC is modeled like this:
 \begin{itemize}
@@ -73,7 +66,6 @@ In our security analysis of CETD-MAC scheme, the adversary A has access to the t
 \end{itemize}
 After several rounds of inputing, the adversary analyses the value of tags for his chosen inputs then sends his fake pair(C$_{fake}$, T$_{fake}$) to the verification scheme.   	
 
-\paragraph{Chosen Message Attack}
 %in brute force attack, the adversary tries the tag one-by-one till passing
 In \cite{}, the authors provided a security analysis of CETD-MAC scheme. The adversary is assumed to conduct brute force attack in which he randomly chooses a ciphtertext C and a nonce N. Then he keeps C and N fixed and tries different tags until a tag T can pass the verification with C and N. All the tags tried until passing the verification form a set named tag exploration space. The author assumed a MAC to be secure if the following conditions are met:
 \begin{itemize}
@@ -88,8 +80,10 @@ For instance, is there is a type of relationship between ciphertext and tag for 
 
 In this article, we assume the adversary can choose the ciphertext in both content modification and copy-then-replay attack. The adversary aims to find groups of inputs that the two inputs from same group has probability of tag collision that is much larger than 1/2$^n$, where n is Len(tag). 
 
-
+%how the adversary choose message in spoofing scenario
 \paragraph{Content Modification Scenario}
+
+%the chosen message in replay scenario
 \paragraph{Copy-then-Replay Scenario}
 Our security definition of MAC schemes under replay attack follows the definition chosen-message attack. 
 An adversary is given access to a tag generation black-box(named oracle) and a message-tag pair verification oracle. The encryption key is maintained unchanged while the nonce value is updated for each calling of tag generation oracle no matter whether the value of input message collide with a value in old timestamp. Secret key and nonces are kept in trusted area and cannot be acquired by the adversary. The adversary can copy the message-tag pairs in old time stamp. When conducting the replay attack, the adversary replaces a memory frame containing a data-tag pair in new timestamp with a copy from his storage. The forgery advantage F$_{CETD-MAC}$ under replay attack is the probability that the adversary can get the verification oracle to accept the replace data-tag pair.  
