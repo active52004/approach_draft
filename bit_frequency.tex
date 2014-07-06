@@ -21,8 +21,6 @@
 \section{Security Analysis of CETD-MAC}
 In this section we analysis the security of cost-effective tag design. We firstly introduce our security evaluation model of tag design. This model splits the security analysis into two steps: scheme security and implementation security. We analysis 
 %cetd-mac is not secure
-<<<<<<< HEAD
-=======
 \paragraph{CETD meets the security requirement of CETD-MAC}
 To defend copy-then-replay attack, CETD-MAC requires that when the chip writes
 the content of a memory frame in an address, the nonce used to generate the tag
@@ -55,7 +53,6 @@ In \cite{}, the authors provided a security analysis of CETD-MAC scheme. The adv
 	\item If the ciphertext and nonce is randomly generated and unaccessible to the adversary, the probability to pass the verification for each tag in the tag exploration space is identical
 \end{itemize}
 Based the above two conditions, the author assume CETD-MAC is secure.
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
 
 \subsection{Computational Based Security Analysis of CETD-MAC}
 In this section we discuss the security of CETD-MAC under two tpyes of integrity attack.  The adversary is assumed to know the length of ciphertext and tag on the memory frame he acquired. 
@@ -88,9 +85,20 @@ When k is larger than m*(n-1), the way to compute number of possible distinct ta
 No of distinct tags is $\sum_{i=0}^{(m*n-k)/2}$ $\binom{n}{()k-2*i}$ if k is even or $\sum_{i=0}^{(m*n-k+1)/2}$ $\binom{n}{k-2*i}$ if k is odd
 
 %give Theorem of content modificatoin attack
-\paragraph{The Relationship Between Ciphertext and Its Tag}
+\paragraph{The Number of Possible Tags for a Ciphertext is Limited}
 If the MAC scheme is ideal and behaves like a PRF, for any input ciphertext, the probability that its tag equals to a specific value is 1/2$^n$, where n is Len(tag). 
-As the both shuffle and shift subroutines in CETD-MAC scheme are diffusion operations, for each input ciphertext, its 0-1 proportion will be maintained until the xor subroutine. This fact means that for a specific input ciphertext, the number of its possible tag values is limited. For example, assume the input ciphertext is 0x 
+As the both shuffle and shift subroutines in CETD-MAC scheme are diffusion operations, for each input ciphertext, its 0-1 proportion will be maintained until the xor subroutine. This fact means that for a specific input ciphertext, the number of its possible tag values is limited. For example, assume the input ciphertext is (0x0, 0x01) and the Len(tag) is 8 bits, we can see that there are only 8 possible values that CETD-MAC can producer with different nonce, which are {0x01, 0x02, 0x04, 0x08,0x10, 0x20, 0x40, 0x80}. The reason for this fact is that there are only a single '1' in the input ciphertext, which means the Y blocks that serve as the input of xor stage contain only a single '1', so it is impossible to produce tag values such as 0xFF or ohter ones containing more than one '1'. From this instance we can see that for a input ciphertext, as the shuffle and shift stage can not introduce new bits, so for any nonce value, the number of 0s and 1s in the blocks doing xor operation is always same as the proportion in the input ciphertext, which means the possible number of 1sx in the tag after the xor operation is limited. We summarize this fact to the Theorem $\ref{}$ and the proof is expressed in the appendix.
+\begin{theorem}
+Assume the input ciphertext of CETD-MAC scheme, marked as C,  is consist of m n-bits blocks and the nonce is a output from PRF. The number of possible distinct tag values, marked as num\_tag, is determined by the number of 1s, marked as k, in C. The relationship between num\_tag and k can be expressed as:
+\begin{equation}\label{xx}
+\begin{split}
+a& = b+c\\
+	 &\quad +e-f\\
+	 &= g+h\\
+	 &= l
+\end{split}
+\end{equation}
+\end{theorem}
 \paragraph{Input can be divided into groups}
 %Given a ciphertext and unknown nonce, the number of tags that a adversary needs to try is determined by the number of 1s in the ciphertext, this property can help the adversry contrive strategry to reduce the number of guessing.
 %on the other hand, the adversary can deisgn its c-t pair according to this property. 

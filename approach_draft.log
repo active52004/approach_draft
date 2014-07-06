@@ -1,15 +1,11 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.19)  5 JUL 2014 22:02
-=======
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.19)  4 JUL 2014 23:05
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.19)  6 JUL 2014 11:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **approach_draft.tex
 (./approach_draft.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 2 languages loaded.
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -419,366 +415,32 @@ Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 \c@defination=\count140
 \c@proposition=\count141
 
-(./approach_draft.aux (./Notation.aux) (./bit_frequency.aux)
-
-LaTeX Warning: Label `tag_expression' multiply defined.
-
-)
-\openout1 = `approach_draft.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
- (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count142
-\scratchdimen=\dimen130
-\scratchbox=\box35
-\nofMPsegments=\count143
-\nofMParguments=\count144
-\everyMPshowfont=\toks42
-\MPscratchCnt=\count145
-\MPscratchDim=\dimen131
-\MPnumerator=\count146
-\makeMPintoPDFobject=\count147
-\everyMPtoPDFconversion=\toks43
-) (./approach_draft.glsdefs)
-\openout2 = `Notation.aux'.
-
- (./Notation.tex) (./approach_draft.nls
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 9.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 9.
-) [1
-
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-<<<<<<< HEAD
-Overfull \hbox (53.33391pt too wide) in paragraph at lines 94--96
-=======
-Overfull \hbox (53.33391pt too wide) in paragraph at lines 83--85
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-[]\OT1/cmr/m/n/10 According to the de-sign of CETD-MAC, the tag can be ex-press
-ed as Y[1]$\OMS/cmsy/m/n/10 ^^H$\OT1/cmr/m/n/10 Y[2]$\OMS/cmsy/m/n/10 ^^H$$[]$$
-^^H$\OT1/cmr/m/n/10 Y[x],
- []
-
-[4]
-
-<<<<<<< HEAD
-LaTeX Warning: Reference `CETD-MAC' on page 5 undefined on input line 114.
-=======
-LaTeX Warning: Reference `CETD-MAC' on page 4 undefined on input line 103.
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-
-Package epstopdf Info: Source file: <./diagrams/CETD.eps>
-(epstopdf)                    date: 2014-05-15 16:15:00
-(epstopdf)                    size: 98852 bytes
-(epstopdf)             Output file: <./diagrams/CETD-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-05-15 16:15:00
-(epstopdf)                    size: 44999 bytes
-(epstopdf)             Command: <repstopdf --outfile=./diagrams/CETD-eps-conver
-ted-to.pdf ./diagrams/CETD.eps>
-<<<<<<< HEAD
-(epstopdf)             \includegraphics on input line 117.
-=======
-(epstopdf)             \includegraphics on input line 106.
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-Package epstopdf Info: Output file is already uptodate.
-<./diagrams/CETD-eps-converted-to.pdf, id=20, 736.7525pt x 452.69125pt>
-File: ./diagrams/CETD-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./diagrams/CETD-eps-converted-to.pdf>
-Package pdftex.def Info: ./diagrams/CETD-eps-converted-to.pdf used on input lin
-<<<<<<< HEAD
-e 117.
-(pdftex.def)             Requested size: 442.05492pt x 271.61684pt.
-
-Overfull \hbox (97.05492pt too wide) in paragraph at lines 117--118
-=======
-e 106.
-(pdftex.def)             Requested size: 442.05492pt x 271.61684pt.
-
-Overfull \hbox (97.05492pt too wide) in paragraph at lines 106--107
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
- [][] 
- []
-
-[4] <./diagrams/rotate_right.pdf, id=24, 501.875pt x 401.5pt>
-File: ./diagrams/rotate_right.pdf Graphic file (type pdf)
-
-<use ./diagrams/rotate_right.pdf>
-<<<<<<< HEAD
-Package pdftex.def Info: ./diagrams/rotate_right.pdf used on input line 124.
-(pdftex.def)             Requested size: 200.74643pt x 160.59715pt.
-
-
-LaTeX Warning: Citation `keylist' on page 5 undefined on input line 128.
-=======
-Package pdftex.def Info: ./diagrams/rotate_right.pdf used on input line 113.
-(pdftex.def)             Requested size: 200.74643pt x 160.59715pt.
-
-
-LaTeX Warning: Citation `keylist' on page 5 undefined on input line 117.
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-
-[5 <./diagrams/CETD-eps-converted-to.pdf>] [6 <./diagrams/rotate_right.pdf>]
-\openout2 = `bit_frequency.aux'.
-
-<<<<<<< HEAD
- (./bit_frequency.tex
-Overfull \hbox (8.07227pt too wide) in paragraph at lines 25--25
-=======
-
-(./bit_frequency.tex
-Overfull \hbox (8.07227pt too wide) in paragraph at lines 43--43
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-[]\OT1/cmr/bx/n/12 Computational Based Se-cu-rity Anal-y-sis of CETD-MAC 
- []
-
-[7
-
-<<<<<<< HEAD
-] [9]
-
-LaTeX Warning: Reference `' on page 10 undefined on input line 66.
-
-
-LaTeX Warning: Reference `' on page 10 undefined on input line 73.
-
-[10]
-
-LaTeX Warning: Reference `' on page 11 undefined on input line 86.
-
-
-LaTeX Warning: Reference `' on page 11 undefined on input line 90.
-=======
-]
-Overfull \hbox (9.32828pt too wide) in paragraph at lines 57--58
- \OT1/cmr/bx/n/10 Dif-fu-sion Op-er-a-tions Do Not In-tro-duce New Bits[] \OT1/
-cmr/m/n/10 In CETD-MAC scheme,
- []
-
-[8] [9]
-
-LaTeX Warning: Reference `' on page 10 undefined on input line 84.
-
-
-LaTeX Warning: Reference `' on page 10 undefined on input line 91.
-
-[10]
-
-LaTeX Warning: Reference `' on page 11 undefined on input line 104.
-
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-
-LaTeX Warning: Reference `' on page 11 undefined on input line 108.
-
-<<<<<<< HEAD
-LaTeX Warning: Reference `' on page 12 undefined on input line 101.
-
-[12]
-Overfull \hbox (1.57309pt too wide) in paragraph at lines 121--121
-=======
-
-LaTeX Warning: Reference `' on page 11 undefined on input line 119.
-
-[11]
-Overfull \hbox (1.57309pt too wide) in paragraph at lines 139--139
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
- \OT1/cmr/bx/n/10 No-linearity and Ran-dom Bits In-jec-tion: Ap-proaches in oth
-er schemes[] 
- []
-
-
-<<<<<<< HEAD
-LaTeX Warning: Reference `' on page 13 undefined on input line 122.
-=======
-LaTeX Warning: Reference `' on page 12 undefined on input line 140.
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-
-
-<<<<<<< HEAD
-LaTeX Warning: Reference `' on page 13 undefined on input line 163.
-=======
-LaTeX Warning: Reference `' on page 13 undefined on input line 181.
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-
-
-<<<<<<< HEAD
-LaTeX Warning: Reference `' on page 14 undefined on input line 172.
-
-) [14] [15]
-Overfull \hbox (11.91959pt too wide) in paragraph at lines 141--141
-=======
-LaTeX Warning: Reference `' on page 13 undefined on input line 190.
-
-[13]) [14] [15]
-Overfull \hbox (11.91959pt too wide) in paragraph at lines 130--130
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-[]\OT1/cmr/bx/n/14.4 The Se-cu-rity Weak-ness of CETD-MAC Scheme 
- []
-
-
-<<<<<<< HEAD
-LaTeX Warning: Reference `' on page 16 undefined on input line 142.
-
-
-LaTeX Warning: Reference `' on page 16 undefined on input line 158.
-
-
-LaTeX Warning: Reference `' on page 16 undefined on input line 158.
-=======
-LaTeX Warning: Reference `' on page 16 undefined on input line 131.
-
-
-LaTeX Warning: Reference `' on page 16 undefined on input line 147.
-
-
-LaTeX Warning: Reference `' on page 16 undefined on input line 147.
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-
-[16
-
-] [17]
-
-LaTeX Warning: Reference `tag_collision_exp' on page 18 undefined on input line
-<<<<<<< HEAD
- 247.
-=======
- 236.
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-
-<./diagrams/r_s_2bits.pdf, id=81, 553.06625pt x 306.14375pt>
-File: ./diagrams/r_s_2bits.pdf Graphic file (type pdf)
-
-<use ./diagrams/r_s_2bits.pdf>
-<<<<<<< HEAD
-Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 278.
-=======
-Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 267.
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-(pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
-
-<./diagrams/r_s_6bits.pdf, id=82, 553.06625pt x 306.14375pt>
-File: ./diagrams/r_s_6bits.pdf Graphic file (type pdf)
-
-<use ./diagrams/r_s_6bits.pdf>
-<<<<<<< HEAD
-Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 278.
-=======
-Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 267.
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-(pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
-
-<./diagrams/r_d_4bits.pdf, id=83, 562.1pt x 306.14375pt>
-File: ./diagrams/r_d_4bits.pdf Graphic file (type pdf)
-
-<use ./diagrams/r_d_4bits.pdf>
-<<<<<<< HEAD
-Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 284.
-=======
-Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 273.
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-(pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
-
-<./diagrams/r_d_2bits.pdf, id=84, 562.1pt x 306.14375pt>
-File: ./diagrams/r_d_2bits.pdf Graphic file (type pdf)
-
-<use ./diagrams/r_d_2bits.pdf>
-<<<<<<< HEAD
-Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 284.
-=======
-Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 273.
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-(pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
-
-
-LaTeX Warning: Reference `Y-blk-collision' on page 18 undefined on input line 2
-<<<<<<< HEAD
-88.
-=======
-77.
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-
-[18 <./diagrams/r_s_2bits.pdf> <./diagrams/r_s_6bits.pdf> <./diagrams/r_d_4bits
-.pdf> <./diagrams/r_d_2bits.pdf>] [19]
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-<<<<<<< HEAD
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 349.
-
-Overfull \hbox (24.38963pt too wide) in paragraph at lines 357--360
-=======
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 338.
-
-Overfull \hbox (24.38963pt too wide) in paragraph at lines 346--349
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-\OT1/cmr/bx/n/10 Theorem B.5. \OT1/cmr/m/it/10 Let X$[]$[i] and X$[]$[j] be two
- dis-tinct block and len(X$[]$[i])=len(X$[]$[j])=N,
- []
-
-[20] [21] [22] [23]
-
-Package glossaries Warning: \makeglossaries hasn't been used,
-the glossaries will not be updated.
-
-
-Package glossaries Warning: No \printglossary or \printglossaries found.
-This document will not have a glossary.
-
-[24] (./approach_draft.aux (./Notation.aux) (./bit_frequency.aux))
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+(./approach_draft.aux (./Notation.aux)
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 <
+     <<<<<< HEAD
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.9 <
+     <<<<<< HEAD
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ 
 Here is how much of TeX's memory you used:
- 6509 strings out of 495028
- 92577 string characters out of 6181497
- 205461 words of memory out of 5000000
- 9541 multiletter control sequences out of 15000+600000
- 10528 words of font info for 38 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 46i,9n,36p,1720b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-<<<<<<< HEAD
-Output written on approach_draft.pdf (24 pages, 372133 bytes).
-=======
-Output written on approach_draft.pdf (24 pages, 372469 bytes).
->>>>>>> 81181dba513321325fec0b42ca51887b24770f0a
-PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 6005 strings out of 493304
+ 85446 string characters out of 6139871
+ 197115 words of memory out of 5000000
+ 9337 multiletter control sequences out of 15000+600000
+ 3640 words of font info for 14 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 46i,0n,35p,1720b,45s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!
