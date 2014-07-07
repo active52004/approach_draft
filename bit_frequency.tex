@@ -19,7 +19,7 @@
 %\begin{document}
 %breaking the security result in orignal design and prove that it is not secure under both attacks
 \section{Security Analysis of CETD-MAC}
-In this section we analysis the security of cost-effective tag design. We firstly introduce our security evaluation model of tag design. This model splits the security analysis into two steps: scheme security and implementation security. We analysis 
+In this section we analysis the security of cost-effective tag design. We firstly introduce our security evaluation model of tag design. This model splits the security analysis into two steps: scheme security and implementation security. Our analysis focus on the scheme security. We prove that under both content modification and copy-then-replay attack, the possible value set of any input ciphertext is no more than 2$^{n-1}$.
 %cetd-mac is not secure
 \paragraph{CETD meets the security requirement of CETD-MAC}
 To defend copy-then-replay attack, CETD-MAC requires that when the chip writes
@@ -91,7 +91,7 @@ For any input ciphertext, the size of its possible tag rage is no more than 2$^{
 \end{corollary}
 
 The proof of Corollary $\ref{coro:odd-even}$ is provided in the appendix. 
-From Theorem $\ref{theo:tagNum-1s}$ we can see that the domain of input ciphertext can be splitted into three groups based on the number of 1s. The first group covers the ciphertext values whose number of 1s various fro The rage size is identical to num\_tag. We can draw the following conclusion based on this fact:
+From Theorem $\ref{theo:tagNum-1s}$ we can see that the domain of input ciphertext can be splitted into three groups based on the number of 1s. The rage size is identical to num\_tag. We can draw the following conclusion based on this fact:
 \begin{itemize}
 	\item the maximum value of num\_tag is 2$^{n-1}$ if k $\in$[n, m*(n-1)]. 
 	\item The probability of tag collision is affected by the value of num\_tag
