@@ -54,7 +54,7 @@ In \cite{}, the authors provided a security analysis of CETD-MAC scheme. The adv
 \end{itemize}
 Based the above two conditions, the author assume CETD-MAC is secure.
 
-\subsection{Computational Based Security Analysis of CETD-MAC}
+\subsection{Computational Based Security Analysis of CETD-MAC}\label{sect:proportion}
 In this section we discuss the security of CETD-MAC under two tpyes of integrity attack.  The adversary is assumed to know the length of ciphertext and tag on the memory frame he acquired. 
 We prove that the probability that the fake pair passes the verification scheme under both two attacks is determined by the proportion of the 1s and 0s in the input ciphertexts and provide the equations quantifying this relationship. This fact indicates that the adversary can choose special ciphertext-tag pairs which have higher probability to pass the verification compared with other pairs.  
 
@@ -68,61 +68,58 @@ When conducting content modification attack, the adversary modifies the content 
 \paragraph{The Diffusion Does Not Introduce New Bits}
 In CETD-MAC scheme, the shuffle and shift stage relocate bits in the ciphertext to new index. Even though the new index of each bit in the cihpertext is unpredictble as the nonce is the output of a PRF and unaccessable to the adversary, it is certain the output of shift shuffle and shift stage contain same bits as the ciphertext. Assume ciphertext is consist of m blocks each of whose length is n bits, and there are totally k 1s in the m*n bits in the ciphertext. The the output of shuffle and shift stage also have k 1s and m*n - k 0s. 
 
-As mentioned before, the 0-1 proportion is maintained during the shuffle and shift operation. That means if two distinct ciphertext C1 and C2 have same proportion, marked as k/m*n-k, the 0-1 proportion in their corresponding shift outputs Y1 and Y2 is also k/m*n-k.  
-If we fix a nonce and keep querying ciphertext with same 0-1 proportion, the outputs of shift stage can be regarded as a seg of m*n bits messages with same 0-1 proportion but uncertain bit distribution. If a ciphertext has k 1s, then the distinct ciphertexts have k 1s form a set S$_{n}^{k}$ and the set size is $\binom{n}{k}$, marked as C$_{n}^{k}$. The ith element in set S$_{n}^{k}$ is marked as C[i] and the tag of C[i] is T[i].   
-We fix a nonce N for the set S$_{n}^{k}$ and compute T[1]. We discuss possbile distribution of k 1s in m Y blocks according to the value of k compared with m*n to see the number of possible distinct values of T1. 
-
-Firstly, we assume k is no larger than n. When xoring Y blocks to generate T[1], the jth bit of T[1], marked as T[1][j], is computed as T[1][j] = Y1[1][j]$\oplus$Y1[2][j]$\oplus$Y1[m][j], where Y1[i][j] is the jth bit in the ith Y block. We call the jth bit in all Y blocks a jth colunm. The jth bit of T1 is formed by xoring all the bits in the jth column of Y block.  It is obvious that T1 can have at most k 1s and the number of distinct T1 with k 1s is $\binom{n}{k}$. In this case all the k 1s distribute in distinct k columne.  If we want new value of T1, we need to move one of 1 to another column. This relocation reduce the number of 1s in T1 from k to k-2, leading to $\binom{n}{k-2}$ new distinct values of T1. If we want more new values, we need to keep move 1s to another column like this way and each time of relocation reduce 2 1s in T1, which means the possible number of 1s in T1 canbe k, k-2, k-4,$\ldots$, 0(if k is even) or 1(if k is odd). Then we draw the following Theorem:
-\begin{theorem}
-Assume a ciphertext consist of m n-bits blocks has k 1s and k is no larger than n, then the the number of possible distinct value of its tag when the nonce is unaccessible is compute with the equation:
-No of distinct tags is $\sum_{i=0}^{k/2}$ $\binom{n}{k-2*i}$ if k is even or $\sum_{i=0}^{(k-1)/2}$ $\binom{n}{k-2*i}$ if k is odd
-\end{theorem}
-When k is identical to n or n-1, the number of distinct tags is 2$^{n-1}$.  
-
-If k is larger than n and no larger than m*(n-1), for any k in this domain, it is possible to generate a tag containing 0 to n 1s. That means for any k $\in$ [n, m*(n-1)], the number of possible distinct tags for a ciphertext is 2$^{n-1}$. 
-
-When k is larger than m*(n-1), the way to compute number of possible distinct tags is simular to the case that k is no larger than n. In this case, the tag can has at most n - (k mod n) 0s the value with less number of 0s can be acquired by overlapping 0s in one column. The number of possible distinct tag values can be computed with the following equation:
-No of distinct tags is $\sum_{i=0}^{(m*n-k)/2}$ $\binom{n}{()k-2*i}$ if k is even or $\sum_{i=0}^{(m*n-k+1)/2}$ $\binom{n}{k-2*i}$ if k is odd
-
 %give Theorem of content modificatoin attack
-\paragraph{The Number of Possible Tags for a Ciphertext is Limited}
+\subsubsection{The Number of Possible Tags for a Ciphertext is Limited}\label{sect:bit-proportion}
 If the MAC scheme is ideal and behaves like a PRF, for any input ciphertext, the probability that its tag equals to a specific value is 1/2$^n$, where n is Len(tag). 
-As the both shuffle and shift subroutines in CETD-MAC scheme are diffusion operations, for each input ciphertext, its 0-1 proportion will be maintained until the xor subroutine. This fact means that for a specific input ciphertext, the number of its possible tag values is limited. For example, assume the input ciphertext is (0x0, 0x01) and the Len(tag) is 8 bits, we can see that there are only 8 possible values that CETD-MAC can producer with different nonce, which are {0x01, 0x02, 0x04, 0x08,0x10, 0x20, 0x40, 0x80}. The reason for this fact is that there are only a single '1' in the input ciphertext, which means the Y blocks that serve as the input of xor stage contain only a single '1', so it is impossible to produce tag values such as 0xFF or ohter ones containing more than one '1'. From this instance we can see that for a input ciphertext, as the shuffle and shift stage can not introduce new bits, so for any nonce value, the number of 0s and 1s in the blocks doing xor operation is always same as the proportion in the input ciphertext, which means the possible number of 1sx in the tag after the xor operation is limited. We summarize this fact to the Theorem $\ref{}$ and the proof is expressed in the appendix.
-\begin{theorem}
+As the both shuffle and shift subroutines in CETD-MAC scheme are diffusion operations, for each input ciphertext, its 0-1 proportion will be maintained until the xor subroutine. This fact means that for a specific input ciphertext, the number of its possible tag values is limited. For example, assume the input ciphertext is (0x0, 0x01) and the Len(tag) is 8 bits, we can see that there are only 8 possible values that CETD-MAC can producer with different nonce, which are {0x01, 0x02, 0x04, 0x08,0x10, 0x20, 0x40, 0x80}. The reason for this fact is that there are only a single '1' in the input ciphertext, which means the Y blocks that serve as the input of xor stage contain only a single '1', so it is impossible to produce tag values such as 0xFF or ohter ones containing more than one '1'. From this instance we can see that for a input ciphertext, as the shuffle and shift stage can not introduce new bits, so for any nonce value, the number of 0s and 1s in the blocks doing xor operation is always same as the proportion in the input ciphertext, which means the possible number of 1sx in the tag after the xor operation is limited. We summarize this fact to the Theorem $\ref{theo:tagNum-1s}$ and the proof is expressed in the appendix.
+\begin{theorem}\label{theo:tagNum-1s}
 Assume the input ciphertext of CETD-MAC scheme, marked as C,  is consist of m n-bits blocks and the nonce is a output from PRF. The number of possible distinct tag values, marked as num\_tag, is determined by the number of 1s, marked as k, in C. The relationship between num\_tag and k can be expressed as:
-\begin{equation}\label{xx}
+\begin{equation}\label{equ:tagNum-1s}
 \begin{split}
-a& = b+c\\
-	 &\quad +e-f\\
-	 &= g+h\\
-	 &= l
+num\_tag &= \sum_{i=0}^{\lfloor k/2 \rfloor} \binom{n}{k-2*i} if k \in [0,n)\\ 
+		& =\sum_{i=0}^{\lfloor n/2 \rfloor} \binom{n}{n-2*i} if k \in [n,m*(n-1)]\\
+		& = \sum_{i=0}^{(m*n-k)/2} \binom{n}{(m*n - k)-2*i} if k \in (m*(n-1),m*n] 	 
 \end{split}
 \end{equation}
 \end{theorem}
-\paragraph{Input can be divided into groups}
+Based on Theorem $\ref{theo:tagNum-1s}$ we get the Colloery $\ref{coro:odd-even}$ and $\ref{coro:max}$:
+\begin{corollary} \label{coro:odd-even}
+if there are even number of 1s in the input ciphertext of cetd-mac, then its tag will also contains even number of 1s; if there are odd number of 1s in the ciphertext, then its tag has odd number of 1s.
+\end{corollary}
+\begin{corollary} \label{coro:max}
+For any input ciphertext, the size of its possible tag rage is no more than 2$^{n-1}$ where n is Len(tag).
+\end{corollary}
+
+The proof of Corollary $\ref{coro:odd-even}$ is provided in the appendix. 
+From Theorem $\ref{theo:tagNum-1s}$ we can see that the domain of input ciphertext can be splitted into three groups based on the number of 1s. The first group covers the ciphertext values whose number of 1s various fro The rage size is identical to num\_tag. We can draw the following conclusion based on this fact:
+\begin{itemize}
+	\item the maximum value of num\_tag is 2$^{n-1}$ if k $\in$[n, m*(n-1)]. 
+	\item The probability of tag collision is affected by the value of num\_tag
+\end{itemize}
 %Given a ciphertext and unknown nonce, the number of tags that a adversary needs to try is determined by the number of 1s in the ciphertext, this property can help the adversry contrive strategry to reduce the number of guessing.
 %on the other hand, the adversary can deisgn its c-t pair according to this property. 
 %besides same proportion ciphertext, what type of other ciphertext can the advesrary to use with high prob of passing?
-\paragraph{Forgery Attack on CETD-MAC in Content Modification Scenario}
-In content modification attack, the adversary acquires a valid memory frame and try to modify the content. If the adversry knows the length of ciphertext and the tag, he will know the value of the ciphertext and the tag. According to the previous analysis on the relationship between bit proportion and possible tag values, the adversary can conduct the following two types of modification on the frame:
+\paragraph{Forgery Attack in Content Modification Scenario}
+In the computational based security analysis on MAC schemes, the behaviour of the adversary is modeled as probing valid ciphertext-tag pairs first then sending a forgery pair to the verification system. In content modification attack scenario this model can be depicted as that the adversary acquires a valid memory frame and try to modify the content. If the adversry knows the length of ciphertext and the tag, he will know the value of the ciphertext and the tag. 
+As the input domain of CETD-MAC scheme can be splitted into groups leading to different tag ranges, the security definition of MAC schemes under content modification attack cannot be meet as the adversary can conduct the following two types of modification on the frame:
 \begin{enumerate}
 	\item Select a new ciphertext that has T$_{origin}$ in its possible tag domain. A better choice is to select a ciphertext with same number of 1s as the tag T$_{origin}$
 	\item Replace the frame with a new pair (C2, T2) that T2 is in the possible tag domain of C2
 \end{enumerate}
-From Theorem $\ref{}$ we know that if the number of 1s in m*n bits is to large(more than m*(n-1)) or too small(less than n), the possible tag domain size is small. This fact 
+From Theorem $\ref{theo:tagNum-1s}$ we know that if the number of 1s in m*n bits is too large(more than m*(n-1)) or too small(less than n), the possible tag domain size is small. This fact means choosing a ciphertext from these two domains has high probability to pass the verification stage.
 
 %input is fixed and the nonce changes for each query,
 %the number of query
 \subsubsection{Copy-then-Replay Attack Scenario}
-When conducting copy-then-replay, the adversary replace a valid memory frame with his stored copy of a frame from other address or same address but older time point. The probability that the adversary succeed the copy-then-replay attack is determined by the probability that for a fixed input C, the two tags T1 and T2 are identical when their nonce N1 and N2 are randomly generated.
+When conducting copy-then-replay, the adversary replace a valid memory frame with his stored copy of a frame from other address or same address but older time point. The probability that the adversary succeeds the copy-then-replay attack is determined by the probability that for a fixed input C, the two tags T1 and T2 are identical when their nonce N1 and N2 are randomly generated.
 
-As depicted in Section $\ref{}$, the 0-1 proportion of a ciphertext is maintained to the output blocks(Y blocks) of shift stage. This fact means for a fixed input, the Y block set Y1 and Y2 for two randomly generated nonce N1 and N2 have same 0-1 proportion.  
-\paragraph{Copy-then-replay}
+As depicted in Section $\ref{sect:bit-proportion}$, the 0-1 proportion of a ciphertext is maintained to the input blocks(Y blocks) of xor stage. This fact means for a fixed input, the Y block set Y1 and Y2 for two randomly generated nonce N1 and N2 have same 0-1 proportion.  
 \paragraph{Forgery Attack on CETD-MAC in Copy-then-Replay Scenario}
-As the probability that two tags collide when their inputs are identical and their nonce are randomly generated is determined by the 0-1 proportion of their inputs, the adversary can just attack the frame with the copy whose ciphertext has many 1s(more than m*(n-1)) or few 1s(fewer than n). Two extrame case is all 0 and all 1 ciphertexts, no matter what nonce is adopted, their tags will always be 0.
+From Theorem $\ref{theo:tagNum-1s}$ and its related Corollaries we an see that the proportion of the input ciphertext will determine the size of its tag range and the maximum tag range size if 2$^{n-1}$ which is acquired if the number of 1s in the input ciphertext is between n and m*(n-1).
+This fact means if the input ciphertext replayed has too many or too little number of 1s, such as all 0s and all 1s ciphertext, the related tag range contains only one tag value: 0. That means no matter how random the nonce is, replaying all 0s and all 1s ciphertext will always succeed.
 
 %it is impossible to modify cetd-mac with existing operations to enhance security
-\subsection{Security Enhancement of CETD-MAC with Its Operations}
+\subsection{Security Enhancement of CETD-MAC with Its Operations}\label{sect:pattern}
 In this part we try to enhance the security of CETD-MAC without introducing new operations or data. We analyze the functionality of each operation first and discuss whether it is necessary to maintain each operation in the new design.
 %why to add each operation, why unsufficient to use each only ?
 \subsubsection{Design Rationale of Original CETD-MAC Scheme}
@@ -130,22 +127,22 @@ CETD-MAC scheme is consist of three stages: bit-segment shuffle with user chosen
 \paragraph{XOR stage}
 The xor operation is a common choice for parallel MAC schemes to convert m n-bits block to a n-bits tag. It has been analyzed by Bellare in \cite{} that it is insecure to construct a MAC scheme with xor operation only as simply swapping the order of two blocks in the input can lead to tag collision.  The input blocks must be processed before sent to xor stage to ensure that simply changing the order of two input blocks in the input will change the input set of xor stage.
 \paragraph{Cycle Shift Stage}
-In original CETD-MAC scheme, cycle shift stage, short for shift stage, locates before the xor stage. For each input block of shift stage, the number of bits shifted is determined by the value of a nonce segment. Shift stage can defend the attacks such as changing the order of two input blocks as the adversary has no access to the nonce value and then can not predict the number of bits shifted of each block, then has no idea that changing the order of which two blocks lead to tag collision with high probability. However, it is still insecure to construct a MAC scheme by adopting shit stage then xor stage, as for some input blocks which are consist of one kind of patterns, shifting different number of bits can still lead to same output block. This fact means that reordering the blocks formed by a pattern have higher probability to lead to tag collision than other blocks. This fact is depicted in detail in Appendix $\ref{}$. 
+In original CETD-MAC scheme, cycle shift stage, short for shift stage, locates before the xor stage. For each input block of shift stage, the number of bits shifted is determined by the value of a nonce segment. Shift stage can defend the attacks such as changing the order of two input blocks as the adversary has no access to the nonce value and then can not predict the number of bits shifted of each block, then has no idea that changing the order of which two blocks lead to tag collision with high probability. However, it is still insecure to construct a MAC scheme by adopting shit stage then xor stage, as for some input blocks which are consist of one kind of patterns, shifting different number of bits can still lead to same output block. This fact means that reordering the blocks formed by a pattern have higher probability to lead to tag collision than other blocks. This fact is depicted in detail in Appendix $\ref{appendix:pattern}$. 
 
 %why it is unsufficient to use shuffle only if the number of blks are large?
 \paragraph{Bit-Segment Shuffle Stage}
-Shuffle stage swaps two bit-segments in each round. As the index and offset of swapping in each round is determined by the nonce, the adversary cannot predict which blocks participate the shuffle. One problem to use shuffle without shift is that if the number of blocks are large while the number of shuffle round is small, the number of blocks participating the shuffle is small. This fact is serious in copy-then-replay attack as majority of blocks may not participate shuffle and the content of these unshuffled blocks will be maintained until the next stage. If the operation linked to shuffle is the xor stage directly without shift stage, according to Equation $\ref{}$ we can see that the probability of tag collision is determined by th
+Shuffle stage swaps two bit-segments in each round. As the index and offset of swapping in each round is determined by the nonce, the adversary cannot predict which blocks participate the shuffle. One problem to use shuffle without shift is that if the number of blocks are large while the number of shuffle round is small, the number of blocks participating the shuffle is small. This fact is serious in copy-then-replay attack as majority of blocks may not participate shuffle and the content of these unshuffled blocks will be maintained until the next stage. %If the operation linked to shuffle is the xor stage directly without shift stage, according to Equation $\ref{}$ we can see that the probability of tag collision is determined by th
 
-and the adversary can repeat some blocks in the input as he wish to enhance the collision probability of the output from shuffle.  In the original CETD-MAC, the shift stage will help re-ordering the bits in the output blocks from shuffle stage to ensure that the input blocks of xor stage is hard for the adversary to predict. 
+ In the original CETD-MAC, the shift stage will help re-ordering the bits in the output blocks from shuffle stage to ensure that the input blocks of xor stage is hard for the adversary to predict. 
 
-\paragraph{Diffusion is insufficient to construct a secure MAC scheme}
+\subsubsection{Diffusion is insufficient to construct a secure MAC scheme}\label{par:diffusion}
 %linearity analysis and different analysis
 We can see what shuffle and shift do is reordering the bits in the input message
 blocks. We give each input bit a index from 1 to m*n. When the nonce is fixed
 and unknown, we are certain for two inputs M1 and M2 the bits with same index
 will be relocated to same new index. The adversary does not know the exact bit
 distribution of the input blocks to xor stage but he knows that the 0-1
-proportion is same as the input of CETD-MAC. As depicted in Section $\ref{}$, the odd-even property of the tag is identical to its input, and the number of possible distinct tag values can be predict based on the number of 1s in the input. When realized this fact, the adversary just needs to choose a tag value that has same odd-even property and the number of 1s is no more than min(n,k), there k is the number of 1s in the input.
+proportion is same as the input of CETD-MAC. As depicted in Section $\ref{sect:proportion}$, the odd-even property of the tag is identical to its input, and the number of possible distinct tag values can be predict based on the number of 1s in the input. When realized this fact, the adversary just needs to choose a tag value that has same odd-even property and the number of 1s is no more than min(n,k), there k is the number of 1s in the input.
 
 Content Modification Scenario
 In content modification scenario, the adversary keeps modifying a memory frame in an address until the frame passes verification. The modification will be previous to the next write operation from the chip the same address. 
@@ -164,9 +161,9 @@ In original CETD-MAC scheme, both shuffle and shift operation achieve the diffus
 We have shown that the original CETD-MAC cannot effectively defend two types of integrity attacks as the number of distinct tags is determined by the proportion of 1s and 0s. In this section, we propose several approaches to improve the security of CETD-MAC. Firstly we tried to utilize the nonce and the operation existing in the original CETD-MAC design and then prove the reason that this attempt cannot succeed. Then we proposed our rationale on improvement based on the instruction from \cite{}.  
 %we need to add gf-mult to provide no-linearity, gf-mult a nonce seg can do
 %random inject together
-\paragraph{No-linearity and Random Bits Injection: Approaches in other schemes}
+
 \paragraph{Galois Field Multiplication}
-As mentioned in Section $\ref{}$, it is insufficient to use linear operation
+As mentioned in Section $\ref{par:diffusion}$, it is insufficient to use linear operation
 only to construct a secure MAC scheme. The reason is that linear operations can
 diffuse the bit distribution of the input while can not introduce new bits. On
 the ther hand, the input and the output of linear operation has linear
@@ -207,7 +204,7 @@ doing gf-mult is determined by user choice, just as what shuffle stage does.
 
 Adding gf-mult before shuffle can inject random bits to the inputs and the
 adversary cannot predict the tag based on the input value according to the
-attack strategry depicted in Section $\ref{}$. This improvement works for all
+attack strategry depicted in Section $\ref{sect:proportion}$. This improvement works for all
 the input value except for all 0 input as the output of 0 gf-mult with any value
 will be 0. To address this problem, we introduce our second version of improved
 CETD-MAC scheme named Flip-then-GFM CETD-MAC scheme. We randomly flip each input
@@ -215,73 +212,65 @@ block and then do selecte gf-mult as we did in the variant of first version. We
 will show that our second version of improved CETD-MAC is secure under two types
 of integrity attacks in this part. 
 \subsubsection{Fully-GFM CETD-MAC}
-Our first design draft based on the original CETD-MAC are described in
-Algorithme $\ref{}$. We name this design Fully GF-Mult CETD-MAC, which mean each
-input will do galois field multiplication with a nonce segment.  
-\paragraph{}
+Our first design draft based on the original CETD-MAC is named as Fully GF-Mult CETD-MAC, which mean each
+input will do galois field multiplication with a nonce segment. The advantage of this draft is that if there is at least one bit value is identical to one in a input block, then the gf-mult on this block lead to an output block whose bit distribution cannot be predicted if the nonce segment is unaccessible. 
+The are two disadvantages of this draft: firstly if a input block is all 0, then the gf-mult will generate all 0 output block no matter what nonce segment is applied; secondly a calling of gf-mult is much time costing compared with the shuffle or shift operation. 
 \paragraph{Selected-GFM CETD-MAC}
+As gf-mult is a time costing operation, for some embedded platform the high security brought the Fully GF-MULT CETD-MAC is less important as the update speed of the memory frame is high and the adversary has no enough time to finish the whole attack procedure. Base on this fact we modify the draft from conducting gf-mult on each input block to the new draft, which is named as Selected-GFM CETD-MAC. IN Selected-GFM, there is another input parameter r\_blk determine the number of input blocks which will be conducted gf-mult. Then r\_blk continuous input blocks will be selected and the index of first input block is determined by a segment on the nonce. 
 
+Like Fully-GFM CETD-MAC, Selected-GFM CETD-MAC cannot process the all 0 input blocks either.
 \subsubsection{Flip-then-GFM CETD-MAC}
-
+As no matter fully or selected block version of GFM CETD-MAC, the input blocks consist of all 0s can not be processed as 0 gf-mult with any value will lead to 0. To address this  problem, we add another stage before selected gf-mult.
 \paragraph{Block Flipping}
-\subsection{Our Optimization of Original CETD-MAC}
-\paragraph{Defending Content Modification Attack}
-Hence the adversary can know the possible input set for a given tag , he can modify the content of ciphertext on the frame to a fake one that has same number of 1s as the tag and this way of modification has highest passing probability. On the other hand, as he knows the possible tag set for a given ciphertext, he can choose the tag for his fake ciphertext`s set to evade the tag values that can not be generated with C$_{fake}$ with any nonce. 
-
-To eliminate these advantage that left to the adversary by the original CETD-MAC, one idea is to make the relationship of 0-1 proportin between cipehrtext and its tag unpredictable if the nonce is unknown. 
-
-%to defend 1st type content modification, we need to ensure that if the nonce is rnd and unkonwn, the size of tag domain is 2^n and if the nonce is rnd, pr[T = k] = 1/2^n for any k 
-%to defend 2nd type content modification, we need to ensure that if the it is same as 1st
-As the 0-1 proportion of the tag is determined by its input ciphertext, we need to ensure that no matter how we modify the input, the value of the tag for the modified input is unpredictable. Th 
-
-\renewcommand{\algorithmicrequire}{ \textbf{Input:}} %Use Input in the format of Algorithm
-\renewcommand{\algorithmicensure}{ \textbf{Output:}} %UseOutput in the format of Algorithm
-\begin{algorithm}[htb] 
-\caption{Fully Galois Field Multiplication} 
-\label{alg:fully-GFM} 
-\begin{algorithmic}[1] %这个1 表示每一行都显示数字
-\REQUIRE ~~\\ %算法的输入参数：Input
-The set of positive samples for current batch, $P_n$;\\
-The set of unlabelled samples for current batch, $U_n$;\\
-Ensemble of classifiers on former batches, $E_{n-1}$;
-\ENSURE ~~\\ %算法的输出：Output
-Ensemble of classifiers on the current batch, $E_n$;
-\STATE Extracting the set of reliable negative and/or positive samples $T_n$ from $U_n$ with help of $P_n$; 
-\label{ code:fram:extract }%对此行的标记，方便在文中引用算法的某个步骤
-\STATE Training ensemble of classifiers $E$ on $T_n \cup P_n$, with help of data in former batches; 
-\label{code:fram:trainbase}
-\STATE $E_n=E_{n-1}\cup E$; 
-\label{code:fram:add}
-\STATE Classifying samples in $U_n-T_n$ by $E_n$; 
-\label{code:fram:classify}
-\STATE Deleting some weak classifiers in $E_n$ so as to keep the capacity of $E_n$; 
-\label{code:fram:select}
-\RETURN $E_n$; %算法的返回值
-\FOR{each $i \in [1,9]$}
-\STATE initialize a tree $T_{i}$ with only a leaf (the root);\
-\STATE $T=T \cup T_{i};$\
-\ENDFOR
-\FORALL {$c$ such that $c \in RecentMBatch(E_{n-1})$} 
-\label{code:TrainBase:getc}
-\STATE $T=T \cup PosSample(c)$; 
-\label{code:TrainBase:pos}
-\ENDFOR
-\FOR{$i=1$; $i<n$; $i++$ }
-\STATE $//$ Your source here;
-\ENDFOR
-\FOR{$i=1$ to $n$}
-\STATE $//$ Your source here;
-\ENDFOR
-\STATE $//$ Reusing recent base classifiers. 
-\label{code:recentStart}
-\WHILE {$(|E_n| \leq L_1 )and( D \neq \phi)$}
-\STATE Selecting the most recent classifier $c_i$ from $D$;
-\STATE $D=D-c_i$;
-\STATE $E_n=E_n+c_i$;
-\ENDWHILE 
-\label{code:recentEnd}
-\end{algorithmic}
-\end{algorithm}
+\paragraph{Flipping-GFM CETD-MAC}
+%\renewcommand{\algorithmicrequire}{ \textbf{Input:}} %Use Input in the format of Algorithm
+%\renewcommand{\algorithmicensure}{ \textbf{Output:}} %UseOutput in the format of Algorithm
+%\begin{algorithm}[htb] 
+%\caption{Fully Galois Field Multiplication} 
+%\label{alg:fully-GFM} 
+%\begin{algorithmic}[1] %这个1 表示每一行都显示数字
+%\REQUIRE ~~\\ %算法的输入参数：Input
+%The set of positive samples for current batch, $P_n$;\\
+%The set of unlabelled samples for current batch, $U_n$;\\
+%Ensemble of classifiers on former batches, $E_{n-1}$;
+%\ENSURE ~~\\ %算法的输出：Output
+%Ensemble of classifiers on the current batch, $E_n$;
+%\STATE Extracting the set of reliable negative and/or positive samples $T_n$ from $U_n$ with help of $P_n$; 
+%\label{ code:fram:extract }%对此行的标记，方便在文中引用算法的某个步骤
+%\STATE Training ensemble of classifiers $E$ on $T_n \cup P_n$, with help of data in former batches; 
+%\label{code:fram:trainbase}
+%\STATE $E_n=E_{n-1}\cup E$; 
+%\label{code:fram:add}
+%\STATE Classifying samples in $U_n-T_n$ by $E_n$; 
+%\label{code:fram:classify}
+%\STATE Deleting some weak classifiers in $E_n$ so as to keep the capacity of $E_n$; 
+%\label{code:fram:select}
+%\RETURN $E_n$; %算法的返回值
+%\FOR{each $i \in [1,9]$}
+%\STATE initialize a tree $T_{i}$ with only a leaf (the root);\
+%\STATE $T=T \cup T_{i};$\
+%\ENDFOR
+%\FORALL {$c$ such that $c \in RecentMBatch(E_{n-1})$} 
+%\label{code:TrainBase:getc}
+%\STATE $T=T \cup PosSample(c)$; 
+%\label{code:TrainBase:pos}
+%\ENDFOR
+%\FOR{$i=1$; $i<n$; $i++$ }
+%\STATE $//$ Your source here;
+%\ENDFOR
+%\FOR{$i=1$ to $n$}
+%\STATE $//$ Your source here;
+%\ENDFOR
+%\STATE $//$ Reusing recent base classifiers. 
+%\label{code:recentStart}
+%\WHILE {$(|E_n| \leq L_1 )and( D \neq \phi)$}
+%\STATE Selecting the most recent classifier $c_i$ from $D$;
+%\STATE $D=D-c_i$;
+%\STATE $E_n=E_n+c_i$;
+%\ENDWHILE 
+%\label{code:recentEnd}
+%\end{algorithmic}
+%\end{algorithm}
 
 
 %\appendix

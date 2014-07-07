@@ -86,30 +86,30 @@ Based the above two conditions, the author assume CETD-MAC is secure.
 Goldwasser et al. introduced the concept of unforgeability of chosen message attack in \cite{}. The adversary can select numbers of valid ciphertext-tag pairs, observe the relationship between each ciphertext and its tag, then send a fake ciphertext-tag pair to the verification stags based on the observation.The adversary A1 conducting chosen-message attack is more strategical compare with the one A2 for brute-fore attack in content modification scenario, which means A1 can try less number of ciphertext-tag pairs to pass the verification. 
 For instance, is there is a type of relationship between ciphertext and tag for a MAC scheme, A1 will realise this relationship and conduct two types of attack with high probability of passing: just modifying ciphertext from C1 to C2 and C2 has high probability to generate same tag T1; or send new pair (C2,T2) to the verification where C2 and T2 meet the relationship. In A1`s eyes, for given ciphetext C and a unknown nonce N, the tags in the tag domain has different probability to pass the verification while the probability is identical to A2. 
 
-In this article, we assume the adversary can choose the ciphertext in both content modification and copy-then-replay attack. The adversary aims to find groups of inputs that the two inputs from same group has probability of tag collision that is much larger than 1/2$^n$, where n is Len(tag). 
-
+In this article, we assume the adversary can choose the ciphertext in both content modification and copy-then-replay attack. The adversary is given access to a tag generation black-box(named oracle) and a message-tag pair verification oracle, then try to make the invalid ciphertext-tag pair to pass the verification oracle.
 %how the adversary choose message in spoofing scenario
 %the chosen message in replay scenario
 \paragraph{Content Modification Scenario}
-We assume the adversary 
+In content modification scenario, the nonce value is fixed and kept in the trusted area and is unaccessible to the adversary. The adversary tries to replace the valid memory frame (C$_{origin}$, T$_{origin}$) with his fake pair (C$_{fake}$, T$_{fake}$). The forgery advantage F$_{CETD-MAC}$ under content modification attack is the probability that the adversary can get the verification oracle to accept his fake cipehrtext-tag pair. 
+%copy-then-reply
 \paragraph{Copy-then-Replay Scenario}
-In copy-then-replay scenario, an adversary is given access to a tag generation black-box(named oracle) and a message-tag pair verification oracle. The encryption key is maintained unchanged while the nonce value is updated for each calling of tag generation oracle no matter whether the value of input message collide with a value in old timestamp. Secret key and nonces are kept in trusted area and cannot be acquired by the adversary. The adversary can copy the message-tag pairs in old time stamp. When conducting the replay attack, the adversary replaces a memory frame containing a data-tag pair in new timestamp with a copy from his storage. The forgery advantage F$_{CETD-MAC}$ under replay attack is the probability that the adversary can get the verification oracle to accept the replace data-tag pair.  
+In copy-then-replay scenario, the encryption key is maintained unchanged while the nonce value is updated for each calling of tag generation oracle. Secret key and nonces are kept in trusted area and cannot be acquired by the adversary. The adversary can copy the message-tag pairs in old time stamp. When conducting the replay attack, the adversary replaces a memory frame containing a data-tag pair in new timestamp with a copy from his storage. The forgery advantage F$_{CETD-MAC}$ under replay attack is the probability that the adversary can get the verification oracle to accept the replace data-tag pair.  
 
 Assume the copy with old timestamp from the adversary is expressed as (M,T1) where M is the message and T1 is the corresponding tag, and the nonce of (M,T1) is denoted as N1. When applying M to the tag generation at a new time point, we mark the corresponding tag T2 and the nonce N2. If the adversary can succeed a replay attack, then T1 is identical to T2 regardless of the equality of N1 and N2.
 Then F$_{CETD-MAC}$ under replay attack can be denoted as the probability Pr[T1 = T2 $\mid$ Message value is M \& N1,N2 are randomly generated]. 
 
-According to the design of CETD-MAC, the tag can be expressed as Y[1]$\oplus$Y[2]$\oplus$$\ldots$$\oplus$Y[x], x is the number of input sub-blocks to CETD-MAC. If the following equation is met:
-Y$_1$[1]$\oplus$Y$_1$[2]$\ldots$$\oplus$Y$_1$[x]$\oplus$Y$_2$[1]$\oplus$Y$_2$[2]$\ldots$$\oplus$Y$_2$[x] = 0, where Y$_1$ blocks produce T1 and Y$_2$ blocks generate T2, then T1 is identical to T2. This equation indicates that the behaviour of block-level rotate shifting stage effect the probability of tag collision directly. For easy understanding, we firstly analyze the case that shuffle stage does not work under replay attack, which means X$_1$[i] is identical to X$_2$[i] for any i$\in$[1,x]. The analysis of effect from shuffle stage on X blocks follows then.
-
-In replay attack, the adversary replace the memory frame written in new time
-point Time$_2$ with a copy from old time stamp Time$_1$. The content in memory
-frame is a data-tag pair. To defend the replay attack, a tuple(address, counter,
-random number) is adopted as input to block cipher encryption to generate the
-nonce, which serves the control parameter for each stage in tag generation. The
-tuple is distinct for each data message. Assume the block cipher adopted behaves
-like PRF, the nonce under replay attack is random and distributed
-uniformly for each data message. To Cost-Effective Tag design, the security of integrity of data message replys on the
-security of CETD-MAC scheme.
+%According to the design of CETD-MAC, the tag can be expressed as Y[1]$\oplus$Y[2]$\oplus$$\ldots$$\oplus$Y[x], x is the number of input sub-blocks to CETD-MAC. If the following equation is met:
+%Y$_1$[1]$\oplus$Y$_1$[2]$\ldots$$\oplus$Y$_1$[x]$\oplus$Y$_2$[1]$\oplus$Y$_2$[2]$\ldots$$\oplus$Y$_2$[x] = 0, where Y$_1$ blocks produce T1 and Y$_2$ blocks generate T2, then T1 is identical to T2. This equation indicates that the behaviour of block-level rotate shifting stage effect the probability of tag collision directly. For easy understanding, we firstly analyze the case that shuffle stage does not work under replay attack, which means X$_1$[i] is identical to X$_2$[i] for any i$\in$[1,x]. The analysis of effect from shuffle stage on X blocks follows then.
+%
+%In replay attack, the adversary replace the memory frame written in new time
+%point Time$_2$ with a copy from old time stamp Time$_1$. The content in memory
+%frame is a data-tag pair. To defend the replay attack, a tuple(address, counter,
+%random number) is adopted as input to block cipher encryption to generate the
+%nonce, which serves the control parameter for each stage in tag generation. The
+%tuple is distinct for each data message. Assume the block cipher adopted behaves
+%like PRF, the nonce under replay attack is random and distributed
+%uniformly for each data message. To Cost-Effective Tag design, the security of integrity of data message replys on the
+%security of CETD-MAC scheme.
 
 
 %what is CETD-MAC? what security conclusion has been made?
@@ -146,27 +146,40 @@ As the nonce is generated by block cipher encryption E$_K$. Assume E$_K$ perform
 
 \appendix
 \section{The Security Weakness of CETD-MAC Scheme}
-\section{Proof of Assertions in Section $\ref{}$}
+In this part we proof the theorems and related corollaries about the relationship between 0-1 proportion in the input ciphertext and the probability of generating tag collision.
+\subsection{Proof of Assertions in Section $\ref{sect:proportion}$}
+We proof the theorems and corollaries in Section $\ref{sect:proportion}$. These assertions reveal the security weakness that the size of tag range for a input C is determimined by the 0-1 proportion of C, which means the adversary can use input with small tag range for the forgery. 
+\paragraph{Proof of Theorem $\ref{theo:tagNum-1s}$}
+As mentioned before, the 0-1 proportion is maintained during the shuffle and shift operation. That means if two distinct ciphertext C1 and C2 have same proportion, marked as k/m*n-k, the 0-1 proportion in their corresponding shift outputs Y1 and Y2 is also k/m*n-k.  
+If we fix a nonce and keep querying ciphertext with same 0-1 proportion, the outputs of shift stage can be regarded as a set of m*n bits messages with same 0-1 proportion but uncertain bit distribution. If a ciphertext has k 1s, then the distinct ciphertexts have k 1s form a set S$_{n}^{k}$ and the set size is $\binom{n}{k}$, marked as C$_{n}^{k}$. The ith element in set S$_{n}^{k}$ is marked as C[i] and the tag of C[i] is T[i].   
+We fix a nonce N for the set S$_{n}^{k}$ and compute T[1]. We discuss possible distribution of k 1s in m Y blocks according to the value of k compared with m*n to see the number of possible distinct values of T1. 
+
+Firstly, we assume k is no larger than n. When xoring Y blocks to generate T[1], the jth bit of T[1], marked as T[1][j], is computed as T[1][j] = Y1[1][j]$\oplus$Y1[2][j]$\oplus$Y1[m][j], where Y1[i][j] is the jth bit in the ith Y block. We call the jth bit in all Y blocks a jth colunm. The jth bit of T1 is formed by xoring all the bits in the jth column of Y block.  It is obvious that T1 can have at most k 1s and the number of distinct T1 with k 1s is $\binom{n}{k}$. In this case all the k 1s distribute in distinct k columne.  If we want new value of T1, we need to move one of 1 to another column. This relocation reduce the number of 1s in T1 from k to k-2, leading to $\binom{n}{k-2}$ new distinct values of T1. If we want more new values, we need to keep move 1s to another column like this way and each time of relocation reduce 2 1s in T1, which means the possible number of 1s in T1 canbe k, k-2, k-4,$\ldots$, 0(if k is even) or 1(if k is odd). 
+When k is identical to n or n-1, the number of distinct tags is 2$^{n-1}$.  
+
+If k is larger than n and no larger than m*(n-1), for any k in this domain, it is possible to generate a tag containing 0 to n 1s. That means for any k $\in$ [n, m*(n-1)], the number of possible distinct tags for a ciphertext is 2$^{n-1}$. 
+
+When k is larger than m*(n-1), the way to compute number of possible distinct tags is simular to the case that k is no larger than n. In this case, the tag can has at most n - (k mod n) 0s the value with less number of 0s can be acquired by overlapping 0s in one column. The number of possible distinct tag values can be computed with the following equation:
+No of distinct tags is $\sum_{i=0}^{(m*n-k)/2}$ $\binom{n}{m*-k-2*i}$ if k is even or $\sum_{i=0}^{(m*n-k+1)/2}$ $\binom{n}{k-2*i}$ if k is odd.
+
+\paragraph{Proof of Corollary $\ref{coro:odd-even}$}
+As we depicted in the proof of Theorem $\ref{theo:tagNum-1s}$ that if we want to generate a new tag value, we need to move a 1 to another column then there will be two 1s eliminated. As subtracting 2 can not change the odd-even property of a number, then the corollary is proved.
+\paragraph{Proof of Corollary$\ref{coro:max}$}
+When k is in the domain [n, m*(n-1)], the number of tag range num\_tag is identical to the equation: $\sum_{i=0}^{n/2} \binom{n}{n-2*i}$ if k is even and $\sum_{i=0}^{(n-1)/2} \binom{n}{n-1-2*i}$. As $\sum_{i=0}^{n} \binom{n}{n-i}$ is identical to 2$^n$, $\sum_{i=0}^{(n-1)/2} \binom{n}{n-1-2*i}$ is identical to $\sum_{i=0}^{n/2} \binom{n}{n-2*i}$, which is 2$^{n-1}$. 
+When k is in other domains, num\_tag can be expressed as $\sum_{i=0}^{\lfloor x/2 \rfloor} \binom{n}{x-2*i}$, where x $\in$ [0,n). As x is smaller than n, then num\_tag is smaller than 2$^(n-1)$. The corollary is proved. 
+
+\section{Proof of Assertions in Section $\ref{sect:pattern}$}
 %when nonce is random, CETD-MAC is not secure when replaying some inputs
-As depicted in above section, if the MAC scheme is secure under replay attack,
-the tags should be random and distributed uniformly with repeated inputs. This
-property ensure the probability of the replayed data-tag pair passing verification
-is low. If the tags from a MAC scheme have high probability to be identical for
-repeated inputs, the MAC scheme is vulnerable to replay attack.
-
-We denote the data M and the tag in the forgery frame T1. The output blocks from shuffle stage in generating T1 is denoted as X1 blocks and the output from shifting stage are Y1 blocks. When the forgery frame is read to be verified, the output or shuffle stage is X2 blocks and Y2 blocks for the output from shifting stage. The tag generated by verification is T2.  
-
-In this section, we depict the weaknesses we found in CETD-MAC under replay attack. These weaknesses let the CETD-MAC to produce tags with high collision probability with when replaying some chosen inputs. The tags with highly collision probability ease the adversary`s attack. 
-
+In this section, we prove the theorems and corollaries indicating the design rationale of original CETD-MAC scheme. These assertions reveal the fact that it is 
 \paragraph{Exposing the Weakness of CETD-MAC}
 % we test short length input M, found that under short length input, some input
 % leads to high tag collision probability
 %experiment setup: 2*8-bit input, 8-bit tag, shuffle 1,2,4 rounds
-As the security of CETD-MAC is not provided in \cite{}, we do not know the randomness of tags under replay attack. To begin with, we conduct a simulation of replay attack on inputs formed by two 8-bit blocks concatenated. The hexadecimal value of the input various from 0x0000 to 0xFFFF. For each input, we static the tag distinction rate(TDR) under 1000 times replay attack. TDR is acquired by dividing the number of distinct values of 1000 tags with 2$^8$. If TDR is low, the tag collision probability is high. Figure $\ref{}$ expresses the TDR of all inputs. We can see that for some specific inputs the TDR is extremely low which means the collision probability is high. The experiment results expressed in Figure $\ref{}$ introduce the motivation of systematically analyzing the security of CETD-MAC under replay attack. We examined the behaviour of each stage in CETD-MAC scheme and found that each stage have a set of inputs with high probability leading output collision.
+As the security of CETD-MAC is not provided in \cite{}, we do not know the randomness of tags under replay attack. To begin with, we conduct a simulation of replay attack on inputs formed by two 8-bit blocks concatenated. The hexadecimal value of the input various from 0x0000 to 0xFFFF. For each input, we static the Tag Distinction Rate(TDR) under 1000 times replay attack. TDR is acquired by dividing the number of distinct values of 1000 tags with 2$^8$. If TDR is low, the tag collision probability is high. Figure $\ref{}$ expresses the TDR of all inputs. We can see that for some specific inputs the TDR is extremely low which means the collision probability is high. The experiment results expressed in Figure $\ref{}$ introduce the motivation of systematically analyzing the security of CETD-MAC under replay attack. We examined the behaviour of each stage in CETD-MAC scheme and found that each stage have a set of inputs with high probability leading output collision.
 
 %If the input length and input condition is not fixed, we figure out what types
 %of input cannot be processed effectively for each stage
-\paragraph{Weakness of Shuffle Stage}
+\subsection{Weakness of Shuffle Stage}
 % shuffle 1 round, some replayed inputs can lead to X set collision 
 Under replay attack, the input data M is identical for the verificaiton and
 the replayed data-tag pair from the adversary. The basic requirement of shuffle
@@ -242,21 +255,23 @@ can be triggered with M blocks with comon bit segment.
 %if Ra = Rb, X1 = X2, but for some input M, X1 can be identical to X2 when Ra != Rb, what bits pattern does such M contain?
 %shuffle round, number of blocks, the type of inputs leading to X collision is hard to summarise
 
-\subsection{Shift Stage Weaknesses and Assertions Proof}
-\paragraph{Weakness of Shifting Stage}
+\subsection{Weakness of Shift Stage}\label{appendix:pattern}
+In this part we depict the weakness of shift stage and prove that it is not secure to construct a MAC scheme with only shift and xor stage.
 %if the X set collide, shifting stage can not effectively randomize some replayed X sets
 \paragraph{XOR Operation and Tag Collision}
 The tag T from CETD-MAC can be expressed as the following Equation $\ref{tag_expression}$:
-\begin{equation}
+\begin{equation}\label{tag_expression}
 	$$T = Y[1]$\oplus$Y[2]$\oplus$$\ldots$$\oplus$Y[x]$$	
-\label{tag_expression}
 \end{equation}
 Then Pr[T1 = T2] can be expressed as the Equation $\ref{tag_collision_exp}$: 
-\begin{equation}
-	$$Pr[T1 = T2] =
-Y$_1$[1]$\oplus$Y$_1$[2]$\oplus$$\ldots$$\oplus$Y$_1$[x]$\oplus$Y$_2$[1]$\oplus$Y$_2$[2]$\oplus$$\ldots$$\oplus$Y$_2$[x]$$	
-\label{tag_expression}
+
+\begin{equation}\label{tag_collision_exp}
+\begin{split}
+Pr[T1=T2] &= Y_1[1] \oplus Y_1[2] \oplus \ldots \oplus Y_1[x]\\
+		&\quad	\oplus Y_2[1] \oplus Y_2[2] \oplus \ldots \oplus Y_2[x]
+\end{split}
 \end{equation}
+
 We define the concept "equivalent set" as the set whose elements are identical.
 We denote Y$_{all}$ as Y1$\cup$Y2, and Y$_{sub}$ as a sub-set of Y$_{all}$.
 $\sum_{i=1}^x$$\oplus$ Y$_{sub}$[i] is denoted as
@@ -617,48 +632,45 @@ Theorem $\ref{set-prob}$ is proved.
 %\subsection{Proof of Theorem $\ref{set-prob}$}
 
 
-\subsection{Security Enhanced CETD-MAC}
-In this section we provide an modification of original CETD-MAC. Our approach does not require additional component or information to the original CETD-MAC. We then prove that the optimized CETD-MAC can fix the weakness and protect input message from replay attack.
-\paragraph{Inspiration}
-As depicted above, if a input message is consisted of blocks formed with a type of pattern and the proportion of 0s and 1s in the message is extremely unbalanced, the message cannot be effectively randomized by neither the shuffle stage nor the shifting stage. That means the message has high probability to induce identical Y sets or Y sequences under replay attack. The identical Y sets or Y sequences will directly induce tag collision then succeed the replay attack. 
-\paragraph{Solution}
-As discussed above, the reason of high probability of tag collision for some specific inputs
-under replay attack is that neither the shuffle or the shift stage can
-randomnize the input then the Y sets collide easily. The solution should be
-randomnize the outputs from shuffle, shift or the xor stage.
+%\subsection{Security Enhanced CETD-MAC}
+%In this section we provide an modification of original CETD-MAC. Our approach does not require additional component or information to the original CETD-MAC. We then prove that the optimized CETD-MAC can fix the weakness and protect input message from replay attack.
+%\paragraph{Inspiration}
+%As depicted above, if a input message is consisted of blocks formed with a type of pattern and the proportion of 0s and 1s in the message is extremely unbalanced, the message cannot be effectively randomized by neither the shuffle stage nor the shifting stage. That means the message has high probability to induce identical Y sets or Y sequences under replay attack. The identical Y sets or Y sequences will directly induce tag collision then succeed the replay attack. 
+%\paragraph{Solution}
+%As discussed above, the reason of high probability of tag collision for some specific inputs
+%under replay attack is that neither the shuffle or the shift stage can
+%randomnize the input then the Y sets collide easily. The solution should be
+%randomnize the outputs from shuffle, shift or the xor stage.
+%
+%As the the outputs from shuffle and shift stage is consist of multiple blocks,
+%all the blocks should be randomnized, otherwise the patterns existing in the
+%input data M remains in some blocks.  
+%The cost and lattency of such a optimization of CETD-MAC is dependent on the
+%length of input data M, which is not efficient if the input is long.
+%
+%Our solution is expressed as below:
+%\begin{itemize}
+%	\item Xor a random block to the output of XOR operation
+%	\item Assume the MSB bits of nonce are adopted as control paramters for
+%shuffle and shifting stage, we choose LSB bits on the nonce as the random block 
+%	\item The random block is denoted as Mask\_Tag, and len(Mask\_Tag) =
+%len(Tag).
+%\end{itemize}
+%We denote the output of original CETD-MAC scheme in our optimized scheme T\_xor
+%and tag of optimized scheme for T, the probability of tag collision of optimized scheme is
+%expressed as Pr[tag collision].  
+%
+%The computation of Pr[tag collision] is expressed below:
+%\begin{equation}
+%	$$Pr[tag collision] = Pr[Mask\_Tag1 $\oplus$ T\_xor1 $\oplus$ Mask\_Tag2
+%$\oplus$  T\_xor2 =0] $$
+%	$$=Pr[Mask\_Tag1 $\oplus$ Mask\_Tag2 = k $\mid$ k = T\_xor1 $\oplus$ T\_xor2
+%]$$
+%\end{equation}
+%As nonce is the output of block cipher encryption, the big segment of nonce is
+%assumed as a output from PRF. Then Pr[tag collision] = 1/$2^{len(T)}$. This
+%result means our optimized scheme can assure the randomness of tags under replay
+%attack and is secure. 
 
-As the the outputs from shuffle and shift stage is consist of multiple blocks,
-all the blocks should be randomnized, otherwise the patterns existing in the
-input data M remains in some blocks.  
-The cost and lattency of such a optimization of CETD-MAC is dependent on the
-length of input data M, which is not efficient if the input is long.
-
-Our solution is expressed as below:
-\begin{itemize}
-	\item Xor a random block to the output of XOR operation
-	\item Assume the MSB bits of nonce are adopted as control paramters for
-shuffle and shifting stage, we choose LSB bits on the nonce as the random block 
-	\item The random block is denoted as Mask\_Tag, and len(Mask\_Tag) =
-len(Tag).
-\end{itemize}
-We denote the output of original CETD-MAC scheme in our optimized scheme T\_xor
-and tag of optimized scheme for T, the probability of tag collision of optimized scheme is
-expressed as Pr[tag collision].  
-
-The computation of Pr[tag collision] is expressed below:
-\begin{equation}
-	$$Pr[tag collision] = Pr[Mask\_Tag1 $\oplus$ T\_xor1 $\oplus$ Mask\_Tag2
-$\oplus$  T\_xor2 =0] $$
-	$$=Pr[Mask\_Tag1 $\oplus$ Mask\_Tag2 = k $\mid$ k = T\_xor1 $\oplus$ T\_xor2
-]$$
-\end{equation}
-As nonce is the output of block cipher encryption, the big segment of nonce is
-assumed as a output from PRF. Then Pr[tag collision] = 1/$2^{len(T)}$. This
-result means our optimized scheme can assure the randomness of tags under replay
-attack and is secure. 
-\section{Experiments and Results}
-
-%Appendix 
-\section{Proof of Assertions}
 
 \end{document}
