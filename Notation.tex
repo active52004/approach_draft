@@ -1,25 +1,31 @@
+%message block notations
 \nomenclature{\{0,1\}$^n$}{Set of all n-bit binary strings}
 \nomenclature{Len(M)}{The number of bits that string M consist of}
 \nomenclature{Len(M)$_l$}{The number of l-bits blocks that string M consist of}
+\nomenclature{Block Length}{The number of bits of a block}
+\nomenclature{$\oplus$}{Bitwise exclusive-xor operation(XOR)}
+%MAC scheme notations
+\nomenclature{(M,T)}{Message M and its tag T}
 \nomenclature{Tag}{A short message block used to protect the integrity of plaintext or ciphertext}
 \nomenclature{MAC}{Message Authentication Code: The algorithm to generate tags}
-\nomenclature{(M,T)}{Message M and its tag T}
 \nomenclature{TG(M, $\ldots$)}{Tag generation stage adopting a MAC scheme. The input of TG is message protected and the parameters in the argument list '$\ldots$'}
 \nomenclature{VF(M,T, $\ldots$)}{Message-Tag pair verification stage. Verify the message M and tag T with the parameters in the arguments list '$\ldots$'. Return 1
 if TG(M,$\ldots$) = T and 0 if not.}
-\nomenclature{UF-CMA}{Unforgeability under adaptive Chosen Message Attack}
+%attack notations
+\nomenclature{(C$_{origin}$, T$_{origin}$)}{The valid memory frame that the adversary wants to attack}
+\nomenclature{(C$_{fake}$,T$_{fake}$)}{The frame that the adversary used to replace (C$_{origin}$,T$_{origin}$)}
 \nomenclature{Pr[A]}{The probability that event A happens}
+\nomenclature{UF-CMA}{Unforgeability under adaptive Chosen Message Attack}
 \nomenclature{Forgery(MAC, A)}{Forgery experiment on a MAC scheme conducted by the
 adversary A. Return 1 if A succeed a forgery attack otherwise 0}
 \nomenclature{F$_{MAC}$}{The probability that Forgery(MAC, A)=1 for an
 adversary A and a MAC scheme}
-\nomenclature{PRF}{Pseudo-random Function}
-\nomenclature{PRP}{Pseudo-random Permutation}
 \nomenclature{Adv$^{F0}_{F1}$}{The probability for an adversary to
 distinguish between two functions F0 and F1}
-\nomenclature{$\oplus$}{Bitwise exclusive-xor operation(XOR)}
+%security notions
+\nomenclature{PRF}{Pseudo-random Function}
+\nomenclature{PRP}{Pseudo-random Permutation}
 \nomenclature{Func$_k$(M)}{Function F processing input M with secret information k}
 \nomenclature{E$_k$(M)}{Encrypt input M with secret key k}
-\nomenclature{Block Length}{The number of bits of a block}
 \nomenclature{GF-mult(A,B)}{Galois Field multiplication with A and B}
 

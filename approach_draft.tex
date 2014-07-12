@@ -34,23 +34,23 @@ The block cipher encryption of a string X with a secret key K is denoted as E$_K
 
 %the security definition and evaluation standard in computational model
 \subsection{Security Definition in Computational Scenario}
-In this part we depict the security definition of MAC schemes in computational model.  The threat model of tag design is introduced first then the computatonal based security definition of MAC schemes. 
-%the adversary can conduct two types of attack on the memory frames
+In this part we depict the security definition of MAC schemes in computational model.  The threat model of tag design is introduced first then the computational based security definition of MAC schemes. 
+%The practical behaviour of adversary in attacking the integrity
 \paragraph{Threat Model of Tag Designs}
 The attacks discussed in this article mainly situated on the probing and
 tampering the data transferred between chip and external memory. In this scenario, the adversary can conduct types of attacks on the (ciphertext, tag) pair stored on the external memory or in the transformation between chip and memory. We call these two types of integrity attack content modification attack and copy-then-replay attack. 
 
-When conducting a content modification attack, then adversary modifies the content of a (ciphertext, tag) pair. At least one of ciphertext and tag are distinct to the original one sent from the chip. When the chip reads the modified pair (C1, T1), this pair is verified by VF(C1, T1, $\ldots$). If VF(C1, T1, $\ldots$)=1, then the modified pair passes and the content modifying attack succeeds. 
+When conducting a content modification attack, then adversary modifies the content of a (ciphertext, tag) pair, (C$_{origin}$, T$_{origin}$). At least one of ciphertext and tag in the modified memory frame (C$_{fake}$, T$_{fake}$) are distinct to the original one sent from the chip. When the chip reads the modified pair (C$_{fake}$, T$_{fake}$), this pair is verified by VF(C$_{fake}$, T$_{fake}$, $\ldots$). If VF(C$_{fake}$, T$_{fake}$, $\ldots$)=1, then the modified pair passes and the content modifying attack succeeds. 
 
-For a copy-then-replay attack, we make the following denotion first:
+For a copy-then-replay attack, we make the following denotions first:
 \begin{itemize}
 	\item A$_{origin}$: The address of the external memory frame M attacked 
 	\item A$_{copy}$: The address of the external memory frame M1 which is copied by the adversary as the fake frame
 	\item TS$_{origin}$: The generation time stamp of the external memory frame M attacked
 	\item TS$_{copy}$: The generation time stamp of the external memory frame M2. M2 and M has same address while TS$_{M2}$ is previous of TS$_M$ 
 \end{itemize}
-During a copy-then-replay attack on a memory frame M whoes address is A$_{origin}$ and time stamp is TS$_{origin}$, the adversary A replace M with a copy. This copy can be a frame from other address A$_{copy}$ or one at same address but copied at an old time stamp TS$_{copy}$. The copy is a valid pair from the chip. 
-When the chip reads the modified frame, the fake pair(C2, T2) is verified by VF(C2, T2, $\ldots$) and the copying-then-replying attack succeeds if VF(C2, T2, $\ldots$)=1.  
+During a copy-then-replay attack on a memory frame M whose address is A$_{origin}$ and time stamp is TS$_{origin}$, the adversary A replace M with a copy. This copy can be a frame from other address A$_{copy}$ or one at same address but copied at an old time stamp TS$_{copy}$. The copy is a valid pair from the chip. 
+When the chip reads the modified frame (C$_{fake}$, T$_{fake}$), the fake pair(C$_{fake}$, T$_{fake}$) is verified by VF(C$_{fake}$, T$_{fake}$, $\ldots$) and the copying-then-replying attack succeeds if VF(C$_{fake}$, T$_{fake}$, $\ldots$)=1.  
 
 If the fake pair from the adversary passes the verification, the integrity of the data is broken. To defend content modification attack, the MAC scheme should ensure that when the secret information used in tag generation collides for two distinct input data, the related two tags should have low probability to be identical. For copying-then-replaying attack, identical input data should have low probability to lead to tag collision if the secret information used in tag generation are distinct. 
 
@@ -62,7 +62,7 @@ For instance, if there is a type of relationship between ciphertext and tag for 
 
 In this article, we assume the adversary can choose the ciphertext in both content modification and copy-then-replay attack. The adversary aims to find groups of inputs that the two inputs from same group has probability of tag collision that is much larger than 1/2$^n$, where n is Len(tag). 
 
-%the behaviour of the adversary under each attack
+%the theoretical behaviour of the adversary under each attack
 \paragraph{Security Analysis Model}
 In our security analysis of CETD-MAC scheme, the adversary A has access to the tag generation scheme and verification scheme. A can input chosen ciphertexts to the tag generation scheme and determine whether the nonce for his chosen ciphertexts are fixed or not. He can acquire the value of the tag for each his chosen ciphertext while cannot access the value of the related nonce. After analyzing several valid ciphertext-tag pairs, A sends his fake pair (C$_{fake}$, T$_{fake}$) to the verification scheme. The verification scheme generates the tag T of C$_{fake}$ and the fake pair passes the verification if T is identical to T$_{fake}$. Our security analysis on CETD-MAC is modeled like this:
 \begin{itemize}
