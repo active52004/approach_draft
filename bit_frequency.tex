@@ -5,7 +5,7 @@
 \section{Security Analysis of CETD-MAC}
 In this section we analysis the security of cost-effective tag design. We firstly introduce our security evaluation model of tag design. This model splits the security analysis into two steps: scheme security and implementation security. Our analysis focus on the scheme security. We prove that under both content modification and copy-then-replay attack, the possible value set of any input ciphertext is no more than 2$^{n-1}$.
 %summary of CETD-MAC design
-\paragraph{CETD-MAC Definition}
+\subsection{CETD-MAC Definition}
 In this article, we name the MAC scheme adopted in Cost-Effective Tag Design\cite{} CETD-MAC. We briefly depict the design of CETD-MAC scheme and related notations.
 %The notations of symbols used in this article
 %describe the algorithm of cetd-mac
@@ -68,7 +68,8 @@ In \cite{}, the authors provided a security analysis of CETD-MAC scheme. The adv
 \end{itemize}
 Based the above two conditions, the author assume CETD-MAC is secure.
 
-\subsection{CETD-MAC under chosen-message attack}\label{sect:proportion}
+%security analysis based on computational definitions
+\subsection{CETD-MAC is not PRF}\label{sect:proportion}
 In this section we discuss the security of CETD-MAC under two tpyes of integrity attack.  The adversary is assumed to know the length of ciphertext and tag on the memory frame he acquired. 
 We prove that the probability that the fake pair passes the verification scheme under both two attacks is determined by the proportion of the 1s and 0s in the input ciphertexts and provide the equations quantifying this relationship. This fact indicates that the adversary can choose special ciphertext-tag pairs which have higher probability to pass the verification compared with other pairs.  
 
@@ -137,6 +138,9 @@ As depicted in Section $\ref{sect:bit-proportion}$, the 0-1 proportion of a ciph
 From Theorem $\ref{theo:tagNum-1s}$ and its related Corollaries we an see that the proportion of the input ciphertext will determine the size of its tag range and the maximum tag range size if 2$^{n-1}$ which is acquired if the number of 1s in the input ciphertext is between n and m*(n-1).
 This fact means if the input ciphertext replayed has too many or too little number of 1s, such as all 0s and all 1s ciphertext, the related tag range contains only one tag value: 0. That means no matter how random the nonce is, replaying all 0s and all 1s ciphertext will always succeed.
 
+\subsection{CETD-MAC is not a Secure MAC}
+In this part we prove that CETD-MAC is not a secure MAC. This assertion is made
+based on the assertion that CETD-MAC is not a PRF.
 
 %new MAC design based on CETD-MAC
 \section{Security Improved CETD-MAC}

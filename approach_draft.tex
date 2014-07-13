@@ -59,6 +59,7 @@ If the fake pair from the adversary passes the verification, the integrity of th
 \subsection{Security Definition of MAC Schemes}
 In this part we depict the security definition of MAC schemes in computational model.  
 %the adversary can choose message other than just brute-force
+\paragraph{MAC and proposition 2.7}
 \paragraph{Chosen Message Attack}
 %in chosen-message attack, the adversary know the relationship and can choose input to enhance passing rate 
 The brute-force attack on the integrity of memory frame can be expressed as the following steps:
@@ -91,8 +92,6 @@ In copy-then-replay scenario, the encryption key is maintained unchanged while t
 Assume the copy with old timestamp from the adversary is expressed as (M,T1) where M is the message and T1 is the corresponding tag, and the nonce of (M,T1) is denoted as N1. When applying M to the tag generation at a new time point, we mark the corresponding tag T2 and the nonce N2. If the adversary can succeed a replay attack, then T1 is identical to T2 regardless of the equality of N1 and N2.
 Then F$_{CETD-MAC}$ under replay attack can be denoted as the probability Pr[T1 = T2 $\mid$ Message value is M \& N1,N2 are randomly generated]. 
 
-\paragraph{Distinguishing two functions}
-\paragraph{Forgery attack on the verification stage}
 %According to the design of CETD-MAC, the tag can be expressed as Y[1]$\oplus$Y[2]$\oplus$$\ldots$$\oplus$Y[x], x is the number of input sub-blocks to CETD-MAC. If the following equation is met:
 %Y$_1$[1]$\oplus$Y$_1$[2]$\ldots$$\oplus$Y$_1$[x]$\oplus$Y$_2$[1]$\oplus$Y$_2$[2]$\ldots$$\oplus$Y$_2$[x] = 0, where Y$_1$ blocks produce T1 and Y$_2$ blocks generate T2, then T1 is identical to T2. This equation indicates that the behaviour of block-level rotate shifting stage effect the probability of tag collision directly. For easy understanding, we firstly analyze the case that shuffle stage does not work under replay attack, which means X$_1$[i] is identical to X$_2$[i] for any i$\in$[1,x]. The analysis of effect from shuffle stage on X blocks follows then.
 %
