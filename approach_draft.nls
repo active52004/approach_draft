@@ -4,6 +4,10 @@
 
   \item [{$\oplus$}]\begingroup Bitwise exclusive-xor operation(XOR)\nomeqref {0}
 		\nompageref{1}
+  \item [{(C$_{fake}$,T$_{fake}$)}]\begingroup The frame that the adversary used to replace (C$_{origin}$,T$_{origin}$)\nomeqref {0}
+		\nompageref{1}
+  \item [{(C$_{origin}$, T$_{origin}$)}]\begingroup The valid memory frame that the adversary wants to attack\nomeqref {0}
+		\nompageref{1}
   \item [{(M,T)}]\begingroup Message M and its tag T\nomeqref {0}
 		\nompageref{1}
   \item [{\{0,1\}$^n$}]\begingroup Set of all n-bit binary strings\nomeqref {0}
@@ -22,7 +26,9 @@
 		\nompageref{1}
   \item [{GF-mult(A,B)}]\begingroup Galois Field multiplication with A and B\nomeqref {0}
 		\nompageref{1}
-  \item [{Len(M)}]\begingroup The block length of block M\nomeqref {0}
+  \item [{Len(M)}]\begingroup The number of bits that string M consist of\nomeqref {0}
+		\nompageref{1}
+  \item [{Len(M)$_l$}]\begingroup The number of l-bits blocks that string M consist of\nomeqref {0}
 		\nompageref{1}
   \item [{MAC}]\begingroup Message Authentication Code: The algorithm to generate tags\nomeqref {0}
 		\nompageref{1}
@@ -32,7 +38,7 @@
 		\nompageref{1}
   \item [{PRP}]\begingroup Pseudo-random Permutation\nomeqref {0}
 		\nompageref{1}
-  \item [{Tag}]\begingroup A short message block used to protect the integrity of plaintext or ciphertext.\nomeqref {0}
+  \item [{Tag}]\begingroup A short message block used to protect the integrity of plaintext or ciphertext\nomeqref {0}
 		\nompageref{1}
   \item [{TG(M, $\ldots$)}]\begingroup Tag generation stage adopting a MAC scheme. The input of TG is message protected and the parameters in the argument list '$\ldots$'\nomeqref {0}
 		\nompageref{1}
