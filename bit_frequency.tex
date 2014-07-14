@@ -81,11 +81,32 @@ In the computational model based security analysis on MAC schemes, a secure MAC 
 In this part we prove that for CETD-MAC, the input ciphertexts have relationship between their tags.  For a given tag, the number of possible inputs is limited and can be computed based on the tag value. On the other hand, for a give input ciphertext, the number of possible tag value is also limited and can be computed based on the ciphertext value. This fact indicates that when modifying the ciphertext part C1 of a memory frame, the number of possible ciphertexts C2 to replace C1 is limted. On the other hand, the adversary can manifast the fake ciphertext-tag pair C$_{fake}$-T$_{fake}$ based on the relanship between a ciphertext and its tag quantified in thei part and win a much high probability to pass the verification stage compared with randomly choosing a ciphertext and a tag. 
 
 When conducting content modification attack, the adversary modifies the content of a memory frame from (C, T) to (C1, T1). When the verification stage VF read the modified (C1, T1) pair, VF computes C1`s tag, marked as T$_{tmp}$, using the nonce N which is also used in computing T. If T$_{tmp}$ is identical to T1, then the content modification attack succeed. We can see that in content modification attack, for two pairs (C$_{origin}$, T$_{origin}$) and (C2, T1), their nonce N and N1 are identical. To succeed the content modification attack, the adversary will choose the C1 that has high probability to get tag value T    
+%the properties of PRF
+\paragraph{PRF in content modification scenrio}
+We follow the analysis path in the security analysis of CBC-MAC from Bellare et
+al \cite{}. The adversary is given a black box named oracle. There is a function
+in the oracle which can be a MAC scheme or PRF and decided by coin flipping. The adversary has infinite
+computational power and can choose any input sent to the oracle. If no matter
+what kind of strategy that the adversary choose, he cannot tell which function
+is in the oracle, we assume that the MAC scheme behaves like a PRF.  
+
+As the tag space is limited, the tag value will repeat if the adversary call the
+oracle too many times. However, the outputs from PRF have the following two
+properties if the output space is large:
+\begin{enumerate}
+	\item All the element in the output space will appear
+	\item The output values distribute uniformly and have no correlation. 
+\end{enumerate}
+Property 1 is the basic requirement of the functions that behave like PRF. One
+counterexample that have property 1 but property 2 is a continuous counter.
+
+
 \paragraph{The Diffusion Does Not Introduce New Bits}
 In CETD-MAC scheme, the shuffle and shift stage relocate bits in the ciphertext to new index. Even though the new index of each bit in the cihpertext is unpredictble as the nonce is the output of a PRF and unaccessable to the adversary, it is certain the output of shift shuffle and shift stage contain same bits as the ciphertext. Assume ciphertext is consist of m blocks each of whose length is n bits, and there are totally k 1s in the m*n bits in the ciphertext. The the output of shuffle and shift stage also have k 1s and m*n - k 0s. 
 
 %give Theorem of content modificatoin attack
-\subsubsection{The Number of Possible Tags for a Ciphertext is Limited}\label{sect:bit-proportion}
+\paragraph{The Number of Possible Tags for a Ciphertext is Limited}
+\label{sect:bit-proportion}
 If the MAC scheme is ideal and behaves like a PRF, for any input ciphertext, the probability that its tag equals to a specific value is 1/2$^n$, where n is Len(tag). 
 As the both shuffle and shift subroutines in CETD-MAC scheme are diffusion operations, for each input ciphertext, its 0-1 proportion will be maintained until the xor subroutine. This fact means that for a specific input ciphertext, the number of its possible tag values is limited. For example, assume the input ciphertext is (0x0, 0x01) and the Len(tag) is 8 bits, we can see that there are only 8 possible values that CETD-MAC can producer with different nonce, which are {0x01, 0x02, 0x04, 0x08,0x10, 0x20, 0x40, 0x80}. The reason for this fact is that there are only a single '1' in the input ciphertext, which means the Y blocks that serve as the input of xor stage contain only a single '1', so it is impossible to produce tag values such as 0xFF or ohter ones containing more than one '1'. From this instance we can see that for a input ciphertext, as the shuffle and shift stage can not introduce new bits, so for any nonce value, the number of 0s and 1s in the blocks doing xor operation is always same as the proportion in the input ciphertext, which means the possible number of 1sx in the tag after the xor operation is limited. We summarize this fact to the Theorem $\ref{theo:tagNum-1s}$ and the proof is expressed in the appendix.
 \begin{theorem}\label{theo:tagNum-1s}
