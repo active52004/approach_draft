@@ -20,3 +20,4 @@
 \nomenclatureentry{aFunc$_k$(M)@[{Func$_k$(M)}]\begingroup Function F processing input M with secret information k\nomeqref {0}|nompageref}{1}
 \nomenclatureentry{aE$_k$(M)@[{E$_k$(M)}]\begingroup Encrypt input M with secret key k\nomeqref {0}|nompageref}{1}
 \nomenclatureentry{aGF-mult(A,B)@[{GF-mult(A,B)}]\begingroup Galois Field multiplication with A and B\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{aBit Index@[{Bit Index}]\begingroup The location of a bit in a string. Ex. in big ending the lsb bit has index 0 and n-1 for msb bit\nomeqref {0}|nompageref}{1}

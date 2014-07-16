@@ -14,6 +14,8 @@
 		\nompageref{1}
   \item [{Adv$^{F0}_{F1}$}]\begingroup The probability for an adversary to distinguish between two functions F0 and F1\nomeqref {0}
 		\nompageref{1}
+  \item [{Bit Index}]\begingroup The location of a bit in a string. Ex. in big ending the lsb bit has index 0 and n-1 for msb bit\nomeqref {0}
+		\nompageref{1}
   \item [{Block Length}]\begingroup The number of bits of a block\nomeqref {0}
 		\nompageref{1}
   \item [{E$_k$(M)}]\begingroup Encrypt input M with secret key k\nomeqref {0}

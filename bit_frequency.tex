@@ -104,6 +104,13 @@ For any input ciphertext, the size of its possible tag rage is no more than 2$^{
 Corollary indicates that the Property 1 of PRF cannot be met by CETD-MAC scheme as for any input the related tag space is no more than half of the tag domain. We also adopt this weakness in constructing our forgery attack strategy on CETD-MAC.
 The proofs of Corollary $\ref{coro:odd-even}$, $\ref{}$ and Theorem $\ref{}$ are provided in the appendix. 
 
+From Theorem $\ref{theo:tagNum-1s}$ and Corollary $\ref{}$,$\ref{}$ we can conclude the following assertions about the randomness of CETD-MAC scheme:
+\begin{itemize}
+	\item For a chosen input ciphertext C, the probability that its tag from CETD-MAC is identical to a given value T is not O(1/2$^n$) for any T value. T must be in the tag space of C. 
+	\item The size of tag space of any input ciphertext C is no more than 2$^{n-1}$ and the size value is determined by the number of 1s in C.
+\end{itemize}
+The above assertions indicates that CETD-MAC does not behave like a PRF.
+
 From Theorem $\ref{theo:tagNum-1s}$ we can see that the domain of input ciphertext can be splitted into three groups based on the number of 1s. The rage size is identical to num\_tag. We can draw the following conclusion based on this fact:
 \begin{itemize}
 	\item the maximum value of num\_tag is 2$^{n-1}$ if k $\in$[n, m*(n-1)]. 
@@ -113,27 +120,40 @@ From Theorem $\ref{theo:tagNum-1s}$ we can see that the domain of input cipherte
 %As CETD-MAC  is not PRF, CETD-MAC has high forgery advantage
 \subsection{CETD-MAC is not a Secure MAC}
 In this part we prove that CETD-MAC is not a secure MAC. This assertion is made
-based on the assertion that CETD-MAC is not a PRF.
+based on the assertion that CETD-MAC is not a PRF. As the tag space for a given input ciphertext is predictable, we found strategy to succeed the forgery on CETD-MAC in both content modification and copy-then-replay scenarios with high success probability.
 
 %a strategy for the adversary in spooofing scenario
 \paragraph{Forgery Attack in Content Modification Scenario}
-In this part we prove that for CETD-MAC, the input ciphertexts have relationship between their tags.  For a given tag, the number of possible inputs is limited and can be computed based on the tag value. On the other hand, for a give input ciphertext, the number of possible tag value is also limited and can be computed based on the ciphertext value. This fact indicates that when modifying the ciphertext part C1 of a memory frame, the number of possible ciphertexts C2 to replace C1 is limted. On the other hand, the adversary can manifast the fake ciphertext-tag pair C$_{fake}$-T$_{fake}$ based on the relanship between a ciphertext and its tag quantified in their part and win a much high probability to pass the verification stage compared with randomly choosing a ciphertext and a tag. 
+%firstly, choose same odd-even (C,T)
+From Corollary $\ref{}$ we have known that the odd-even property of a tag from CETD-MAC is same as its input ciphertext. 
+This fact means the adversary should ensure that if he maintains the tag fixed and changes the value of ciphertext part on the memory frame, he should eusure that the odd-even property of his chosen fake ciphertext C$_{fake}$ should be same as the original tag T$_{origin}$. On the other hand, if the adversary want to completely change the content of a memory frame, he should ensure that his fake pair (C$_{fake}$,T$_{fake}$) has same odd-even property. By taking this strategry, the probability of succeeding a forgery attack in content modification scenario can be enhanced from O(1/2$^n$) to O(1/2$^{n-1}$).
 
-When conducting content modification attack, the adversary modifies the content of a memory frame from (C, T) to (C1, T1). When the verification stage VF read the modified (C1, T1) pair, VF computes C1`s tag, marked as T$_{tmp}$, using the nonce N which is also used in computing T. If T$_{tmp}$ is identical to T1, then the content modification attack succeed. We can see that in content modification attack, for two pairs (C$_{origin}$, T$_{origin}$) and (C2, T1), their nonce N and N1 are identical. To succeed the content modification attack, the adversary will choose the C1 that has high probability to get tag value T    
+%secondly, choose tag in the tag space of chosen C
+We can enhance the success rate of forgery attack in content modification scenario based on Theorem$\ref{}$. After acquiring the value of ciphertext and tag from a memory frame, the adversary can check the number of 1s in the tag, denoted as N$_{1s}$(T$_{origin}$). If the adversary wants to maintain the tag part of the frame unchanged, the best strategy to choose fake ciphertext C$_{fake}$ is ensuring the number of 1s in C$_{fake}$ is identical to N$_{1s}$(T$_{origin}$). This assertion is depicted in Corollary $\ref{}$. 
+%the choice of ciphertext when the tag has been chosen
+\begin{corollary}
+Given a original memory frame (C$_{origin}$,T$_{origin}$) and keep T$_{origin}$ unmodificed, the best strategy for the adversary to forge with fake ciphertext C$_{fake}$ is to ensure that C$_{fake}$ has same number of 1s as T$_{origin}$. Assume the number of 1s in T$_{origin}$ is N1s, the highest probability of successful forgery is acquired with this strategy, reaching O(1/2$^{N1s-1}$) is N1s is even or O(1/2$^{N1s}$).   
+\end{corollary}
+If the adversary wants to modify both the ciphertext and the tag, strategy dipicted in Corollary $\ref{}$. Based on the probability in Corollary $\ref{}$ we can see that the less number of 1s C$_{fake}$ and T$_{fake}$, the higher probability that the forgery succeed.  
 
-
+%As the input domain of CETD-MAC scheme can be splitted into groups leading to different tag ranges, the security definition of MAC schemes under content modification attack cannot be meet as the adversary can conduct the following two types of modification on the frame:
+%\begin{enumerate}
+%	\item Select a new ciphertext that has T$_{origin}$ in its possible tag domain. A better choice is to select a ciphertext with same number of 1s as the tag T$_{origin}$
+%	\item Replace the frame with a new pair (C2, T2) that T2 is in the possible tag domain of C2
+%\end{enumerate}
+%From Theorem $\ref{theo:tagNum-1s}$ we know that if the number of 1s in m*n bits is too large(more than m*(n-1)) or too small(less than n), the possible tag domain size is small. This fact means choosing a ciphertext from these two domains has high probability to pass the verification stage.
+%
+%In this part we prove that for CETD-MAC, the input ciphertexts have relationship between their tags.  For a given tag, the number of possible inputs is limited and can be computed based on the tag value. On the other hand, for a give input ciphertext, the number of possible tag value is also limited and can be computed based on the ciphertext value. This fact indicates that when modifying the ciphertext part C1 of a memory frame, the number of possible ciphertexts C2 to replace C1 is limted. On the other hand, the adversary can manifast the fake ciphertext-tag pair C$_{fake}$-T$_{fake}$ based on the relanship between a ciphertext and its tag quantified in their part and win a much high probability to pass the verification stage compared with randomly choosing a ciphertext and a tag. 
+%
+%When conducting content modification attack, the adversary modifies the content of a memory frame from (C, T) to (C1, T1). When the verification stage VF read the modified (C1, T1) pair, VF computes C1`s tag, marked as T$_{tmp}$, using the nonce N which is also used in computing T. If T$_{tmp}$ is identical to T1, then the content modification attack succeed. We can see that in content modification attack, for two pairs (C$_{origin}$, T$_{origin}$) and (C2, T1), their nonce N and N1 are identical. To succeed the content modification attack, the adversary will choose the C1 that has high probability to get tag value T    
+%
+%In the computational based security analysis on MAC schemes, the behaviour of the adversary is modeled as probing valid ciphertext-tag pairs first then sending a forgery pair to the verification system. In content modification attack scenario this model can be depicted as that the adversary acquires a valid memory frame and try to modify the content. If the adversry knows the length of ciphertext and the tag, he will know the value of the ciphertext and the tag. 
+%
 %Given a ciphertext and unknown nonce, the number of tags that a adversary needs to try is determined by the number of 1s in the ciphertext, this property can help the adversry contrive strategry to reduce the number of guessing.
 %on the other hand, the adversary can deisgn its c-t pair according to this property. 
 %besides same proportion ciphertext, what type of other ciphertext can the advesrary to use with high prob of passing?
 
-In the computational based security analysis on MAC schemes, the behaviour of the adversary is modeled as probing valid ciphertext-tag pairs first then sending a forgery pair to the verification system. In content modification attack scenario this model can be depicted as that the adversary acquires a valid memory frame and try to modify the content. If the adversry knows the length of ciphertext and the tag, he will know the value of the ciphertext and the tag. 
-As the input domain of CETD-MAC scheme can be splitted into groups leading to different tag ranges, the security definition of MAC schemes under content modification attack cannot be meet as the adversary can conduct the following two types of modification on the frame:
-\begin{enumerate}
-	\item Select a new ciphertext that has T$_{origin}$ in its possible tag domain. A better choice is to select a ciphertext with same number of 1s as the tag T$_{origin}$
-	\item Replace the frame with a new pair (C2, T2) that T2 is in the possible tag domain of C2
-\end{enumerate}
-From Theorem $\ref{theo:tagNum-1s}$ we know that if the number of 1s in m*n bits is too large(more than m*(n-1)) or too small(less than n), the possible tag domain size is small. This fact means choosing a ciphertext from these two domains has high probability to pass the verification stage.
-
+%replay the pair with less 1s or many 1s has high prob
 \paragraph{Forgery Attack on CETD-MAC in Copy-then-Replay Scenario}
 When conducting copy-then-replay, the adversary replace a valid memory frame with his stored copy of a frame from other address or same address but older time point. The probability that the adversary succeeds the copy-then-replay attack is determined by the probability that for a fixed input C, the two tags T1 and T2 are identical when their nonce N1 and N2 are randomly generated.
 
