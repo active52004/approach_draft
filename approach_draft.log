@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.19)  13 JUL 2014 20:46
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.19)  16 JUL 2014 10:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **approach_draft.tex
 (./approach_draft.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 2 languages loaded.
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -459,24 +459,24 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6]
 \openout2 = `bit_frequency.aux'.
 
  (./bit_frequency.tex
 
-LaTeX Warning: Reference `CETD-MAC' on page 6 undefined on input line 13.
+LaTeX Warning: Reference `CETD-MAC' on page 7 undefined on input line 13.
 
 Package epstopdf Info: Source file: <./diagrams/CETD.eps>
-(epstopdf)                    date: 2014-05-15 16:15:00
+(epstopdf)                    date: 2014-05-08 22:11:28
 (epstopdf)                    size: 98852 bytes
 (epstopdf)             Output file: <./diagrams/CETD-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-05-15 16:15:00
+(epstopdf)                    date: 2014-05-08 22:15:07
 (epstopdf)                    size: 44999 bytes
 (epstopdf)             Command: <repstopdf --outfile=./diagrams/CETD-eps-conver
 ted-to.pdf ./diagrams/CETD.eps>
 (epstopdf)             \includegraphics on input line 16.
 Package epstopdf Info: Output file is already uptodate.
-<./diagrams/CETD-eps-converted-to.pdf, id=26, 736.7525pt x 452.69125pt>
+<./diagrams/CETD-eps-converted-to.pdf, id=29, 736.7525pt x 452.69125pt>
 File: ./diagrams/CETD-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./diagrams/CETD-eps-converted-to.pdf>
@@ -488,7 +488,7 @@ Overfull \hbox (97.05492pt too wide) in paragraph at lines 16--17
  [][] 
  []
 
-<./diagrams/rotate_right.pdf, id=27, 501.875pt x 401.5pt>
+<./diagrams/rotate_right.pdf, id=30, 501.875pt x 401.5pt>
 File: ./diagrams/rotate_right.pdf Graphic file (type pdf)
 
 <use ./diagrams/rotate_right.pdf>
@@ -496,72 +496,77 @@ Package pdftex.def Info: ./diagrams/rotate_right.pdf used on input line 23.
 (pdftex.def)             Requested size: 200.74643pt x 160.59715pt.
 
 
-LaTeX Warning: Citation `keylist' on page 6 undefined on input line 27.
+LaTeX Warning: Citation `keylist' on page 7 undefined on input line 27.
 
-[6
+[7
 
-] [7 <./diagrams/CETD-eps-converted-to.pdf> <./diagrams/rotate_right.pdf>]
-[8] [9] [10] [11] [12] [13] [14]) [15]
-Overfull \hbox (11.91959pt too wide) in paragraph at lines 115--115
-[]\OT1/cmr/bx/n/14.4 The Se-cu-rity Weak-ness of CETD-MAC Scheme 
- []
+] [8 <./diagrams/CETD-eps-converted-to.pdf> <./diagrams/rotate_right.pdf>]
+[9]
 
-[16
+LaTeX Warning: Reference `' on page 10 undefined on input line 100.
+
+
+LaTeX Warning: Reference `' on page 10 undefined on input line 100.
+
+[10]
+
+LaTeX Warning: Reference `' on page 11 undefined on input line 105.
+
+
+LaTeX Warning: Reference `' on page 11 undefined on input line 105.
+
+[11] [12] [13] [14] [15]) [16] [17
 
 ]
-Overfull \hbox (12.17284pt too wide) in paragraph at lines 140--140
-[]\OT1/cmr/bx/n/14.4 Enhancing the Se-cu-rity of CETD-MAC Scheme 
- []
+
+LaTeX Warning: Reference `' on page 18 undefined on input line 180.
 
 
-LaTeX Warning: Reference `' on page 17 undefined on input line 148.
+LaTeX Warning: Reference `' on page 18 undefined on input line 180.
 
-
-LaTeX Warning: Reference `' on page 17 undefined on input line 148.
-
-[17] [18] <./diagrams/r_s_2bits.pdf, id=85, 553.06625pt x 306.14375pt>
+[18] [19] <./diagrams/r_s_2bits.pdf, id=89, 553.06625pt x 306.14375pt>
 File: ./diagrams/r_s_2bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_s_2bits.pdf>
-Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 270.
+Package pdftex.def Info: ./diagrams/r_s_2bits.pdf used on input line 303.
 (pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
 
-<./diagrams/r_s_6bits.pdf, id=86, 553.06625pt x 306.14375pt>
+<./diagrams/r_s_6bits.pdf, id=90, 553.06625pt x 306.14375pt>
 File: ./diagrams/r_s_6bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_s_6bits.pdf>
-Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 270.
+Package pdftex.def Info: ./diagrams/r_s_6bits.pdf used on input line 303.
 (pdftex.def)             Requested size: 155.24895pt x 85.93454pt.
 
-<./diagrams/r_d_4bits.pdf, id=87, 562.1pt x 306.14375pt>
+<./diagrams/r_d_4bits.pdf, id=91, 562.1pt x 306.14375pt>
 File: ./diagrams/r_d_4bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_d_4bits.pdf>
-Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 276.
+Package pdftex.def Info: ./diagrams/r_d_4bits.pdf used on input line 309.
 (pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
 
-<./diagrams/r_d_2bits.pdf, id=88, 562.1pt x 306.14375pt>
+<./diagrams/r_d_2bits.pdf, id=92, 562.1pt x 306.14375pt>
 File: ./diagrams/r_d_2bits.pdf Graphic file (type pdf)
 
 <use ./diagrams/r_d_2bits.pdf>
-Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 276.
+Package pdftex.def Info: ./diagrams/r_d_2bits.pdf used on input line 309.
 (pdftex.def)             Requested size: 155.24895pt x 84.55182pt.
 
 
-LaTeX Warning: Reference `Y-blk-collision' on page 19 undefined on input line 2
-80.
+LaTeX Warning: Reference `Y-blk-collision' on page 20 undefined on input line 3
+13.
 
-[19] [20 <./diagrams/r_s_2bits.pdf> <./diagrams/r_s_6bits.pdf> <./diagrams/r_d_
+[20] [21 <./diagrams/r_s_2bits.pdf> <./diagrams/r_s_6bits.pdf> <./diagrams/r_d_
 4bits.pdf> <./diagrams/r_d_2bits.pdf>]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 341.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 374.
 
-Overfull \hbox (24.38963pt too wide) in paragraph at lines 349--352
+Overfull \hbox (24.38963pt too wide) in paragraph at lines 382--385
 \OT1/cmr/bx/n/10 Theorem B.5. \OT1/cmr/m/it/10 Let X$[]$[i] and X$[]$[j] be two
  dis-tinct block and len(X$[]$[i])=len(X$[]$[j])=N,
  []
 
-[21] [22] [23]
+[22] [23] [24]
 
 Package glossaries Warning: \makeglossaries hasn't been used,
 the glossaries will not be updated.
@@ -570,18 +575,18 @@ the glossaries will not be updated.
 Package glossaries Warning: No \printglossary or \printglossaries found.
 This document will not have a glossary.
 
-[24] (./approach_draft.aux (./Notation.aux) (./bit_frequency.aux))
+[25] (./approach_draft.aux (./Notation.aux) (./bit_frequency.aux))
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6475 strings out of 495028
- 92240 string characters out of 6181497
- 204434 words of memory out of 5000000
- 9506 multiletter control sequences out of 15000+600000
+ 6475 strings out of 493304
+ 92240 string characters out of 6139871
+ 208721 words of memory out of 5000000
+ 9755 multiletter control sequences out of 15000+600000
  10387 words of font info for 37 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
+ 957 hyphenation exceptions out of 8191
  46i,18n,36p,1720b,367s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
@@ -598,10 +603,10 @@ r7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on approach_draft.pdf (24 pages, 370474 bytes).
+Output written on approach_draft.pdf (25 pages, 373847 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
+ 272 PDF objects out of 1000 (max. 8388607)
+ 194 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
