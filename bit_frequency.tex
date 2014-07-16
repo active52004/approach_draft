@@ -157,12 +157,13 @@ If the adversary wants to modify both the ciphertext and the tag, strategy dipic
 \paragraph{Forgery Attack on CETD-MAC in Copy-then-Replay Scenario}
 When conducting copy-then-replay, the adversary replace a valid memory frame with his stored copy of a frame from other address or same address but older time point. The probability that the adversary succeeds the copy-then-replay attack is determined by the probability that for a fixed input C, the two tags T1 and T2 are identical when their nonce N1 and N2 are randomly generated.
 
-As depicted in Section $\ref{sect:bit-proportion}$, the 0-1 proportion of a ciphertext is maintained to the input blocks(Y blocks) of xor stage. This fact means for a fixed input, the Y block set Y1 and Y2 for two randomly generated nonce N1 and N2 have same 0-1 proportion.  
+As depicted in Section $\ref{sect:bit-proportion}$, the 0-1 proportion of a ciphertext is maintained to the input blocks(Y blocks) of xor stage. This fact means for a fixed input, the Y block set Y1 and Y2 for two randomly generated nonce N1 and N2 have same 0-1 proportion. This fact means that when the adversary conducts chosen-message attack in copy-then-replay scenario, the tag space is fixed and its size is determined by the chosen input ciphtertext.  
+Based on Theorem $\ref{}$ we can see that the tag space for a fixed input ciphertext C is determined by the number of 1s in C. A good strategy for the adversary to succeed the forgery in copy-then-replay scenario is to choose valid memory frame whose ciphertext part C has too many (more than m*(n-1)) or too few(fewer than n) 1s. Assume the tag space size for such C is denoted as Size(C), then Size(C) is smaller than 2$^{n-1}$ and the forgery success probabilityis bigger than O(1/2$^{n-1}$), which represent unsecure for short tags.
 
 
-From Theorem $\ref{theo:tagNum-1s}$ and its related Corollaries we an see that the proportion of the input ciphertext will determine the size of its tag range and the maximum tag range size if 2$^{n-1}$ which is acquired if the number of 1s in the input ciphertext is between n and m*(n-1).
-This fact means if the input ciphertext replayed has too many or too little number of 1s, such as all 0s and all 1s ciphertext, the related tag range contains only one tag value: 0. That means no matter how random the nonce is, replaying all 0s and all 1s ciphertext will always succeed.
-
+%From Theorem $\ref{theo:tagNum-1s}$ and its related Corollaries we an see that the proportion of the input ciphertext will determine the size of its tag range and the maximum tag range size if 2$^{n-1}$ which is acquired if the number of 1s in the input ciphertext is between n and m*(n-1).
+%This fact means if the input ciphertext replayed has too many or too little number of 1s, such as all 0s and all 1s ciphertext, the related tag range contains only one tag value: 0. That means no matter how random the nonce is, replaying all 0s and all 1s ciphertext will always succeed.
+%
 %new MAC design based on CETD-MAC
 \section{Improve the Security of CETD-MAC}
 We have shown that the original CETD-MAC cannot effectively defend two types of integrity attacks as the number of distinct tags is determined by the proportion of 1s and 0s. In this section, we propose several approaches to improve the security of CETD-MAC. Firstly we tried to utilize the nonce and the operation existing in the original CETD-MAC design and then prove the reason that this attempt cannot succeed. Then we proposed our rationale on improvement based on the instruction from \cite{}.  
@@ -173,6 +174,7 @@ We have shown that the original CETD-MAC cannot effectively defend two types of 
 %it is impossible to modify cetd-mac with existing operations to enhance security
 In this part we try to enhance the security of CETD-MAC without introducing new operations or data. We analyze the functionality of each operation first and discuss whether it is necessary to maintain each operation in the new design.
 %why to add each operation, why insufficient to use each only ?
+%eliminate any stage will worsen the security
 \subsubsection{Design Rationale of CETD-MAC Scheme}
 CETD-MAC scheme is consist of three stages: bit-segment shuffle with user chosen shuffle round, then cycle shift for each output lf shuffle stage with randomly chosen shift length and finally xor all output block of shift stage to the tag. It is insecure to construct with only one of the three stages.
 \paragraph{XOR stage}
@@ -187,10 +189,21 @@ Shuffle stage swaps two bit-segments in each round. As the index and offset of s
 
  In the original CETD-MAC, the shift stage will help re-ordering the bits in the output blocks from shuffle stage to ensure that the input blocks of xor stage is hard for the adversary to predict. 
 
+ %inject nonce bits with existing operations
  \subsubsection{Injecting Random Bits}
+ From the analysis in Section $\ref{}$ we can see that as the tag space is determined by the number of 1s in the input ciphertext, CETD-MAC is nether a PRF nor a secure MAC. To improve the security of CETD-MAC, we need to add processing stage to eliminate the relationship between input ciphertext value and its tag space when the nonce is unaccessible, even if the adversary can know the value of input ciphertext and can conduct chosen-message attack. This additional stage can be added before the xor stage to ensure the randomness of the Y blocks (the input of xor stage) or after the xor stage to randomize the tag itself.
+As the nonce used in CETD-MAC scheme is an output from block cipher which can be regarded as PRF, one idea to improve the randomness of bit distribution in Y blocks is to add stage before xor stage to do nonce bit injection. In this part we analysis the possibility of nonce bit injection with existing operations in CETD-MAC
  \paragraph{XOR Plus Nonce Segment}
- \paragraph{Shift Plus Nonce Segment}
+There are two possible ways to xor nonce segments directly into original CETD-MAC. The first idea is to xor a nonce segment with same length as the tag to the output from xor stage. As the nonce is a output from block cipher which behaves like PRF, the nonce segment used to xor with the output from xor stage can be regarded as an output from PRF. On the other hand, we can add nonce-xor stage to the end of any existing stage in CETD-MAC and this approach can randomnize Y blocks. 
+
+No matter xoring nonce segment to the tag or add nonce-xor stage into CETD-MAC, the copy-then-replay attack will be defended. This fact is depicted in the following corollary and is proved in the appendix:
+\begin{corollary}
+Xoring nonce segment to the output of original CETD-MAC or adding nonce-xor stage into original CETD-MAC can ensure the forgery success probability to O(1/2$^n$) is the block cipher used to generate nonce behaves like PRF.
+\end{corollary}
+
+However, nonce-xor stage cannot enhance the security under chosen-message attack in content modification scenario. 
  \paragraph{Shuffle Plus Nonce Segment}
+
  %diffusion is not enough
 \paragraph{Diffusion is insufficient to construct a secure MAC scheme}
 \label{par:diffusion}
