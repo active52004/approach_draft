@@ -1,5 +1,7 @@
 \relax 
-\citation{keylist}
+\citation{cetd}
+\citation{cetd}
+\citation{cetd}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Security Analysis of CETD-MAC}{7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}CETD-MAC Definition}{7}}
 \@writefile{toc}{\contentsline {paragraph}{CETD-MAC is secure under brute-force attack}{7}}
@@ -7,8 +9,9 @@
 \newlabel{fig:CETD-MAC}{{1}{8}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The Concept of Rotate Shifting(Right)}}{8}}
 \newlabel{fig:rotate_shift}{{2}{8}}
+\citation{cbc2000}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}The Randomness of CETD-MAC}{9}}
-\newlabel{sect:proportion}{{2.2}{9}}
+\newlabel{sect:cetd-prf}{{2.2}{9}}
 \@writefile{toc}{\contentsline {paragraph}{The Properties of PRF}{9}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}The Relationship Between MAC Input and its Tag}{10}}
 \newlabel{sect:bit-proportion}{{2.2.1}{10}}
@@ -17,7 +20,10 @@
 \newlabel{coro:odd-even}{{2.2}{10}}
 \newlabel{coro:max}{{2.3}{11}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}CETD-MAC is not a Secure MAC}{11}}
+\newlabel{sect:no-mac}{{2.3}{11}}
 \@writefile{toc}{\contentsline {paragraph}{Forgery Attack in Content Modification Scenario}{11}}
+\citation{aes1999}
+\newlabel{coro:str-spoof}{{2.4}{12}}
 \@writefile{toc}{\contentsline {paragraph}{Forgery Attack on CETD-MAC in Copy-then-Replay Scenario}{12}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Improve the Security of CETD-MAC}{12}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Secure CETD-MAC Without Additional Operation}{13}}
@@ -26,23 +32,26 @@
 \@writefile{toc}{\contentsline {paragraph}{XOR stage}{13}}
 \@writefile{toc}{\contentsline {paragraph}{Cycle Shift Stage}{13}}
 \@writefile{toc}{\contentsline {paragraph}{Bit-Segment Shuffle Stage}{13}}
+\@writefile{toc}{\contentsline {paragraph}{Summary: Shuffle+Shift Diffusion is Insufficient}{14}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Injecting Random Bits}{14}}
 \@writefile{toc}{\contentsline {paragraph}{XOR Plus Nonce Segment}{14}}
-\@writefile{toc}{\contentsline {paragraph}{Shift Plus Nonce Segment}{14}}
-\@writefile{toc}{\contentsline {paragraph}{Shuffle Plus Nonce Segment}{14}}
-\newlabel{par:diffusion}{{3.1.2}{14}}
-\@writefile{toc}{\contentsline {paragraph}{Diffusion is insufficient to construct a secure MAC scheme}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}New MAC Schemes Based On CETD-MAC}{14}}
-\@writefile{toc}{\contentsline {paragraph}{No-linearity Operation}{14}}
-\@writefile{toc}{\contentsline {paragraph}{Galois Field Multiplication}{15}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}GFM CETD-MAC}{16}}
-\@writefile{toc}{\contentsline {paragraph}{Selected-GFM CETD-MAC}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Flip-then-GFM CETD-MAC}{16}}
-\@writefile{toc}{\contentsline {paragraph}{Block Flipping}{16}}
-\@writefile{toc}{\contentsline {paragraph}{Flipping-GFM CETD-MAC}{16}}
+\newlabel{coro:xor-nonce}{{3.1}{14}}
+\@writefile{toc}{\contentsline {paragraph}{Shuffle Plus Nonce Segment}{15}}
+\newlabel{coro:swap-nonce}{{3.2}{15}}
+\newlabel{par:diffusion}{{3.1.2}{15}}
+\@writefile{toc}{\contentsline {paragraph}{Remarks}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}New MAC Schemes Based On CETD-MAC}{15}}
+\citation{aes1999}
+\citation{aes1999}
+\@writefile{toc}{\contentsline {paragraph}{No-linearity Operation}{16}}
+\@writefile{toc}{\contentsline {paragraph}{Galois Field Multiplication}{16}}
+\@writefile{toc}{\contentsline {paragraph}{Rotate Extracting Nonce Segment}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}GFM CETD-MAC}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}FlipGFM CETD-MAC}{18}}
+\@writefile{toc}{\contentsline {paragraph}{Block Flipping}{18}}
 \@setckpt{bit_frequency}{
-\setcounter{page}{17}
-\setcounter{equation}{1}
+\setcounter{page}{19}
+\setcounter{equation}{3}
 \setcounter{enumi}{3}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
@@ -71,7 +80,7 @@
 \setcounter{ALC@line}{0}
 \setcounter{ALC@rem}{0}
 \setcounter{ALC@depth}{0}
-\setcounter{theorem}{0}
+\setcounter{theorem}{2}
 \setcounter{defination}{0}
 \setcounter{proposition}{0}
 }

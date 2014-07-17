@@ -1,0 +1,1051 @@
+@inproceedings{maurer,
+abstract = {An (\&Xscr;, \&Yscr;)-random system takes inputs X1, X2,...∈ \&Xscr; and generates, for each new input Xi, an output Yi ∈ \&Yscr;, depending probabilistically on X1,..., Xi and Y1,..., Yi-1. Many cryptographic systems like block ciphers, MAC-schemes, pseudorandom functions, etc., can be modeled as random systems, where in fact Yi often depends only on Xi, i.e., the system is stateless. The security proof of such a system (e.g. a block cipher) amounts to showing that it is indistinguishable from a certain perfect system (e.g. a random permutation). We propose a general framework for proving the indistinguishability of two random systems, based on the concept of the equivalence of two systems, conditioned on certain events. This abstraction demonstrates the common denominator among many security proofs in the literature, allows us to unify, simplify, generalize, and in some cases strengthen them, and opens the door to proving new indistinguishability results. We also propose the previously implicit concept of quasi-randomness and give an efficient construction of a quasi-random function which can be used as a building block in cryptographic systems based on pseudorandom functions},
+address = {Berlin, Germany},
+annote = {cryptographic systems;quasi-randomness;pseudorandom functions;CBC-MAC;stateless system;security proof;block ciphers;system equivalence;indistinguishability;random systems;},
+author = {Maurer, U},
+booktitle = {Advances in Cryptology - EUROCRYPT 2002. International Conference on the Theory and Applications of Cryptographic Techniques. Proceedings (Lecture Notes in Computer Science Vol.2332)},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Maurer - 2002 - Indistinguishability of random systems.pdf:pdf},
+keywords = {cryptography,random number generation},
+pages = {110 -- 32},
+title = {{Indistinguishability of random systems}},
+year = {2002}
+}
+@article{code,
+author = {Rogaway, Phillip},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Rogaway - 2006 - Code-Based Game-Playing Proofs.pdf:pdf},
+journal = {Cryptology ePrint archive report},
+keywords = {cryptographic analysis techniques,games,provable security,triple encryption},
+pages = {409--426},
+title = {{Code-Based Game-Playing Proofs}},
+volume = {2004/331},
+year = {2006}
+}
+@inproceedings{cbc1994,
+abstract = {The Cipher Block Chaining Message Authentication Code (CBC MAC) specifies that a message x = x 1 . . . x m be authenticated among parties who share a secret key a by tagging x with a prefix of fa (m) (x)mathop = limits def fa (fa ldots fa (fa (x1 oplus x2 oplus ldots oplus xm - 1 oplus xm where f is some underlying block cipher (eg. f = DES). This method is a pervasively used international and U.S. standard. We provide its first formal justification, showing the following general lemma: that cipher block chaining a pseudorandom function gives a pseudorandom function. Underlying our results is a technical lemma of independent interest, bounding the success probability of a computationally unbounded adversary in distinguishing between a random ml-bit to l-bit function and the CBC MAC of a random l-bit to l-bit function.},
+author = {Bellare, M and Kilian, J and Rogaway, P},
+booktitle = {Advances in Cryptology Crypto 94},
+doi = {10.1007/3-540-48658-5\_32},
+editor = {Desmedt, Yvo},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bellare, Kilian, Rogaway - 1994 - The security of cipher block chaining.pdf:pdf},
+number = {RC 19621 (87002)},
+organization = {International Association for Cryptologic Research},
+pages = {341--358},
+publisher = {Springer-Verlag},
+series = {Lecture Notes in Computer Science},
+title = {{The security of cipher block chaining}},
+url = {http://www-cse.ucsd.edu/users/mihir/papers/cbc.html},
+volume = {839},
+year = {1994}
+}
+@inproceedings{AE_mode,
+abstract = {We consider two possible notions of authenticity for symmetric encryption schemes, namely integrity of plaintexts and integrity of ciphertexts, and relate them to the standard notions of privacy for symmetric encryption schemes by presenting implications and separations between all notions considered. We then analyze the security of authenticated encryption schemes designed by \&ldquo;generic composition,\&rdquo; meaning making black-box use of a given symmetric encryption scheme and a given MAC. Three composition methods are considered, namely encrypt-and-MAC plaintext, MAC-then-encrypt, and encrypt-then-MAC. For each of these, and for each notion of security, we indicate whether or not the resulting scheme meets the notion in question assuming the given symmetric encryption scheme is secure against chosen-plaintext attack and the given MAC is unforgeable under chosen-message attack. We provide proofs for the cases where the answer is \&ldquo;yes\&rdquo; and counter-examples for the cases where the answer is \&ldquo;no\&rdquo;},
+address = {Berlin, Germany},
+annote = {authenticated encryption;generic composition paradigm;authenticity;symmetric encryption;plaintext integrity;ciphertext integrity;privacy;security;encrypt-and-MAC plaintext method;MAC-then-encrypt method;encrypt-then-MAC method;proofs;},
+author = {Bellare, M and Namprempre, C},
+booktitle = {Advances in Cryptology - ASIACRYPT 2000. 6th International Conference on the Theory and Application of Cryptology and Information Security. Proceedings (Lecture Notes in Computer Science Vol.1976)},
+file = {:home/duke/Downloads/10.1007-3-540-44448-3\_41.pdf:pdf},
+keywords = {cryptography,data integrity,data privacy,message authentication},
+pages = {531 -- 45},
+title = {{Authenticated encryption: relations among notions and analysis of the generic composition paradigm}},
+year = {2000}
+}
+@inproceedings{EMAC2,
+abstract = {Decorrelation theory has recently been proposed in order to address the security of block ciphers and other cryptographic primitives over a finite domain. We show here how to extend it to infinite domains, which can be used in the message authentication code (MAC) case. Bellare et al., (1994), proved that CBC-MAC is secure when the input length is fixed. This has been extended by Petrank and Rackoff (1997) with a variable length. We prove a result similar to Petrank and Rackoff's one by using decorrelation theory. This leads to a slightly improved result and a more compact proof. This result is meant to be a general proving technique for security, which can be compared to the approach which was announced by Maurer (CRYPT0'99)},
+address = {Berlin, Germany},
+annote = {decorrelation theory;block cipher security;message authentication code;CBC-MAC;compact proof;cryptographic primitives;},
+author = {Vaudenay, S},
+booktitle = {Selected Areas in Cryptography. 7th Annual International Workshop, SAC 2000. Proceedings (Lecture Notes in Computer Science Vol.2012)},
+file = {:home/duke/Downloads/10.1007-3-540-44983-3.pdf:pdf},
+keywords = {cryptography,decorrelation,message authentication},
+pages = {189--201},
+title = {{Decorrelation over infinite domains: the encrypted CBC-MAC case}},
+year = {2000}
+}
+@article{EMAC1,
+abstract = {The Cipher Block Chaining (CBC) Message Authentication Code (MAC) is an authentication method which is widely used in practice. It is well known that the use of the CBC MAC for variable-length messages is not secure, and a few rules of thumb for the correct use of the CBC MAC are known by folklore. The first rigorous proof of the security of CBC MAC, when used on fixed-length messages, was given by M. Bellare et al. (1994). They also suggested variants of CBC MAC that handle variable-length messages but, in these variants, the length of the message has to be known in advance (i.e. before the message is processed). We study CBC authentication of real-time applications in which the length of the message is not known until the message ends, and furthermore, since the application is in real time, it is not possible to start processing the authentication until after the message ends. We first consider a variant of CBC MAC, that we call the Encrypted CBC MAC (EMAC), which handles messages of variable unknown lengths. Computing EMAC on a message is virtually as simple and as efficient as computing the standard CBC MAC on the message. We provide a rigorous proof that its security is implied by the security of the underlying block cipher. Next, we argue that the basic CBC MAC is secure when applied to a prefix-free message space. A message space can be made prefix-free by also authenticating the (usually hidden) last character which marks the end of the message},
+address = {USA},
+annote = {Encrypted CBC MAC;real-time data sources;cipher block chaining;message authentication code;variable-length messages;security proof;fixed-length messages;real-time applications;unknown message length;EMAC;block cipher;prefix-free message space;hidden last character;},
+author = {Petrank, F and Rackoff, C},
+file = {:home/duke/Downloads/10.1007-s001450010009.pdf:pdf},
+issn = {0933-2790},
+journal = {J. Cryptol. (USA)},
+keywords = {cryptography,message authentication,real-time systems},
+number = {3},
+pages = {315 -- 38},
+title = {{CBC MAC for real-time data sources}},
+url = {http://dx.doi.org/10.1007/s001450010009},
+volume = {13},
+year = {2000}
+}
+@inproceedings{xcbc,
+abstract = {We suggest some simple variants of the CBC MAC (cipher block chaining message authentication code) that let you efficiently MAC messages of arbitrary lengths. Our constructions use three keys, K1, K2, K3, to avoid unnecessary padding and MAC any message M\&epsiv;\{0,1\}* using max\{1,[|M|/n]\} applications of the underlying n-bit block cipher. Our favorite construction, XCBC, works like this: if |M| is a positive multiple of n then XOR the n-bit key K2 with the last block of M and compute the CBC MAC keyed with K1; otherwise, extend M's length to the next multiple of n by appending minimal 10i padding (i\&ges;0), XOR the n-bit key K3 with the last block of the padded message, and compute the CBC MAC keyed with K1. We prove the security of this and other constructions, giving concrete bounds on an adversary's inability to forge in terms of her inability to distinguish the block cipher from a random permutation. Our analysis exploits new ideas which simplify proofs compared to prior work},
+address = {Berlin, Germany},
+annote = {CBC MAC;cipher block chaining message authentication code;arbitrary-length messages;three-key constructions;security;concrete bounds;block cipher;random permutation;},
+author = {Black, J and Rogaway, P},
+booktitle = {Advances in Cryptology - CRYPTO 2000. 20th Annual International Cryptology Conference. Proceedings (Lecture Notes in Computer Science Vol.1880)},
+file = {:home/duke/Downloads/10.1007-3-540-44598-6\_12.pdf:pdf},
+keywords = {cryptography,message authentication},
+pages = {197--215},
+title = {{CBC MACs for arbitrary-length messages: the three-key constructions}},
+year = {2000}
+}
+@inproceedings{tmac,
+abstract = {We propose TMAC. TMAC is a refinement of XCBC such that it requires only two keys while XCBC requires three keys. More precisely, TMAC requires only (k+n)-bit keys while XCBC requires (k+2n)-bit keys, where k is the key length of the underlying block cipher E and n is its block length. We achieve this by using a universal hash function and the cost is almost negligible. Similar to XCBC, the domain is \{0,1\}* and it requires no extra invocation of E even if the size of the message is a multiple of n},
+address = {Berlin, Germany},
+annote = {TMAC;two-key CBC MAC;key length;block cipher;universal hash function;message authentication code;},
+author = {Kurosawa, K and Iwata, T},
+booktitle = {Topics in Cryptology - CT-RSA 2003. Cryptoghraphers' Track at the RSA Conference 2003. Proceedings (Lecture Notes in Computer Science Vol.2612)},
+file = {:home/duke/Downloads/10.1007-3-540-36563-X\_3.pdf:pdf},
+keywords = {cryptography,message authentication},
+pages = {33--49},
+title = {{TMAC: two-key CBC MAC}},
+year = {2003}
+}
+@article{signature,
+abstract = {We present a digital signature scheme based on the computational difficulty of integer factorization. The scheme possesses the novel property of being robust against an adaptive chosen-message attack: an adversary who receives signatures for messages of his choice (where each message may be chosen in a way that depends on the signatures of previously chosen messages) cannot later forge the signature of even a single additional message. More generally, we show how to construct a signature scheme with such properties based on the existence of a 'claw-free' pair of permutations - a potentially weaker assumption than the intractability of integer factorization. The new scheme is potentially practical: signing and verifying signatures are reasonably fast, and signatures are compact.},
+annote = {Authentication;Chosen Message Attacks;Digital Signatures;Integer Factorization;Trap Door Permutations;},
+author = {Goldwasser, S and Micali, S and Rivest, R L},
+file = {:C$\backslash$:/Users/Tao/AppData/Local/Mendeley Ltd./Mendeley
+	Desktop/Downloaded/Goldwasser, Micali, Rivest - 1988 - Digital signature scheme secure against adaptive chosen-message attacks.pdf:pdf},
+issn = {00975397},
+journal = {SIAM Journal on Computing},
+keywords = {Mathematical Techniques--Combinatorial Mathematics},
+number = {2},
+pages = {281--308},
+title = {{A digital signature scheme secure against adaptive chosen-message attacks}},
+volume = {17},
+year = {1988}
+}
+
+@inproceedings{cbc-mac+,
+  title={Improved Security Analyses for CBC MACs},
+  booktitle={Advances in Cryptology - CRYPTO 2005: 25th Annual International Cryptology Conference, Santa Barbara, California, USA, August 14-18, 2005, Proceedings},
+  series={Lecture Notes in Computer Science},
+  publisher={Springer},
+  volume={3621},
+  pages={527-545},
+  url={http://www.iacr.org/cryptodb/archive/2005/CRYPTO/963/963.pdf},
+  doi={10.1007/11535218_32},
+  author={M Bellare and Krzysztof Pietrzak and P Rogaway},
+  year=2005
+}
+@inproceedings{cycle,
+abstract = {The Galois/Counter Mode (GCM) of operation has been standardized by NIST to provide single-pass authenticated encryption. The GHASH authentication component of GCM belongs to a class of Wegman-Carter polynomial hashes that operate in the field GF(2<sup>128</sup>). We present message forgery attacks that are made possible by its extremely smooth-order multiplicative group which splits into 512 subgroups. GCM uses the same block cipher key <i>K</i> to both encrypt data and to derive the generator <i>H</i> of the authentication polynomial for GHASH. In present literature, only the trivial weak key <i>H</i> = 0 has been considered. We show that GHASH has much wider classes of weak keys in its 512 multiplicative subgroups, analyze some of their properties, and give experimental results on AES-GCM weak key search. Our attacks can be used not only to bypass message authentication with garbage but also to target specific plaintext bits if a polynomial MAC is used in conjunction with a stream cipher. These attacks can also be applied with varying efficiency to other polynomial hashes and MACs, depending on their field properties. Our findings show that especially the use of short polynomial-evaluation MACs should be avoided if the underlying field has a smooth multiplicative order.},
+annote = {cycling attacks;polynomial MAC;Galois/counter mode;NIST;single-pass authenticated encryption;GHASH authentication;Wegman-Carter polynomial hashes;message forgery attacks;smooth-order multiplicative group;block cipher key;authentication polynomial;AES-GCM weak key search;message authentication;stream cipher;},
+author = {Saarinen, M-JO},
+booktitle = {Fast Software Encryption. 19th International Workshop, FSE 2012. Revised Selected Papers},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Saarinen - 2012 - Cycling attacks on GCM, GHASH and other polynomial MACs and hashes.pdf:pdf},
+keywords = { cryptography,message authentication},
+pages = {216 ---- 25},
+title = {{Cycling attacks on GCM, GHASH and other polynomial MACs and hashes}},
+url = {http://dx.doi.org/10.1007/978-3-642-34047-5\_13},
+year = {2012}
+}
+@inproceedings{breaking,
+abstract = {In this paper, we study the security proofs of GCM (Galois/Counter Mode of Operation). We first point out that a lemma, which is related to the upper bound on the probability of a counter collision, is invalid. Both the original privacy and authenticity proofs by the designers are based on the lemma. We further show that the observation can be translated into a distinguishing attack that invalidates the main part of the privacy proof. It turns out that the original security proofs of GCM contain a flaw, and hence the claimed security bounds are not justified. A very natural question is then whether the proofs can be repaired. We give an affirmative answer to the question by presenting new security bounds, both for privacy and authenticity. As a result, although the security bounds are larger than what were previously claimed, GCM maintains its provable security. We also show that, when the nonce length is restricted to 96 bits, GCM has better security bounds than a general case of variable length nonces.},
+address = {Berlin, Germany},
+annote = {GCM security proof;Galois/counter mode of operation;counter collision;privacy proof;authenticity proof;provable security;},
+author = {Iwata, T and Ohashi, K and Minematsu, K},
+booktitle = {32nd Annual Cryptology Conference. Advances in Cryptology - CRYPTO 2012},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Iwata, Ohashi, Minematsu - 2012 - Breaking and Repairing GCM Security Proofs.pdf:pdf},
+keywords = {Galois fields,cryptography,data privacy,message authentication},
+pages = {31--49},
+title = {{Breaking and Repairing GCM Security Proofs}},
+year = {2012}
+}
+@inproceedings{alred_re,
+abstract = {The Alred construction is a lightweight strategy for constructing Message Authentication Codes (MACs). Although its original analysis shows that this construction is secure against attacks not involving internal collisions, it is unclear if the same is valid in a more generic scenario. In this paper, we complement that analysis, showing that one can expect a reasonable security level even when attackers try to explore such collisions. More specifically, we use the game-playing technique to formally evaluate the security of one Alred instance, Marvin, bounding its security in a quantitative manner; the security analysis is in the concrete-security paradigm. We then show how the concepts involved can be used in the analysis of Pelican, which follows the same design principles. \{\&\}copy; 2011 Springer-Verlag.},
+annote = {Alred construction;Design Principles;Internal collision;MAC;Message authentication codes;Security analysis;Security level;},
+author = {Jr, Marcos A Simplicio and Barreto, Paulo S L M and Carvalho, Tereza C M B},
+booktitle = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Simplicio Jr., Barreto, Carvalho - 2011 - Revisiting the security of the Alred design.pdf:pdf},
+keywords = {Security systems},
+pages = {69--83},
+title = {{Revisiting the security of the Alred design}},
+url = {http://dx.doi.org/10.1007/978-3-642-18178-8-7},
+volume = {6531 LNCS},
+year = {2011}
+}
+@article{NIST_suite,
+author = {Rukhin, A and Soto, J and Nechvatal, J and Smid, M and Barker, E},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Rukhin et al. - 2010 - A statistical test suite for random and pseudorandom number generators for cryptographic applications.pdf:pdf},
+journal = {Nist Special Publication},
+keywords = {NIST SP 800-22,P-value,Revision 1a: A Statistical Test Suite for Random a,hypothesis test,random number generator},
+number = {April},
+title = {{A statistical test suite for random and pseudorandom number generators for cryptographic applications}},
+url = {http://oai.dtic.mil/oai/oai?verb=getRecord\&metadataPrefix=html\&identifier=ADA393366},
+year = {2010}
+}
+@article{iPMAC,
+abstract = {A general result is proved for constructions which use a pseudo-random function (PRF) with a small domain to build a PRF with a large domain. This result is used to analyse a new block-cipher based parallelizable PRF, called iPMAC which improves upon the well-known PMAC algorithm. New authenticated encryption schemes are described and then combined with iPMAC to obtain new schemes for authenticated encryption with associated data. Improvements over well known schemes such as the offset codebook (OCB) mode include avoiding a design-stage discrete logarithm computation, a small speed-up and a smaller size decryption algorithm. \{\&\}copy; 2006 IEEE.},
+annote = {Authenticated encryption;Authenticated encryption scheme;Block ciphers;Data authentication;Decryption algorithm;Discrete logarithms;Large domain;Message authentication;Modes of operation;Offset codebook;Pseudo-random functions;Speed-ups;},
+author = {Sarkar, P},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Sarkar - 2010 - Pseudo-random functions and parallelizable modes of operations of a block cipher.pdf:pdf},
+journal = {IEEE Transactions on Information Theory},
+keywords = { AC motors, Algebra,Authentication},
+number = {8},
+pages = {4025--4037},
+title = {{Pseudo-random functions and parallelizable modes of operations of a block cipher}},
+url = {http://dx.doi.org/10.1109/TIT.2010.2050921},
+volume = {56},
+year = {2010}
+}
+
+@inproceedings{fast,
+abstract = {We present a bitsliced implementation of AES encryption in counter mode for 64-bit Intel processors. Running at 7.59 cycles/byte on a Core 2, it is up to 25\% faster than previous implementations, while simultaneously offering protection against timing attacks. In particular, it is the only cache-timing-attack resistant implementation offering competitive speeds for stream as well as for packet encryption: for 576-byte packets, we improve performance over previous bitsliced implementations by more than a factor of 2. We also report more than 30\% improved speeds for lookup-table based Galois/Counter mode authentication, achieving 10.68 cycles/byte for authenticated encryption. Furthermore, we present the first constant-time implementation of AES-GCM that has a reasonable speed of 21.99 cycles/byte, thus offering a full suite of timing-analysis resistant software for authenticated encryption.},
+annote = {cache timing-attack resistant AES-GCM;AES encryption;64-bit Intel processors;timing attacks protection;lookup table;packet encryption;Galois-Counter mode authentication;authenticated encryption;timing-analysis resistant software;},
+author = {Kasper, E and Schwabe, P},
+booktitle = {Cryptographic Hardware and Embedded Systems - CHES 2009. Proceedings 11th International Workshop},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Kasper, Schwabe - 2009 - Faster and timing-attack resistant AES-GCM.pdf:pdf},
+keywords = { authorisation, cryptography, timing,table lookup},
+pages = {1--17},
+title = {{Faster and timing-attack resistant AES-GCM}},
+year = {2009}
+}
+@inproceedings{attack_blk,
+abstract = {This paper develops several new techniques of cryptanalyzing MACs based on block ciphers, and is divided into two parts. The first part presents new distinguishers of the MAC construction Alred and its specific instance Alpha-MAC based on AES. For the Alred construction, we first describe a general distinguishing attack which leads to a forgery attack directly with the complexity of the birthday attack. A 2-round collision differential path of Alpha-MAC is adopted to construct a new distinguisher with about 265.5 chosen messages and 265.5 queries. One of the most important results is to use this new distinguisher to recover the internal state, which is an equivalent subkey of Alpha-MAC. Moreover, our distinguisher on Alred construction can be applied to the MACs based on CBC and CFB encryption modes. The second part describes the first impossible differential attack on MACs-Pelican, MT-MAC-AES and PC-MAC-AES. Using the birthday attack, enough message pairs that produce the inner near-collision with some specific differences are detected, then the impossible differential attack on 4-round AES to the above mentioned MACs is performed. For Pelican, our attack recovers its internal state, which is an equivalent subkey. For MT-MAC-AES, the attack turns out to be a subkey recovery attack directly. The complexity of the two attacks is 285.5 chosen messages and 285.5 queries. For PC-MAC-AES, we recover its 256-bit key with 285.5 chosen messages and 2128 queries.},
+address = {Berlin, Germany},
+annote = {birthday attacks;block ciphers;ALPHA-MAC key;distinguishing attack;forgery attack;2-round collision differential path;ALRED construction;MT-MAC-AES;PC-MAC-AES;CBC encryption;CFB encryption;},
+author = {Yuan, Z and Wang, W and Jia, K and Xu, G and W, X},
+booktitle = {Advances in Cryptology - CRYPTO 2009. Proceedings 29th Annual International Cryptology Conference},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Yuan et al. - 2009 - New birthday attacks on some MACs based on block ciphers.pdf:pdf},
+keywords = {access protocols,authorisation,cryptographic protocols,message authentication,public key cryptography},
+pages = {209 -- 30},
+title = {{New birthday attacks on some MACs based on block ciphers}},
+url = {http://dx.doi.org/10.1007/978-3-642-03356-8\_13},
+year = {2009}
+}
+@article{MARVIN,
+abstract = {We present Marvin, a new parallelizable message authentication code (MAC) based on the ALRED family. The new algorithm is designed with resource-constrained platforms in mind and explores the structure of an underlying block cipher to provide security at a small cost in terms of memory needs. Also, we show how Marvin can be used as an authentication-only function or else in an authenticated encryption with associated data (AEAD) scheme. We define a new AEAD proposal called LetterSoup, which is based on the mode of operation. Finally, we LFSRC analyze the security and performance of the resulting schemes.},
+address = {USA},
+annote = {Marvin message authentication code;LetterSoup authenticated encryption scheme;ALRED family;resource-constrained platforms;block cipher;authenticated encryption with associated data;AEAD scheme;authentication-only function scheme;mode of operation;},
+author = {{Simplicio M.A.}, Jr. and {d'Aquino F.F.S. Barbuda}, P and Barreto, P.S.L.M. and Carvalho, T.C.M.B. and Margi, T C B},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Simplicio M.A. et al. - 2009 - The Marvin message authentication code and the LetterSoup authenticated encryption scheme.pdf:pdf},
+issn = {1939-0114},
+journal = {Secur. Commun. Netw. (USA)},
+keywords = {authorisation,cryptography,message authentication,telecommunication security},
+number = {2},
+pages = {165 -- 80},
+title = {{The Marvin message authentication code and the LetterSoup authenticated encryption scheme}},
+url = {http://dx.doi.org/10.1002/sec.66},
+volume = {2},
+year = {2009}
+}
+
+@article{improve_pmac,
+abstract = {In this paper we provide a simple, concrete and improved security analysis of Parallelizable Message Authentication Code or PMAC. In particular, we show that the advantage of any distinguisher A at distinguishing PMAC from a random function is at most (5q$\sigma$ - 3.5q2)/2n. Here, $\sigma$ is the total number of message blocks in all q queries made by A and PMAC is based on a random permutation over \{0,1 \}n. In the original paper of PMAC by Black and Rogaway in Eurocrypt-2002, the bound was shown to be ($\sigma$ + 1)2/2n-1. In FSE-2007, Minematsu and Matsushima provided a bound 5lq2/(2n - 2l), where l is the number of blocks of the longest queried made by the distinguisher. Our proposed bound is sharper than these two previous bounds.},
+address = {Germany},
+annote = {security analysis;PMAC;parallelizable message authentication code;random permutation;},
+author = {Nandi, M and Mandal, A},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Nandi, Mandal - 2008 - Improved security analysis of PMAC.pdf:pdf},
+issn = {1862-2976},
+journal = {J. Math. Cryptol. (Germany)},
+keywords = {cryptography,message authentication,random number generation},
+number = {2},
+pages = {149 -- 62},
+title = {{Improved security analysis of PMAC}},
+url = {http://dx.doi.org/10.1515/JMC.2008.007},
+volume = {2},
+year = {2008}
+}
+@inproceedings{new,
+abstract = {We provide new security proofs for PMAC, TMAC, and XCBC message authentication modes. The previous security bounds for these modes were \{\&\}sigma;<sup>2</sup> /2<sup>n</sup>, where n is the block size in bits and \{\&\}sigma; is the total number of queried message blocks. Our new bounds are \{\&\}lscr;q<sup>2</sup> /2<sup>n</sup> for PMAC and \{\&\}lscr;q<sup>2</sup>/2<sup>n</sup> + \{\&\}lscr;<sup>4</sup>q<sup>2</sup>/2<sup>2n</sup> for TMAC and XCBC, where q is the number of queries and \{\&\}lscr; is the maximum message length in n-bit blocks. This improves the previous results under most practical cases, e.g., when no message is exceptionally long compared to other messages.},
+annote = {security proof;message authentication code;symmetric-keyed function;blockcipher;},
+author = {Minematsu, K and Matsushima, T},
+booktitle = {Fast Software Encryption. 14th International Workshop, FSE 2007. Revised Selected Papers. (Lecture Notes in Computer Science vol. 4593)},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Minematsu, Matsushima - 2007 - New bounds for PMAC, TMAC, and XCBC.pdf:pdf},
+keywords = { message authentication,cryptography},
+pages = {434 ---- 51},
+title = {{New bounds for PMAC, TMAC, and XCBC}},
+year = {2007}
+}
+@article{Joux2006,
+author = {Joux, Antoine},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Joux - 2006 - Authentication Failures in NIST version of GCM(2).pdf:pdf},
+journal = {NIST Comment},
+title = {{Authentication Failures in NIST version of GCM}},
+url = {http://csrc.nist.gov/groups/ST/toolkit/BCM/documents/comments/800-38\_Series-Drafts/GCM/Joux\_comments.pdf},
+year = {2006}
+}
+@inproceedings{game,
+abstract = {We show that, in the ideal-cipher model, triple encryption (the cascade of three independently-keyed blockciphers) is more secure than single or double encryption, thereby resolving a long-standing open problem. Our result demonstrates that for DES parameters (56-bit keys and 64-bit plaintexts) an adversary's maximal advantage against triple encryption is small until it asks about 278 queries. Our proof uses code-based game-playing in an integral way, and is facilitated by a framework for such proofs that we provide},
+address = {Berlin, Germany},
+annote = {ideal-cipher model;triple encryption;DES parameter;data encryption standard;code-based game-playing proof;},
+author = {Bellare, M and Rogaway, P},
+booktitle = {Advances in Cryptology - EUROCRYPT 2006. 24th Annual International Conference on the Theory and Applications of Cryptographic Techniques. Proceedings (Lecture Notes in Computer Science Vol. 4004)},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bellare, Rogaway - 2006 - The security of triple encryption and a framework for code-based game-playing proofs.pdf:pdf},
+keywords = {codes,cryptography,game theory,telecommunication security},
+pages = {409 -- 26},
+title = {{The security of triple encryption and a framework for code-based game-playing proofs}},
+year = {2006}
+}
+
+@inproceedings{alred,
+abstract = {We present a new way to construct a MAC function based on a block cipher. We apply this construction to AES resulting in a MAC function that is a factor 2.5 more efficient than CBC-MAC with AES, while providing a comparable claimed security level},
+address = {Berlin, Germany},
+annote = {MAC function construction;ALRED;ALPHA-MAC;block cipher;CBC-MAC;AES;message authentication code;},
+author = {Daemen, J and Rijmen, V},
+booktitle = {Fast Software Encryption. 12th International Workshop, FSE 2005. Revised Selected Papers (Lecture Notes in Computer Science Vol. 3557)},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Daemen, Rijmen - 2005 - A new MAC construction ALRED and a specific instance ALPHA-MAC.pdf:pdf},
+keywords = {computer crime,cryptography,message authentication},
+pages = {1--17},
+title = {{A new MAC construction ALRED and a specific instance ALPHA-MAC}},
+year = {2005}
+}
+
+@inproceedings{eax,
+abstract = {We propose a block-cipher mode of operation, EAX, for solving the problem of authenticated-encryption with associated-data (AEAD). Given a nonce N; a message M, and a header H, our mode protects the privacy of M and the authenticity of both M and H. Strings N, M, and H are arbitrary bit strings, and the mode uses 2[|M|/n] + [|H|/n] + [|N|/n] block-cipher calls when these strings are nonempty and n is the block length of the underlying block cipher. Among EAX's characteristics are that it is on-line (the length of a message is not needed to begin processing it) and a fixed header can be preprocessed, effectively removing the per-message cost of binding it to the ciphertext},
+annote = {EAX mode of operation;block cipher;authenticated encryption with associated data;AEAD;block-cipher calls;on-line characteristics;fixed header preprocessing;},
+author = {Bellare, M and Rogaway, P and Wagner, D},
+booktitle = {Fast Software Encryption. 11th International Workshop, FSE 2004. Revised Papers (Lecture Notes in Comput. Sci. Vol.3017)},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bellare, Rogaway, Wagner - 2004 - The EAX mode of operation.pdf:pdf},
+keywords = { cryptography,message authentication},
+pages = {389--407},
+title = {{The EAX mode of operation}},
+year = {2004}
+}
+@inproceedings{gcm,
+abstract = {The recently introduced Galois/counter mode (GCM) of operation for block ciphers provides both encryption and message authentication, using universal hashing based on multiplication in a binary finite field. We analyze its security and performance, and show that it is the most efficient mode of operation for high speed packet networks, by using a realistic model of a network crypto module and empirical data from studies of Internet traffic in conjunction with software experiments and hardware designs. GCM has several useful features: it can accept IVs of arbitrary length, can act as a stand-alone message authentication code (MAC), and can be used as an incremental MAC. We show that GCM is secure in the standard model of concrete security, even when these features are used. We also consider several of its important system-security aspects},
+address = {Berlin, Germany},
+annote = {network security;Galois-counter mode;block cipher;message authentication;packet network;Internet traffic;message authentication code;},
+author = {McGrew, D A and Viega, J},
+booktitle = {Progress in Cryptology - INDOCRYPT 2004. 5th International Conference on Cryptology in India. Proceedings (Lecture Notes in Computer Science Vol.3348)},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/McGrew, Viega - 2004 - The security and performance of the Galoiscounter mode (GCM) of operation.pdf:pdf},
+keywords = {Galois fields,Internet,cryptography,telecommunication security,telecommunication traffic},
+pages = {343 -- 55},
+title = {{The security and performance of the Galois/counter mode (GCM) of operation}},
+year = {2004}
+}
+
+@inproceedings{tweak_pmac,
+abstract = {We describe highly efficient constructions, XE and XEX, that turn a blockcipher E: K×\{0,1\}n → \{0,1\}n into a tweakable block-cipher E: K×T×\{0,1\} → \{0,1\}n having tweak space T = \{0,1\}n × I where I is a set of tuples of integers such as I = [1.. 2n/2] × [0..10]. When tweak T is obtained from tweak 5 by incrementing one if its numerical components, the cost to compute EKT(M) having already computed some EKS(M') is one blockcipher call plus a small and constant number of elementary machine operations. Our constructions work by associating to the ith coordinate of I an element $\alpha$i ∈ F2n* multiplying by $\alpha$i when one increments that component of the tweak. We illustrate the use of this approach by refining the authenticated-encryption scheme OCB and the message authentication code PMAC, yielding variants of these algorithms that are simpler and faster than the original schemes, and yet have simpler proofs. Our results bolster the thesis of Liskov, Rivest, and Wagner (2002) that a desirable approach for designing modes of operation is to start from a tweakable blockcipher. We elaborate on their idea, suggesting the kind of tweak space, usage-discipline, and blockcipher-based instantiations that give rise to simple and efficient modes},
+address = {Berlin, Germany},
+annote = {tweakable blockcipher;OCB;PMAC;authenticated-encryption scheme;message authentication;},
+author = {Rogaway, P},
+booktitle = {Advances in Cryptology-ASIACRYPT 2004. 10th International Conference on the Theory and Application of Cryptology and Information Security. Proceedings (Lecture Notes in Computer Science Vol.3329)},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Rogaway - 2004 - Efficient instantiations of tweakable blockciphers and refinements to modes OCB and PMAC.pdf:pdf},
+keywords = {block codes,cryptography,message authentication},
+pages = {16--31},
+title = {{Efficient instantiations of tweakable blockciphers and refinements to modes OCB and PMAC}},
+year = {2004}
+}
+@inproceedings{ccm,
+abstract = {We analyze the security of the CTR+CBC-MAC (CCM) encryption mode. This mode, proposed by D. Whiting et al. (see, IEEE 802.11-02/001r2: "AES Encryption and Authentication Using CTR Mode and CBC-MAC", 2002; "Counter with CBC-MAC - CCM, AES Mode of Operation", NIST, http://csrc.nist.gov/encryption/modes/proposedmodes/, 2002) combines the CTR ("counter") encryption mode with CBC-MAC (cipher block chaining, message authentication code) message authentication and is based on a block cipher such as AES (Advanced Encryption Standard). We present concrete lower bounds for the security of CCM in terms of the security of the underlying block cipher. The conclusion is that CCM provides a level of privacy and authenticity that is in line with other proposed modes such as OCB},
+annote = {encryption mode;message authentication;block cipher;AES;Advanced Encryption Standard;security;privacy;authenticity;},
+author = {Jonsson, J},
+booktitle = {Selected Areas in Cryptography. 9th Annual International Workshop, SAC 2002. Revised Papers (Lecture Notes in Computer Science Vol.2595)},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Jonsson - 2003 - On the security of CTRCBC-MAC.pdf:pdf},
+keywords = { Data privacy, cryptography,message authentication},
+pages = {76--93},
+title = {{On the security of CTR+CBC-MAC}},
+year = {2003}
+}
+@article{ocb,
+abstract = {We describe a parallelizable block-cipher mode of operation that simultaneously provides privacy and authenticity. OCB encrypts-and-authenticates a nonempty string M\{\&\}isin;0,1* using \{\&\}lceil;|M|/n\{\&\}lceil;+2 block-cipher invocations, where n is the block length of the underlying block cipher. Additional overhead is small. OCB refines a scheme, IAPM, suggested by Charanjit Jutla. Desirable properties of OCB include the ability to encrypt a bit string of arbitrary length into a ciphertext of minimal length, cheap offset calculations, cheap key setup, a single underlying cryptographic key, no extended-precision addition, a nearly optimal number of block-cipher calls, and no requirement for a random IV. We prove OCB secure, quantifying the adversary's ability to violate the mode's privacy or authenticity in terms of the quality of its block cipher as a pseudorandom permutation (PRP) or as a strong PRP, respectively},
+annote = {parallelizable block cipher mode;OCB secure;authenticated encryption scheme;cryptographic key;provable security;minimal length ciphertext;cheap offset calculation;cheap key setup;pseudorandom permutation;PRP;},
+author = {Rogaway, P and Black, J},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Rogaway, Black - 2003 - OCB a block-cipher mode of operation for efficient authenticated encryption.pdf:pdf},
+journal = {ACM Trans. Inf. Syst. Secur. (USA)},
+keywords = { authorisation, cryptography,message authentication},
+number = {3},
+pages = {365--403},
+title = {{OCB: a block-cipher mode of operation for efficient authenticated encryption}},
+url = {http://dx.doi.org/10.1145/937527.937529},
+volume = {6},
+year = {2003}
+}
+@inproceedings{omac,
+abstract = {We present one-key CBC MAC (OMAC) and prove its security for arbitrary length messages. OMAC takes only one key, K (k bits) of a block cipher E. Previously, XCBC requires three keys, (k + 2n) bits in total, and TMAC requires two keys, (k + n) bits in total, where n denotes the block length of E. The saving of the key length makes the security proof of OMAC substantially harder than those of XCBC and TMAC},
+annote = {OMAC;one-key CBC MAC;arbitrary length message security;block cipher;key length;XCBC;TMAC;message authentication code;provable security;},
+author = {Iwata, T and Kurosawa, K},
+booktitle = {Fast Software Encryption. 10th International Workshop, FSE 2003. Revised Papers (Lecture Notes in Comput. Sci. Vol.2887)},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Iwata, Kurosawa - 2003 - OMAC one-key CBC MAC.pdf:pdf},
+keywords = { cryptography,message authentication},
+pages = {129 ---- 53},
+title = {{OMAC: one-key CBC MAC}},
+year = {2003}
+}
+@inproceedings{aead,
+abstract = {When a message is transformed into a ciphertext in a way designed to protect both its privacy and authenticity, there may be additional information, such as a packet header, that travels alongside the ciphertext (at least conceptually) and must get authenticated with it. We formalize and investigate this authenticated-encryption with associated-data (AEAD) problem. Though the problem has long been addressed in cryptographic practice, it was never provided a definition or even a name. We do this, and go on to look at efficient solutions for AEAD, both in general and for the authenticated-encryption scheme OCB. For the general setting we study two simple ways to turn an authenticated-encryption scheme that does not support associated-data into one that does: nonce stealing and ciphertext translation. For the case of OCB we construct an AEAD-scheme by combining OCB and the pseudorandom function PMAC, using the same key for both algorithms. We prove that, despite "interaction" between the two schemes when using a common key, the combination is sound. We also consider achieving AEAD by the generic composition of a nonce-based, privacy-only encryption scheme and a pseudorandom function.},
+address = {Washington, DC, United states},
+annote = {Authenticated encryption;Ciphertext translation;Pseudorandom function;},
+author = {Rogaway, P},
+booktitle = {Proceedings of the ACM Conference on Computer and Communications Security},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Rogaway - 2002 - Authenticated-encryption with associated-data.pdf:pdf},
+keywords = {Algorithms,Data communication systems,Network protocols,Random processes,Security of data,Standardization},
+pages = {98--107},
+title = {{Authenticated-encryption with associated-data}},
+url = {http://dx.doi.org/10.1145/586110.586125},
+year = {2002}
+}
+@inproceedings{pmac,
+abstract = {We define and analyze a simple and fully parallelizable block-cipher mode of operation for message authentication. Parallelizability does not come at the expense of serial efficiency: in a conventional, serial environment, the algorithm's speed is within a few percent of the (inherently sequential) CBC MAC. The new mode, PMAC, is deterministic, resembles a standard mode of operation (and not a Carter-Wegman MAC), works for strings of any bit length, employs a single block-cipher key, and uses just max1, \{\&\}lceil;|M|/n\{\&\}rceil; block-cipher calls to MAC a string M \{\&\}isin; 0, 1* using an n-bit block cipher. We prove PMAC secure, quantifying an adversary's forgery probability in terms of the quality of the block cipher as a pseudorandom permutation},
+annote = {block cipher;parallelizable message authentication;PMAC;deterministic mode;forgery probability;pseudorandom permutation;},
+author = {Black, J and Rogaway, P},
+booktitle = {Advances in Cryptology - EUROCRYPT 2002. International Conference on the Theory and Applications of Cryptographic Techniques. Proceedings (Lecture Notes in Computer Science Vol.2332)},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Black, Rogaway - 2002 - A block-cipher mode of operation for parallelizable message authentication.pdf:pdf},
+keywords = { cryptography, deterministic algorithms, message authentication,parallel algorithms},
+pages = {384 ---- 97},
+title = {{A block-cipher mode of operation for parallelizable message authentication}},
+year = {2002}
+}
+@inproceedings{2003297550555,
+abstract = {When a message is transformed into a ciphertext in a way designed to protect both its privacy and authenticity, there may be additional information, such as a packet header, that travels alongside the ciphertext (at least conceptually) and must get authenticated with it. We formalize and investigate this authenticated-encryption with associated-data (AEAD) problem. Though the problem has long been addressed in cryptographic practice, it was never provided a definition or even a name. We do this, and go on to look at efficient solutions for AEAD, both in general and for the authenticated-encryption scheme OCB. For the general setting we study two simple ways to turn an authenticated-encryption scheme that does not support associated-data into one that does: nonce stealing and ciphertext translation. For the case of OCB we construct an AEAD-scheme by combining OCB and the pseudorandom function PMAC, using the same key for both algorithms. We prove that, despite "interaction" between the two schemes when using a common key, the combination is sound. We also consider achieving AEAD by the generic composition of a nonce-based, privacy-only encryption scheme and a pseudorandom function.},
+address = {Washington, DC, United states},
+annote = {Authenticated encryption;Ciphertext translation;Pseudorandom function;},
+author = {Rogaway, P},
+booktitle = {Proceedings of the ACM Conference on Computer and Communications Security},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Rogaway - 2002 - Authenticated-encryption with associated-data.pdf:pdf},
+keywords = {Algorithms,Data communication systems,Network protocols,Random processes,Security of data,Standardization},
+pages = {98--107},
+title = {{Authenticated-encryption with associated-data}},
+url = {http://dx.doi.org/10.1145/586110.586125},
+year = {2002}
+}
+@article{cbc,
+abstract = {Let F be some block cipher (e.g., DES) with block length l. The cipher block chaining message authentication code (CBC MAC) specifics that an m-block message x=x1...xm be authenticated among parties who share a secret key a for the block cipher by tagging x with a prefix of ym, where y0=0' and yi=Fa(mi\{\&\}oplus;yi-1) for i=1,2,...,m. This method is a pervasively used international and U.S. standard. We provide its first formal justification, showing the following general lemma: cipher block chaining a pseudorandom function yields a pseudorandom function. Underlying our results is a technical lemma of independent interest, bounding the success probability of a computationally unbounded adversary in distinguishing between a random ml-bit to l-bit function and the CBC MAC of a random l-bit to l-bit function},
+annote = {cipher block chaining message authentication code;security;m-block message;secret key;pseudorandom function;computationally unbounded adversary;random ml-bit;l-bit function;},
+author = {Bellare, M and Kilian, J and Rogaway, P},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bellare, Kilian, Rogaway - 2000 - The security of the cipher block chaining message authentication code.pdf:pdf},
+journal = {J. Comput. Syst. Sci. (USA)},
+keywords = {cryptography,message authentication,probability},
+number = {3},
+pages = {362 ---- 99},
+title = {{The security of the cipher block chaining message authentication code}},
+url = {http://dx.doi.org/10.1006/jcss.1999.1694},
+volume = {61},
+year = {2000}
+}
+@article{final_test,
+author = {Soto, J and Bassham, L},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Soto, Bassham - 2000 - Randomness Testing of the Advanced Encryption Standard Finalist Candidates Randomness Testing of the Advanced Encryption.pdf:pdf},
+title = {{Randomness Testing of the Advanced Encryption Standard Finalist Candidates Randomness Testing of the Advanced Encryption}},
+year = {2000}
+}
+@inproceedings{6887634,
+abstract = {We consider two possible notions of authenticity for symmetric encryption schemes, namely integrity of plaintexts and integrity of ciphertexts, and relate them to the standard notions of privacy for symmetric encryption schemes by presenting implications and separations between all notions considered. We then analyze the security of authenticated encryption schemes designed by \&ldquo;generic composition,\&rdquo; meaning making black-box use of a given symmetric encryption scheme and a given MAC. Three composition methods are considered, namely encrypt-and-MAC plaintext, MAC-then-encrypt, and encrypt-then-MAC. For each of these, and for each notion of security, we indicate whether or not the resulting scheme meets the notion in question assuming the given symmetric encryption scheme is secure against chosen-plaintext attack and the given MAC is unforgeable under chosen-message attack. We provide proofs for the cases where the answer is \&ldquo;yes\&rdquo; and counter-examples for the cases where the answer is \&ldquo;no\&rdquo;},
+address = {Berlin, Germany},
+annote = {authenticated encryption;generic composition paradigm;authenticity;symmetric encryption;plaintext integrity;ciphertext integrity;privacy;security;encrypt-and-MAC plaintext method;MAC-then-encrypt method;encrypt-then-MAC method;proofs;},
+author = {Bellare, M and Namprempre, C},
+booktitle = {Advances in Cryptology - ASIACRYPT 2000. 6th International Conference on the Theory and Application of Cryptology and Information Security. Proceedings (Lecture Notes in Computer Science Vol.1976)},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bellare, Namprempre - 2000 - Authenticated encryption relations among notions and analysis of the generic composition paradigm.pdf:pdf},
+keywords = {cryptography,data integrity,data privacy,message authentication},
+pages = {531 -- 45},
+title = {{Authenticated encryption: relations among notions and analysis of the generic composition paradigm}},
+year = {2000}
+}
+@inproceedings{umac,
+abstract = {We describe a message authentication algorithm, UMAC, which can authenticate messages (in software, on contemporary machines) roughly an order of magnitude faster than current practice (e.g., HMAC-SHA1), and about twice as fast as times previously reported for the universal hash-function family MMH. To achieve such speeds, UMAC uses a new universal hash-function family, NH, and a design which allows effective exploitation of SIMD parallelism. The \{\&\}ldquo;cryptographic\{\&\}rdquo; work of UMAC is done using standard primitives of the user's choice, such as a block cipher or cryptographic hash function; no new heuristic primitives are developed here. Instead, the security of UMAC is rigorously proven, in the sense of giving exact and quantitatively strong results which demonstrate an inability to forge UMAC-authenticated messages assuming an inability to break the underlying cryptographic primitive. Unlike conventional, inherently serial MAC, UMAC is parallelizable, and will have ever-faster implementation speeds as machines offer up increasing amounts of parallelism. We envision UMAC as a practical algorithm for next-generation message authentication},
+annote = {UMAC;message authentication algorithm;universal hash-function family;NH hash function;SIMD parallelism;standard primitives;block cipher;cryptographic hash function;security;parallelism;},
+author = {Black, J and Halevi, S and Krawczyk, H and Krovetz, T and Rogaway, P},
+booktitle = {Advances in Cryptology - CRYPTO'99. 19th Annual International Cryptology Conference. Proceedings},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Black et al. - 1999 - UMAC fast and secure message authentication(2).pdf:pdf},
+keywords = {cryptography,message authentication,parallel algorithms},
+pages = {216 ---- 33},
+title = {{UMAC: fast and secure message authentication}},
+year = {1999}
+}
+@article{Soto1999,
+author = {Soto, J},
+file = {:home/duke/Downloads/nissc-paper.pdf:pdf},
+journal = {Proceedings of the 22nd National Information Systems \ldots},
+keywords = {Statistical Testing of Random Number Generators},
+title = {{Statistical testing of random number generators}},
+url = {http://infosec.pku.edu.cn/~tly/oldversion/nist-nissc-1999/papers/p24.pdf},
+volume = {2},
+year = {1999}
+}
+@article{candidate_test,
+author = {Soto, J},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Soto - 1999 - Randomness Testing of the Randomness Testing of the Advanced Encryption Standard Candidate Algorithms.pdf:pdf},
+pages = {0--9},
+title = {{Randomness Testing of the Randomness Testing of the Advanced Encryption Standard Candidate Algorithms}},
+year = {1999}
+}
+@article{hardware_attack,
+abstract = {A widely used bus-encryption microprocessor is vulnerable to a new practical attack. This type of processor decrypts on-the-fly while fetching code and data, which are stored in RAM only in encrypted form. The attack allows easy, unauthorized access to the decrypted memory content.},
+annote = {Bus-encryption microprocessors;Software protection;Tamper resistance;},
+author = {Kuhn, Markus G},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Kuhn - 1998 - Cipher instruction search attack on the bus-encryption security microcontroller DS5002FP.pdf:pdf},
+journal = {IEEE Transactions on Computers},
+keywords = { Computer privacy, Cryptography, Program processors,security of data},
+number = {10},
+pages = {1153--1157},
+title = {{Cipher instruction search attack on the bus-encryption security microcontroller DS5002FP}},
+url = {http://dx.doi.org/10.1109/12.729797},
+volume = {47},
+year = {1998}
+}
+@inproceedings{hmac,
+abstract = {The use of cryptographic hash functions like MD5 or SHA-1 for message authentication has become a standard approach in many applications, particularly Internet security protocols. Though very easy to implement, these mechanisms are usually based on ad hoc techniques that lack a sound security analysis. We present new, simple, and practical constructions of message authentication schemes based on a cryptographic hash function. Our schemes, NMAC and HMAC, are proven to be secure as long as the underlying hash function has some reasonable cryptographic strengths. Moreover we show, in a quantitative way, that the schemes retain almost all the security of the underlying hash function. The performance of our schemes is essentially that of the underlying hash function. Moreover they use the hash function (or its compression function) as a black box, so that widely available library code or hardware can be used to implement them in a simple way, and replaceability of the underlying hash function is easily supported},
+address = {Berlin, Germany},
+annote = {keying hash functions;message authentication;cryptographic hash functions;Internet security protocols;security analysis;NMAC;HMAC;compression function;},
+author = {Bellare, M and Canetti, R and Krawczyk, H},
+booktitle = {Advances in Cryptology - CRYPTO'96. 16th Annual International Cryptology Conference. Proceedings},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bellare, Canetti, Krawczyk - 1996 - Keying hash functions for message authentication.pdf:pdf},
+keywords = {Internet,cryptography,message authentication,protocols},
+pages = {1--15},
+title = {{Keying hash functions for message authentication}},
+year = {1996}
+}
+@inproceedings{oracle,
+abstract = {We argue that the random oracle model - where all parties have access to a public random oracle - provides a bridge between cryptographic theory and cryptographic practice. In the paradigm we suggest, a practical protocol P is produced by first devising and proving correct a protocol PR for the random oracle model, and then replacing oracle accesses by the computation of an 'appropriately chosen' function h. This paradigm yields protocols much more efficient than standard ones while retaining many of the advantages of provable security. We illustrate these gains for problems including encryption, signatures, and zero-knowledge proofs.},
+address = {Fairfax, VA, USA},
+annote = {Cryptographic theory;Cryptography practice;Paradigm;Random oracles;Signatures;Zero knowledge proofs;},
+author = {Bellare, M and Rogaway, P},
+booktitle = {1st ACM Conference on Computer and Communications Security},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bellare, Rogaway - 1993 - Random oracles are practical a paradigm for designing efficient protocols.pdf:pdf},
+keywords = {Computational methods,Cryptography,Data structures,Efficiency,Error correction,Programming theory,Random processes,Security of data,Theorem proving},
+pages = {62--73},
+title = {{Random oracles are practical: a paradigm for designing efficient protocols}},
+year = {1993}
+}
+@article{PRP,
+abstract = {We show how to efficiently construct a pseudorandom invertible permutation generator from a pseudorandom function generator. O. Goldreich, S. Goldwasser and S. Micali introduce the notion of a pseudorandom function generator and show how to efficiently construct a pseudorandom function generation from a pseudorandom bit generator. We use some of the ideas behind the design of the Data Encryption Standard for our construction. A practical implication of our result is that any pseudorandom bit generator can be used to construct a block private key cryptosystem which is secure against chosen plaintext attack, which is one of the strongest known attacks against a cryptosystem.},
+annote = {Chosen Plaintext Attack;Data Encryption Standards;Private Key Cryptosystems;Pseudorandom Function Generators;Pseudorandom Invertible Permutation Generators;},
+author = {Luby, M and Rackoff, C},
+file = {:home/duke/Downloads/0217022.pdf:pdf},
+issn = {00975397},
+journal = {SIAM Journal on Computing},
+keywords = {Mathematical Statistics--Random Number Generation,Standards},
+number = {2},
+pages = {373--386},
+title = {{How to construct pseudorandom permutations from pseudorandom functions}},
+volume = {17},
+year = {1988}
+}
+@article{PRF,
+abstract = {A constructive theory of randomness for functions, based on computational complexity, is developed, and a pseudorandom function generator is presented. This generator is a deterministic polynomial-time algorithm that transforms pairs (g, r), where g is any one-way function and r is a random k-bit string, to polynomial-time computable functions fr: \{1, . . ., 2k\}→\{1, . . ., 2k\}. These fr's cannot be distinguished from random functions by any probabilistic polynomial-time algorithm that asks and receives the value of a function at arguments of its choice. The result has applications in cryptography, random constructions, and complexity theory},
+address = {USA},
+annote = {random functions construction;constructive theory;randomness;computational complexity;pseudorandom function generator;deterministic polynomial-time algorithm;cryptography;random constructions;complexity theory;},
+author = {Goldreich, O and Goldwasser, S and Micali, S},
+file = {:home/duke/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Goldreich, Goldwasser, Micali - 1986 - How to construct random functions.pdf:pdf},
+issn = {0004-5411},
+journal = {J. Assoc. Comput. Mach. (USA)},
+keywords = {computational complexity,random number generation},
+number = {4},
+pages = {792--807},
+title = {{How to construct random functions}},
+url = {http://dx.doi.org/10.1145/6490.6503},
+volume = {33},
+year = {1986}
+}
+
+@article{Rogaway2011,
+	Author = {Rogaway, P},
+	File = {:Users/Duke/Downloads/techrep\_id2012\_2.pdf:pdf},
+	Title = {{Evaluation of some blockcipher modes of operation}},
+	Url = {http://www.cs.ucdavis.edu/~rogaway/papers/modes-cryptrec.pdf},
+	Year = {2011},
+	Bdsk-Url-1 = {http://www.cs.ucdavis.edu/~rogaway/papers/modes-cryptrec.pdf}}
+
+@inproceedings{cetd,
+author = {Hong, Mei and Guo, Hui and Hu, Sharon X},
+booktitle = {Proceedings of the 2012 International Conference on Compilers, Architectures and Synthesis for Embedded Systems (CASES 2012)},
+doi = {10.1145/2380403.2380414},
+file = {:Users/duke/Library/Application Support/Mendeley Desktop/Downloaded/Hong, Guo, Hu - 2012 - A cost-effective tag design for memory data authentication in embedded systems.pdf:pdf},
+keywords = {embedded systems,low on-chip cost,memory data authentication,tag design},
+pages = {17--26},
+title = {{A cost-effective tag design for memory data authentication in embedded systems}},
+url = {http://doi.acm.org/10.1145/2380403.2380414},
+year = {2012}
+}
+
+@article{emac,
+abstract = {The Cipher Block Chaining (CBC) Message Authentication Code (MAC) is an authentication method which is widely used in practice. It is well known that the use of the CBC MAC for variable-length messages is not secure, and a few rules of thumb for the correct use of the CBC MAC are known by folklore. The first rigorous proof of the security of CBC MAC, when used on fixed-length messages, was given by M. Bellare et al. (1994). They also suggested variants of CBC MAC that handle variable-length messages but, in these variants, the length of the message has to be known in advance (i.e. before the message is processed). We study CBC authentication of real-time applications in which the length of the message is not known until the message ends, and furthermore, since the application is in real time, it is not possible to start processing the authentication until after the message ends. We first consider a variant of CBC MAC, that we call the Encrypted CBC MAC (EMAC), which handles messages of variable unknown lengths. Computing EMAC on a message is virtually as simple and as efficient as computing the standard CBC MAC on the message. We provide a rigorous proof that its security is implied by the security of the underlying block cipher. Next, we argue that the basic CBC MAC is secure when applied to a prefix-free message space. A message space can be made prefix-free by also authenticating the (usually hidden) last character which marks the end of the message},
+address = {USA},
+annote = {Encrypted CBC MAC;real-time data sources;cipher block chaining;message authentication code;variable-length messages;security proof;fixed-length messages;real-time applications;unknown message length;EMAC;block cipher;prefix-free message space;hidden last character;},
+author = {Petrank, F and Rackoff, C},
+file = {:Users/duke/Library/Application Support/Mendeley Desktop/Downloaded/Petrank, Rackoff - 2000 - CBC MAC for real-time data sources.pdf:pdf},
+issn = {0933-2790},
+journal = {J. Cryptol. (USA)},
+keywords = {cryptography,message authentication,real-time systems},
+number = {3},
+pages = {315 -- 38},
+title = {{CBC MAC for real-time data sources}},
+url = {http://dx.doi.org/10.1007/s001450010009},
+volume = {13},
+year = {2000}
+}
+
+@inproceedings{xor-mac,
+abstract = {We describe a new approach for authenticating a message using a finite pseudorandom function (PRF). Our \&ldquo;XOR MACs\&rdquo; have several nice features, including parallelizability, incrementality, and provable security. The finite PRF can be \&ldquo;instantiated\&rdquo; via DES (yielding an alternative to the CBC MAC), via the compression function of MD5 (yielding an alternative to various \&ldquo;keyed MD5\&rdquo; constructions), or in a variety of other ways. The proven security is quantitative, expressing the adversary's inability to forge in terms of her (presumed) inability to break the underlying finite PRF. This is backed by attacks showing the analysis is tight. Our proofs exploit linear algebraic techniques},
+address = {Berlin, Germany},
+annote = {XOR MAC;message authentication codes;finite pseudorandom functions;PRF;parallelizability;incrementality;provable security;DES;compression function;MD5;linear algebraic techniques;block ciphers;},
+author = {Bellare, M and Guerin, R and Rogaway, P},
+booktitle = {Advances in Cryptology - CRYPTO '95. 15th Annual International Cryptology Conference. Proceedings},
+file = {:Users/Duke/Documents/Papers/1995/Bellare/Advances in Cryptology - CRYPTO '95. 15th Annual International Cryptology Conference. Proceedings 1995 Bellare.pdf:pdf},
+keywords = {block codes,cryptography,linear algebra,message authentication,random functions},
+pages = {15--28},
+title = {{XOR MACs: New methods for message authentication using finite pseudorandom functions}},
+year = {1995}
+}
+
+@inproceedings{pmac_forgery,
+abstract = {In this paper we discuss the security of PMAC, a provably secure and parallelizable MAC scheme proposed by Black and Rogaway, and Michell's TMAC variant, proposed to improve the security of TMAC. We show how to devise forgery attacks on PMAC and compare the success rate of our forgery attacks with their security bound. We also present forgery attacks on TMAC variant and show the security of TMAC variant is not improved in the sense of the forgery attack. Furthermore, key recovery attacks on PMAC and TMAC variant are presented in various parameters. Our results imply they have no significant advantage in comparison with other well-established MAC schemes. \&copy; Springer-Verlag Berlin Heidelberg 2006.},
+address = {Melbourne, Australia},
+annote = {CBC-MAC;Forgery Attacks;Key Recovery Attacks;Message Authentication Code (MAC);PMAC;TMAC Variant;},
+author = {Lee, Changhoon and Kim, Jongsung and Sung, Jaechul and Hong, Seokhie and Lee, Sangjin},
+booktitle = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+file = {:Users/Duke/Documents/Papers/2006/Lee/Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics) 2006 Lee.pdf:pdf},
+issn = {03029743},
+keywords = {Artificial intelligence,Computer crime,Computer science,Data privacy,Security of data},
+pages = {421--431},
+title = {{Forgery and key recovery attacks on PMAC and Mitchell's TMAC variant}},
+volume = {4058 LNCS},
+year = {2006}
+}
+
+@inproceedings{tweak ,
+language = {English},
+copyright = {Copyright 2002, IEE},
+title = {Tweakable block ciphers},
+journal = {Advances in Cryptology - CRYPTO 2002. 22nd Annual International Cryptology Conference. Proceedings (Lecture Notes in Computer Science Vol.2442)},
+author = {Liskov, M. and Rivest, R.L. and Wagner, D.},
+year = {2002//},
+pages = {31 - 46},
+address = {Berlin, Germany},
+abstract = {We propose a new cryptographic primitive, the "tweakable block cipher." Such a cipher has not only the usual inputs - message and cryptographic key - but also a third input, the "tweak." The tweak serves much the same purpose that an initialization vector does for CBC mode or that a nonce does for the OCB mode. Our proposal thus brings this feature down to the primitive block-cipher level, instead of incorporating it only at the higher modes-of-operation levels. We suggest that (1) tweakable block ciphers are easy to design, (2) the extra cost of making a block cipher "tweakable" is small, and (3) it is easier to design and prove modes of operation based on tweakable block ciphers},
+keywords = {cryptography;},
+note = {tweakable block ciphers;cryptographic primitive;cryptographic key;initialization vector;CBC mode;OCB mode;primitive block-cipher level;security;tweak block chaining;},
+} 
+
+@inproceedings{key_recover,
+abstract = {This paper discusses key recovery and universal forgery attacks on several MAC algorithms based on universal hash functions. The attacks use a substantial number of verification queries but eventually allow for universal forgeries instead of existential or multiple forgeries. This means that the security of the algorithms completely collapses once a few forgeries are found. Some of these attacks start off by exploiting a weak key property, but turn out to become full-fledged divide and conquer attacks because of the specific structure of the universal hash functions considered. Partial information on a secret key can be exploited too, in the sense that it renders some key recovery attacks practical as soon as a few key bits are known. These results show that while universal hash functions offer provable security, high speeds and parallelism, their simple combinatorial properties make them less robust than conventional message authentication primitives.},
+annote = {key-recovery attacks;universal hash function;MAC algorithms;universal forgery attacks;},
+author = {Handschuh, H and Preneel, B},
+booktitle = {Advances in Cryptology - CRYPTO 2008. 28th Annual International Cryptology Conference},
+file = {:Users/Duke/Documents/Papers/2008/Handschuh/Advances in Cryptology - CRYPTO 2008. 28th Annual International Cryptology Conference 2008 Handschuh.pdf:pdf},
+keywords = { access protocols,cryptography},
+pages = {144 ---- 61},
+title = {{Key-recovery attacks on universal hash function based MAC algorithms}},
+url = {http://dx.doi.org/10.1007/978-3-540-85174-5\_9},
+year = {2008}
+}
+@inproceedings{abadi_rogaway,
+abstract = {Two distinct, rigorous views of cryptography have developed over the years, in two mostly separate communities. One of the views relies on a simple but effective formal approach; the other, on a detailed computational model that considers issues of complexity and probability. There is an uncomfortable and interesting gap between these two approaches to cryptography. This paper starts to bridge the gap, by providing a computational justification for a formal treatment of encryption. \&copy; Springer-Verlag Berlin Heidelberg 2002.},
+address = {Sendai, Japan},
+annote = {Computational model;Computational soundness;Formal approach;Formal encryption;Two Approaches;Two views;},
+author = {Abadi, Martin and Rogaway, Phillip},
+booktitle = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+file = {::},
+issn = {03029743},
+keywords = {Computer science},
+pages = {3--22},
+title = {{Reconciling two views of cryptography (the computational soundness of formal encryption)}},
+volume = {1872 LNCS},
+year = {2000}
+}
+
+@article{survey,
+abstract = {Since the 1980s, two approaches have been developed for analyzing security protocols. One of the approaches relies on a computational model that considers issues of complexity and probability. This approach captures a strong notion of security, guaranteed against all probabilistic polynomial-time attacks. The other approach relies on a symbolic model of protocol executions in which cryptographic primitives are treated as black boxes. Since the seminal work of Dolev and Yao, it has been realized that this latter approach enables significantly simpler and often automated proofs. However, the guarantees that it offers with respect to the more detailed computational models have been quite unclear. For more than 20 years the two approaches have coexisted but evolved mostly independently. Recently, significant research efforts attempt to develop paradigms for cryptographic systems analysis that combines the best of both worlds. There are two broad directions that have been followed. Computational soundness aims to establish sufficient conditions under which results obtained using symbolic models imply security under computational models. The direct approach aims to apply the principles and the techniques developed in the context of symbolic models directly to computational ones. In this paper we survey existing results along both of these directions. Our goal is to provide a rather complete summary that could act as a quick reference for researchers who want to contribute to the field, want to make use of existing results, or just want to get a better picture of what results already exist.},
+address = {Netherlands},
+annote = {symbolic methods;computational analysis;cryptographic systems;security protocol analysis;probabilistic polynomial-time attacks;computational soundness;direct approach;},
+author = {Cortier, V and Kremer, S and Warinschi, B},
+file = {:Users/duke/Library/Application Support/Mendeley Desktop/Downloaded/Cortier, Kremer, Warinschi - 2011 - A Survey of Symbolic Methods in Computational Analysis of Cryptographic Systems.pdf:pdf},
+issn = {0168-7433},
+journal = {J. Autom. Reasoning (Netherlands)},
+keywords = {cryptographic protocols,probability},
+number = {3-4},
+pages = {225 -- 59},
+title = {{A Survey of Symbolic Methods in Computational Analysis of Cryptographic Systems}},
+url = {http://dx.doi.org/10.1007/s10817-010-9187-9},
+volume = {46},
+year = {2011}
+}
+
+@inproceedings{auto_verf,
+abstract = {This paper presents the first automatic technique for proving not only protocols but also primitives in the exact security computational model. Automatic proofs of cryptographic protocols were up to now reserved to the Dolev-Yao model, which however makes quite strong assumptions on the primitives. On the other hand, with the proofs by reductions, in the complexity theoretic framework, more subtle security assumptions can be considered, but security analyses are manual. A process calculus is thus defined in order to take into account the probabilistic semantics of the computational model. It is already rich enough to describe all the usual security notions of both symmetric and asymmetric cryptography, as well as the basic computational assumptions. As an example, we illustrate the use of the new tool with the proof of a quite famous asymmetric primitive: unforgeability under chosen-message attacks (UF-CMA) of the full-domain hash signature scheme under the (trapdoor)-one-wayness of some permutations},
+address = {Berlin, Germany},
+annote = {automated security proofs;game sequence;protocols;security computational model;cryptographic protocols;Dolev-Yao model;complexity theoretic framework;process calculus;probabilistic semantics;symmetric cryptography;asymmetric cryptography;unforgeability chosen-message attacks;full-domain hash signature scheme;},
+author = {Blanchet, B and Pointcheval, D},
+booktitle = {Advances in Cryptology - CRYPTO 2006. 26th Annual International Cryptology Conference. Proceedings. (Lecture Notes in Computer Science Vol. 4117)},
+file = {:Users/Duke/Documents/Papers/2006/Blanchet/Advances in Cryptology - CRYPTO 2006. 26th Annual International Cryptology Conference. Proceedings. (Lecture Notes in Computer Science Vol. 4117) 2006 Blanchet.pdf:pdf},
+keywords = {computational complexity,cryptographic protocols,game theory,probability,process algebra},
+pages = {537 -- 54},
+title = {{Automated security proofs with sequences of games}},
+year = {2006}
+}
+@inproceedings{cryptoverf,
+abstract = {We present a new mechanized prover for secrecy properties of cryptographic protocols. In contrast to most previous provers, our tool does not rely on the Dolev-Yao model, but on the computational model. It produces proofs presented as sequences of games; these games are formalized in a probabilistic polynomial-time process calculus. Our tool provides a generic method for specifying security properties of the cryptographic primitives, which can handle shared-and public-key encryption, signatures, message authentication codes, and hash functions. Our tool produces proofs valid for a number of sessions polynomial in the security parameter, in the presence of an active adversary. We have implemented our tool and tested it on a number of examples of protocols from the literature. \&copy; 2006 IEEE.},
+address = {Berkeley, United states},
+annote = {Authentication codes;Cryptographic protocols;Generic method;},
+author = {Blanchet, Bruno},
+booktitle = {Proceedings - IEEE Symposium on Security and Privacy},
+file = {:Users/duke/Library/Application Support/Mendeley Desktop/Downloaded/Blanchet - 2006 - A computationally sound mechanized prover for security protocols.pdf:pdf},
+issn = {10816011},
+keywords = {Cryptography,Electronic document identification systems,Game theory,Network protocols,Security of data,Theorem proving},
+pages = {140--154},
+title = {{A computationally sound mechanized prover for security protocols}},
+url = {http://dx.doi.org/10.1109/SP.2006.1},
+volume = {2006},
+year = {2006}
+}
+
+@inproceedings{dolev-yao,
+  title={On the security of public key protocols},
+  author={Dolev, D and Yao, AC},
+  booktitle={2013 IEEE 54th Annual Symposium on Foundations of Computer Science},
+  pages={350--357},
+  year={1981},
+  organization={IEEE}
+}
+
+@inproceedings{com-indis-log,
+abstract = {Computational Indistinguishability Logic (CIL) is a logic for reasoning about cryptographic primitives in computational models. It captures reasoning patterns that are common in provable security, such as simulations and reductions. CIL is sound for the standard model, but also supports reasoning in the random oracle and other idealized models. We illustrate the benefits of CIL by formally proving the security of the probabilistic signature scheme (PSS). Copyright 2010 ACM.},
+address = {Chicago, IL, United states},
+annote = {Bisimulations;Determinization;Logic;Provable security;Random Oracle;Signature Scheme;},
+author = {Barthe, Gilles and Daubignard, Marion and Kapron, Bruce and Lakhnech, Yassine},
+booktitle = {Proceedings of the ACM Conference on Computer and Communications Security},
+file = {:Users/duke/Library/Application Support/Mendeley Desktop/Downloaded/Barthe et al. - 2010 - Computational indistinguishability logic.pdf:pdf},
+issn = {15437221},
+keywords = {Authentication,Cryptography},
+pages = {375--386},
+title = {{Computational indistinguishability logic}},
+url = {http://dx.doi.org/10.1145/1866307.1866350},
+year = {2010}
+}
+@inproceedings{auto-proof,
+abstract = {This paper presents the first automatic technique for proving not only protocols but also primitives in the exact security computational model. Automatic proofs of cryptographic protocols were up to now reserved to the Dolev-Yao model, which however makes quite strong assumptions on the primitives. On the other hand, with the proofs by reductions, in the complexity theoretic framework, more subtle security assumptions can be considered, but security analyses are manual. A process calculus is thus defined in order to take into account the probabilistic semantics of the computational model. It is already rich enough to describe all the usual security notions of both symmetric and asymmetric cryptography, as well as the basic computational assumptions. As an example, we illustrate the use of the new tool with the proof of a quite famous asymmetric primitive: unforgeability under chosen-message attacks (UF-CMA) of the full-domain hash signature scheme under the (trapdoor)-one-wayness of some permutations},
+address = {Berlin, Germany},
+annote = {automated security proofs;game sequence;protocols;security computational model;cryptographic protocols;Dolev-Yao model;complexity theoretic framework;process calculus;probabilistic semantics;symmetric cryptography;asymmetric cryptography;unforgeability chosen-message attacks;full-domain hash signature scheme;},
+author = {Blanchet, B and Pointcheval, D},
+booktitle = {Advances in Cryptology - CRYPTO 2006. 26th Annual International Cryptology Conference. Proceedings. (Lecture Notes in Computer Science Vol. 4117)},
+file = {:Users/Duke/Documents/Papers/2006/Blanchet/Advances in Cryptology - CRYPTO 2006. 26th Annual International Cryptology Conference. Proceedings. (Lecture Notes in Computer Science Vol. 4117) 2006 Blanchet.pdf:pdf},
+keywords = {computational complexity,cryptographic protocols,game theory,probability,process algebra},
+pages = {537 -- 54},
+title = {{Automated security proofs with sequences of games}},
+year = {2006}
+}
+@inproceedings{mech-prover,
+abstract = {We present a new mechanized prover for secrecy properties of cryptographic protocols. In contrast to most previous provers, our tool does not rely on the Dolev-Yao model, but on the computational model. It produces proofs presented as sequences of games; these games are formalized in a probabilistic polynomial-time process calculus. Our tool provides a generic method for specifying security properties of the cryptographic primitives, which can handle shared-and public-key encryption, signatures, message authentication codes, and hash functions. Our tool produces proofs valid for a number of sessions polynomial in the security parameter, in the presence of an active adversary. We have implemented our tool and tested it on a number of examples of protocols from the literature. \&copy; 2006 IEEE.},
+address = {Berkeley, United states},
+annote = {Authentication codes;Cryptographic protocols;Generic method;},
+author = {Blanchet, Bruno},
+booktitle = {Proceedings - IEEE Symposium on Security and Privacy},
+file = {:Users/duke/Library/Application Support/Mendeley Desktop/Downloaded/Blanchet - 2006 - A computationally sound mechanized prover for security protocols.pdf:pdf},
+issn = {10816011},
+keywords = {Cryptography,Electronic document identification systems,Game theory,Network protocols,Security of data,Theorem proving},
+pages = {140--154},
+title = {{A computationally sound mechanized prover for security protocols}},
+url = {http://dx.doi.org/10.1109/SP.2006.1},
+volume = {2006},
+year = {2006}
+}
+@inproceedings{ae-notion,
+abstract = {We consider two possible notions of authenticity for symmetric encryption schemes, namely integrity of plaintexts and integrity of ciphertexts, and relate them to the standard notions of privacy for symmetric encryption schemes by presenting implications and separations between all notions considered. We then analyze the security of authenticated encryption schemes designed by \&ldquo;generic composition,\&rdquo; meaning making black-box use of a given symmetric encryption scheme and a given MAC. Three composition methods are considered, namely encrypt-and-MAC plaintext, MAC-then-encrypt, and encrypt-then-MAC. For each of these, and for each notion of security, we indicate whether or not the resulting scheme meets the notion in question assuming the given symmetric encryption scheme is secure against chosen-plaintext attack and the given MAC is unforgeable under chosen-message attack. We provide proofs for the cases where the answer is \&ldquo;yes\&rdquo; and counter-examples for the cases where the answer is \&ldquo;no\&rdquo;},
+address = {Berlin, Germany},
+annote = {authenticated encryption;generic composition paradigm;authenticity;symmetric encryption;plaintext integrity;ciphertext integrity;privacy;security;encrypt-and-MAC plaintext method;MAC-then-encrypt method;encrypt-then-MAC method;proofs;},
+author = {Bellare, M and Namprempre, C},
+booktitle = {Advances in Cryptology - ASIACRYPT 2000. 6th International Conference on the Theory and Application of Cryptology and Information Security. Proceedings (Lecture Notes in Computer Science Vol.1976)},
+file = {:Users/duke/Library/Application Support/Mendeley Desktop/Downloaded/Bellare, Namprempre - 2000 - Authenticated encryption relations among notions and analysis of the generic composition paradigm(2).pdf:pdf},
+keywords = {cryptography,data integrity,data privacy,message authentication},
+pages = {531 -- 45},
+title = {{Authenticated encryption: relations among notions and analysis of the generic composition paradigm}},
+year = {2000}
+}
+
+
+@inproceedings{Suh_MA,
+abstract = {Secure processors enable new sets of applications such as commercial grid computing, software copy-protection, and secure mobile agents by providing security from both physical and software attacks. This paper proposes new hardware mechanisms for memory integrity verification and encryption, which are two key primitives required in single-chip secure processors. The integrity verification mechanism offers significant performance advantages over existing ones when the checks are infrequent as in grid computing applications. The encryption mechanism improves the performance in all cases},
+annote = {memory integrity verification;encryption;commercial grid computing;software copy-protection;secure mobile agents;software attacks;single-chip secure processors;digital rights managment;
+log hash scheme
+
+        
+based on hash},
+author = {Suh, G E and Clarke, D and Gasend, B and van Dijk, M and Devadas, S},
+booktitle = {36th International Symposium on Microarchitecture},
+file = {:Users/Duke/Documents/Papers/2003/Suh/36th International Symposium on Microarchitecture 2003 Suh.pdf:pdf},
+keywords = { computer crime, cryptography, formal verification, memory architecture,cache storage},
+pages = {339 ---- 50},
+title = {{Efficient memory integrity verification and encryption for secure processors}},
+url = {http://dx.doi.org/10.1109/MICRO.2003.1253207},
+year = {2003}
+}
+@inproceedings{Clarke_hash,
+abstract = {We introduce a new cryptographic tool: multiset hash functions. Unlike standard hash functions which take strings as input, multiset hash functions operate on multisets (or sets). They map multisets of arbitrary finite size to strings (hashes) of fixed length. They are incremental in that, when new members are added to the multiset, the hash can be updated in time proportional to the change. The functions may be multiset-collision resistant in that it is difficult to find two multisets which produce the same hash, or just set-collision resistant in that it is difficult to find a set and a multiset which produce the same hash. We demonstrate how set-collision resistant multiset hash functions make an existing offline memory integrity checker secure against active adversaries. We improve on this checker such that it can use smaller time stamps without increasing the frequency of checks. The improved checker uses multiset-collision resistant multiset hash functions},
+address = {Berlin, Germany},
+annote = {multiset hash functions;offline memory integrity checking;cryptographic tool;multiset collision resistant function;},
+author = {Clarke, D and Devadas, S and van Dijk, M and Gassend, B and Suh, G E},
+booktitle = {Advances in Cryptology - ASIACRYPT 2003. 9th International Conference on the Theory and Application of Cryptology and Information Security. Proceedings (Lecture Notes in Comput. Sci. Vol.2894)},
+file = {:Users/duke/Downloads/PDF\_files/mhashes.pdf:pdf},
+keywords = {cryptography,random-access storage,set theory},
+pages = {188--207},
+title = {{Incremental multiset hash functions and their application to memory integrity checking}},
+year = {2003}
+}
+@inproceedings{yan-MA,
+abstract = {Protection from hardware attacks such as snoopers and mod chips has been receiving increasing attention in computer architecture. This paper presents a new combined memory encryption/authentication scheme. Our new split counters for counter-mode encryption simultaneously eliminate counter overflow problems and reduce per-block counter size, and we also dramatically improve authentication performance and security by using the Galois/counter mode of operation (GCM), which leverages counter-mode encryption to reduce authentication latency and overlap it with memory accesses. Our results indicate that the split-counter scheme has a negligible overhead even with a small (32KB) counter cache and using only eight counter bits per data block. The combined encryption/authentication scheme has an IPC overhead of 5\% on average across SPEC CPU 2000 benchmarks, which is a significant improvement over the 20\% overhead of existing encryption/authentication schemes},
+annote = {memory encryption;snoopers;mod chips;computer architecture;split counters;counter-mode encryption;Galois counter mode of operation;authentication latency;memory accesses;IPC overhead;SPEC CPU 2000 benchmarks;
+
+        
+based on GMAC },
+author = {Yan, Chenyu and Rogers, B and Englender, D and Solihin, D and Prvulovic, M},
+booktitle = {Proceedings. 33rd International Symposium on Computer Architecture},
+file = {:Users/duke/Library/Application Support/Mendeley Desktop/Downloaded/Yan et al. - 2006 - Improving cost, performance, and security of memory encryption and authentication.pdf:pdf},
+keywords = {Galois fields,cache storage,cryptography,memory architecture,message authentication},
+pages = {12 pp. ----},
+title = {{Improving cost, performance, and security of memory encryption and authentication}},
+year = {2006}
+}
+@article{area,
+abstract = {The bus between the System on Chip (SoC) and the external memory is one of the weakest points of computer systems: an adversary can easily probe this bus in order to read private data (data confidentiality concern) or to inject data (data integrity concern). The conventional way to protect data against such attacks and to ensure data confidentiality and integrity is to implement two dedicated engines: one performing data encryption and another data authentication. This approach, while secure, prevents parallelizability of the underlying computations. In this paper, we introduce the concept of Block-Level Added Redundancy Explicit Authentication (BL-AREA) and we describe a Parallelized Encryption and Integrity Checking Engine (PE-ICE) based on this concept. BL-AREA and PE-ICE have been designed to provide an effective solution to ensure both security services while allowing for full parallelization on processor read and write operations and optimizing the hardware resources. Compared to standard encryption which ensures only confidentiality, we show that PE-ICE additionally guarantees code and data integrity for less than 4\% of run-time performance overhead. \{\&\}copy; 2010 Springer-Verlag Berlin Heidelberg.},
+annote = {Computer Security;Data integrity;Encryption;Hardware Attacks;Memory;},
+author = {Elbaz, Reouven and Torres, Lionel and Sassatelli, Gilles and Guillemin, Pierre and Bardouillet, Michel and Martinez, Albert},
+file = {:Users/duke/Library/Application Support/Mendeley Desktop/Downloaded/Elbaz et al. - 2010 - Block-Level Added Redundancy Explicit Authentication for Parallelized Encryption and Integrity Checking of process.pdf:pdf},
+journal = {Transactions on Computational Science X. Special Issue on Security in Computing, Part I},
+keywords = { Authentication, Computer hardware, Ice, Network security, Programmable logic controllers, Quality assurance, Security systems, embedded systems,redundancy},
+number = {PART 1},
+pages = {231--260},
+title = {{Block-Level Added Redundancy Explicit Authentication for Parallelized Encryption and Integrity Checking of processor-memory transactions}},
+url = {http://dx.doi.org/10.1007/978-3-642-17499-5\_10},
+volume = {6340},
+year = {2010}
+}
+@inproceedings{pc-ice,
+abstract = {This paper describes a novel engine, called PE-ICE (Parallelized Encryption and Integrity Checking Engine), enabling to guarantee confidentiality and integrity of data exchanged between a SoC (System on Chip) and its external memory. The PE-ICE approach is based on an existing block-encryption algorithm to which the integrity checking capability is added. Simulation results show that the performance overhead of PE-ICE remains low (below 4\%) compared to block-encryption-only systems (which provide data confidentiality only). Copyright 2006 ACM.},
+annote = {Block-encryption-only systems;Bus encryption;Data confidentiality;Data integrity;Integrity checking;},
+author = {Elbaz, Reouven and Torres, Lionel and Sassatelli, Gilles and Guillemin, Pierre and Bardouillet, Michel and Martinez, Albert},
+booktitle = {Proceedings - Design Automation Conference},
+file = {:Users/duke/Library/Application Support/Mendeley Desktop/Downloaded/Elbaz et al. - 2006 - A parallelized way to provide data encryption and integrity checking on a processor-memory bus.pdf:pdf},
+keywords = { Data processing, Electronic data interchange, Integrated control, microprocessor chips,Computer privacy},
+pages = {506--509},
+title = {{A parallelized way to provide data encryption and integrity checking on a processor-memory bus}},
+url = {http://dx.doi.org/10.1145/1146909.1147042},
+year = {2006}
+}
+@article{rogers-MA,
+abstract = {With current trends toward embedded computer systems\{\&\}psila; ubiquitous accessibility, connectivity, diversification, and proliferation, security becomes a critical issue in embedded computer systems design and operation. Embedded computer systems are subjected to both software and physical attacks aimed at subverting system operation, extracting key secrets, or intellectual property theft. We propose several cost-effective architectural extensions suitable for mid-range to high-end embedded processors. These extensions ensure the integrity and confidentiality of both instructions and data, introducing low performance overhead (1.86\% for instructions and 14.9\% for data). [All rights reserved Elsevier].},
+annote = {security extensions;embedded processor integrity;embedded processor confidentiality;embedded computer systems;ubiquitous accessibility;ubiquitous connectivity;ubiquitous diversification;ubiquitous proliferation;embedded computer systems design;embedded computer systems operation;software attacks;physical attacks;key secret extraction;intellectual property theft;mid-range embedded processors;high-end embedded processors;},
+author = {Rogers, A and Milenkovic, A},
+file = {:Users/duke/Library/Application Support/Mendeley Desktop/Downloaded/Rogers, Milenkovic - 2009 - Security extensions for integrity and confidentiality in embedded processors.pdf:pdf},
+journal = {Microprocess. Microsyst. (Netherlands)},
+keywords = { computer architecture, embedded systems, microcomputers, security of data,industrial property},
+number = {5-6},
+pages = {398--414},
+title = {{Security extensions for integrity and confidentiality in embedded processors}},
+url = {http://dx.doi.org/10.1016/j.micpro.2009.06.002},
+volume = {33},
+year = {2009}
+}
+@article{vaslin-MA,
+abstract = {This paper describes a complete off-chip memory security solution for embedded systems. Our security core is based on a one-time pad (OTP) encryption circuit and a CRC-based integrity checking module. These modules safeguard external memory used by embedded processors against a series of well-known attacks, including replay attacks, spoofing attacks and relocation attacks. Our implementation limits on-chip memory space overhead to less than 33\% versus memory used by a standard microprocessor and reduces memory latency achieved by previous approaches by at least half. The performance loss for software execution with our solution is only 10\% compared with a non-protected implementation. An FPGA prototype of our security core has been completed to validate our findings.[All rights reserved Elsevier].},
+annote = {embedded microprocessor systems;off-chip memory security;one-time pad encryption;replay attacks;spoofing attacks;relocation attacks;FPGA prototype;},
+author = {Vaslin, R and Gogniat, G and Diguet, J-P and Wanderley, E and Tessier, R and Burleson, W},
+file = {:Users/duke/Library/Application Support/Mendeley Desktop/Downloaded/Vaslin et al. - 2009 - A security approach for off-chip memory in embedded microprocessor systems.pdf:pdf},
+journal = {Microprocess. Microsyst. (Netherlands)},
+keywords = { field programmable gate arrays, memory architecture,embedded systems},
+number = {1},
+pages = {37--45},
+title = {{A security approach for off-chip memory in embedded microprocessor systems}},
+url = {http://dx.doi.org/10.1016/j.micpro.2008.08.008},
+volume = {33},
+year = {2009}
+}
+
+@inproceedings{symbolic-kerberos,
+abstract = {We present a computational analysis of basic Kerberos and Kerberos with public-key authentication (PKINIT) in which we consider authentication and key secrecy properties. Our proofs rely on the Dolev-Yao style model of Backes, Pfitzmann and Waidner, which allows for mapping results obtained symbolically within this model to cryptographically sound proofs if certain assumptions are met. This is the most complex fragment of an industrial protocol that has yet been verified at the computational level. Considering a recently fixed version of PKINIT, we extend symbolic correctness results we previously attained in the Dolev-Yao model to cryptographically sound results in the computational model},
+address = {Berlin, Germany},
+annote = {cryptographically sound security proofs;public-key Kerberos;public-key authentication;symbolic correctness;},
+author = {Backes, M and Cervesato, I and Jaggard, A D and Scedrov, A and Tsay, J K},
+booktitle = {Computer Security - ESORICS 2006. 11TH European Symposium on Research in Computer Security (Lecture Notes in Computer Science Vol. 4189)},
+file = {:home/adele/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Backes et al. - Unknown - Cryptographically sound security proofs for basic and public-key Kerberos.pdf:pdf},
+keywords = {public key cryptography,symbol manipulation},
+pages = {362 -- 83},
+title = {{Cryptographically sound security proofs for basic and public-key Kerberos}},
+year = {2006}
+}
+@inproceedings{computational-kerberos,
+abstract = {Kerberos is a widely-deployed network authentication protocol that is being considered for standardization. Many works have analyzed its security, identifying flaws and often suggesting fixes, thus helping the protocol's evolution. Several recent results present successful formal-methods-based verification of a significant portion of the current version 5, and some even imply security in the computational setting. For these results to hold, encryption in Kerberos should satisfy strong cryptographic security notions. However, neither currently deployed as part of Kerberos encryption schemes nor their proposed revisions are known to provably satisfy such notions. We take a close look at Kerberos' encryption and confirm that most of the options in the current version provably provide privacy and authenticity, some with slight modification that we suggest. Our results complement the formal-methods-based analysis of Kerberos that justifies its current design. \&copy; 2007 IEEE.},
+address = {Berkeley, CA, United states},
+annote = {Computational setting;Security analysis;},
+author = {Boldyreva, Alexandra and Kumar, Virendra},
+booktitle = {Proceedings - IEEE Symposium on Security and Privacy},
+file = {:home/adele/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Boldyreva, Kumar - 2007 - Provable-security analysis of authenticated encryption in Kerberos(2).pdf:pdf},
+issn = {10816011},
+keywords = {Authentication,Computational methods,Data privacy,Network protocols,Standardization,Verification},
+pages = {92--97},
+title = {{Provable-security analysis of authenticated encryption in Kerberos}},
+url = {http://dx.doi.org/10.1109/SP.2007.19},
+year = {2007}
+}
+@misc{code-game,
+annote = {$\backslash$url\{http://eprint.iacr.org/\}},
+author = {Bellare, Mihir and Rogaway, Phillip},
+booktitle = {Cryptology ePrint Archive, Report 2004/331},
+file = {:home/adele/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Rogaway - 2006 - Code-Based Game-Playing Proofs.pdf:pdf},
+howpublished = {Cryptology ePrint Archive, Report 2004/331},
+title = {{Code-Based Game-Playing Proofs and the Security of Triple Encryption}},
+year = {2004}
+}
+@inproceedings{symbolic-mac,
+abstract = {Proofs of security protocols typically employ simple abstractions of cryptographic operations, so that large parts of such proofs are independent of cryptographic details. The typical abstraction is the Dolev-Yao model, which treats cryptographic operations as a specific term algebra. However, there is no cryptographic semantics, i.e., no theorem that says what a proof with the Dolev-Yao abstraction implies for the real protocol, even if provably secure cryptographic primitives are used. Recently we introduced an extension to the Dolev-Yao model for which such a cryptographic semantics exists, i.e., where security is preserved if the abstractions are instantiated with provably secure cryptographic primitives. Only asymmetric operations (digital signatures and public-key encryption) are considered so far. Here we extend this model to include a first symmetric primitive, message authentication, and prove that the extended model still has all desired properties. The proof is a combination of a probabilistic, imperfect bisimulation with cryptographic reductions and static information-flow analysis. Considering symmetric primitives adds a major complication to the original model: we must deal with the exchange of secret keys, which might happen any time before or after the keys have been used for the first time. Without symmetric primitives only public keys need to be exchanged},
+address = {Berlin, Germany},
+annote = {symmetric authentication;cryptographic library;security protocols;cryptographic operations;Dolev-Yao model;cryptographic semantics;proofs;Dolev-Yao abstraction;digital signatures;public-key encryption;message authentication;cryptographic reductions;static information-flow analysis;secret keys;},
+author = {Backes, M and Pfitzmann, B and Waidner, M},
+booktitle = {Computer Security - ESORICS 2003. 8th European Symposium on Research in Computer Security. Proceedings (Lecture Notes in Comput. Sci. Vol.2808)},
+file = {:home/adele/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Backes, Pfitzmann, Waidner - 2003 - Symmetric authentication within a simulatable cryptographic library.pdf:pdf},
+keywords = {authorisation,message authentication,protocols,public key cryptography},
+pages = {271 -- 90},
+title = {{Symmetric authentication within a simulatable cryptographic library}},
+year = {2003}
+}
+@article{symbolic-survey,
+abstract = {Since the 1980s, two approaches have been developed for analyzing security protocols. One of the approaches relies on a computational model that considers issues of complexity and probability. This approach captures a strong notion of security, guaranteed against all probabilistic polynomial-time attacks. The other approach relies on a symbolic model of protocol executions in which cryptographic primitives are treated as black boxes. Since the seminal work of Dolev and Yao, it has been realized that this latter approach enables significantly simpler and often automated proofs. However, the guarantees that it offers with respect to the more detailed computational models have been quite unclear. For more than 20 years the two approaches have coexisted but evolved mostly independently. Recently, significant research efforts attempt to develop paradigms for cryptographic systems analysis that combines the best of both worlds. There are two broad directions that have been followed. Computational soundness aims to establish sufficient conditions under which results obtained using symbolic models imply security under computational models. The direct approach aims to apply the principles and the techniques developed in the context of symbolic models directly to computational ones. In this paper we survey existing results along both of these directions. Our goal is to provide a rather complete summary that could act as a quick reference for researchers whowant to contribute to the field, want to make use of existing results, or just want to get a better picture of what results already exist. \&copy; Springer Science+Business Media B.V. 2010.},
+address = {Van Godewijckstraat 30, Dordrecht, 3311 GZ, Netherlands},
+annote = {Automated proofs;Black boxes;Computational analysis;Computational model;Computational soundness;Cryptographic primitives;Cryptographic systems;Direct approach;Polynomial-time attacks;Protocol execution;Research efforts;Security protoco;Security protocols;Sufficient conditions;Symbolic methods;Symbolic model;},
+author = {Cortier, Veronique and Kremer, Steve and Warinschi, Bogdan},
+file = {:home/adele/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Cortier, Kremer, Warinschi - 2011 - A survey of symbolic methods in computational analysis of cryptographic systems.pdf:pdf},
+issn = {01687433},
+journal = {Journal of Automated Reasoning},
+keywords = {Computational methods,Network security,Surveys,Systems analysis},
+number = {3-4},
+pages = {225--259},
+title = {{A survey of symbolic methods in computational analysis of cryptographic systems}},
+url = {http://dx.doi.org/10.1007/s10817-010-9187-9},
+volume = {46},
+year = {2011}
+}
+@inproceedings{Dolev-Yao,
+abstract = {Concerns mainly protocols for transmitting a secret plaintext M between two users. To give an idea of the way a saboteur may break the system, the authors consider a few examples},
+address = {New York, NY, USA},
+annote = {security;public key protocols;secret plaintext;
+        
+formal methods},
+author = {Dolev, D and Yao, A C},
+booktitle = {22nd Annual Symposium on Foundations of Computer Science},
+file = {:home/adele/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Dolev, Yao - 1981 - On the security of public key protocols.pdf:pdf},
+keywords = {computer networks,data communication systems,formal languages,protocols,security of data},
+pages = {350 -- 7},
+title = {{On the security of public key protocols}},
+year = {1981}
+}
+
+@article{goldwasser1984probabilistic,
+  title={Probabilistic encryption},
+  author={Goldwasser, Shafi and Micali, Silvio},
+  journal={Journal of computer and system sciences},
+  volume={28},
+  number={2},
+  pages={270--299},
+  year={1984},
+  publisher={Elsevier}
+}
+
+@inproceedings{yao1982theory,
+  title={Theory and application of trapdoor functions},
+  author={Yao, Andrew C},
+  booktitle={Foundations of Computer Science, 1982. SFCS'08. 23rd Annual Symposium on},
+  pages={80--91},
+  year={1982},
+  organization={IEEE}
+}
+
+@inproceedings{kilian1996protect,
+  title={How to protect DES against exhaustive key search},
+  author={Kilian, Joe and Rogaway, Phillip},
+  booktitle={Advances in Cryptology—CRYPTO’96},
+  pages={252--267},
+  year={1996},
+  organization={Springer}
+}
+
+@inproceedings{bellare1990new,
+  title={New paradigms for digital signatures and message authentication based on non-interactive zero knowledge proofs},
+  author={Bellare, Mihir and Goldwasser, Shafi},
+  booktitle={Advances in Cryptology—CRYPTO’89 Proceedings},
+  pages={194--211},
+  year={1990},
+  organization={Springer}
+}
+
+@inproceedings{shoup2000using,
+  title={Using hash functions as a hedge against chosen ciphertext attack},
+  author={Shoup, Victor},
+  booktitle={Advances in Cryptology—EUROCRYPT 2000},
+  pages={275--288},
+  year={2000},
+  organization={Springer}
+}
+@incollection{yasuda2011new,
+  title={A new variant of PMAC: beyond the birthday bound},
+  author={Yasuda, Kan},
+  booktitle={Advances in Cryptology--CRYPTO 2011},
+  pages={596--609},
+  year={2011},
+  publisher={Springer}
+}
+
+@incollection{blanchet2006automated,
+  title={Automated security proofs with sequences of games},
+  author={Blanchet, Bruno and Pointcheval, David},
+  booktitle={Advances in Cryptology-CRYPTO 2006},
+  pages={537--554},
+  year={2006},
+  publisher={Springer}
+}
+
+@article{cbc-mac,
+  title={American National Standard for Financial Institution Message Authentication (Wholesale)},
+  author={ANSI X9.9},
+  booktitle={American Bankers Association},
+  pages={},
+  year={1981},
+  organization={American Bankers Association}
+}
+
+@article{race,
+  title={Integrity Primitives for Secure Information Systems. Final Report of RACE Integrity Primitives Evaluation (RIPE-RACE 1040)},
+  author={Berendschot, A and Boly, Jean-Paul and Bosselaers, Antoon and Brandt, J and Chaum, David and Damg{\aa}rd, Ivan and de Rooij, Peter and Dichtl, Markus and Fumy, Walter and Jansen, Cees and others},
+  journal={Lecture Notes in Computer Science},
+  volume={1007},
+  year={1995}
+}
+
+@incollection{yuan2009new,
+  title={New birthday attacks on some MACs based on block ciphers},
+  author={Yuan, Zheng and Wang, Wei and Jia, Keting and Xu, Guangwu and Wang, Xiaoyun},
+  booktitle={Advances in Cryptology-CRYPTO 2009},
+  pages={209--230},
+  year={2009},
+  publisher={Springer}
+}
+
+@inproceedings{gligor2002fast,
+  title={Fast encryption and authentication: XCBC encryption and XECB authentication modes},
+  author={Gligor, Virgil D and Donescu, Pompiliu},
+  booktitle={Fast Software Encryption},
+  pages={92--108},
+  year={2002},
+  organization={Springer}
+}
+
+@incollection{liskov2002tweakable,
+  title={Tweakable block ciphers},
+  author={Liskov, Moses and Rivest, Ronald L and Wagner, David},
+  booktitle={Advances in Cryptology—CRYPTO 2002},
+  pages={31--46},
+  year={2002},
+  publisher={Springer}
+}
+@article{aes1999,
+author = {Daemen, Joan and Rijmen, Vincent},
+file = {:home/tom/Downloads/pdf\_tmp/10.1.1.36.640.pdf:pdf},
+title = {{AES proposal: Rijndael}},
+url = {http://ftp.csci.csusb.edu/ykarant/courses/w2005/csci531/papers/Rijndael.pdf},
+year = {1999}
+}
+@article{cbc2000,
+abstract = {Let F be some block cipher (e.g., DES) with block length l. The cipher block chaining message authentication code (CBC MAC) specifics that an m-block message x=x1...xm be authenticated among parties who share a secret key a for the block cipher by tagging x with a prefix of ym, where y0=0' and yi=Fa(mi\{\&\}oplus;yi-1) for i=1,2,...,m. This method is a pervasively used international and U.S. standard. We provide its first formal justification, showing the following general lemma: cipher block chaining a pseudorandom function yields a pseudorandom function. Underlying our results is a technical lemma of independent interest, bounding the success probability of a computationally unbounded adversary in distinguishing between a random ml-bit to l-bit function and the CBC MAC of a random l-bit to l-bit function},
+annote = {cipher block chaining message authentication code;security;m-block message;secret key;pseudorandom function;computationally unbounded adversary;random ml-bit;l-bit function;},
+author = {Bellare, M and Kilian, J and Rogaway, P},
+file = {:home/tom/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bellare, Kilian, Rogaway - 2000 - The security of the cipher block chaining message authentication code.pdf:pdf},
+journal = {J. Comput. Syst. Sci. (USA)},
+keywords = {cryptography,message authentication,probability},
+number = {3},
+pages = {362 ---- 99},
+title = {{The security of the cipher block chaining message authentication code}},
+url = {http://dx.doi.org/10.1006/jcss.1999.1694},
+volume = {61},
+year = {2000}
+}

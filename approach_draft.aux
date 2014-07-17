@@ -9,6 +9,15 @@
 \@writefile{toc}{\contentsline {paragraph}{The Security Analysis of Memory Integrity Protection Design}{3}}
 \@writefile{toc}{\contentsline {paragraph}{CETD meets the security requirement of CETD-MAC}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Security Definition of MAC Schemes}{3}}
+\citation{signature}
+\citation{cbc1994}
+\citation{tmac}
+\citation{omac}
+\citation{emac}
+\citation{xcbc}
+\citation{pmac}
+\citation{tweak_pmac}
+\citation{ipmac}
 \@writefile{toc}{\contentsline {paragraph}{Chosen Message Attack}{4}}
 \@writefile{toc}{\contentsline {paragraph}{MAC Security and proposition 2.7}{4}}
 \@writefile{toc}{\contentsline {paragraph}{Distinguish two functions}{5}}
@@ -16,41 +25,60 @@
 \@writefile{toc}{\contentsline {paragraph}{Content Modification Scenario}{5}}
 \@writefile{toc}{\contentsline {paragraph}{Copy-then-Replay Scenario}{5}}
 \@input{bit_frequency.aux}
-\@writefile{toc}{\contentsline {section}{\numberline {A}The Security Weakness of CETD-MAC}{17}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Proof of Assertions in Section $2.2\hbox {}$}{17}}
-\@writefile{toc}{\contentsline {paragraph}{Proof of Theorem $2.1\hbox {}$}{17}}
-\@writefile{toc}{\contentsline {paragraph}{Proof of Corollary $2.2\hbox {}$}{18}}
-\@writefile{toc}{\contentsline {paragraph}{Proof of Corollary$2.3\hbox {}$}{18}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Design Rationale of CETD-MAC}{18}}
-\@writefile{toc}{\contentsline {paragraph}{Exposing the Weakness of CETD-MAC}{18}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1}Weakness of Shuffle Stage}{18}}
-\@writefile{toc}{\contentsline {paragraph}{When Index Are Distinct}{19}}
-\@writefile{toc}{\contentsline {paragraph}{When Offset Are Distinct}{19}}
-\@writefile{toc}{\contentsline {paragraph}{When Segment Length Are Distinct}{19}}
-\@writefile{toc}{\contentsline {paragraph}{Combination of Cases}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.2}Weakness of Shift Stage}{20}}
-\newlabel{appendix:pattern}{{B.2}{20}}
-\@writefile{toc}{\contentsline {paragraph}{XOR Operation and Tag Collision}{20}}
-\newlabel{tag_expression}{{2}{20}}
-\newlabel{tag_collision_exp}{{3}{20}}
-\@writefile{toc}{\contentsline {paragraph}{The Sequence-level Pattern Collision}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The Examples of Y Block Collision}}{21}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Same Block Shifted Different Bits}}}{21}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Different Blocks Shifted Different Bits}}}{21}}
-\newlabel{fig: Y-blk-collision}{{3}{21}}
-\newlabel{sequence-pattern}{{B.1}{21}}
-\newlabel{distinct-pattern}{{B.2}{21}}
-\newlabel{pattern-no}{{B.3}{21}}
-\@writefile{toc}{\contentsline {paragraph}{The Probability of Tag Collision Under Sequence Pattern Attack}{22}}
-\newlabel{sequence-prob}{{B.4}{22}}
-\@writefile{toc}{\contentsline {paragraph}{The Set-level Pattern Collision}{22}}
-\newlabel{set-pattern}{{B.5}{22}}
-\newlabel{set-pattern-cor}{{B.6}{22}}
-\@writefile{toc}{\contentsline {paragraph}{The Probability of Tag Collision Under Set Pattern Attack}{23}}
-\newlabel{set-prob}{{B.7}{23}}
-\@writefile{toc}{\contentsline {paragraph}{The Vulnerable Inputs Set of CETD-MAC Under Replay Attack}{23}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.3}Proof of Theorem $B.1\hbox {}$}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.4}Proof of Theorem $B.4\hbox {}$}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.5}Proof of Theorem $B.5\hbox {}$}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.6}Proof of Theorem $B.7\hbox {}$}{24}}
-\newlabel{k-set-equ-prob}{{8}{25}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}The Security Weakness of CETD-MAC}{19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Proof of Assertions in Section $2.2\hbox {}$}{19}}
+\newlabel{sect:proportion}{{A.1}{19}}
+\@writefile{toc}{\contentsline {paragraph}{Proof of Theorem $2.1\hbox {}$}{19}}
+\@writefile{toc}{\contentsline {paragraph}{Proof of Corollary $2.2\hbox {}$}{20}}
+\@writefile{toc}{\contentsline {paragraph}{Proof of Corollary$2.3\hbox {}$}{20}}
+\@writefile{toc}{\contentsline {paragraph}{Proof of Corollary $2.4\hbox {}$}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Design Rationale of CETD-MAC}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1}Vulnerable Inputs of Shuffle Stage}{20}}
+\@writefile{toc}{\contentsline {paragraph}{When Index Are Distinct}{21}}
+\@writefile{toc}{\contentsline {paragraph}{When Offset Are Distinct}{21}}
+\@writefile{toc}{\contentsline {paragraph}{When Segment Length Are Distinct}{21}}
+\@writefile{toc}{\contentsline {paragraph}{Combination of Cases}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2}Vulnerable Inputs of Shift Stage}{22}}
+\newlabel{appendix:pattern}{{B.2}{22}}
+\@writefile{toc}{\contentsline {paragraph}{XOR Operation and Tag Collision}{22}}
+\newlabel{tag_expression}{{4}{22}}
+\newlabel{tag_collision_exp}{{5}{22}}
+\@writefile{toc}{\contentsline {paragraph}{The Sequence-level Pattern Collision}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The Examples of Y Block Collision}}{23}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Same Block Shifted Different Bits}}}{23}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Different Blocks Shifted Different Bits}}}{23}}
+\newlabel{fig: Y-blk-collision}{{3}{23}}
+\newlabel{sequence-pattern}{{B.1}{23}}
+\newlabel{distinct-pattern}{{B.2}{23}}
+\newlabel{pattern-no}{{B.3}{23}}
+\@writefile{toc}{\contentsline {paragraph}{The Probability of Tag Collision Under Sequence Pattern Attack}{24}}
+\newlabel{sequence-prob}{{B.4}{24}}
+\@writefile{toc}{\contentsline {paragraph}{The Set-level Pattern Collision}{24}}
+\newlabel{set-pattern}{{B.5}{24}}
+\newlabel{set-pattern-cor}{{B.6}{24}}
+\@writefile{toc}{\contentsline {paragraph}{The Probability of Tag Collision Under Set Pattern Attack}{25}}
+\newlabel{set-prob}{{B.7}{25}}
+\@writefile{toc}{\contentsline {paragraph}{The Vulnerable Inputs Set of CETD-MAC Under Replay Attack}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3}Proof of Theorem $B.1\hbox {}$}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.4}Proof of Theorem $B.4\hbox {}$}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.5}Proof of Theorem $B.5\hbox {}$}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.6}Proof of Theorem $B.7\hbox {}$}{26}}
+\newlabel{k-set-equ-prob}{{10}{27}}
+\bibstyle{plain}
+\bibdata{tag_paper.bib}
+\bibcite{cbc1994}{1}
+\bibcite{cbc2000}{2}
+\bibcite{xcbc}{3}
+\bibcite{pmac}{4}
+\bibcite{aes1999}{5}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Enhancing the Security of CETD-MAC}{28}}
+\newlabel{sect:better-cetd}{{C}{28}}
+\@writefile{toc}{\contentsline {paragraph}{Proof of Corollary $3.1\hbox {}$}{28}}
+\@writefile{toc}{\contentsline {paragraph}{Proof of Corollary $3.2\hbox {}$}{28}}
+\bibcite{signature}{6}
+\bibcite{cetd}{7}
+\bibcite{omac}{8}
+\bibcite{tmac}{9}
+\bibcite{emac}{10}
+\bibcite{tweak_pmac}{11}
+\bibcite{ipmac}{12}

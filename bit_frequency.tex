@@ -6,11 +6,11 @@
 In this section we analysis the security of cost-effective tag design. Our analysis mainly focus on the CETD-MAC scheme and is based on computational model. We prove that under both content modification and copy-then-replay attack, CETD-MAC does not behave like a PRF as the its tag space for a input is no more than half of the tag domain. Based on this assertion, we prove that CETD-MAC is not a secure MAC scheme based on the security definition in computational model.
 %summary of CETD-MAC design
 \subsection{CETD-MAC Definition}
-In this article, we name the MAC scheme adopted in Cost-Effective Tag Design\cite{} CETD-MAC. We briefly depict the design of CETD-MAC scheme and related notations.
+In this article, we name the MAC scheme adopted in Cost-Effective Tag Design\cite{cetd} CETD-MAC. We briefly depict the design of CETD-MAC scheme and related notations.
 %The notations of symbols used in this article
 %describe the algorithm of cetd-mac
 CETD-MAC scheme can be expressed as tag = CETD-MAC(M, nonce-input). The input arguments of CETD-MAC are message M and a tuple named nonce-input which is the concatenation of the memory address of M, a counter and a random number. The nonce-input tuple is denoted as (address$\|$counter$\|$random). The length of nonce-input, Len(nonce-input), is identical to the length of input to block cipher E$_K$(X). The output of CETD-MAC is named tag, whose length is optional. We use Sub-BLK-No to express the value of Len(M)/Len(tag). One preliminary of CETD-MAC is that Sub-BLK-No should be no less than 2 to assure that swapping stage can work and 0s will be concatenated to the leftmost of input message M when Sub-BLK-No is not integer.  
-The concept of CETD-MAC is expressed in Figure $\ref{CETD-MAC}$.
+The concept of CETD-MAC is expressed in Figure $\ref{fig:CETD-MAC}$.
 \begin{figure}[htbp]
  \centering
  \includegraphics[scale=0.6]{./diagrams/CETD.eps}
@@ -24,7 +24,7 @@ The concept of CETD-MAC is expressed in Figure $\ref{CETD-MAC}$.
  \caption{The Concept of Rotate Shifting(Right)}
  \label{fig:rotate_shift}
 \end{figure}
-We follow the definition of CETD-MAC in \cite{keylist}. 
+We follow the definition of CETD-MAC in \cite{cetd}. 
 \begin{itemize}
 	\item Message is splitted to sub-blocks each of whose length is tag length
 	\item The first stage is several rounds of bit-segment swapping. For each round , two sub-blocks are randomly chosen. Introduce shuffle parameter V[i]
@@ -34,11 +34,10 @@ We follow the definition of CETD-MAC in \cite{keylist}.
 Assume E$_K$ performance like a ideal random value generator, for two distinct nonce-inputs NI1 and NI2, the corresponding nonce values N1 and N2 should be random and the probability that N1 is identical to N2 should be 1/2$^n$, where n is Len(N1). 
 %cetd can ensure that under copy-then-replay attack, the nonce input is distinct
 
-
 %in the design paper, the author assume the adversary can just do brute-force attack
 \paragraph{CETD-MAC is secure under brute-force attack}
 %in brute force attack, the adversary tries the tag one-by-one till passing
-In \cite{}, the authors provided a security analysis of CETD-MAC scheme. The adversary is assumed to conduct brute force attack in which he randomly chooses a ciphtertext C and a nonce N. Then he keeps C and N fixed and tries different tags until a tag T can pass the verification with C and N. All the tags tried until passing the verification form a set named tag exploration space. The author assumed a MAC to be secure if the following conditions are met:
+In \cite{cetd}, the authors provided a security analysis of CETD-MAC scheme. The adversary is assumed to conduct brute force attack in which he randomly chooses a ciphtertext C and a nonce N. Then he keeps C and N fixed and tries different tags until a tag T can pass the verification with C and N. All the tags tried until passing the verification form a set named tag exploration space. The author assumed a MAC to be secure if the following conditions are met:
 \begin{itemize}
 	\item The size of tag exploration space is large
 	\item If the ciphertext and nonce is randomly generated and unaccessible to the adversary, the probability to pass the verification for each tag in the tag exploration space is identical
@@ -46,7 +45,7 @@ In \cite{}, the authors provided a security analysis of CETD-MAC scheme. The adv
 Based the above two conditions, the author assume CETD-MAC is secure.
 
 %security analysis based on computational definitions
-\subsection{The Randomness of CETD-MAC}\label{sect:proportion}
+\subsection{The Randomness of CETD-MAC}\label{sect:cetd-prf}
 In this part we analysis the randomness of CETD-MAC as the randomness of CETD-MAC determines the forgery success probability. 
 The adversary is assumed to know the length of ciphertext and tag on the memory frame he acquired. 
 We prove that the probability that the fake pair passes the verification stage under both two attacks is determined by the proportion of the 1s and 0s in the input ciphertexts and provide the equations quantifying this relationship. This fact indicates that the adversary can choose special ciphertext-tag pairs which have higher probability to pass the verification compared with other pairs. This relationship between input and its tag indicates that CETD-MAC does not behave like PRF.  
@@ -57,7 +56,7 @@ We prove that the probability that the fake pair passes the verification stage u
 \paragraph{The Properties of PRF}
 %the properties of PRF
 We follow the analysis path in the security analysis of CBC-MAC from Bellare et
-al \cite{}. The adversary is given a black box named oracle. There is a function
+al \cite{cbc2000}. The adversary is given a black box named oracle. There is a function
 in the oracle which can be a MAC scheme or PRF and decided by coin flipping. The adversary has infinite
 computational power and can choose any input sent to the oracle. If no matter
 what kind of strategy that the adversary choose, he cannot tell which function
@@ -97,14 +96,14 @@ Based on Theorem $\ref{theo:tagNum-1s}$ we get the Colloery $\ref{coro:odd-even}
 \begin{corollary} \label{coro:odd-even}
 if there are even number of 1s in the input ciphertext of cetd-mac, then its tag will also contains even number of 1s; if there are odd number of 1s in the ciphertext, then its tag has odd number of 1s.
 \end{corollary}
-Corollary provides a counterexample of Property 3 of PRF. In Section $\ref{}$ we introduce a forgery attack strategy based on Corollary $\ref{}$. 
+Corollary $\ref{coro:odd-even}$ provides a counterexample of Property 3 of PRF. In Section $\ref{sect:no-mac}$ we introduce a forgery attack strategy based on Corollary $\ref{coro:odd-even}$. 
 \begin{corollary} \label{coro:max}
 For any input ciphertext, the size of its possible tag rage is no more than 2$^{n-1}$ where n is Len(tag).
 \end{corollary}
-Corollary indicates that the Property 1 of PRF cannot be met by CETD-MAC scheme as for any input the related tag space is no more than half of the tag domain. We also adopt this weakness in constructing our forgery attack strategy on CETD-MAC.
-The proofs of Corollary $\ref{coro:odd-even}$, $\ref{}$ and Theorem $\ref{}$ are provided in the appendix. 
+Corollary $\ref{coro:max}$ indicates that the Property 1 of PRF cannot be met by CETD-MAC scheme as for any input the related tag space is no more than half of the tag domain. We also adopt this weakness in constructing our forgery attack strategy on CETD-MAC.
+The proofs of Corollary $\ref{coro:odd-even}$, $\ref{coro:max}$ and Theorem $\ref{theo:tagNum-1s}$ are provided in the appendix Appendix $\ref{sect:proportion}$. 
 
-From Theorem $\ref{theo:tagNum-1s}$ and Corollary $\ref{}$,$\ref{}$ we can conclude the following assertions about the randomness of CETD-MAC scheme:
+From Theorem $\ref{theo:tagNum-1s}$ and Corollary $\ref{coro:odd-even}$,$\ref{coro:max}$ we can conclude the following assertions about the randomness of CETD-MAC scheme:
 \begin{itemize}
 	\item For a chosen input ciphertext C, the probability that its tag from CETD-MAC is identical to a given value T is not O(1/2$^n$) for any T value. T must be in the tag space of C. 
 	\item The size of tag space of any input ciphertext C is no more than 2$^{n-1}$ and the size value is determined by the number of 1s in C.
@@ -118,23 +117,23 @@ From Theorem $\ref{theo:tagNum-1s}$ we can see that the domain of input cipherte
 \end{itemize}
 
 %As CETD-MAC  is not PRF, CETD-MAC has high forgery advantage
-\subsection{CETD-MAC is not a Secure MAC}
+\subsection{CETD-MAC is not a Secure MAC}\label{sect:no-mac}
 In this part we prove that CETD-MAC is not a secure MAC. This assertion is made
 based on the assertion that CETD-MAC is not a PRF. As the tag space for a given input ciphertext is predictable, we found strategy to succeed the forgery on CETD-MAC in both content modification and copy-then-replay scenarios with high success probability.
 
 %a strategy for the adversary in spooofing scenario
 \paragraph{Forgery Attack in Content Modification Scenario}
 %firstly, choose same odd-even (C,T)
-From Corollary $\ref{}$ we have known that the odd-even property of a tag from CETD-MAC is same as its input ciphertext. 
+From Corollary $\ref{coro:odd-even}$ we have known that the odd-even property of a tag from CETD-MAC is same as its input ciphertext. 
 This fact means the adversary should ensure that if he maintains the tag fixed and changes the value of ciphertext part on the memory frame, he should eusure that the odd-even property of his chosen fake ciphertext C$_{fake}$ should be same as the original tag T$_{origin}$. On the other hand, if the adversary want to completely change the content of a memory frame, he should ensure that his fake pair (C$_{fake}$,T$_{fake}$) has same odd-even property. By taking this strategry, the probability of succeeding a forgery attack in content modification scenario can be enhanced from O(1/2$^n$) to O(1/2$^{n-1}$).
 
 %secondly, choose tag in the tag space of chosen C
-We can enhance the success rate of forgery attack in content modification scenario based on Theorem$\ref{}$. After acquiring the value of ciphertext and tag from a memory frame, the adversary can check the number of 1s in the tag, denoted as N$_{1s}$(T$_{origin}$). If the adversary wants to maintain the tag part of the frame unchanged, the best strategy to choose fake ciphertext C$_{fake}$ is ensuring the number of 1s in C$_{fake}$ is identical to N$_{1s}$(T$_{origin}$). This assertion is depicted in Corollary $\ref{}$. 
+We can enhance the success rate of forgery attack in content modification scenario based on Theorem$\ref{theo:tagNum-1s}$. After acquiring the value of ciphertext and tag from a memory frame, the adversary can check the number of 1s in the tag, denoted as N$_{1s}$(T$_{origin}$). If the adversary wants to maintain the tag part of the frame unchanged, the best strategy to choose fake ciphertext C$_{fake}$ is ensuring the number of 1s in C$_{fake}$ is identical to N$_{1s}$(T$_{origin}$). This assertion is depicted in Corollary $\ref{coro:str-spoof}$. 
 %the choice of ciphertext when the tag has been chosen
-\begin{corollary}
-Given a original memory frame (C$_{origin}$,T$_{origin}$) and keep T$_{origin}$ unmodificed, the best strategy for the adversary to forge with fake ciphertext C$_{fake}$ is to ensure that C$_{fake}$ has same number of 1s as T$_{origin}$. Assume the number of 1s in T$_{origin}$ is N1s, the highest probability of successful forgery is acquired with this strategy, reaching O(1/2$^{N1s-1}$) is N1s is even or O(1/2$^{N1s}$).   
+\begin{corollary}\label{coro:str-spoof}
+Given a original memory frame (C$_{origin}$,T$_{origin}$) and keep T$_{origin}$ unmodified, the best strategy for the adversary to forge with fake ciphertext C$_{fake}$ is to ensure that C$_{fake}$ has same number of 1s as T$_{origin}$. Assume the number of 1s in T$_{origin}$ is N1s, the highest probability of successful forgery is acquired with this strategy, reaching O(1/2$^{N1s-1}$) is N1s is even or O(1/2$^{N1s}$).   
 \end{corollary}
-If the adversary wants to modify both the ciphertext and the tag, strategy dipicted in Corollary $\ref{}$. Based on the probability in Corollary $\ref{}$ we can see that the less number of 1s C$_{fake}$ and T$_{fake}$, the higher probability that the forgery succeed.  
+If the adversary wants to modify both the ciphertext and the tag, strategy depicted in Corollary $\ref{coro:str-spoof}$ still works. Based on the probability in Corollary $\ref{coro:str-spoof}$ we can see that the less number of 1s C$_{fake}$ and T$_{fake}$, the higher probability that the forgery succeed.  
 
 %As the input domain of CETD-MAC scheme can be splitted into groups leading to different tag ranges, the security definition of MAC schemes under content modification attack cannot be meet as the adversary can conduct the following two types of modification on the frame:
 %\begin{enumerate}
@@ -158,7 +157,7 @@ If the adversary wants to modify both the ciphertext and the tag, strategy dipic
 When conducting copy-then-replay, the adversary replace a valid memory frame with his stored copy of a frame from other address or same address but older time point. The probability that the adversary succeeds the copy-then-replay attack is determined by the probability that for a fixed input C, the two tags T1 and T2 are identical when their nonce N1 and N2 are randomly generated.
 
 As depicted in Section $\ref{sect:bit-proportion}$, the 0-1 proportion of a ciphertext is maintained to the input blocks(Y blocks) of xor stage. This fact means for a fixed input, the Y block set Y1 and Y2 for two randomly generated nonce N1 and N2 have same 0-1 proportion. This fact means that when the adversary conducts chosen-message attack in copy-then-replay scenario, the tag space is fixed and its size is determined by the chosen input ciphtertext.  
-Based on Theorem $\ref{}$ we can see that the tag space for a fixed input ciphertext C is determined by the number of 1s in C. A good strategy for the adversary to succeed the forgery in copy-then-replay scenario is to choose valid memory frame whose ciphertext part C has too many (more than m*(n-1)) or too few(fewer than n) 1s. Assume the tag space size for such C is denoted as Size(C), then Size(C) is smaller than 2$^{n-1}$ and the forgery success probabilityis bigger than O(1/2$^{n-1}$), which represent unsecure for short tags.
+Based on Theorem $\ref{theo:tagNum-1s}$ we can see that the tag space for a fixed input ciphertext C is determined by the number of 1s in C. A good strategy for the adversary to succeed the forgery in copy-then-replay scenario is to choose valid memory frame whose ciphertext part C has too many (more than m*(n-1)) or too few(fewer than n) 1s. Assume the tag space size for such C is denoted as Size(C), then Size(C) is smaller than 2$^{n-1}$ and the forgery success probabilityis bigger than O(1/2$^{n-1}$), which represent unsecure for short tags.
 
 
 %From Theorem $\ref{theo:tagNum-1s}$ and its related Corollaries we an see that the proportion of the input ciphertext will determine the size of its tag range and the maximum tag range size if 2$^{n-1}$ which is acquired if the number of 1s in the input ciphertext is between n and m*(n-1).
@@ -166,7 +165,7 @@ Based on Theorem $\ref{}$ we can see that the tag space for a fixed input cipher
 %
 %new MAC design based on CETD-MAC
 \section{Improve the Security of CETD-MAC}
-We have shown that the original CETD-MAC cannot effectively defend two types of integrity attacks as the number of distinct tags is determined by the proportion of 1s and 0s. In this section, we propose several approaches to improve the security of CETD-MAC. Firstly we tried to utilize the nonce and the operation existing in the original CETD-MAC design and then prove the reason that this attempt cannot succeed. Then we proposed our rationale on improvement based on the instruction from \cite{}.  
+We have shown that the original CETD-MAC cannot effectively defend two types of integrity attacks as the number of distinct tags is determined by the proportion of 1s and 0s. In this section, we propose several approaches to improve the security of CETD-MAC. Firstly we tried to utilize the nonce and the operation existing in the original CETD-MAC design and then prove the reason that this attempt cannot succeed. Then we proposed our rationale on improvement based on the instruction from \cite{aes1999}.  
 %we need to add gf-mult to provide no-linearity, gf-mult a nonce seg can do
 %random inject together
 %why cetd-mac is not secure
@@ -178,7 +177,7 @@ In this part we try to enhance the security of CETD-MAC without introducing new 
 \subsubsection{Design Rationale of CETD-MAC Scheme}
 CETD-MAC scheme is consist of three stages: bit-segment shuffle with user chosen shuffle round, then cycle shift for each output lf shuffle stage with randomly chosen shift length and finally xor all output block of shift stage to the tag. It is insecure to construct with only one of the three stages.
 \paragraph{XOR stage}
-The xor operation is a common choice for parallel MAC schemes to convert m n-bits block to a n-bits tag. It has been analyzed by Bellare in \cite{} that it is insecure to construct a MAC scheme with xor operation only as simply swapping the order of two blocks in the input can lead to tag collision.  The input blocks must be processed before sent to xor stage to ensure that simply changing the order of two input blocks in the input will change the input set of xor stage.
+The xor operation is a common choice for parallel MAC schemes to convert m n-bits block to a n-bits tag. It is insecure to construct a MAC scheme with xor operation only as simply swapping the order of two blocks in the input can lead to tag collision.  The input blocks must be processed before sent to xor stage to ensure that simply changing the order of two input blocks in the input will change the input set of xor stage.
 %shift is vulnerable to pattern
 \paragraph{Cycle Shift Stage}
 In original CETD-MAC scheme, cycle shift stage, short for shift stage, locates before the xor stage. For each input block of shift stage, the number of bits shifted is determined by the value of a nonce segment. Shift stage can defend the attacks such as changing the order of two input blocks as the adversary has no access to the nonce value and then can not predict the number of bits shifted of each block, then has no idea that changing the order of which two blocks lead to tag collision with high probability. However, it is still insecure to construct a MAC scheme by adopting shit stage then xor stage, as for some input blocks which are consist of one kind of patterns, shifting different number of bits can still lead to same output block. This fact means that reordering the blocks formed by a pattern have higher probability to lead to tag collision than other blocks. This fact is depicted in detail in Appendix $\ref{appendix:pattern}$. 
@@ -189,23 +188,34 @@ Shuffle stage swaps two bit-segments in each round. As the index and offset of s
 
  In the original CETD-MAC, the shift stage will help re-ordering the bits in the output blocks from shuffle stage to ensure that the input blocks of xor stage is hard for the adversary to predict. 
 
+ %diffusion is insufficient, rnd bits inject can help
+ \paragraph{Summary: Shuffle+Shift Diffusion is Insufficient}
+ Shuffle plus shift can effectively diffuse the bit distribution of input ciphertext. As discussed in Section $\ref{sect:bit-proportion}$, diffusion cannot introduce new bits and this fact determines that CETD-MAC is not PRF or a secure MAC scheme. To address this problem, we need to add a stage to ensure that for a given input, the adversary cannot predict the number of 1s in Y blocks.
+
  %inject nonce bits with existing operations
  \subsubsection{Injecting Random Bits}
- From the analysis in Section $\ref{}$ we can see that as the tag space is determined by the number of 1s in the input ciphertext, CETD-MAC is nether a PRF nor a secure MAC. To improve the security of CETD-MAC, we need to add processing stage to eliminate the relationship between input ciphertext value and its tag space when the nonce is unaccessible, even if the adversary can know the value of input ciphertext and can conduct chosen-message attack. This additional stage can be added before the xor stage to ensure the randomness of the Y blocks (the input of xor stage) or after the xor stage to randomize the tag itself.
+ From the analysis in Section $\ref{sect:bit-proportion}$ we can see that as the tag space is determined by the number of 1s in the input ciphertext, CETD-MAC is nether a PRF nor a secure MAC. To improve the security of CETD-MAC, we need to add processing stage to eliminate the relationship between input ciphertext value and its tag space when the nonce is unaccessible, even if the adversary can know the value of input ciphertext and can conduct chosen-message attack. This additional stage can be added before the xor stage to ensure the randomness of the Y blocks (the input of xor stage) or after the xor stage to randomize the tag itself.
 As the nonce used in CETD-MAC scheme is an output from block cipher which can be regarded as PRF, one idea to improve the randomness of bit distribution in Y blocks is to add stage before xor stage to do nonce bit injection. In this part we analysis the possibility of nonce bit injection with existing operations in CETD-MAC
  \paragraph{XOR Plus Nonce Segment}
 There are two possible ways to xor nonce segments directly into original CETD-MAC. The first idea is to xor a nonce segment with same length as the tag to the output from xor stage. As the nonce is a output from block cipher which behaves like PRF, the nonce segment used to xor with the output from xor stage can be regarded as an output from PRF. On the other hand, we can add nonce-xor stage to the end of any existing stage in CETD-MAC and this approach can randomnize Y blocks. 
 
 No matter xoring nonce segment to the tag or add nonce-xor stage into CETD-MAC, the copy-then-replay attack will be defended. This fact is depicted in the following corollary and is proved in the appendix:
-\begin{corollary}
+\begin{corollary}\label{coro:xor-nonce}
 Xoring nonce segment to the output of original CETD-MAC or adding nonce-xor stage into original CETD-MAC can ensure the forgery success probability to O(1/2$^n$) is the block cipher used to generate nonce behaves like PRF.
 \end{corollary}
 
-However, nonce-xor stage cannot enhance the security under chosen-message attack in content modification scenario. 
+However, nonce-xor stage cannot enhance the security under chosen-message attack in content modification scenario as the nonce is fixed. If we adopt a nonce segment as the parameter to determine which part of the nonce N$_{seg}$ will be xored to CETD-MAC, the N$_{seg}$s for different inputs in content modification scenario are always same. This fact means the nonce-xor stage will not introduce any randomness and the modified scheme still perform same as original CETD-MAC in content modification scenario.
  \paragraph{Shuffle Plus Nonce Segment}
+In each round of shuffle, two input blocks will be chosen randomly and do bit segment swap. The start bit of the swapped segment in each input block and the length of segment is determined by parameters from nonce segments. As bit segment swap operation replaces the bit segment in one block with the segment from another block, we can adopt this operation to inject nonce bits.
 
- %diffusion is not enough
-\paragraph{Diffusion is insufficient to construct a secure MAC scheme}
+Injecting nonce bits using bit segment swap operation can defend copy-then-replay attack as the nonce is keep changing and unaccessible to the adversary. This fact ensures that the adversary cannot predict the 0-1 proportion of Y blocks and then cannot apply the strategy in Section $\ref{sect:no-mac}$. 
+However, swap based nonce bits injection cannot defend chosen-message attack in content modification scenario. The reason is that the nonce is fixed for different inputs, then the nonce segment used in injection is identical for different inputs. This assertion is depicted in Corollary $\ref{coro:swap-nonce}$ and proved in appendix Appendix $\ref{sect:better-cetd}$:
+\begin{corollary}\label{coro:swap-nonce}
+Replacing the bit segment in a input block which was used for swap in shuffle stage with a nonce segment cannot defend content modification attack.
+\end{corollary}
+
+ %inject with linear ops does not help
+\paragraph{Remarks}
 \label{par:diffusion}
 %linearity analysis and different analysis
 We can see what shuffle and shift do is reordering the bits in the input message
@@ -213,12 +223,9 @@ blocks. We give each input bit a index from 1 to m*n. When the nonce is fixed
 and unknown, we are certain for two inputs M1 and M2 the bits with same index
 will be relocated to same new index. The adversary does not know the exact bit
 distribution of the input blocks to xor stage but he knows that the 0-1
-proportion is same as the input of CETD-MAC. As depicted in Section $\ref{sect:proportion}$, the odd-even property of the tag is identical to its input, and the number of possible distinct tag values can be predict based on the number of 1s in the input. When realized this fact, the adversary just needs to choose a tag value that has same odd-even property and the number of 1s is no more than min(n,k), there k is the number of 1s in the input.
+proportion is same as the input of CETD-MAC. As depicted in Section $\ref{sect:cetd-prf}$, the odd-even property of the tag is identical to its input, and the number of possible distinct tag values can be predict based on the number of 1s in the input. When realized this fact, the adversary just needs to choose a tag value that has same odd-even property and the number of 1s is no more than min(n,k), there k is the number of 1s in the input.
 
-Content Modification Scenario
 In content modification scenario, the adversary keeps modifying a memory frame in an address until the frame passes verification. The modification will be previous to the next write operation from the chip the same address. 
-
-Copy-then-Replay Scenario
 To eliminate this weakness, we need to add a operation to make sure that if the adversary does not know the value of the fixed nonce, he cannot predict the 0-1 proportion and bit distribution of the input blocks of xor stage. 
 
 %new designs
@@ -230,13 +237,14 @@ each input block will participate the galois multiplication. We also introduce
 its variant named Selected-GFM CETD-MAC in which the number of input blocks
 doing gf-mult is determined by user choice, just as what shuffle stage does. 
 
-%we need no-linearity and rnd bits
+%no-linearity ops can provide rnd when nonce collid
 \paragraph{No-linearity Operation}
-In cite{},R and J depicted the design rationale of each operation in Rij AES. Their should be three types of operations in a block cipher design serving as no-linearity, random-bit injection and diffusion.  
+In \cite{aes1999}, R and J depicted the design rationale of each operation in Rij AES. Their should be three types of operations in a block cipher design serving as no-linearity, random-bit injection and diffusion.  
 In original CETD-MAC scheme, both shuffle and shift operation achieve the diffusion, while no operation can inject random bits for each input and all the operation in the CETD-MAC is linear.  
 %block cipher consist of three operations
 %no-linearity must be achieved with gf-mult
 
+%gf-mult is a common no-linearity ops
 \paragraph{Galois Field Multiplication}
 As mentioned in Section $\ref{par:diffusion}$, it is insufficient to use linear operation
 only to construct a secure MAC scheme. The reason is that linear operations can
@@ -248,7 +256,7 @@ forgery attack since then without acquiring the nonce or the key.
 The we need to add no-linearity random bit injection operation. For the MAC
 schemes constructed with block cipher, such as CBC-MAC(and its variants) and
 PMAC(and its variants), the block cipher usually contains these two operations.
-R and J mentioned in \cite{} the galois field multiplication and its inverse
+R and J mentioned in \cite{aes1999} the galois field multiplication and its inverse
 operation can serve as no-linearity operation. 
 For example in Rij AES, the ByteSub provide no-linearity to the input by
 adopting the galois multiplication inverse to each input byte then affline
@@ -272,27 +280,36 @@ the H in the GF multiplication in GMAC.
 
 Adding gf-mult before shuffle can inject random bits to the inputs and the
 adversary cannot predict the tag based on the input value according to the
-attack strategry depicted in Section $\ref{sect:proportion}$. This improvement works for all
+attack strategy depicted in Section $\ref{sect:no-mac}$. This improvement works for all
 the input value except for all 0 input as the output of 0 gf-mult with any value
 will be 0. To address this problem, we introduce our second version of improved
 CETD-MAC scheme named Flip-then-GFM CETD-MAC scheme. We randomly flip each input
 block and then do selecte gf-mult as we did in the variant of first version. We
 will show that our second version of improved CETD-MAC is secure under two types
 of integrity attacks in this part. 
-%gf-mult only design
-\subsubsection{GFM CETD-MAC}
-Our first design draft based on the original CETD-MAC is named as Fully GF-Mult CETD-MAC, which mean each
-input will do galois field multiplication with a nonce segment. The advantage of this draft is that if there is at least one bit value is identical to one in a input block, then the gf-mult on this block lead to an output block whose bit distribution cannot be predicted if the nonce segment is unaccessible. 
-The are two disadvantages of this draft: firstly if a input block is all 0, then the gf-mult will generate all 0 output block no matter what nonce segment is applied; secondly a calling of gf-mult is much time costing compared with the shuffle or shift operation. 
-\paragraph{Selected-GFM CETD-MAC}
-As gf-mult is a time costing operation, for some embedded platform the high security brought the Fully GF-MULT CETD-MAC is less important as the update speed of the memory frame is high and the adversary has no enough time to finish the whole attack procedure. Base on this fact we modify the draft from conducting gf-mult on each input block to the new draft, which is named as Selected-GFM CETD-MAC. IN Selected-GFM, there is another input parameter r\_blk determine the number of input blocks which will be conducted gf-mult. Then r\_blk continuous input blocks will be selected and the index of first input block is determined by a segment on the nonce. 
 
-Like Fully-GFM CETD-MAC, Selected-GFM CETD-MAC cannot process the all 0 input blocks either.
-%flip-then-gf-mult
-\subsubsection{Flip-then-GFM CETD-MAC}
-As no matter fully or selected block version of GFM CETD-MAC, the input blocks consist of all 0s can not be processed as 0 gf-mult with any value will lead to 0. To address this  problem, we add another stage before selected gf-mult.
+\paragraph{Rotate Extracting Nonce Segment}
+In original CETD-MAC scheme, the nonce is used as parameter provider for shuffle and shift stage. The sum length of binary format of parameters should be no more than Len(nonce). As in our new design, nonce segments should also be used as random number and do gf-mult with input blocks, we regard the nonce as a cycle. When extracting a new nonce segment N$_{new}$ for some purpose, the first bit of N$_{new}$ is computed based on the location of the last bit in the previous nonce segment N$_{old}$. The computation equation of the start bit and end bit of N$_{new}$ is:
+\begin{gather}
+start\_bit(N_{new}) \equiv (end\_bit(N_{old}) + 1) \mod Len(nonce) \\
+end\_bit(N_{new}) \equiv ((start\_bit(N_{new})) + Len(nonce\_seg) - 1) \mod Len(nonce) 
+\end{gather}
+
+
+%Design 1: gf-mult only
+\subsubsection{GFM CETD-MAC}
+Our first design draft based on the original CETD-MAC is named as GF-Mult CETD-MAC. We add a stage processing several input blocks by gf-mult each of them with a nonce segment in front of shuffle stage in original CETD-MAC. The number of input blocks doing gf-mult is chosen by the user of this MAC scheme and the default number is m, all input blocks. 
+The advantage of this draft is that if there is at least one bit in a input block equals to 1 the gf-mult on this block will lead to an output block whose bit distribution cannot be predicted if the nonce segment is unaccessible. The default gf-mult block number ensure the highest security level. 
+There are two disadvantages of this draft: firstly if a input block is all 0, then the gf-mult will generate all 0 output block no matter what nonce segment is applied; secondly a calling of gf-mult is much time costing compared with the shuffle or shift operation. 
+
+As gf-mult is a time costing operation, for some embedded platform the high security brought by adopting GF-MULT CETD-MAC on each input block is less important compared with maintaining the low cost and high performance, hence with the update speed of the memory frame is high and the adversary has no enough time to finish the whole attack procedure. Base on this fact we allow the user to choose the number of input blocks participating gf-mult. Assume the number of blocks doing gf-mult is r\_blk, then r\_blk nonce segments will be extracted rotately from the nonce, and an additional nonce segment named gf-mult-index and used to decide the index of first gf-mult input block is also extracted. The from the input block whose index is gf-mult-index, the continus r\_blk blocks as selected and do gf-mult with nonce segments. 
+
+%Design 2: flip + gf-mult
+\subsubsection{FlipGFM CETD-MAC}
+As no matter fully or selected block version of GFM CETD-MAC, the input blocks consist of all 0s can not be processed as 0 gf-mult with any value will lead to 0. To address this problem, we add block-flip stage before gf-mult stage. We name this design FlipGFM CETD-MAC.
 \paragraph{Block Flipping}
-\paragraph{Flipping-GFM CETD-MAC}
+Firstly, a nonce segment whose length is m is extracted. This nonce segment, named flip\_index, is used to decide whether a input block will be flipped or not. For the input block with index i, if the ith bit in flip\_index equal to 0, then the ith input block will be xored with all 0 block, other wise with be xored with all 1 block.   
+The block flipping operation can eliminate the problem that gf-mult 0 still gets 0, as the nonce segment flip\_index is unaccessible to the adversary and he cannot predict the value of data blocks sent to gf-mult stage.
 %\renewcommand{\algorithmicrequire}{ \textbf{Input:}} %Use Input in the format of Algorithm
 %\renewcommand{\algorithmicensure}{ \textbf{Output:}} %UseOutput in the format of Algorithm
 %\begin{algorithm}[htb] 

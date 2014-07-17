@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: approach_draft.aux
+A level-1 auxiliary file: Notation.aux
+A level-1 auxiliary file: bit_frequency.aux
+The style file: plain.bst
+Database file #1: tag_paper.bib.bib
+Warning--can't use both volume and number fields in cbc1994
+Warning--empty journal in aes1999
+You've used 12 entries,
+            2118 wiz_defined-function locations,
+            576 strings with 6376 characters,
+and the built_in function-call counts, 4886 in all, are:
+= -- 512
+> -- 168
+< -- 8
++ -- 65
+- -- 53
+* -- 322
+:= -- 737
+add.period$ -- 37
+call.type$ -- 12
+change.case$ -- 62
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 214
+empty$ -- 408
+format.name$ -- 53
+if$ -- 1077
+int.to.chr$ -- 0
+int.to.str$ -- 12
+missing$ -- 12
+newline$ -- 63
+num.names$ -- 26
+pop$ -- 74
+preamble$ -- 1
+purify$ -- 50
+quote$ -- 0
+skip$ -- 169
+stack$ -- 0
+substring$ -- 394
+swap$ -- 79
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 48
+warning$ -- 2
+while$ -- 54
+width$ -- 14
+write$ -- 138
+(There were 2 warnings)

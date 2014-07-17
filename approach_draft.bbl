@@ -1,0 +1,87 @@
+\begin{thebibliography}{10}
+
+\bibitem{cbc1994}
+M~Bellare, J~Kilian, and P~Rogaway.
+\newblock {The security of cipher block chaining}.
+\newblock In Yvo Desmedt, editor, {\em Advances in Cryptology Crypto 94},
+  volume 839 of {\em Lecture Notes in Computer Science}, pages 341--358.
+  International Association for Cryptologic Research, Springer-Verlag, 1994.
+
+\bibitem{cbc2000}
+M~Bellare, J~Kilian, and P~Rogaway.
+\newblock {The security of the cipher block chaining message authentication
+  code}.
+\newblock {\em J. Comput. Syst. Sci. (USA)}, 61(3):362 ---- 99, 2000.
+
+\bibitem{xcbc}
+J~Black and P~Rogaway.
+\newblock {CBC MACs for arbitrary-length messages: the three-key
+  constructions}.
+\newblock In {\em Advances in Cryptology - CRYPTO 2000. 20th Annual
+  International Cryptology Conference. Proceedings (Lecture Notes in Computer
+  Science Vol.1880)}, pages 197--215, Berlin, Germany, 2000.
+
+\bibitem{pmac}
+J~Black and P~Rogaway.
+\newblock {A block-cipher mode of operation for parallelizable message
+  authentication}.
+\newblock In {\em Advances in Cryptology - EUROCRYPT 2002. International
+  Conference on the Theory and Applications of Cryptographic Techniques.
+  Proceedings (Lecture Notes in Computer Science Vol.2332)}, pages 384 ---- 97,
+  2002.
+
+\bibitem{aes1999}
+Joan Daemen and Vincent Rijmen.
+\newblock {AES proposal: Rijndael}.
+\newblock 1999.
+
+\bibitem{signature}
+S~Goldwasser, S~Micali, and R~L Rivest.
+\newblock {A digital signature scheme secure against adaptive chosen-message
+  attacks}.
+\newblock {\em SIAM Journal on Computing}, 17(2):281--308, 1988.
+
+\bibitem{cetd}
+Mei Hong, Hui Guo, and Sharon~X Hu.
+\newblock {A cost-effective tag design for memory data authentication in
+  embedded systems}.
+\newblock In {\em Proceedings of the 2012 International Conference on
+  Compilers, Architectures and Synthesis for Embedded Systems (CASES 2012)},
+  pages 17--26, 2012.
+
+\bibitem{omac}
+T~Iwata and K~Kurosawa.
+\newblock {OMAC: one-key CBC MAC}.
+\newblock In {\em Fast Software Encryption. 10th International Workshop, FSE
+  2003. Revised Papers (Lecture Notes in Comput. Sci. Vol.2887)}, pages 129
+  ---- 53, 2003.
+
+\bibitem{tmac}
+K~Kurosawa and T~Iwata.
+\newblock {TMAC: two-key CBC MAC}.
+\newblock In {\em Topics in Cryptology - CT-RSA 2003. Cryptoghraphers' Track at
+  the RSA Conference 2003. Proceedings (Lecture Notes in Computer Science
+  Vol.2612)}, pages 33--49, Berlin, Germany, 2003.
+
+\bibitem{emac}
+F~Petrank and C~Rackoff.
+\newblock {CBC MAC for real-time data sources}.
+\newblock {\em J. Cryptol. (USA)}, 13(3):315 -- 38, 2000.
+
+\bibitem{tweak_pmac}
+P~Rogaway.
+\newblock {Efficient instantiations of tweakable blockciphers and refinements
+  to modes OCB and PMAC}.
+\newblock In {\em Advances in Cryptology-ASIACRYPT 2004. 10th International
+  Conference on the Theory and Application of Cryptology and Information
+  Security. Proceedings (Lecture Notes in Computer Science Vol.3329)}, pages
+  16--31, Berlin, Germany, 2004.
+
+\bibitem{ipmac}
+P~Sarkar.
+\newblock {Pseudo-random functions and parallelizable modes of operations of a
+  block cipher}.
+\newblock {\em IEEE Transactions on Information Theory}, 56(8):4025--4037,
+  2010.
+
+\end{thebibliography}
