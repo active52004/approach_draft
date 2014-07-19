@@ -34,15 +34,15 @@ We follow the definition of CETD-MAC in \cite{cetd}.
 Assume E$_K$ performance like a ideal random value generator, for two distinct nonce-inputs NI1 and NI2, the corresponding nonce values N1 and N2 should be random and the probability that N1 is identical to N2 should be 1/2$^n$, where n is Len(N1). 
 %cetd can ensure that under copy-then-replay attack, the nonce input is distinct
 
-%in the design paper, the author assume the adversary can just do brute-force attack
-\paragraph{CETD-MAC is secure under brute-force attack}
-%in brute force attack, the adversary tries the tag one-by-one till passing
-In \cite{cetd}, the authors provided a security analysis of CETD-MAC scheme. The adversary is assumed to conduct brute force attack in which he randomly chooses a ciphtertext C and a nonce N. Then he keeps C and N fixed and tries different tags until a tag T can pass the verification with C and N. All the tags tried until passing the verification form a set named tag exploration space. The author assumed a MAC to be secure if the following conditions are met:
-\begin{itemize}
-	\item The size of tag exploration space is large
-	\item If the ciphertext and nonce is randomly generated and unaccessible to the adversary, the probability to pass the verification for each tag in the tag exploration space is identical
-\end{itemize}
-Based the above two conditions, the author assume CETD-MAC is secure.
+%%in the design paper, the author assume the adversary can just do brute-force attack
+%\paragraph{CETD-MAC is secure under brute-force attack}
+%%in brute force attack, the adversary tries the tag one-by-one till passing
+%In \cite{cetd}, the authors provided a security analysis of CETD-MAC scheme. The adversary is assumed to conduct brute force attack in which he randomly chooses a ciphtertext C and a nonce N. Then he keeps C and N fixed and tries different tags until a tag T can pass the verification with C and N. All the tags tried until passing the verification form a set named tag exploration space. The author assumed a MAC to be secure if the following conditions are met:
+%\begin{itemize}
+%	\item The size of tag exploration space is large
+%	\item If the ciphertext and nonce is randomly generated and unaccessible to the adversary, the probability to pass the verification for each tag in the tag exploration space is identical
+%\end{itemize}
+%Based the above two conditions, the author assume CETD-MAC is secure.
 
 %security analysis based on computational definitions
 \subsection{The Randomness of CETD-MAC}\label{sect:cetd-prf}
@@ -50,25 +50,23 @@ In this part we analysis the randomness of CETD-MAC as the randomness of CETD-MA
 The adversary is assumed to know the length of ciphertext and tag on the memory frame he acquired. 
 We prove that the probability that the fake pair passes the verification stage under both two attacks is determined by the proportion of the 1s and 0s in the input ciphertexts and provide the equations quantifying this relationship. This fact indicates that the adversary can choose special ciphertext-tag pairs which have higher probability to pass the verification compared with other pairs. This relationship between input and its tag indicates that CETD-MAC does not behave like PRF.  
  
-%in this case nonce is fixed and serves as the key as the deterministic MAC schemes
-%the number of queries to succeed a forgery attack can be at most 2^{n-1}
-%chosen-message attack in spoofing scenario
+%the output from prf has no regularity and cannot be predict
 \paragraph{The Properties of PRF}
 %the properties of PRF
-We follow the analysis path in the security analysis of CBC-MAC from Bellare et
+Our analysis of the security of CETD-MAC in computaional model follows the path of the security analysis of CBC-MAC from Bellare et
 al \cite{cbc2000}. The adversary is given a black box named oracle. There is a function
-in the oracle which can be a MAC scheme or PRF and decided by coin flipping. The adversary has infinite
+in the oracle which can be a MAC scheme or PRF the choice is decided by coin flipping. The adversary has infinite
 computational power and can choose any input sent to the oracle. If no matter
 what kind of strategy that the adversary choose, he cannot tell which function
 is in the oracle, we assume that the MAC scheme behaves like a PRF.  
 
-As the tag space is limited, the tag value will repeat if the adversary call the
-oracle too many times. However, the outputs from PRF have the following two
-properties if the output space is large:
+ Assume the tag for CETD-MAC is a n-bits block, then the tag domain is the set containing all the n-bits values from (0)$_n$ to (1)$_n$, where (0)$_n$ and (1)$_n$ represent all 0 n-bits block and all 1 n-bits block. For a given input ciphertext C to CETD-MAC, we include all the possible tag values when the nonce is randomly generated and unaccessible to a set, named tag space. If the MAC scheme is ideal and behaves exactly as PRF, then its tag space should equals to tag domain.
+
+As the tag domain contains only 2$^n$ distinct values, then after too many times of queries, the adversary will get repeated tag value. Based on the definition of PRF we can refer that even though the tag values will repeat after many times of input queries, it is still hard for the adversary to predict the value for a chosen input as PRF contains the following properties:
 \begin{enumerate}
-	\item All the element in the output space will appear
-	\item The output values distribute uniformly and have no correlation. 
-	\item For any two input in PRF`s domain, the probability of tag collision should be 1/2$^n$. This property means the input of PRF has no difference and the equality of their outputs has no advantage to predict.
+	\item All the elements in the tag domain of PRF will appear if the number of input queries conducted is large
+	\item The output values distribute uniformly and have no correlation between each other. 
+	\item For any two input in PRF`s input domain, the probability of tag collision should be 1/2$^n$. This property means the input of PRF has no difference and the equality of their outputs has no advantage to predict.
 \end{enumerate}
 Property 1 is the basic requirement of the functions that behave like PRF. One
 counterexample that have property 1 but property 2 is a continuous counter.
